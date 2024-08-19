@@ -1,0 +1,14 @@
+package pom;
+
+import org.openqa.selenium.WebDriver;
+
+import basePage.Constructor;
+
+public class LeadPom extends Constructor
+{
+public LeadPom(WebDriver driver)
+ {
+	super(driver);
+ }
+
+}

@@ -1,0 +1,21 @@
+package testCase;
+
+import org.junit.Test;
+
+import org.testng.Assert;
+
+import pom.P_LoginPage;
+
+public class Login extends BaseClass 
+{
+
+@Test
+public void loginToPage()
+{
+P_LoginPage lp=new P_LoginPage(driver);
+lp.EnterUserNameAndPassword("admin@bc.com","Admin@12");
+String text=lp.GetHomePageText();
+Assert.assertEquals(text, "DashBoard");
+}
+}
+

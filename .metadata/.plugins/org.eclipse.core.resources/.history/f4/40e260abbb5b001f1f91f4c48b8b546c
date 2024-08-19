@@ -1,0 +1,34 @@
+package basePage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import basePage.Constructor;
+
+public class P_LoginPage extends Constructor {
+
+	public P_LoginPage(WebDriver driver)
+	{
+		super(driver);
+	}
+	@FindBy(xpath="//input[@name='email']")   WebElement tfUserName;
+	@FindBy(xpath="//input[@name='password']")WebElement tfPwd;
+	@FindBy(xpath="//button[@name='sign-in']")WebElement btnLogin;
+	@FindBy(xpath="//a[text()='DashBoard']")  WebElement txtDashboard; 
+	
+	public void EnterUserNameAndPassword(String username,String pwd)
+	{
+		tfUserName.sendKeys(username);
+		tfPwd.sendKeys(pwd);
+		btnLogin.click();
+	}
+	
+	public String VerifyLogin()
+	{
+		String text=txtDashboard.getText();
+		return text;
+	}
+	
+
+}
