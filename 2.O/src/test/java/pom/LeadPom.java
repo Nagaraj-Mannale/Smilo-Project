@@ -31,13 +31,7 @@ public class LeadPom extends Constructor
 	 btnDelete.click();       }
  public void exportLink()     {
 	 linkExport.click();      }
- 
- @FindBy(xpath="//select[@id='showDropdown']")   WebElement dropPagination;
- @FindBy(xpath="//input[@id='search']") WebElement txtSearch;
- @FindBy(xpath="//Select[@id='city']") WebElement dropCity;
+
  @FindBy(xpath="//Select[@id='status']") WebElement dropStatus;
- @FindBy(xpath="//input[@id='from_date']") WebElement fromDate;
- @FindBy(xpath="//input[@id='to_date']") WebElement toDate;
- @FindBy(xpath="//button[text()='SET']") WebElement btnSet;
- @FindBy(xpath="//button[@id='clear_button']") WebElement btnReset;
+
 }

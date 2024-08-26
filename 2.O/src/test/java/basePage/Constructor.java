@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Constructor {
-    protected WebDriver driver;
+    public WebDriver driver;
 
     public Constructor(WebDriver driver){
         this.driver = driver;

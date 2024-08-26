@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/home/active35/eclipse-workspace/2.O"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -43,11 +44,13 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="01"/>
 			<item value="BodyCoat"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="Smilo"/>
 			<item value="2.O"/>
 		</list>
 		<list key="projectNameTemplate">

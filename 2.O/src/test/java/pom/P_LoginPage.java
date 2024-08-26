@@ -36,6 +36,11 @@ public class P_LoginPage extends Constructor
         tfPwd.sendKeys(pwd);
         btnLogin.click();
     }
+    public void loginButton() 
+    {
+  
+        btnLogin.click();
+    }
 
     public String getHomePageText() 
     {
