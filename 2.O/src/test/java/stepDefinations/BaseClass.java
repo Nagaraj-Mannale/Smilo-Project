@@ -12,18 +12,11 @@ public class BaseClass {
 
     @Before
     public void setup() {
-        // Set the path to the ChromeDriver executable if needed
-        // System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
-
-        // Configure ChromeOptions if necessary
+        
         ChromeOptions options = new ChromeOptions();
-        // options.addArguments("--disable-notifications");
-        // options.addArguments("--headless"); // Uncomment to run in headless mode
-
         driver = new ChromeDriver(options);
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
         driver.get("https://bc-admin-v2.tech-active.com/");
         driver.manage().window().maximize();
     }
