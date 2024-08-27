@@ -914,3 +914,269 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: expected ST
 2024-08-26 18:32:39,253 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
 2024-08-26 18:32:39,259 [Worker-56: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2024-08-26 18:32:39,260 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-27 09:39:50,299 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-27 09:51:45,686 [Worker-18: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/cucumber/messages/maven-metadata.xml
+2024-08-27 09:51:45,704 [Worker-18: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/cucumber/messages/maven-metadata.xml
+2024-08-27 09:51:46,601 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:51:46,602 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 09:51:46,608 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:51:46,614 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-27 09:52:41,777 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:52:41,777 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 09:52:41,780 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:52:41,782 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-27 09:55:30,020 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:55:30,021 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 09:55:30,026 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:55:30,027 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-27 09:56:13,980 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:56:13,981 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 09:56:13,984 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:56:13,985 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 09:57:04,534 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:57:04,535 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 09:57:04,538 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:57:04,539 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 09:58:00,225 [Worker-3: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:58:00,226 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 09:58:00,229 [Worker-3: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:58:00,230 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 09:58:29,256 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:58:29,257 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 09:58:29,260 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:58:29,261 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 09:59:03,005 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:59:03,005 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 09:59:03,008 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:59:03,009 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 09:59:46,802 [Worker-23: Launching Login (2)] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:59:46,802 [Worker-23: Launching Login (2)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 09:59:46,806 [Worker-23: Launching Login (2)] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 09:59:46,807 [Worker-23: Launching Login (2)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:00:57,102 [Worker-22: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:00:57,103 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:00:57,106 [Worker-22: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:00:57,107 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:03:31,265 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:03:31,268 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:03:31,273 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:03:31,274 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:07:38,496 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:07:38,497 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:07:38,500 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:07:38,501 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:12:01,448 [Worker-23: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:12:01,452 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:12:01,463 [Worker-23: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:12:01,464 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:12:52,928 [Worker-23: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:12:52,929 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:12:52,933 [Worker-23: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:12:52,934 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:13:22,702 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:13:22,703 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:13:22,706 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:13:22,706 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:14:11,436 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:14:11,437 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:14:11,440 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:14:11,441 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:14:19,943 [Worker-23: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:14:19,944 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:14:19,946 [Worker-23: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:14:19,946 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:14:26,845 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:14:26,845 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:14:26,848 [Worker-18: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:14:26,849 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:14:33,818 [Worker-24: Launching Login.feature] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:14:33,819 [Worker-24: Launching Login.feature] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:14:33,827 [Worker-24: Launching Login.feature] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:14:33,829 [Worker-24: Launching Login.feature] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:15:48,516 [Worker-26: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:15:48,518 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:15:48,520 [Worker-26: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:15:48,521 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:19:41,491 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:19:41,496 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:19:41,500 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:19:41,501 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:20:13,304 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:20:13,305 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:20:13,311 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:20:13,312 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:20:24,760 [Worker-28: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:20:24,760 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:20:24,765 [Worker-28: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:20:24,766 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:20:42,244 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:20:42,244 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:20:42,246 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:20:42,247 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:21:19,025 [Worker-26: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:21:19,026 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:21:19,029 [Worker-26: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:21:19,031 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:23:07,808 [Worker-28: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:23:07,809 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:23:07,812 [Worker-28: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:23:07,814 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:23:10,590 [Worker-29: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:23:10,591 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:23:10,593 [Worker-29: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:23:10,594 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:24:54,902 [Worker-27: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:24:54,903 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:24:54,905 [Worker-27: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:24:54,906 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:25:18,608 [Worker-31: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:25:18,608 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:25:18,611 [Worker-31: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:25:18,612 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:26:17,179 [Worker-30: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:26:17,180 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:26:17,183 [Worker-30: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:26:17,184 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:26:54,991 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:26:54,992 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:26:54,994 [Worker-20: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:26:54,996 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:27:03,621 [Worker-26: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:27:03,622 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:27:03,625 [Worker-26: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:27:03,626 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:27:47,222 [Worker-30: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:27:47,223 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:27:47,225 [Worker-30: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:27:47,226 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:27:52,399 [Worker-27: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:27:52,400 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:27:52,401 [Worker-27: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:27:52,402 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:29:54,810 [Worker-32: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:29:54,810 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:29:54,813 [Worker-32: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:29:54,814 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:37:03,996 [Worker-32: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:37:03,997 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:37:04,000 [Worker-32: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:37:04,001 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:38:04,489 [Worker-35: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:38:04,490 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:38:04,492 [Worker-35: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:38:04,493 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:38:47,663 [Worker-27: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:38:47,664 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:38:47,666 [Worker-27: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:38:47,667 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:39:19,591 [Worker-35: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:39:19,592 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:39:19,594 [Worker-35: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:39:19,594 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:40:28,487 [Worker-34: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:40:28,488 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:40:28,490 [Worker-34: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:40:28,490 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:42:39,292 [Worker-32: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:42:39,292 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:42:39,295 [Worker-32: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:42:39,295 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:43:39,945 [Worker-38: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:43:39,945 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:43:39,947 [Worker-38: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:43:39,948 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:52:39,174 [Worker-41: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:52:39,175 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:52:39,178 [Worker-41: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:52:39,179 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:54:32,620 [Worker-36: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:54:32,621 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:54:32,623 [Worker-36: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:54:32,623 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:56:37,779 [Worker-40: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:56:37,780 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:56:37,782 [Worker-40: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:56:37,783 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:57:25,196 [Worker-41: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:57:25,196 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:57:25,198 [Worker-41: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:57:25,199 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 10:58:01,438 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:58:01,438 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 10:58:01,441 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 10:58:01,442 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:10:31,545 [Worker-121: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:10:31,570 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:10:31,577 [Worker-121: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:10:31,582 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:10:58,174 [Worker-121: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:10:58,175 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:10:58,178 [Worker-121: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:10:58,179 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:11:22,238 [Worker-120: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-08-27 16:11:22,932 [Worker-120: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BodyCoat:2.O:0.0.1-SNAPSHOT @ /home/active35/eclipse-workspace/2.O/pom.xml.
+2024-08-27 16:11:24,271 [Worker-120: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /2.O/src/main/java
+2024-08-27 16:11:24,274 [Worker-120: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /2.O/src/main/resources
+2024-08-27 16:11:24,275 [Worker-120: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /2.O/src/test/java
+2024-08-27 16:11:24,276 [Worker-120: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /2.O/src/test/resources
+2024-08-27 16:11:24,383 [Worker-120: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 1.00 sec, update config takes 0.00 sec 
+2024-08-27 16:11:58,487 [Worker-118: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:11:58,488 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:11:58,508 [Worker-118: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:11:58,510 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:13:02,239 [Worker-119: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:13:02,240 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:13:02,244 [Worker-119: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:13:02,245 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:13:33,458 [Worker-121: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:13:33,459 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:13:33,463 [Worker-121: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:13:33,464 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:14:33,330 [Worker-121: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:14:33,330 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:14:33,334 [Worker-121: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:14:33,335 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:14:40,304 [Worker-122: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:14:40,304 [Worker-122: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:14:40,308 [Worker-122: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:14:40,309 [Worker-122: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:15:05,987 [Worker-119: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:15:05,988 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:15:05,991 [Worker-119: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:15:05,992 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:38:02,351 [Worker-122: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:38:02,354 [Worker-122: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:38:02,358 [Worker-122: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:38:02,360 [Worker-122: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 16:51:00,669 [Worker-135: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:51:00,670 [Worker-135: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:51:00,673 [Worker-135: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:51:00,674 [Worker-135: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/test/resources to target/test-classes
+2024-08-27 16:53:05,766 [Worker-136: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:53:05,767 [Worker-136: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 16:53:05,770 [Worker-136: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 16:53:05,772 [Worker-136: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/test/resources to target/test-classes
+2024-08-27 17:01:40,060 [Worker-137: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 17:01:40,061 [Worker-137: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 17:01:40,064 [Worker-137: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 17:01:40,066 [Worker-137: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/test/resources to target/test-classes
+2024-08-27 17:06:52,524 [Worker-137: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 17:06:52,524 [Worker-137: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 17:06:52,528 [Worker-137: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 17:06:52,529 [Worker-137: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/test/resources to target/test-classes
+2024-08-27 18:00:45,375 [Worker-150: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 18:00:45,378 [Worker-150: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 18:00:45,382 [Worker-150: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 18:00:45,385 [Worker-150: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/test/resources to target/test-classes
+2024-08-27 18:18:36,711 [Worker-157: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 18:18:36,712 [Worker-157: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 18:18:36,715 [Worker-157: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 18:18:36,717 [Worker-157: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 18:21:52,413 [Worker-160: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 18:21:52,414 [Worker-160: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 18:21:52,418 [Worker-160: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 18:21:52,420 [Worker-160: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes
+2024-08-27 18:31:11,060 [Worker-162: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 18:31:11,060 [Worker-162: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/2.O/src/main/resources
+2024-08-27 18:31:11,064 [Worker-162: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-08-27 18:31:11,065 [Worker-162: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/test/resources to target/test-classes

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="0.284" tests="5" skipped="0" failures="5" errors="0">
-<testcase classname="Verify Login Functionality" name="Successful Login with Valid Credentials" time="0.042">
+<testsuite name="Cucumber" time="0.349" tests="5" skipped="0" failures="5" errors="0">
+<testcase classname="Verify Login Functionality" name="Successful Login with Valid Credentials" time="0.061">
 <failure/>
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................undefined
@@ -9,7 +9,7 @@ And the Login button is clicked.............................................skip
 Then the landing page text is validated.....................................skipped
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Login Functionality" name="Unsuccessful Login with Invalid Password" time="0.005">
+<testcase classname="Verify Login Functionality" name="Unsuccessful Login with Invalid Password" time="0.007">
 <failure/>
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................undefined
@@ -18,7 +18,7 @@ And the Login button is clicked.............................................skip
 Then the error page is validated............................................skipped
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Login Functionality" name="Unsuccessful Login with Invalid Username" time="0.003">
+<testcase classname="Verify Login Functionality" name="Unsuccessful Login with Invalid Username" time="0.004">
 <failure/>
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................undefined
@@ -27,7 +27,7 @@ And the Login button is clicked.............................................skip
 Then the error page is validated............................................skipped
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Login Functionality" name="Cancel Login Process" time="0.007">
+<testcase classname="Verify Login Functionality" name="Cancel Login Process" time="0.013">
 <failure/>
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................undefined
@@ -36,7 +36,7 @@ And the Cancel button is clicked............................................skip
 Then the page text is validated.............................................skipped
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Login Functionality" name="Unsuccessful Login with Empty Credentials" time="0.003">
+<testcase classname="Verify Login Functionality" name="Unsuccessful Login with Empty Credentials" time="0.004">
 <failure/>
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................undefined
