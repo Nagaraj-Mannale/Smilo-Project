@@ -13,14 +13,14 @@ public class LeadPom extends Constructor
 	super(driver);
   }
 
- @FindBy(xpath="(//span[text()='Lead'])[2]")     WebElement leadPageText;
+ @FindBy(xpath="//div[text()='Profile']/../../../../div[1]//span")     WebElement leadAddPageText;
  @FindBy(xpath="//button[text()='Import']" )     WebElement btnImport;
  @FindBy(xpath="//a[text()='Add']")              WebElement btnAdd;
  @FindBy(xpath="//button[@id='convert_button']") WebElement btnConvert;
  @FindBy(xpath="//button[text()='Delete']")      WebElement btnDelete;
  @FindBy(xpath="//a[@id='export_btn']")          WebElement linkExport;
  public String getText() {
- return leadPageText.getText();}
+ return leadAddPageText.getText();}
  public void importButton()   {
 	 btnImport.click();       }
  public void addButton()      {
