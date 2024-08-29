@@ -21,7 +21,7 @@ public class MallSetting extends Constructor
        for (WebElement option : tabLinksOfMallsetting) {
            if (option.getText().equalsIgnoreCase(tab)){
                option.click(); break; }   }   }
-   s
+   
    @FindBy(xpath="//a[text()='Add User']/..")           WebElement btnAddUser;
    @FindBy(xpath="//button[text()='Add Mall']")      WebElement btnAddMall;
    @FindBy(xpath="//button[text()='Add Slot']")      WebElement btnAddSlot;
