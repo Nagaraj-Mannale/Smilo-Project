@@ -1,75 +1,90 @@
 package pom;
 
 import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import basePage.Constructor;
 
-public class CommonComponents extends Constructor
-{
-	public CommonComponents(WebDriver driver){
-		       super(driver);                }
-	
-	@FindBy(xpath="//div[@class='logo-container']/following-sibling::nav//li")
-	  List<WebElement> allPageLinks;
-	public void selectPageLink(String page)  {
-    	for(WebElement links:allPageLinks)
-    	{
-    		if(links.getText().trim().equalsIgnoreCase(page))
-    		{
-    			links.click();
-    			break;
-    		}
-    	}
+public class CommonComponents extends Constructor {
+
+    public CommonComponents(WebDriver driver) {
+        super(driver);
     }
-	
-	
-	 @FindBy(xpath="//Select[@id='showDropdown']")  WebElement dropPagination;
-	 @FindBy(xpath="//input[@id='search']")         WebElement txtSearch;
-	 @FindBy(xpath="//Select[@id='city']")          WebElement dropCity;//payment for payment mode
-	 @FindBy(xpath="//input[@id='from_date']")      WebElement dateFrom;
-	 @FindBy(xpath="//input[@id='to_date']")        WebElement dateTO; 
-	 @FindBy(xpath="(//button[@type='button'])[1]") WebElement firstRecordKebabIcon;
-	 
-	
-	 
-	 public void searchField(String val) {
-		 txtSearch.sendKeys(val);        }
-	 
-	 @FindBy(xpath="(//Select[@id='showDropdown']/../../../../div/div)[1]")   WebElement txtHomePage;
-	 @FindBy(xpath="//button[@id='clear_button']")    WebElement btnReset;
-	 @FindBy(xpath="//button[text()='SET']")    WebElement btnSet;
-	 
-	 public String getHomePageTxt()     { 
-	      return txtHomePage.getText(); }
-	 
-	 public void resetButton() {
-		  btnReset.click();    }
-	 
-	 public void setButton() {
-		  btnSet.click();    }
-	  
-	 
-	 @FindBy(xpath="//p[@class='alert-heading text-semibold second-heading text-center mt-0 mb-0']")WebElement txtEmptyPage;  
-	 @FindBy(xpath="(//a[@class='page-link'])[3]")WebElement iconNextPage;
-	 @FindBy(xpath="(//a[@class='page-link'])[4]")WebElement iconLastPage;
-	 public String getTxtForEmptyPage()        
-     {
-	 return txtEmptyPage.getText();}
-	 
-	 public void nextPageButton(){
-		 iconNextPage.click();   }
-	 
-	 public void lastPageButton(){
-		 iconLastPage.click();   }
-	 
-	 
-	    
-	    
-	  
-	 
-	}
-	
+
+    @FindBy(xpath = "//div[@class='logo-container']/following-sibling::nav//li")
+    private List<WebElement> allPageLinks;
+
+    @FindBy(xpath = "//Select[@id='showDropdown']")  
+    private WebElement dropPagination;
+
+    @FindBy(xpath = "//input[@id='search']")         
+    private WebElement fieldSearch;
+
+    @FindBy(xpath = "//Select[@id='city']")          
+    private WebElement dropCity;
+
+    @FindBy(xpath = "//input[@id='from_date']")      
+    private WebElement dateFrom;
+
+    @FindBy(xpath = "//input[@id='to_date']")        
+    private WebElement dateTo; 
+
+    @FindBy(xpath = "(//button[@type='button'])[1]") 
+    private WebElement firstRecordKebabIcon;
+
+    @FindBy(xpath = "(//Select[@id='showDropdown']/../../../../div/div)[1]")   
+    private WebElement txtHomePage;
+
+    @FindBy(xpath = "//button[@id='clear_button']")    
+    private WebElement btnReset;
+
+    @FindBy(xpath = "//button[text()='SET']")          
+    private WebElement btnSet;
+
+    @FindBy(xpath = "//p[@class='alert-heading text-semibold second-heading text-center mt-0 mb-0']")  
+    private WebElement txtEmptyPage;
+
+    @FindBy(xpath = "(//a[@class='page-link'])[3]") 
+    private WebElement iconNextPage;
+
+    @FindBy(xpath = "(//a[@class='page-link'])[4]") 
+    private WebElement iconLastPage;
+
+    public void selectPageLink(String page) {
+        for (WebElement link : allPageLinks) {
+            if (link.getText().trim().equalsIgnoreCase(page)) {
+                link.click();
+                break;
+            }
+        }
+    }
+
+    public void searchField(String value) {
+        fieldSearch.sendKeys(value);
+    }
+
+    public String getHomePageText() {
+        return txtHomePage.getText();
+    }
+
+    public void clickResetButton() {
+        btnReset.click();
+    }
+
+    public void clickSetButton() {
+        btnSet.click();
+    }
+
+    public String getEmptyPageText() {
+        return txtEmptyPage.getText();
+    }
+
+    public void clickNextPageButton() {
+        iconNextPage.click();
+    }
+
+    public void clickLastPageButton() {
+        iconLastPage.click();
+    }
+}

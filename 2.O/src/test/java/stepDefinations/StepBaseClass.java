@@ -4,20 +4,17 @@ import java.time.Duration;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-
 import pom.LoginPage;
 
 public class StepBaseClass {
-    public static WebDriver driver;
-    public LoginPage lp;
+
+    protected static WebDriver driver;
+    protected LoginPage lp;
 
     @Before
     public void setup() {
-        
         ChromeOptions options = new ChromeOptions();
         driver = new ChromeDriver(options);
         driver.manage().deleteAllCookies();
@@ -27,13 +24,9 @@ public class StepBaseClass {
     }
 
     @After
-    public void tearDown() 
-    {
-        if (driver != null) 
-        {
+    public void tearDown() {
+        if (driver != null) {
             driver.quit();
         }
     }
-	    
-    
 }

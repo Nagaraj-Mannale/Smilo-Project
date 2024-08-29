@@ -3,47 +3,46 @@ package pom;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import basePage.Constructor;
-
 import java.time.Duration;
 
-public class LoginPage extends Constructor
-{
-    public LoginPage(WebDriver driver) 
-    {
+public class LoginPage extends Constructor {
+
+    public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@name='email']")      WebElement tfUserName;
-    @FindBy(xpath = "//input[@name='password']")   WebElement tfPwd;
-    @FindBy(xpath = "//button[@name='sign-in']")   WebElement btnLogin;
-    @FindBy(xpath = "//a[text()='DashBoard']")     WebElement txtDashboard;
-    
-    public void enterUserNameAndPassword(String username, String pwd) 
-    {
+    @FindBy(xpath = "//input[@name='email']")
+    private WebElement tfUserName;
+
+    @FindBy(xpath = "//input[@name='password']")
+    private WebElement tfPwd;
+
+    @FindBy(xpath = "//button[@name='sign-in']")
+    private WebElement btnLogin;
+
+    @FindBy(xpath = "//div[@class='toast-message']")
+    private WebElement succesfulMessage;
+
+    @FindBy(xpath = "//div[text()='Admin']/../p")
+    private WebElement loginFailedMessage;
+
+    public void enterUserNameAndPassword(String username, String password) {
         tfUserName.sendKeys(username);
-        tfPwd.sendKeys(pwd);
+        tfPwd.sendKeys(password);
     }
-    public void loginButton() 
-    {
+
+    public void clickLoginButton() {
         btnLogin.click();
     }
-    @FindBy(xpath="//div[@class='toast-message']") WebElement succesfulMessage;
-    @FindBy(xpath="//div[text()='Admin']/../p")    WebElement loginFailedmessage;
-    
-    public String successfulmsg() 
-    {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(succesfulMessage));
+
+    public String getSuccessMessage() {
+        waitElementVisibility(succesfulMessage, Duration.ofSeconds(10));
         return succesfulMessage.getText();
     }
-    
-    public String loginFailedlmsg() 
-    {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(loginFailedmessage));
-        return loginFailedmessage.getText();
+
+    public String getFailureMessage() {
+        waitElementVisibility(loginFailedMessage, Duration.ofSeconds(10));
+        return loginFailedMessage.getText();
     }
 }
