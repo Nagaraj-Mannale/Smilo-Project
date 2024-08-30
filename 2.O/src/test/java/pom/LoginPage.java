@@ -21,9 +21,6 @@ public class LoginPage extends Constructor {
     @FindBy(xpath = "//button[@name='sign-in']")
     private WebElement btnLogin;
 
-    @FindBy(xpath = "//div[@class='toast-message']")
-    private WebElement succesfulMessage;
-
     @FindBy(xpath = "//div[text()='Admin']/../p")
     private WebElement loginFailedMessage;
 
@@ -36,10 +33,7 @@ public class LoginPage extends Constructor {
         btnLogin.click();
     }
 
-    public String getSuccessMessage() {
-        waitElementVisibility(succesfulMessage, Duration.ofSeconds(10));
-        return succesfulMessage.getText();
-    }
+    
 
     public String getFailureMessage() {
         waitElementVisibility(loginFailedMessage, Duration.ofSeconds(10));

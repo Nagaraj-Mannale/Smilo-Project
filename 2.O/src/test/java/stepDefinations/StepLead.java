@@ -1,5 +1,7 @@
 package stepDefinations;
 
+import java.awt.AWTException;
+
 import org.testng.Assert;
 import io.cucumber.java.en.*;
 import pom.CommonComponents;
@@ -93,7 +95,7 @@ public class StepLead extends StepBaseClass {
     }
 
     @When("the lead is searched by name")
-    public void theLeadIsSearchedByName() {
+    public void theLeadIsSearchedByName() throws AWTException {
         commonComponents.searchField("Lead Name");
     }
 

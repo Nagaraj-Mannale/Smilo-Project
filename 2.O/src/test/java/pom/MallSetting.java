@@ -16,13 +16,12 @@ public class MallSetting extends Constructor
 	super(driver);
    }
    @FindBy(xpath="(//a[text()='Users'])[2]/../../li")List<WebElement> tabLinksOfMallsetting;
-   public void selectTab(String tab)      {
-       dropGroup.click();
+   public void selectTabBylinks(String tab)      {
        for (WebElement option : tabLinksOfMallsetting) {
            if (option.getText().equalsIgnoreCase(tab)){
                option.click(); break; }   }   }
    
-   @FindBy(xpath="//a[text()='Add User']/..")           WebElement btnAddUser;
+   @FindBy(xpath="//a[text()='Add User']/..")        WebElement btnAddUser;
    @FindBy(xpath="//button[text()='Add Mall']")      WebElement btnAddMall;
    @FindBy(xpath="//button[text()='Add Slot']")      WebElement btnAddSlot;
    @FindBy(xpath="//span[text()='delete']")          WebElement btnDelete;
@@ -57,7 +56,7 @@ public class MallSetting extends Constructor
        fieldName.clear();
        fieldName.sendKeys(name);
    }
-   Select status=new Select(dropStatus);
+   
    public void selectStatus(String Status) {
 	   Select status=new Select(dropStatus);
 	   status.selectByVisibleText(Status);
@@ -83,8 +82,7 @@ public class MallSetting extends Constructor
    @FindBy(xpath="//input[@id='email']")   WebElement fieldMail;
    @FindBy(xpath="//input[@id='password']")WebElement fieldPassword;
    
-   public String userAddPageText()
-   {
+   public String userAddPageText() {
 	   return addpagetxt.getText();
    }
    
@@ -119,14 +117,16 @@ public class MallSetting extends Constructor
    @FindBy(xpath="//select[@id='mallSelect']")   WebElement dropMall;
    @FindBy(xpath="//a[text()='Cancel']")         WebElement btnCancel;
 
-   public void selectGroup(String group)      {
+   public void selectGroup(String group)       {
        dropGroup.click();
        for (WebElement option : optionsGroup) {
            if (option.getText().equalsIgnoreCase(group)){
                option.click(); break; }   }   }
 
-   public void selectMall(String mall) {
-       dropMall.sendKeys(mall);        }
+   public void selectMall(String Mall) {
+	   Select mall=new Select(dropMall);
+       mall.selectByVisibleText(Mall);        
+   }
 
    public void clickCancel() {
        btnCancel.click();    }
@@ -136,7 +136,12 @@ public class MallSetting extends Constructor
    @FindBy(xpath="//input[@id='supervisor_number']")       WebElement numberSuprevisor;
    @FindBy(xpath="//span[text()='Select Sub Locations']")  WebElement dropLocation;
    @FindBy(xpath="//input[@id='selectAll']/../../div")List<WebElement> optionSubLocation;
- 
+   @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[1]")WebElement userName;
+  
+   public String GetFirstRecUserName() {
+	   return userName.getText();
+   }
+   
    public void setCustomerNumber(String number) {
        numberCustomer.clear();
        numberCustomer.sendKeys(number);
@@ -146,7 +151,7 @@ public class MallSetting extends Constructor
        numberSuprevisor.clear();
        numberSuprevisor.sendKeys(number);
    }
-   Select location=new Select(dropLocation);
+  
    public void selectLocation(String location) {
        dropLocation.click();
        for (WebElement option : optionSubLocation) {
@@ -162,13 +167,17 @@ public class MallSetting extends Constructor
    @FindBy(xpath="//input[@id='closetime']")WebElement fieldClosingTime;
    @FindBy(xpath="//input[@id='limit']")    WebElement fieldSlotLimit;
    
-   Select mallSlot=new Select(selectSlotMall);
-   Select SlotInterval=new Select(dropSlotInterval);	
+   
+   	
    public void selectSlotMall(String mall) {
-       selectSlotMall.sendKeys(mall);
+	   Select mallSlot=new Select(selectSlotMall);
+       mallSlot.selectByVisibleText(mall);
    }
+   
    public void selectSlotInterval(String interval) {
-	   dropSlotInterval.sendKeys(interval);        }
+	   Select SlotInterval=new Select(dropSlotInterval);
+	   SlotInterval.selectByVisibleText(interval);   
+   }
 
    public void setOpeningTime(String time) {
        fieldOpeningTime.clear();

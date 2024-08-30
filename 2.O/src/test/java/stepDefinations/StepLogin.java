@@ -4,6 +4,7 @@ import org.testng.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pom.CommonComponents;
 import pom.LoginPage;
 
 public class StepLogin extends StepBaseClass {
@@ -28,7 +29,8 @@ public class StepLogin extends StepBaseClass {
 
     @Then("the landing page text is validated")
     public void theLandingPageTextIsValidated() {
-        String text = lp.getSuccessMessage();
+    	CommonComponents CC=new CommonComponents(driver);
+    	String text = CC.getSuccessMessage();
         Assert.assertEquals(text, "Login Successfully !");
     }
 

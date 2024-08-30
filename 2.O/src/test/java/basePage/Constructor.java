@@ -1,5 +1,8 @@
 package basePage;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.By;
@@ -16,6 +19,13 @@ public class Constructor {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+    public void keyboardAction() throws AWTException
+    {
+    	Robot rt=new Robot();
+    	rt.keyPress(KeyEvent.VK_ENTER);
+    	rt.keyRelease(KeyEvent.VK_ENTER);
+    }
+    
     
     public void waitElementVisibility(WebElement element, Duration time) {
         WebDriverWait wait = new WebDriverWait(driver, time);

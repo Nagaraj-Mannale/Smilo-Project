@@ -1,5 +1,7 @@
 package pom;
 
+import java.awt.AWTException;
+import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +11,7 @@ import basePage.Constructor;
 public class CommonComponents extends Constructor {
 
     public CommonComponents(WebDriver driver) {
-        super(driver);
-    }
+        super(driver);                        }
 
     @FindBy(xpath = "//div[@class='logo-container']/following-sibling::nav//li")
     private List<WebElement> allPageLinks;
@@ -50,18 +51,40 @@ public class CommonComponents extends Constructor {
 
     @FindBy(xpath = "(//a[@class='page-link'])[4]") 
     private WebElement iconLastPage;
+    
+    @FindBy(xpath = "//input[@id='confirmYes']") 
+    private WebElement popupDeleteYes;
+    
+    @FindBy(xpath = "//input[@id='confirmNo']") 
+    private WebElement popupDeleteNo;
+    
+    @FindBy(xpath = "//div[@class='toast-message']")
+    private WebElement succesfulMessage;
+    
+    public String getSuccessMessage() {
+        waitElementVisibility(succesfulMessage, Duration.ofSeconds(10));
+        return succesfulMessage.getText();
+    }
+    
+    public void deletePopupHandle(String order)
+    {
+    	switch(order.trim().toLowerCase()) {
+    	case "yes":popupDeleteYes.click();break;
+    	case "no":popupDeleteNo.click();break;
+    	default:System.out.println("Given order is not good");
+    	}}
+    	    
 
-    public void selectPageLink(String page) {
+    public void selectPageLink(String page)  {
         for (WebElement link : allPageLinks) {
             if (link.getText().trim().equalsIgnoreCase(page)) {
                 link.click();
                 break;
-            }
-        }
-    }
+            }    }    }
 
-    public void searchField(String value) {
+    public void searchField(String value) throws AWTException {
         fieldSearch.sendKeys(value);
+        keyboardAction();
     }
 
     public String getHomePageText() {
