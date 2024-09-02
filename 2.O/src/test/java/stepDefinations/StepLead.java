@@ -4,49 +4,42 @@ import java.awt.AWTException;
 
 import org.testng.Assert;
 import io.cucumber.java.en.*;
-import pom.CommonComponents;
-import pom.LeadPom;
+
 
 public class StepLead extends StepBaseClass {
-    private CommonComponents commonComponents;
-    private LeadPom lead;
-
-    public StepLead() {
-        commonComponents = new CommonComponents(driver);
-        lead = new LeadPom(driver);
-    }
+ 
 
     @When("the lead link is clicked")
     public void theLeadLinkIsClicked() {
-        commonComponents.selectPageLink("Lead");
+        ClassObjects.CC.selectPageLink("Lead");
     }
 
     @Then("the lead page text is validated")
     public void theLeadPageTextIsValidated() {
-        String text = commonComponents.getHomePageText();
+        String text = ClassObjects.CC.getHomePageText();
         Assert.assertEquals(text.trim().equalsIgnoreCase("Lead"), true, "The lead page text is not valid.");
     }
 
     @When("the Import button is clicked")
     public void theImportButtonIsClicked() {
-        lead.clickImportButton();
+    	ClassObjects.LD.clickImportButton();
     }
 
     @When("the Add button is clicked")
     public void theAddButtonIsClicked() {
-        lead = new LeadPom(driver);
-        lead.clickAddButton();
+//        lead = new Lead(driver);
+        ClassObjects.LD.clickAddButton();
     }
 
     @Then("the lead add page text is validated")
     public void theLeadAddPageTextIsValidated() {
-        String text = lead.getText();
+        String text = ClassObjects.LD.getText();
         Assert.assertEquals(text.trim().equalsIgnoreCase("Add Leads"), true, "The lead add page text is not valid.");
     }
 
     @When("the user navigates back to the lead home page")
     public void theUserNavigatesBackToTheLeadHomePage() {
-        commonComponents.selectPageLink("Lead");
+    	ClassObjects.CC.selectPageLink("Lead");
     }
 
     @When("the Convert button is clicked")
@@ -76,7 +69,7 @@ public class StepLead extends StepBaseClass {
 
     @When("the reset button is clicked")
     public void theResetButtonIsClicked() {
-        commonComponents.clickResetButton();
+    	ClassObjects.CC.clickResetButton();
     }
 
     @Then("verify the page limit is set correctly")
@@ -96,7 +89,7 @@ public class StepLead extends StepBaseClass {
 
     @When("the lead is searched by name")
     public void theLeadIsSearchedByName() throws AWTException {
-        commonComponents.searchField("Lead Name");
+    	ClassObjects.CC.searchField("Lead Name");
     }
 
     @Then("validate the received records")
@@ -111,7 +104,7 @@ public class StepLead extends StepBaseClass {
 
     @When("the set button is clicked")
     public void theSetButtonIsClicked() {
-        commonComponents.clickSetButton();
+    	ClassObjects.CC.clickSetButton();
     }
 
     @Then("verify the received records meet the applied filter criteria")

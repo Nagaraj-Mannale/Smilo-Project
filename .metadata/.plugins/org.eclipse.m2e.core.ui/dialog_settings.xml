@@ -44,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="3.0"/>
 			<item value="01"/>
 			<item value="BodyCoat"/>
 		</list>

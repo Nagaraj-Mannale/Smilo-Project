@@ -1,97 +1,94 @@
 package stepDefinations;
 
 import java.awt.AWTException;
-
 import org.testng.Assert;
-
 import io.cucumber.java.en.*;
-import pom.CommonComponents;
-import pom.MallSetting;
+
 
 public class StepMallUser extends StepBaseClass {
-
-	private MallSetting MS;
-	private CommonComponents CC;
 	
-	public StepMallUser()	{
-	 CC=new CommonComponents(driver);
-	 MS=new MallSetting(driver);
-	}
+//	private MallSetting MS;
+//	private CommonComponents CC;
+//	
+//	public StepMallUser()	{
+//	 CC=new CommonComponents(driver);
+//	 MS=new MallSetting(driver);
+//	}
 	@When("the MallUser link is clicked")
 	public void theMallUserLinkIsClicked() {
-	   CC.selectPageLink("Mall Settings");
+		ClassObjects.CC.selectPageLink("Mall Settings");
 	}
 
 	@Then("the User page text is validated")
 	public void theMallPageTextIsValidated() throws InterruptedException {
-	      String text = CC.getHomePageText();;
+	      String text = ClassObjects.CC.getHomePageText();;
 	      Assert.assertEquals(text.trim().equalsIgnoreCase("Users"), true, "The lead page text is not valid.");
 
 	}
 
 	@When("the Add User button is clicked")
 	public void theAddMallButtonIsClicked() {
-	    MS.clickAddUser();
+		ClassObjects.MS.clickAddUser();
 	}
 
 	@Then("the user is on the Add User page")
 	public void theUserIsOnTheAddMallPage() {
-		String text = MS.userAddPageText();
+		String text = ClassObjects.MS.userAddPageText();
 	    Assert.assertEquals(text.trim().equalsIgnoreCase("Add User"), true, "The lead page text is not valid.");
   
 	}
      String UserName="Tester";
 	@When("all the necessary data is filled")
 	public void allTheNecessaryDataIsFilled() {
-	    MS.setNameMobileMailPassword(UserName,"1234567890","tester@1gmail.com","Tester@123");
-	    MS.selectStatus("Active");
-	    MS.selectGroup("Select all");
-	    MS.selectCity("Bidar");
-	    MS.selectArea("Noubad");
-	    MS.selectMall("Mall8");
+		ClassObjects.MS.setNameMobileMailPassword(UserName,"1234567890","tester@1gmail.com","Tester@123");
+		ClassObjects.MS.selectStatus("Active");
+		ClassObjects.MS.selectGroup("Select all");
+		ClassObjects.MS.selectCity("Bidar");
+		ClassObjects.MS.selectArea("Noubad");
+		ClassObjects.MS.selectMall("Mall8");
 	}
 
 	@When("the Save button is clicked")
 	public void theSaveButtonIsClicked() {
-	  MS.clickSave();
+		ClassObjects.MS.clickSave();
 	}
 
 	@Then("the new MallUser is verified")
 	public void theNewMallUserIsVerified() {
-		String text = MS.GetFirstRecUserName();
+		String text = ClassObjects.MS.GetFirstRecUserName();
 	    Assert.assertEquals(text.trim().equalsIgnoreCase(UserName), true, "The lead page text is not valid."); 
 	}
 
 	@When("a user is selected and the Edit button is clicked")
 	public void aUserIsSelectedAndTheEditButtonIsClicked() throws AWTException {
-	    CC.searchField(UserName);
-		MS.clickEdit();
+		ClassObjects.CC.searchField(UserName);
+	    ClassObjects.MS.clickEdit();
 	}
     String ModifiedUserName="Tester2";
 	@When("the name is modified and the Save button is clicked")
 	public void theNameIsModifiedAndTheSaveButtonIsClicked() {
-	    MS.setName(ModifiedUserName);
-	    MS.clickSave();
+		ClassObjects.MS.setName(ModifiedUserName);
+		ClassObjects.MS.clickSave();
 	}
 
 	@Then("the modified user name is verified")
 	public void theModifiedUserNameIsVerified() {
-		String text = MS.GetFirstRecUserName();
+		String text = ClassObjects.MS.GetFirstRecUserName();
 	    Assert.assertEquals(text.trim().equalsIgnoreCase(ModifiedUserName), true, "The lead page text is not valid.");
 	}
 	@When("a user is selected and the delete button is clicked")
 	public void selectUserAndClickDelete() throws AWTException {
-		 CC.searchField(ModifiedUserName);
-		 MS.clickDelete();
-		 CC.deletePopupHandle("yes");
-		 String text = CC.getSuccessMessage();
+		ClassObjects.CC.searchField(ModifiedUserName);
+		ClassObjects.MS.clickDelete();
+		ClassObjects.CC.deletePopupHandle("yes");
+		 String text = ClassObjects.CC.getSuccessMessage();
 		 Assert.assertEquals(text.trim().equalsIgnoreCase("deleted"), true, "The user is not deletec.");
 		 
 	}
 	@Then("the user should no longer appear in the list")
 	public void verifyUserIsDeletedByName() throws AWTException {
-		CC.searchField(ModifiedUserName);
-		String text = CC.getEmptyPageText();
+		ClassObjects.CC.searchField(ModifiedUserName);
+		String text = ClassObjects.CC.getEmptyPageText();
 	    Assert.assertEquals(text.trim().equalsIgnoreCase("No Users Found!"), true, "The user is not valid.");
 		
 	}

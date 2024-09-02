@@ -14,7 +14,8 @@ public class StepBaseClass {
     protected LoginPage lp;
 
     @Before
-    public void setup() {
+    public void setup() 
+    {
         ChromeOptions options = new ChromeOptions();
         driver = new ChromeDriver(options);
         driver.manage().deleteAllCookies();
@@ -22,9 +23,10 @@ public class StepBaseClass {
         driver.get("https://bc-admin-v2.tech-active.com/");
         driver.manage().window().maximize();
     }
-
+   
     @After
-    public void tearDown() {
+    public void tearDown() 
+    {
         if (driver != null) {
             driver.quit();
         }
