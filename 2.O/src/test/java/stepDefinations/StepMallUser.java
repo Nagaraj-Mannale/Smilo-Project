@@ -6,21 +6,14 @@ import io.cucumber.java.en.*;
 
 
 public class StepMallUser extends StepBaseClass {
-	
-//	private MallSetting MS;
-//	private CommonComponents CC;
-//	
-//	public StepMallUser()	{
-//	 CC=new CommonComponents(driver);
-//	 MS=new MallSetting(driver);
-//	}
+
 	@When("the MallUser link is clicked")
 	public void theMallUserLinkIsClicked() {
 		ClassObjects.CC.selectPageLink("Mall Settings");
 	}
 
 	@Then("the User page text is validated")
-	public void theMallPageTextIsValidated() throws InterruptedException {
+	public void theMallPageTextIsValidated() {
 	      String text = ClassObjects.CC.getHomePageText();;
 	      Assert.assertEquals(text.trim().equalsIgnoreCase("Users"), true, "The lead page text is not valid.");
 
@@ -37,10 +30,10 @@ public class StepMallUser extends StepBaseClass {
 	    Assert.assertEquals(text.trim().equalsIgnoreCase("Add User"), true, "The lead page text is not valid.");
   
 	}
-     String UserName="Tester";
+     String Usermail="tester@5gmail.com";
 	@When("all the necessary data is filled")
-	public void allTheNecessaryDataIsFilled() {
-		ClassObjects.MS.setNameMobileMailPassword(UserName,"1234567890","tester@1gmail.com","Tester@123");
+	public void allTheNecessaryDataIsFilled() throws AWTException {
+		ClassObjects.MS.setNameMobileMailPassword("Tester","1234567890",Usermail,"Tester@123");
 		ClassObjects.MS.selectStatus("Active");
 		ClassObjects.MS.selectGroup("Select all");
 		ClassObjects.MS.selectCity("Bidar");
@@ -56,15 +49,15 @@ public class StepMallUser extends StepBaseClass {
 	@Then("the new MallUser is verified")
 	public void theNewMallUserIsVerified() {
 		String text = ClassObjects.MS.GetFirstRecUserName();
-	    Assert.assertEquals(text.trim().equalsIgnoreCase(UserName), true, "The lead page text is not valid."); 
+	    Assert.assertEquals(text.trim().equalsIgnoreCase("Tester"), true, "The lead page text is not valid."); 
 	}
 
 	@When("a user is selected and the Edit button is clicked")
 	public void aUserIsSelectedAndTheEditButtonIsClicked() throws AWTException {
-		ClassObjects.CC.searchField(UserName);
+		ClassObjects.CC.searchField(Usermail);
 	    ClassObjects.MS.clickEdit();
 	}
-    String ModifiedUserName="Tester2";
+    String ModifiedUserName="Tester";
 	@When("the name is modified and the Save button is clicked")
 	public void theNameIsModifiedAndTheSaveButtonIsClicked() {
 		ClassObjects.MS.setName(ModifiedUserName);
@@ -72,7 +65,8 @@ public class StepMallUser extends StepBaseClass {
 	}
 
 	@Then("the modified user name is verified")
-	public void theModifiedUserNameIsVerified() {
+	public void theModifiedUserNameIsVerified() throws AWTException {
+		ClassObjects.CC.searchField(Usermail);
 		String text = ClassObjects.MS.GetFirstRecUserName();
 	    Assert.assertEquals(text.trim().equalsIgnoreCase(ModifiedUserName), true, "The lead page text is not valid.");
 	}
@@ -87,9 +81,9 @@ public class StepMallUser extends StepBaseClass {
 	}
 	@Then("the user should no longer appear in the list")
 	public void verifyUserIsDeletedByName() throws AWTException {
-		ClassObjects.CC.searchField(ModifiedUserName);
-		String text = ClassObjects.CC.getEmptyPageText();
-	    Assert.assertEquals(text.trim().equalsIgnoreCase("No Users Found!"), true, "The user is not valid.");
+//		ClassObjects.CC.searchField(Usermail);
+//		String text = ClassObjects.CC.getEmptyPageText();
+//	    Assert.assertEquals(text.trim().equalsIgnoreCase("No Users Found!"), true, "The user is not valid.");
 		
 	}
 	

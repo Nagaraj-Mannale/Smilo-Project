@@ -88,7 +88,7 @@ public class StepLead extends StepBaseClass {
     }
 
     @When("the lead is searched by name")
-    public void theLeadIsSearchedByName() throws AWTException {
+    public void theLeadIsSearchedByName() throws AWTException{
     	ClassObjects.CC.searchField("Lead Name");
     }
 

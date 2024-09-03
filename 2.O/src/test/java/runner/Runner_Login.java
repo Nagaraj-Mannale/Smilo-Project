@@ -6,7 +6,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features = "src/test/resources/Feature file/Login.feature",
+    features = "src/test/resources/Feature file/Login.feature",	
     glue = "stepDefinations",
     plugin = {
         "pretty",                               // Generates readable console output

@@ -19,11 +19,19 @@ public class Constructor {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public void keyboardAction() throws AWTException
+    public void keyboardAction(String key) throws AWTException
+    {if(key.equalsIgnoreCase("Enter"))
     {
     	Robot rt=new Robot();
     	rt.keyPress(KeyEvent.VK_ENTER);
     	rt.keyRelease(KeyEvent.VK_ENTER);
+    }
+    else
+    {
+    	Robot rt=new Robot();
+    	rt.keyPress(KeyEvent.VK_DOWN);
+    	rt.keyRelease(KeyEvent.VK_DOWN);
+    }
     }
     
     

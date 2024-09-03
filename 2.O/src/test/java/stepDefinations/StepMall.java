@@ -7,17 +7,11 @@ import org.testng.Assert;
 import io.cucumber.java.en.*;
 public class StepMall extends StepBaseClass {
 
-//    private CommonComponents CC;
-//    private MallSetting MS;
+
     private String MallName = "Automative Mall";
     private String ModifyMallName = "AutoCumMan";
 
-//    public void setDriver() {
-//        CC = new CommonComponents(driver);
-//        MS = new MallSetting(driver);
-//    }
 
-    // Scenario: Successful Login with Valid Credentials
     @When("the MallUser link and mall tab is clicked")
     public void clickMallUserLinkAndMallTab() {
      ClassObjects.CC.selectPageLink("Mall Settings");
@@ -30,7 +24,7 @@ public class StepMall extends StepBaseClass {
         Assert.assertEquals(text.trim(), "Malls", "The mall page text is not valid.");
     }
 
-    // Scenario: Verify Mall Add Functionality
+  // Scenario: Verify Mall Add Functionality
     @When("the Add Mall button is clicked")
     public void clickAddMallButton() {
     	ClassObjects.MS.clickAddMall();
@@ -38,19 +32,19 @@ public class StepMall extends StepBaseClass {
 
     @Then("the user is on the Add Mall page")
     public void verifyUserIsOnAddMallPage() {
-        // Implement verification that the user is on the Add Mall page
+        
     }
 
     @When("all the necessary data is filled for new Mall")
-    public void fillInAllNecessaryData() {
+    public void fillInAllNecessaryData() throws AWTException, InterruptedException {
     	ClassObjects.MS.setName(MallName);
     	ClassObjects.MS.selectCity("Bidar");
     	ClassObjects.MS.selectArea("Noubad");
     	ClassObjects.MS.setCustomerNumber("1254876523");
     	ClassObjects.MS.setSupervisorNumber("4561237892");
-    	ClassObjects.MS.selectStatus("Active");
+    	ClassObjects.MS.selectStatus("Enabled");
     	ClassObjects.MS.selectLocation("Select all");
-    	ClassObjects.MS.selectGroup("Public");
+    	ClassObjects.MS.selectMallGroupDrop("Public");
     }
 
     @Then("the new Mall is verified")
@@ -59,9 +53,9 @@ public class StepMall extends StepBaseClass {
         Assert.assertEquals(text.trim(), MallName, "The new mall name is not valid.");
     }
 
-    // Scenario: Verify Mall Edit Functionality
+   // Scenario: Verify Mall Edit Functionality
     @When("a Mall is selected and the Edit button is clicked")
-    public void selectMallAndClickEdit() throws AWTException {
+    public void selectMallAndClickEdit() throws AWTException, InterruptedException {
     	ClassObjects.CC.searchField(MallName);
         ClassObjects.MS.clickEdit();
     }
@@ -78,7 +72,7 @@ public class StepMall extends StepBaseClass {
         Assert.assertEquals(text.trim(), ModifyMallName, "The modified mall name is not valid.");
     }
 
-    // Scenario: Verify Mall Delete Functionality
+ // Scenario: Verify Mall Delete Functionality
     @When("a mall is selected and the delete button is clicked")
     public void selectMallAndClickDelete() {
         // Implement selecting a mall and clicking the delete button

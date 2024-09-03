@@ -1,5 +1,6 @@
 package pom;
 
+import java.awt.AWTException;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -20,7 +21,8 @@ public class MallSetting extends Constructor
        for (WebElement option : tabLinksOfMallsetting) {
            if (option.getText().equalsIgnoreCase(tab)){
                option.click(); break; }   }   }
-   
+   //Home Page button
+   @FindBy(xpath="//button[@class='dropbtn_list_options action_btn_container']") WebElement kebabIcon;
    @FindBy(xpath="//a[text()='Add User']/..")        WebElement btnAddUser;
    @FindBy(xpath="//button[text()='Add Mall']")      WebElement btnAddMall;
    @FindBy(xpath="//button[text()='Add Slot']")      WebElement btnAddSlot;
@@ -39,10 +41,12 @@ public class MallSetting extends Constructor
    }
 
    public void clickDelete() {
-       btnDelete.click();
+       kebabIcon.click();
+	   btnDelete.click();
    }
 
    public void clickEdit() {
+	   kebabIcon.click();
        btnEdit.click();
    }
    //All Commpon Code For Add page
@@ -57,9 +61,10 @@ public class MallSetting extends Constructor
        fieldName.sendKeys(name);
    }
    
-   public void selectStatus(String Status) {
+   public void selectStatus(String Status) throws AWTException{
 	   Select status=new Select(dropStatus);
 	   status.selectByVisibleText(Status);
+	   keyboardAction("Scroll");
    }
    
    public void selectCity(String City) {
@@ -111,14 +116,14 @@ public class MallSetting extends Constructor
        fieldPassword.clear();
        fieldPassword.sendKeys(password);
        }  
-   
-   @FindBy(xpath="//span[text()='Select group']")          WebElement dropGroup;
+   //User Add page
+   @FindBy(xpath="//span[text()='Select group']")          WebElement UserdropGroup;
    @FindBy(xpath="//div[@id='groupDropDownMenu']/div")List<WebElement> optionsGroup;
    @FindBy(xpath="//select[@id='mallSelect']")   WebElement dropMall;
    @FindBy(xpath="//a[text()='Cancel']")         WebElement btnCancel;
 
    public void selectGroup(String group)       {
-       dropGroup.click();
+       UserdropGroup.click();
        for (WebElement option : optionsGroup) {
            if (option.getText().equalsIgnoreCase(group)){
                option.click(); break; }   }   }
@@ -132,9 +137,11 @@ public class MallSetting extends Constructor
        btnCancel.click();    }
 
    //Mall Add Page
+   @FindBy(xpath="//select[@id='group']")                  WebElement malldropGroup;
    @FindBy(xpath="//input[@id='customer_number']")         WebElement numberCustomer;
    @FindBy(xpath="//input[@id='supervisor_number']")       WebElement numberSuprevisor;
    @FindBy(xpath="//span[text()='Select Sub Locations']")  WebElement dropLocation;
+   @FindBy(xpath="//div[@class='label-div cities']/label") WebElement txtsublocation;
    @FindBy(xpath="//input[@id='selectAll']/../../div")List<WebElement> optionSubLocation;
    @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[1]")WebElement userName;
   
@@ -156,19 +163,20 @@ public class MallSetting extends Constructor
        dropLocation.click();
        for (WebElement option : optionSubLocation) {
            if (option.getText().equalsIgnoreCase(location)){
-               option.click(); break; }   }   }
-   
+               option.click();txtsublocation.click(); break; }   }   }
+  
+   public void selectMallGroupDrop(String group) {
+	   Select mall=new Select(malldropGroup);
+       mall.selectByVisibleText(group);   
+   }
    
  //Slot Add
    @FindBy(xpath="//select[@id='mall']")    WebElement selectSlotMall;
    @FindBy(xpath="//select[@id='intervel']")WebElement dropSlotInterval;
-   
    @FindBy(xpath="//input[@id='opentime']") WebElement fieldOpeningTime;
    @FindBy(xpath="//input[@id='closetime']")WebElement fieldClosingTime;
    @FindBy(xpath="//input[@id='limit']")    WebElement fieldSlotLimit;
-   
-   
-   	
+     	
    public void selectSlotMall(String mall) {
 	   Select mallSlot=new Select(selectSlotMall);
        mallSlot.selectByVisibleText(mall);
@@ -176,8 +184,7 @@ public class MallSetting extends Constructor
    
    public void selectSlotInterval(String interval) {
 	   Select SlotInterval=new Select(dropSlotInterval);
-	   SlotInterval.selectByVisibleText(interval);   
-   }
+	   SlotInterval.selectByVisibleText(interval); }
 
    public void setOpeningTime(String time) {
        fieldOpeningTime.clear();

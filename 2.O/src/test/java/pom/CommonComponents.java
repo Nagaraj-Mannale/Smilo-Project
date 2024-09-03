@@ -82,9 +82,10 @@ public class CommonComponents extends Constructor {
                 break;
             }    }    }
 
-    public void searchField(String value) throws AWTException {
-        fieldSearch.sendKeys(value);
-        keyboardAction();
+    public void searchField(String value) throws AWTException{
+        fieldSearch.clear();
+    	fieldSearch.sendKeys(value);
+        keyboardAction("Enter");
     }
 
     public String getHomePageText() {

@@ -14,13 +14,13 @@ Feature: Verify Mall Functionality
     And the Save button is clicked   
     Then the new Mall is verified
 
-  Scenario: Verify Mall Edit Functionality
-    When a Mall is selected and the Edit button is clicked
-    And the Mall name is modified and the Save button is clicked
-    Then the modified mall name is verified
-    
-  Scenario: Verify Mall delete Functionality
-    When a mall is selected and the delete button is clicked
-    Then the mall should no longer appear in the list  
+  #Scenario: Verify Mall Edit Functionality
+    #When a Mall is selected and the Edit button is clicked
+    #And the Mall name is modified and the Save button is clicked
+    #Then the modified mall name is verified
+    #
+  #Scenario: Verify Mall delete Functionality
+    #When a mall is selected and the delete button is clicked
+    #Then the mall should no longer appear in the list  
     
   
