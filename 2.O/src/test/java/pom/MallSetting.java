@@ -1,14 +1,17 @@
 package pom;
 
+
 import java.awt.AWTException;
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import basePage.Constructor;
+import stepDefinations.ClassObjects;
 
 public class MallSetting extends Constructor 
 {
@@ -43,6 +46,7 @@ public class MallSetting extends Constructor
    public void clickDelete() {
        kebabIcon.click();
 	   btnDelete.click();
+	   
    }
 
    public void clickEdit() {
@@ -61,10 +65,12 @@ public class MallSetting extends Constructor
        fieldName.sendKeys(name);
    }
    
-   public void selectStatus(String Status) throws AWTException{
+   public void selectStatus(String Status) {
 	   Select status=new Select(dropStatus);
 	   status.selectByVisibleText(Status);
-	   keyboardAction("Scroll");
+	   JavascriptExecutor js = (JavascriptExecutor) driver;
+	   js.executeScript("window.scrollBy(0,1000)");
+	  
    }
    
    public void selectCity(String City) {
@@ -143,7 +149,7 @@ public class MallSetting extends Constructor
    @FindBy(xpath="//span[text()='Select Sub Locations']")  WebElement dropLocation;
    @FindBy(xpath="//div[@class='label-div cities']/label") WebElement txtsublocation;
    @FindBy(xpath="//input[@id='selectAll']/../../div")List<WebElement> optionSubLocation;
-   @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[1]")WebElement userName;
+   @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[2]")WebElement userName;
   
    public String GetFirstRecUserName() {
 	   return userName.getText();
@@ -157,6 +163,7 @@ public class MallSetting extends Constructor
    public void setSupervisorNumber(String number) {
        numberSuprevisor.clear();
        numberSuprevisor.sendKeys(number);
+       
    }
   
    public void selectLocation(String location) {
@@ -171,12 +178,24 @@ public class MallSetting extends Constructor
    }
    
  //Slot Add
+   @FindBy(xpath="//h2[@class='heading2']") WebElement slotAddPagetex;
    @FindBy(xpath="//select[@id='mall']")    WebElement selectSlotMall;
    @FindBy(xpath="//select[@id='intervel']")WebElement dropSlotInterval;
    @FindBy(xpath="//input[@id='opentime']") WebElement fieldOpeningTime;
    @FindBy(xpath="//input[@id='closetime']")WebElement fieldClosingTime;
    @FindBy(xpath="//input[@id='limit']")    WebElement fieldSlotLimit;
-     	
+   @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[1]")WebElement slotHomeMallName;
+   @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[2]")WebElement OpeningTime;
+   @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[3]")WebElement ClosingTime;
+   public String getSlotHomeMallNameOpeningAndClosingTimeTexy() {
+	   return slotHomeMallName.getText()+" "+OpeningTime.getText()+" "+ClosingTime.getText();
+   } 
+   
+   
+   public String getSlotAddPageText() {
+	   return slotAddPagetex.getText();
+   } 
+   
    public void selectSlotMall(String mall) {
 	   Select mallSlot=new Select(selectSlotMall);
        mallSlot.selectByVisibleText(mall);
@@ -186,15 +205,17 @@ public class MallSetting extends Constructor
 	   Select SlotInterval=new Select(dropSlotInterval);
 	   SlotInterval.selectByVisibleText(interval); }
 
-   public void setOpeningTime(String time) {
-       fieldOpeningTime.clear();
-       fieldOpeningTime.sendKeys(time);    }
+   public void setOpeningTime(String time) throws AWTException {
+       fieldOpeningTime.sendKeys(time);  
+       ClassObjects.CR.keyboardAction("Enter");   
+       }
 
-   public void setClosingTime(String time) {
-       fieldClosingTime.clear();
-       fieldClosingTime.sendKeys(time);    }
+   public void setClosingTime(String time)throws AWTException {
+       fieldClosingTime.sendKeys(time);  
+       ClassObjects.CR.keyboardAction("Enter");}
 
    public void setSlotLimit(String limit)  {
-       fieldSlotLimit.clear();
+	   fieldSlotLimit.click();
+	   fieldSlotLimit.clear();
        fieldSlotLimit.sendKeys(limit);     }
 }

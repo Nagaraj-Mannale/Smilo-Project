@@ -8,7 +8,7 @@ import io.cucumber.java.en.*;
 public class StepMall extends StepBaseClass {
 
 
-    private String MallName = "Automative Mall";
+    private String MallName = "AutoCumMan1";
     private String ModifyMallName = "AutoCumMan";
 
 
@@ -48,38 +48,47 @@ public class StepMall extends StepBaseClass {
     }
 
     @Then("the new Mall is verified")
-    public void verifyNewMall() {
+    public void verifyNewMall() throws AWTException {
+    	ClassObjects.CC.searchField(MallName);
         String text = ClassObjects.MS.GetFirstRecUserName();
         Assert.assertEquals(text.trim(), MallName, "The new mall name is not valid.");
     }
 
    // Scenario: Verify Mall Edit Functionality
     @When("a Mall is selected and the Edit button is clicked")
-    public void selectMallAndClickEdit() throws AWTException, InterruptedException {
+    public void selectMallAndClickEdit() throws AWTException{
     	ClassObjects.CC.searchField(MallName);
         ClassObjects.MS.clickEdit();
     }
 
     @When("the Mall name is modified and the Save button is clicked")
-    public void modifyMallNameAndClickSave() {
+    public void modifyMallNameAndClickSave() throws InterruptedException {
     	ClassObjects.MS.setName(ModifyMallName);
+    	Thread.sleep(2000);
     	ClassObjects.MS.clickSave();
     }
 
     @Then("the modified mall name is verified")
-    public void verifyModifiedMallName() {
+    public void verifyModifiedMallName() throws AWTException {
+    	ClassObjects.CC.searchField(ModifyMallName);
         String text = ClassObjects.MS.GetFirstRecUserName();
         Assert.assertEquals(text.trim(), ModifyMallName, "The modified mall name is not valid.");
     }
 
  // Scenario: Verify Mall Delete Functionality
     @When("a mall is selected and the delete button is clicked")
-    public void selectMallAndClickDelete() {
-        // Implement selecting a mall and clicking the delete button
+    public void selectMallAndClickDelete() throws AWTException {
+    	ClassObjects.CC.searchField(ModifyMallName);
+    	ClassObjects.MS.clickDelete();
+    	ClassObjects.CC.deletePopupHandle("Yes");
+    	
     }
 
     @Then("the mall should no longer appear in the list")
-    public void verifyMallIsDeleted() {
-        // Implement verification that the mall is no longer in the list
+    public void verifyMallIsDeleted() throws AWTException {
+    	//ClassObjects.CC.searchField(ModifyMallName);
+    	String text=ClassObjects.CC.getSuccessMessage();
+    	Assert.assertEquals(text.trim(), "Mall deleted", "The mall is not deleted");
+    	
     }
 }

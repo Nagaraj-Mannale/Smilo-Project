@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="13.537" tests="2" skipped="0" failures="1" errors="0">
-<testcase classname="Verify Mall Functionality" name="Successful Login with Valid Credentials" time="10.622">
+<testsuite name="Cucumber" time="21.956" tests="3" skipped="0" failures="1" errors="0">
+<testcase classname="Verify Slot Functionality" name="Successful Login with Valid Credentials" time="9.823">
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................passed
 When the valid username and password are entered............................passed
 And the Login button is clicked.............................................passed
-And the MallUser link and mall tab is clicked...............................passed
-Then the Mall page text is validated........................................passed
+And the MallUser link and Slot tab is clicked...............................passed
+Then the Slot page text is validated........................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Mall Functionality" name="Verify Mall Add Functionality" time="2.665">
-<failure type="org.openqa.selenium.ElementClickInterceptedException" message="element click intercepted: Element is not clickable at point (656, 606)
+<testcase classname="Verify Slot Functionality" name="Verify Slot Add Functionality" time="11.852">
+<failure type="org.openqa.selenium.ElementNotInteractableException" message="element not interactable
   (Session info: chrome=127.0.6533.99)
 Build info: version: '4.11.0', revision: '040bc5406b'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-40-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [cf6021e91f9171f5f9dd7916c960c10f, clickElement {id=f.77D635DDFA4F479FEA22B6941A4B7ADD.d.43EFC407366A310C285601A1C75803FD.e.114}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.99, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:46765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:46765/devtoo..., se:cdpVersion: 127.0.6533.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on linux (cf6021e91f9171f5f9dd7916c960c10f)] -&gt; xpath: //input[@id='selectAll']/../../div]
-Session ID: cf6021e91f9171f5f9dd7916c960c10f">
-<![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (656, 606)
+Command: [625c5efc09fb46afbcd3bbe6d544ce8b, clickElement {id=f.3FEAD4CD6EF96F0EE121805B27CD59C8.d.5645260934A395D16BB0EC1787B645D9.e.119}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.99, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:39765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:39765/devtoo..., se:cdpVersion: 127.0.6533.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on linux (625c5efc09fb46afbcd3bbe6d544ce8b)] -&gt; xpath: //button[text()='Save']]
+Session ID: 625c5efc09fb46afbcd3bbe6d544ce8b">
+<![CDATA[org.openqa.selenium.ElementNotInteractableException: element not interactable
   (Session info: chrome=127.0.6533.99)
 Build info: version: '4.11.0', revision: '040bc5406b'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-40-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [cf6021e91f9171f5f9dd7916c960c10f, clickElement {id=f.77D635DDFA4F479FEA22B6941A4B7ADD.d.43EFC407366A310C285601A1C75803FD.e.114}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.99, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:46765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:46765/devtoo..., se:cdpVersion: 127.0.6533.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on linux (cf6021e91f9171f5f9dd7916c960c10f)] -> xpath: //input[@id='selectAll']/../../div]
-Session ID: cf6021e91f9171f5f9dd7916c960c10f
+Command: [625c5efc09fb46afbcd3bbe6d544ce8b, clickElement {id=f.3FEAD4CD6EF96F0EE121805B27CD59C8.d.5645260934A395D16BB0EC1787B645D9.e.119}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.99, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:39765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:39765/devtoo..., se:cdpVersion: 127.0.6533.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on linux (625c5efc09fb46afbcd3bbe6d544ce8b)] -> xpath: //button[text()='Save']]
+Session ID: 625c5efc09fb46afbcd3bbe6d544ce8b
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -42,17 +42,30 @@ Session ID: cf6021e91f9171f5f9dd7916c960c10f
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
-	at pom.MallSetting.selectLocation(MallSetting.java:166)
-	at stepDefinations.StepMall.fillInAllNecessaryData(StepMall.java:46)
-	at ✽.all the necessary data is filled for new Mall(file:///home/active35/eclipse-workspace/2.O/src/test/resources/Feature%20file/Mall.feature:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy28.click(Unknown Source)
+	at pom.MallSetting.clickSave(MallSetting.java:87)
+	at stepDefinations.StepMallUser.theSaveButtonIsClicked(StepMallUser.java:46)
+	at ✽.the Save button is clicked(file:///home/active35/eclipse-workspace/2.O/src/test/resources/Feature%20file/Slot.feature:14)
 ]]>
 </failure>
 <system-out><![CDATA[
-When the Add Mall button is clicked.........................................passed
-Then the user is on the Add Mall page.......................................passed
-When all the necessary data is filled for new Mall..........................failed
-And the Save button is clicked..............................................skipped
-Then the new Mall is verified...............................................skipped
+When the Add Slot button is clicked.........................................passed
+Then the user is on the Add Slot page.......................................passed
+When all the necessary data is filled for new Slot..........................passed
+And the Save button is clicked..............................................failed
+Then the new Slot is verified...............................................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Verify Slot Functionality" name="Verify Slot Edit Functionality" time="0.003">
+<system-out><![CDATA[
+When a Slot is selected and the Edit button is clicked......................passed
+And the Slot name is modified and the Save button is clicked................passed
+Then the modified Slot name is verified.....................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

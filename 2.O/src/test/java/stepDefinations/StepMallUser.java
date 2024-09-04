@@ -15,7 +15,7 @@ public class StepMallUser extends StepBaseClass {
 	@Then("the User page text is validated")
 	public void theMallPageTextIsValidated() {
 	      String text = ClassObjects.CC.getHomePageText();;
-	      Assert.assertEquals(text.trim().equalsIgnoreCase("Users"), true, "The lead page text is not valid.");
+	      Assert.assertEquals(text.trim().equalsIgnoreCase("Users"), true, "The Mall page text is not valid.");
 
 	}
 
