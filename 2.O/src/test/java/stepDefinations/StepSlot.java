@@ -31,12 +31,12 @@ public class StepSlot
 //		Assert.assertEquals(text.trim(), "Add Slot", "The new mall name is not valid.");
 	}
     
-    String mall = "Retest Mall-- HSR Layout, Bengaluru";
+    String mall = "sep5-- Austin Town, Bengaluru";
     String openingTime = "12";
-    String closingTime = "2";
+    String closingTime = "10";
     
 	@When("all the necessary data is filled for new Slot")
-	public void allTheNecessaryDataIsFilledForNewSlot() throws AWTException {
+	public void allTheNecessaryDataIsFilledForNewSlot() throws AWTException, InterruptedException {
 	     ClassObjects.MS.selectSlotMall(mall);
 	     ClassObjects.MS.setOpeningTime(openingTime);
 	     ClassObjects.MS.setClosingTime(closingTime);
@@ -49,22 +49,30 @@ public class StepSlot
 	public void theNewSlotIsVerified() throws AWTException {
 		ClassObjects.CC.searchField(mall);
         String text = ClassObjects.MS.getSlotHomeMallNameOpeningAndClosingTimeTexy();
-        Assert.assertEquals(text.trim(), mall + " " + openingTime + " " + closingTime, "The new mall name is not valid.");
+        Assert.assertEquals(text.trim(), mall + " " + openingTime+":00 PM" + " " + closingTime+":00 PM", "The new mall name is not valid.");
 	}
 
 	@When("a Slot is selected and the Edit button is clicked")
-	public void aSlotIsSelectedAndTheEditButtonIsClicked() {
-	     
+	public void aSlotIsSelectedAndTheEditButtonIsClicked() throws AWTException {
+		ClassObjects.CC.searchField(mall);
+		ClassObjects.MS.clickEdit();
+		
 	}
-
+	String modopeningTime = "12";
+    String modclosingTime = "12";
+    
 	@When("the Slot name is modified and the Save button is clicked")
-	public void theSlotNameIsModifiedAndTheSaveButtonIsClicked() {
-	     
+	public void theSlotNameIsModifiedAndTheSaveButtonIsClicked() throws AWTException{
+		ClassObjects.MS.setOpeningTime(modopeningTime);
+	     ClassObjects.MS.setClosingTime(modclosingTime);
 	}
 
 	@Then("the modified Slot name is verified")
-	public void theModifiedSlotNameIsVerified() {
-	     
+	public void theModifiedSlotNameIsVerified() throws AWTException {
+		ClassObjects.CC.searchField(mall);
+		String text = ClassObjects.MS.getSlotHomeMallNameOpeningAndClosingTimeTexy();
+        Assert.assertEquals(text.trim(), mall + " " + modopeningTime+":00 PM" + " " + modclosingTime+":00 PM", "The new mall name is not valid.");
+
 	}
 	
 }

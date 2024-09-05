@@ -30,10 +30,10 @@
     <fullyQualifiedTypeName name="pom.CommonComponents"/>
     <fullyQualifiedTypeName name="pom.Orders"/>
     <fullyQualifiedTypeName name="basePage.Constructor"/>
-    <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
     <fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
     <fullyQualifiedTypeName name="io.cucumber.junit.Cucumber"/>
     <fullyQualifiedTypeName name="io.cucumber.junit.CucumberOptions"/>
     <fullyQualifiedTypeName name="stepDefinations.ClassObjects"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
 </qualifiedTypeNameHistroy>

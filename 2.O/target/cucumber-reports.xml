@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="21.956" tests="3" skipped="0" failures="1" errors="0">
-<testcase classname="Verify Slot Functionality" name="Successful Login with Valid Credentials" time="9.823">
+<testsuite name="Cucumber" time="11.954" tests="2" skipped="0" failures="1" errors="0">
+<testcase classname="Verify Slot Functionality" name="Successful Login with Valid Credentials" time="9.454">
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................passed
 When the valid username and password are entered............................passed
@@ -9,63 +9,22 @@ And the MallUser link and Slot tab is clicked...............................pass
 Then the Slot page text is validated........................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Slot Functionality" name="Verify Slot Add Functionality" time="11.852">
-<failure type="org.openqa.selenium.ElementNotInteractableException" message="element not interactable
-  (Session info: chrome=127.0.6533.99)
-Build info: version: '4.11.0', revision: '040bc5406b'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-40-generic', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [625c5efc09fb46afbcd3bbe6d544ce8b, clickElement {id=f.3FEAD4CD6EF96F0EE121805B27CD59C8.d.5645260934A395D16BB0EC1787B645D9.e.119}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.99, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:39765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:39765/devtoo..., se:cdpVersion: 127.0.6533.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on linux (625c5efc09fb46afbcd3bbe6d544ce8b)] -&gt; xpath: //button[text()='Save']]
-Session ID: 625c5efc09fb46afbcd3bbe6d544ce8b">
-<![CDATA[org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=127.0.6533.99)
-Build info: version: '4.11.0', revision: '040bc5406b'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-40-generic', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [625c5efc09fb46afbcd3bbe6d544ce8b, clickElement {id=f.3FEAD4CD6EF96F0EE121805B27CD59C8.d.5645260934A395D16BB0EC1787B645D9.e.119}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.99, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:39765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:39765/devtoo..., se:cdpVersion: 127.0.6533.99, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on linux (625c5efc09fb46afbcd3bbe6d544ce8b)] -> xpath: //button[text()='Save']]
-Session ID: 625c5efc09fb46afbcd3bbe6d544ce8b
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy28.click(Unknown Source)
-	at pom.MallSetting.clickSave(MallSetting.java:87)
-	at stepDefinations.StepMallUser.theSaveButtonIsClicked(StepMallUser.java:46)
-	at ✽.the Save button is clicked(file:///home/active35/eclipse-workspace/2.O/src/test/resources/Feature%20file/Slot.feature:14)
+<testcase classname="Verify Slot Functionality" name="Verify Slot Edit Functionality" time="2.255">
+<failure type="java.lang.AssertionError" message="The new mall name is not valid. expected [sep5-- Austin Town, Bengaluru 12:00 PM 12:00 PM] but found [sep5-- Austin Town, Bengaluru 12:00 PM 10:00 PM]">
+<![CDATA[java.lang.AssertionError: The new mall name is not valid. expected [sep5-- Austin Town, Bengaluru 12:00 PM 12:00 PM] but found [sep5-- Austin Town, Bengaluru 12:00 PM 10:00 PM]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at stepDefinations.StepSlot.theModifiedSlotNameIsVerified(StepSlot.java:74)
+	at ✽.the modified Slot name is verified(file:///home/active35/eclipse-workspace/2.O/src/test/resources/Feature%20file/Slot.feature:20)
 ]]>
 </failure>
 <system-out><![CDATA[
-When the Add Slot button is clicked.........................................passed
-Then the user is on the Add Slot page.......................................passed
-When all the necessary data is filled for new Slot..........................passed
-And the Save button is clicked..............................................failed
-Then the new Slot is verified...............................................skipped
-]]></system-out>
-</testcase>
-<testcase classname="Verify Slot Functionality" name="Verify Slot Edit Functionality" time="0.003">
-<system-out><![CDATA[
 When a Slot is selected and the Edit button is clicked......................passed
 And the Slot name is modified and the Save button is clicked................passed
-Then the modified Slot name is verified.....................................passed
+Then the modified Slot name is verified.....................................failed
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -84,7 +84,9 @@ public class MallSetting extends Constructor
    }
 
    public void clickSave() {
-       btnSave.click();
+	   JavascriptExecutor js = (JavascriptExecutor) driver;
+	   js.executeScript("arguments[0].click();", btnSave);
+	  // btnSave.click();
    }
    
    //User Add Page
@@ -186,7 +188,9 @@ public class MallSetting extends Constructor
    @FindBy(xpath="//input[@id='limit']")    WebElement fieldSlotLimit;
    @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[1]")WebElement slotHomeMallName;
    @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[2]")WebElement OpeningTime;
+   @FindBy(xpath="(//input[@aria-label='Hour'])[1]")WebElement openingHour;
    @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[3]")WebElement ClosingTime;
+   @FindBy(xpath="(//input[@aria-label='Hour'])[2]")WebElement closingHour;
    public String getSlotHomeMallNameOpeningAndClosingTimeTexy() {
 	   return slotHomeMallName.getText()+" "+OpeningTime.getText()+" "+ClosingTime.getText();
    } 
@@ -205,13 +209,16 @@ public class MallSetting extends Constructor
 	   Select SlotInterval=new Select(dropSlotInterval);
 	   SlotInterval.selectByVisibleText(interval); }
 
-   public void setOpeningTime(String time) throws AWTException {
-       fieldOpeningTime.sendKeys(time);  
+   public void setOpeningTime(String time) throws AWTException{
+       fieldOpeningTime.click();
+       openingHour.sendKeys(time);
        ClassObjects.CR.keyboardAction("Enter");   
-       }
+   
+   }
 
    public void setClosingTime(String time)throws AWTException {
-       fieldClosingTime.sendKeys(time);  
+	   fieldClosingTime.click();
+	   closingHour.sendKeys(time); 
        ClassObjects.CR.keyboardAction("Enter");}
 
    public void setSlotLimit(String limit)  {
