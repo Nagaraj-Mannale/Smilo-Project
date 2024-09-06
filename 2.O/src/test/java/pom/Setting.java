@@ -14,7 +14,7 @@ public class Setting extends Constructor
   {
 	super(driver);
   }
-  @FindBy(xpath="//ul[@class='sub-nav-ul loader']")List<WebElement> settingPageLinks;
+  @FindBy(xpath="//ul[@class='sub-nav-ul loader']/li")List<WebElement> settingPageLinks;
   public void clickOnSettinglink(String page)  {
   for(WebElement link:settingPageLinks)  {
 	  if(link.getText().equalsIgnoreCase(page))  {
@@ -22,17 +22,27 @@ public class Setting extends Constructor
   
   @FindBy(xpath="//a[text()='Catagories']/../../li")List<WebElement> optionsOfProductandService; 
   public void selectProductandServiceOption(String page) {
-	 for(WebElement link:optionsOfProductandService){
+	  for(WebElement link:optionsOfProductandService){
 		 if(link.getText().equalsIgnoreCase(page)){
-			 link.click();break; }	}  }
+			 link.click();link.click();break; }	}  }
  
 //Category Page
-  @FindBy(xpath="//div[@class='icon-heading second-heading']") WebElement HomePageHeading;
+  @FindBy(xpath="//div[@class='icon-heading second-heading' and contains(text(),'Category')]") WebElement HomePageHeading;
+  @FindBy(xpath="//tbody[@class='ui-sortable']/tr/td[2]") WebElement catName;
+  @FindBy(xpath="//tbody[@class='ui-sortable']/tr/td[3]//span[2]")WebElement statustext;
   @FindBy(xpath="//a[text()='Add New']")        WebElement addButton;
   @FindBy(xpath="//button[@type='button']")     WebElement kebabIcon;
   @FindBy(xpath="//div[@class='dropdown-content_list_options']/a")List<WebElement> kebaboptionsED;
   @FindBy(xpath="//button[text()='Save Order']")WebElement  saveOrder;
 
+public String getCategoryFirstRecordName()
+{
+	return catName.getText();
+}
+public String getCategoryFirstRecordStatus()
+{
+	return statustext.getText();
+}
 public String getHomePageHeading() {
    return HomePageHeading.getText();
 }
@@ -42,10 +52,10 @@ public void clickAddButton() {
 }
 
 public void selectKebabOption(String optionText) {
-    kebabIcon.click();
 	for (WebElement option : kebaboptionsED) {
        if (option.getText().equals(optionText)) {
-           option.click();break; }  }  }
+    	   kebabIcon.click();
+    	   option.click();break; }  }  }
 
 public void clickSaveOrder() {
    saveOrder.click();

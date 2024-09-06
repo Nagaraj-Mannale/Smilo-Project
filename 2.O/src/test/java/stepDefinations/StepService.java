@@ -3,7 +3,7 @@ package stepDefinations;
 import io.cucumber.java.en.*;
 
 public class StepService {
-	@When("the {string} link is clicked, followed by the {string} tab, then {string}")
+	@When("the Settings link is clicked, followed by the Serv&Cat tab, then Service")
 	public void theLinkIsClickedFollowedByTheTabThen(String link, String tab, String option) {
 	 
 	}
@@ -13,12 +13,16 @@ public class StepService {
 	 
 	}
 
-	@When("the {string} button is clicked")
-	public void theButtonIsClicked(String button) {
-	 
+//	@When("the Save button is clicked")
+//	public void theSaveButtonIsClicked() {
+//	 
+//	}
+	@When("the Add Service button is clicked")
+	public void theAddServiceButtonIsClicked( ) {
+	    
 	}
 
-	@Then("the user should be redirected to the Service Mall page")
+	@Then("the user should be redirected to the Service Add page")
 	public void theUserShouldBeRedirectedToTheServiceMallPage() {
 	 
 	}
@@ -33,13 +37,13 @@ public class StepService {
 	 
 	}
 
-	@When("a Service is selected and the {string} button is clicked")
-	public void aServiceIsSelectedAndTheButtonIsClicked(String button) {
+	@When("a Service is selected and the Edit button is clicked")
+	public void aServiceIsSelectedAndTheEditButtonIsClicked( ) {
 	 
 	}
 
-	@When("the Service name is modified and the {string} button is clicked")
-	public void theServiceNameIsModifiedAndTheButtonIsClicked(String button) {
+	@When("the Service name is modified and the Save button is clicked")
+	public void theServiceNameIsModifiedAndTheButtonIsClicked( ) {
 	 
 	}
 
@@ -47,11 +51,16 @@ public class StepService {
 	public void theModifiedServiceNameIsVerified() {
 	 
 	}
+	@When("a Service is selected and the Delete button is clicked")
+	public void aServiceIsSelectedAndTheDeleteButtonIsClicked( ) {
+	 
+	}
 
 	@Then("the Service should no longer appear in the list")
 	public void theServiceShouldNoLongerAppearInTheList() {
 	 
 	}
+	
 
 
 }

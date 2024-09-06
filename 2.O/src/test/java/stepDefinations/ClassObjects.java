@@ -8,6 +8,7 @@ import pom.LoginPage;
 import pom.MallSetting;
 import pom.Orders;
 import pom.Serviceman;
+import pom.Setting;
 
 public class ClassObjects extends StepBaseClass 
 {
@@ -19,6 +20,7 @@ public class ClassObjects extends StepBaseClass
     public static MallSetting MS;
     public static Orders OR;
     public static Serviceman SM;
+    public static Setting SG;
 
     public ClassObjects() {
         // Constructor to initialize all page objects
@@ -30,5 +32,6 @@ public class ClassObjects extends StepBaseClass
         MS = new MallSetting(driver);
         OR = new Orders(driver);
         SM = new Serviceman(driver);
-    }
+        SG=new Setting(driver);
+    } 
 }
