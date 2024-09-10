@@ -42,7 +42,7 @@ public class StepSlot
 	     ClassObjects.MS.setClosingTime(closingTime);
 	     ClassObjects.MS.setSlotLimit("25");
 	     ClassObjects.MS.selectSlotInterval("15 minutes");
-	     ClassObjects.MS.clickSave();
+	     ClassObjects.MS.clickonSaveButton();
 	}
 
 	@Then("the new Slot is verified")

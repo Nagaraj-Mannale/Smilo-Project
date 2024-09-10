@@ -5,7 +5,9 @@ import io.cucumber.java.en.*;
 public class StepProduct {
 	@When("the Settings link is clicked, followed by the Serv&Cat tab, then Product")
 	public void theLinkIsClickedFollowedByTheTabThen(String link, String tab, String option) {
-	    
+		 ClassObjects.CC.selectPageLink("Settings");
+	        ClassObjects.SG.clickOnSettingLink("Product & Services");
+	        ClassObjects.SG.selectProductAndServiceOption("Product");
 	}
 
 	@Then("the Product page text is validated")

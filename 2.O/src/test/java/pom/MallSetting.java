@@ -83,7 +83,7 @@ public class MallSetting extends Constructor
 	  area.selectByVisibleText(Area);
    }
 
-   public void clickSave() {
+   public void clickonSaveButton() {
 	   JavascriptExecutor js = (JavascriptExecutor) driver;
 	   js.executeScript("arguments[0].click();", btnSave);
 	  // btnSave.click();

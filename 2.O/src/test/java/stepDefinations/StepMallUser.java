@@ -43,7 +43,7 @@ public class StepMallUser extends StepBaseClass {
 
 	@When("the Save button is clicked")
 	public void theSaveButtonIsClicked() {
-		ClassObjects.MS.clickSave();
+		ClassObjects.MS.clickonSaveButton();
 	}
 
 	@Then("the new MallUser is verified")
@@ -61,7 +61,7 @@ public class StepMallUser extends StepBaseClass {
 	@When("the name is modified and the Save button is clicked")
 	public void theNameIsModifiedAndTheSaveButtonIsClicked() {
 		ClassObjects.MS.setName(ModifiedUserName);
-		ClassObjects.MS.clickSave();
+		ClassObjects.MS.clickonSaveButton();
 	}
 
 	@Then("the modified user name is verified")

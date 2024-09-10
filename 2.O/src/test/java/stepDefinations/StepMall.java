@@ -65,7 +65,7 @@ public class StepMall extends StepBaseClass {
     public void modifyMallNameAndClickSave() throws InterruptedException {
     	ClassObjects.MS.setName(ModifyMallName);
     	Thread.sleep(2000);
-    	ClassObjects.MS.clickSave();
+    	ClassObjects.MS.clickonSaveButton();
     }
 
     @Then("the modified mall name is verified")

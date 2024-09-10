@@ -10,8 +10,8 @@ import io.cucumber.junit.CucumberOptions;
 	features = "src/test/resources/Feature file/Category.feature",
 	glue="stepDefinations",
 	plugin= {
-			"html:target/cucumber-reports.html",
-	        "json:target/cucumber-reports.json",
+			"html:target/cucumber-reports.html",	
+	        "json:target/cucumber-reports.json", 
 	        "junit:target/cucumber-reports.xml"
 	    },
 	    monochrome = true,
