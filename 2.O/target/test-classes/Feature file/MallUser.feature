@@ -13,11 +13,12 @@ Feature: Verify MallUser Functionality
     When all the necessary data is filled
     And the Save button is clicked   
     Then the new MallUser is verified
-#
-  #Scenario: Verify MallUser Edit Functionality
-    #When a user is selected and the Edit button is clicked
-    #And the name is modified and the Save button is clicked
-    #Then the modified user name is verified
+
+  Scenario: Verify MallUser Edit Functionality
+    When a user is selected and the Edit button is clicked
+    And the Username is modified
+    And the Save button is clicked
+    Then the modified user name is verified
     
   Scenario: Verify MallUser delete Functionality
     When a user is selected and the delete button is clicked

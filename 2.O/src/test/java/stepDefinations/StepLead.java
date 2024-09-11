@@ -16,8 +16,7 @@ public class StepLead extends StepBaseClass {
 
     @Then("the lead page text is validated")
     public void theLeadPageTextIsValidated() {
-        String text = ClassObjects.CC.getHomePageText();
-        Assert.assertEquals(text.trim().equalsIgnoreCase("Lead"), true, "The lead page text is not valid.");
+         Assert.assertEquals(ClassObjects.LD.getLeadHomePageText(),"Lead");
     }
 
     @When("the Import button is clicked")
@@ -27,14 +26,12 @@ public class StepLead extends StepBaseClass {
 
     @When("the Add button is clicked")
     public void theAddButtonIsClicked() {
-//        lead = new Lead(driver);
         ClassObjects.LD.clickAddButton();
     }
 
     @Then("the lead add page text is validated")
     public void theLeadAddPageTextIsValidated() {
-        String text = ClassObjects.LD.getText();
-        Assert.assertEquals(text.trim().equalsIgnoreCase("Add Leads"), true, "The lead add page text is not valid.");
+      Assert.assertEquals(ClassObjects.LD.getLeadAddPageText(),"Add Leads");
     }
 
     @When("the user navigates back to the lead home page")

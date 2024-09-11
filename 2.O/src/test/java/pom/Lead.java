@@ -12,25 +12,17 @@ public class Lead extends Constructor {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[text()='Profile']/../../../../div[1]//span") 
-    private WebElement leadAddPageText;
-
-    @FindBy(xpath = "//button[text()='Import']")     
-    private WebElement btnImport;
-
-    @FindBy(xpath = "//a[text()='Add']")              
-    private WebElement btnAdd;
-
-    @FindBy(xpath = "//button[@id='convert_button']") 
-    private WebElement btnConvert;
-
-    @FindBy(xpath = "//button[text()='Delete']")      
-    private WebElement btnDelete;
-
-    @FindBy(xpath = "//a[@id='export_btn']")          
-    private WebElement linkExport;
-
-    public String getText() {
+    @FindBy(xpath = "//span[text()='Add Leads']")     private WebElement leadAddPageText;
+    @FindBy(xpath = "//button[text()='Import']")      private WebElement btnImport;
+    @FindBy(xpath = "//a[text()='Add']")              private WebElement btnAdd;            
+    @FindBy(xpath = "//button[@id='convert_button']") private WebElement btnConvert;
+    @FindBy(xpath = "//button[text()='Delete']")      private WebElement btnDelete;    
+    @FindBy(xpath = "//a[@id='export_btn']")          private WebElement linkExport;        
+    @FindBy(xpath="(//span[text()='Lead'])[2]")       private WebElement HomePageText;
+    public String getLeadHomePageText() {
+        return HomePageText.getText();
+    }
+    public String getLeadAddPageText() {
         return leadAddPageText.getText();
     }
 

@@ -10,12 +10,14 @@ Then the Category page text is validated
 Scenario: Verify Category Add Functionality
 When the Add Category button is clicked
 Then the user should be redirected to the Category add page
-When all the necessary data is entered for the new Category and the Save button is clicked
+When all the necessary data is entered for the new Category
+And the Save button is clicked 
 Then the newly added Category is verified
 
 Scenario: Verify Category Edit Functionality
 When a Category is selected and the Edit button is clicked
-And the Category name is modified and the Save button is clicked
+And the Category name is modified 
+And clicks the Save Changes button
 Then the modified Category name is verified
 
 Scenario: Verify Category Delete Functionality

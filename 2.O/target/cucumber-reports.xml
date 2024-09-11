@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="23.321" tests="4" skipped="0" failures="0" errors="0">
-<testcase classname="Verify the Category Feature" name="Successful Login with Valid Credentials" time="14.68">
+<testsuite name="Cucumber" time="27.539" tests="4" skipped="0" failures="0" errors="0">
+<testcase classname="Verify MallUser Functionality" name="Successful Login with Valid Credentials" time="13.438">
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................passed
 When the valid username and password are entered............................passed
 And the Login button is clicked.............................................passed
-And the Settings link is clicked, followed by the Serv&Cat tab, then Category.passed
-Then the Category page text is validated....................................passed
+And the MallUser link is clicked............................................passed
+Then the User page text is validated........................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Category Feature" name="Verify Category Add Functionality" time="2.674">
+<testcase classname="Verify MallUser Functionality" name="Verify MallUser Add Functionality" time="4.133">
 <system-out><![CDATA[
-When the Add Category button is clicked.....................................passed
-Then the user should be redirected to the Category add page.................passed
-When all the necessary data is entered for the new Category and the Save button is clicked.passed
-Then the newly added Category is verified...................................passed
+When the Add User button is clicked.........................................passed
+Then the user is on the Add User page.......................................passed
+When all the necessary data is filled.......................................passed
+And the Save button is clicked..............................................passed
+Then the new MallUser is verified...........................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Category Feature" name="Verify Category Edit Functionality" time="3.071">
+<testcase classname="Verify MallUser Functionality" name="Verify MallUser Edit Functionality" time="6.94">
 <system-out><![CDATA[
-When a Category is selected and the Edit button is clicked..................passed
-And the Category name is modified and the Save button is clicked............passed
-Then the modified Category name is verified.................................passed
+When a user is selected and the Edit button is clicked......................passed
+And the Username is modified................................................passed
+And the Save button is clicked..............................................passed
+Then the modified user name is verified.....................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Category Feature" name="Verify Category Delete Functionality" time="2.599">
+<testcase classname="Verify MallUser Functionality" name="Verify MallUser delete Functionality" time="2.639">
 <system-out><![CDATA[
-When a Category is selected and the Delete button is clicked................passed
-Then the Category should no longer appear in the list.......................passed
+When a user is selected and the delete button is clicked....................passed
+Then the user should no longer appear in the list...........................passed
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -14,9 +14,7 @@ public class StepMallUser extends StepBaseClass {
 
 	@Then("the User page text is validated")
 	public void theMallPageTextIsValidated() {
-	      String text = ClassObjects.CC.getHomePageText();;
-	      Assert.assertEquals(text.trim().equalsIgnoreCase("Users"), true, "The Mall page text is not valid.");
-
+	      Assert.assertEquals(ClassObjects.MS.getUserHomePageText(),"Users");
 	}
 
 	@When("the Add User button is clicked")
@@ -26,8 +24,7 @@ public class StepMallUser extends StepBaseClass {
 
 	@Then("the user is on the Add User page")
 	public void theUserIsOnTheAddMallPage() {
-		String text = ClassObjects.MS.userAddPageText();
-	    Assert.assertEquals(text.trim().equalsIgnoreCase("Add User"), true, "The lead page text is not valid.");
+	    Assert.assertEquals(ClassObjects.MS.getUserAddPageText(),"Add User");
   
 	}
      String Usermail="tester@5gmail.com";
@@ -43,13 +40,12 @@ public class StepMallUser extends StepBaseClass {
 
 	@When("the Save button is clicked")
 	public void theSaveButtonIsClicked() {
-		ClassObjects.MS.clickonSaveButton();
+		ClassObjects.CC.clickonSaveButton();
 	}
 
 	@Then("the new MallUser is verified")
 	public void theNewMallUserIsVerified() {
-		String text = ClassObjects.MS.GetFirstRecUserName();
-	    Assert.assertEquals(text.trim().equalsIgnoreCase("Tester"), true, "The lead page text is not valid."); 
+		Assert.assertEquals(ClassObjects.MS.GetFirstRecUserName(),"Tester");
 	}
 
 	@When("a user is selected and the Edit button is clicked")
@@ -57,19 +53,17 @@ public class StepMallUser extends StepBaseClass {
 		ClassObjects.CC.searchField(Usermail);
 	    ClassObjects.MS.clickEdit();
 	}
-    String ModifiedUserName="Tester";
-	@When("the name is modified and the Save button is clicked")
-	public void theNameIsModifiedAndTheSaveButtonIsClicked() {
+    String ModifiedUserName="Tester2";
+	@When("the Username is modified")
+	public void theUserNameIsModified() {
 		ClassObjects.MS.setName(ModifiedUserName);
-		ClassObjects.MS.clickonSaveButton();
 	}
 
 	@Then("the modified user name is verified")
 	public void theModifiedUserNameIsVerified() throws AWTException {
 		ClassObjects.CC.searchField(Usermail);
-		String text = ClassObjects.MS.GetFirstRecUserName();
-	    Assert.assertEquals(text.trim().equalsIgnoreCase(ModifiedUserName), true, "The lead page text is not valid.");
-	}
+	    Assert.assertEquals(ClassObjects.MS.GetFirstRecUserName(),ModifiedUserName);
+	    }
 	@When("a user is selected and the delete button is clicked")
 	public void selectUserAndClickDelete() throws AWTException {
 		ClassObjects.CC.searchField(ModifiedUserName);
@@ -81,9 +75,8 @@ public class StepMallUser extends StepBaseClass {
 	}
 	@Then("the user should no longer appear in the list")
 	public void verifyUserIsDeletedByName() throws AWTException {
-//		ClassObjects.CC.searchField(Usermail);
-//		String text = ClassObjects.CC.getEmptyPageText();
-//	    Assert.assertEquals(text.trim().equalsIgnoreCase("No Users Found!"), true, "The user is not valid.");
+	ClassObjects.CC.searchField(Usermail);
+    Assert.assertEquals(ClassObjects.MS.getUserPageEmptyText(),"No Users Found!");
 		
 	}
 	

@@ -17,7 +17,7 @@ public class Setting extends Constructor {
     @FindBy(xpath = "//ul[@class='sub-nav-ul loader']/li")    List<WebElement> settingPageLinks;  
     @FindBy(xpath = "(//div[@class='sub-dropdown'])[2]/ul/li/a")List<WebElement> optionsOfProductAndService;
     
-    public String getCategoryEmptyPageText() {
+    public String getCatProdAndServicePageEmptyText() {
         return catDeletetext.getText();
     }
 
@@ -35,11 +35,11 @@ public class Setting extends Constructor {
             	if (link.getText().equalsIgnoreCase(page)) {
                 link.click();break;  }  }  }
                 
-    // Category Page
+// Category Page
     @FindBy(xpath = "//a[text()='Category']")                 WebElement catHomePageHeading;
     @FindBy(xpath = "//tbody[@class='ui-sortable']/tr/td[2]") WebElement categoryName;
     @FindBy(xpath = "//tbody[@class='ui-sortable']/tr/td[3]//span[2]")   WebElement statusText;
-    @FindBy(xpath = "//a[text()='Add New']")                  WebElement addButton;
+    @FindBy(xpath = "//a[text()='Add New']")                  WebElement addButton;//Service And Subscription Add Button
     @FindBy(xpath = "//button[@type='button']")               WebElement kebabIcon;
     @FindBy(xpath = "//span[@class='material-symbols-outlined']") List<WebElement> kebabOptionsED;
     @FindBy(xpath = "//button[text()='Save Order']")          WebElement saveOrder;
@@ -59,92 +59,117 @@ public class Setting extends Constructor {
     public void selectKebabOption(String optionText) {
     	kebabIcon.click();
     	for (WebElement option : kebabOptionsED) {
-            if (option.getText().equals(optionText)) {
+            if (option.getText().equalsIgnoreCase(optionText)) {
             	option.click(); break;   }   }   }
-
-               
+          
     public void clickSaveOrder() 
         { saveOrder.click();}
   
-    @FindBy(xpath = "//input[@id='name']")        WebElement categoryNameInput;
+    @FindBy(xpath = "//input[@id='name']")        WebElement nameInput;
     @FindBy(xpath = "//span[@class='slider toggle']")WebElement sliderStatus;
-    //Category Add Page
-    @FindBy(xpath = "//a[text()='Add Category']") WebElement addPageHeading;
-    @FindBy(xpath = "//select[@id='type']")       WebElement selectType;
     
-    @FindBy(xpath = "//a[text()='Cancel']")       WebElement btnCancel;
+//Category Add Page
+    @FindBy(xpath = "//a[text()='Add Category']") WebElement addPageHeading;
+    @FindBy(xpath = "//select[@id='type']")       WebElement selectTypeOfCategory;
+    
     
     public String getCatAddPageHeading() {
         return addPageHeading.getText(); }
 
-    public void enterCategoryName(String name) {
-        categoryNameInput.clear();
-        categoryNameInput.sendKeys(name);      }
+    public void enterCatOrProduOrServiceName(String name) {
+        nameInput.clear();
+        nameInput.sendKeys(name);      }
 
-    public void selectCategoryType(String type) {
-        Select select = new Select(selectType);
+    public void selectCategoryTypeEitherProductOrService(String type) {
+        Select select = new Select(selectTypeOfCategory);
         select.selectByVisibleText(type);       }
 
-    public void toggleSliderStatus() {
-        sliderStatus.click();        }
-
-    public void clickCancelButton() {
-        btnCancel.click();          }
+    public void toggleSliderForStatus() {
+        sliderStatus.click();           }
     
-    //Product page
-    @FindBy(xpath="////a[text()='Products']") WebElement pHomePageText;
-    public String productHomePagetext() { 
-    	return pHomePageText.getText(); }
+//Product Home and Add page
+    @FindBy(xpath="//th[text()='Product ID']/../../../tbody//td[2]")private WebElement prodFirstRecordText;
+    @FindBy(xpath="//a[text()='Products']")   private WebElement productHomePageText;
+    @FindBy(xpath="//a[text()='Add Product']")private WebElement productAddPageText;
+    @FindBy(xpath="//input[@id='quantity']")  private WebElement fieldQuantity;
+    @FindBy(xpath="//input[@id='hsn']")       private WebElement fieldHsn;
+    @FindBy(xpath="//input[@id='max']")       private WebElement maxQuntity;
     
-    //Service Page
-    @FindBy(xpath="//a[text()='Services']")WebElement serviceHomeText;
-    public String serviceHomePagetext()   { 
-    	return serviceHomeText.getText(); }
+    public String getProductAddPageText(){ 
+    return productAddPageText.getText(); }
     
-    @FindBy(xpath="//select[@id='cate']") WebElement selectCategory;
-    @FindBy(xpath="//select[@id='gst']")  WebElement selectGST;
-    @FindBy(xpath="//input[@id='time']")  WebElement timeTaken;
-    @FindBy(xpath="//input[@id='sqft']")  WebElement paintServicePrice;
+    public String getProductFirstRecordtext(){ 
+    return prodFirstRecordText.getText();    }
+    
+    public String productHomePagetext()  { 
+    return productHomePageText.getText();}
+    
+    public void enterQuantity(String name){
+    	fieldQuantity.clear();
+    	fieldQuantity.sendKeys(name);     }
+    
+    public void enterHSNNumber(String name){
+    	fieldHsn.clear();
+    	fieldHsn.sendKeys(name);           }
+    
+    public void enterMaxQuantity(String name){
+    	maxQuntity.clear();
+    	maxQuntity.sendKeys(name);           }
+  
+//Home Service Page
+    @FindBy(xpath="//th[text()='Service ID']/../../../tbody//td[2]") WebElement serviceFirstRecordText;
+    @FindBy(xpath="//a[text()='Services']")    private WebElement serviceHomeText;
+    @FindBy(xpath="//a[text()='Add Service']") private WebElement serviceAddPageText;
+     
+    public String getServiceFirstRecordtext(){ 
+    return serviceFirstRecordText.getText(); }
+   
+    public String getServiceHomePagetext(){ 
+    return serviceHomeText.getText();     }
+   
+    public String getServiceAddPagetext(){ 
+    return serviceAddPageText.getText(); }
+    
+//Add Service Page    
+    @FindBy(xpath="//select[@id='cate']") private WebElement selectCategory;
+    @FindBy(xpath="//select[@id='gst']")  private WebElement selectGST;
+    @FindBy(xpath="//input[@id='time']")  private WebElement timeTaken;
+    @FindBy(xpath="//input[@id='sqft']")  private WebElement paintServicePrice;
     @FindBy(xpath="//div[@role='textbox']/p") WebElement tagTextfield;
-    @FindBy(xpath="//select[@id='mall']")  WebElement serviceAvailability;
-    @FindBy(xpath="//input[@id='e_time']") WebElement estimateTime;	
-    @FindBy(xpath="//input[@id='video']") WebElement videoLink;
+    @FindBy(xpath="//select[@id='mall']") private WebElement serviceAvailability;
+    @FindBy(xpath="//input[@id='e_time']")private WebElement estimateTime;	
+    @FindBy(xpath="//input[@id='video']") private WebElement videoLink;
 
-    public void selectCategoryOption(String category) {
+    public void selectServicePageCategoryOption(String category) {
         Select select = new Select(selectCategory);
         select.selectByVisibleText(category);
     }
 
     public void selectGSTOption(String gst) {
         Select select = new Select(selectGST);
-        select.selectByVisibleText(gst);
-    }
+        select.selectByVisibleText(gst);    }
 
     public void enterTimeTaken(String time) {
         timeTaken.clear();
-        timeTaken.sendKeys(time);
-    }
+        timeTaken.sendKeys(time);           }
 
     public void enterPaintServicePrice(String price) {
         paintServicePrice.clear();
-        paintServicePrice.sendKeys(price);
-    }
+        paintServicePrice.sendKeys(price);           }
 
     public void enterTagText(String tag) {
         tagTextfield.clear();
-        tagTextfield.sendKeys(tag);
-    }
+        tagTextfield.sendKeys(tag);      }
 
     public void selectServiceAvailability(String availability) {
         Select select = new Select(serviceAvailability);
-        select.selectByVisibleText(availability);
-    }
+        select.selectByVisibleText(availability);              }
 
     public void enterEstimateTime(String eTime) {
         estimateTime.clear();
-        estimateTime.sendKeys(eTime);
-    }
-    
+        estimateTime.sendKeys(eTime);           }
+
+//Add Service Page   
     @FindBy(xpath="//th[text()='Mall Name']/../../../tbody/tr/td[1]")                 List<WebElement> selectMall;
     @FindBy(xpath="//th[text()='Mall Name']/../../../tbody/tr/td[3]")                 List<WebElement> selectCheckBox;
     @FindBy(xpath="//label[text()='Price*']/following-sibling::input")                List<WebElement> price ;
@@ -152,14 +177,12 @@ public class Setting extends Constructor {
     @FindBy(xpath="//label[text()='Service Price in Mall']/following-sibling::input") List<WebElement> servicePriceInMall;
     public void selectMall(String name) {
     int count=0;
-    for(WebElement mall:selectMall)
-    {
+    for(WebElement mall:selectMall)     {
     	count++;
-    	if(mall.getText().equalsIgnoreCase(name))
+    if(mall.getText().equalsIgnoreCase(name))
     	{
     		break;
-    	}
-    }
+    	}    }
     int CCount=0;
     for(WebElement Check:selectCheckBox)
     {

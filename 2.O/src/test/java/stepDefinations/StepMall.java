@@ -20,11 +20,10 @@ public class StepMall extends StepBaseClass {
 
     @Then("the Mall page text is validated")
     public void validateMallPageText() {
-        String text = ClassObjects.CC.getHomePageText();
+        String text = ClassObjects.MS.GetMallHomePageName();
         Assert.assertEquals(text.trim(), "Malls", "The mall page text is not valid.");
     }
 
-  // Scenario: Verify Mall Add Functionality
     @When("the Add Mall button is clicked")
     public void clickAddMallButton() {
     	ClassObjects.MS.clickAddMall();
@@ -65,7 +64,7 @@ public class StepMall extends StepBaseClass {
     public void modifyMallNameAndClickSave() throws InterruptedException {
     	ClassObjects.MS.setName(ModifyMallName);
     	Thread.sleep(2000);
-    	ClassObjects.MS.clickonSaveButton();
+    	ClassObjects.CC.clickonSaveButton();
     }
 
     @Then("the modified mall name is verified")

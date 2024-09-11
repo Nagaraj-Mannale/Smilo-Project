@@ -34,13 +34,12 @@ public class StepCategory {
         Assert.assertTrue(text.trim().equalsIgnoreCase("Add Category"), "The add category page text is not valid.");
     }
 
-    @When("all the necessary data is entered for the new Category and the Save button is clicked")
+    @When("all the necessary data is entered for the new Category")
     public void allTheNecessaryDataIsEnteredForTheNewCategory() {
-        ClassObjects.SG.enterCategoryName(categoryName);
-        ClassObjects.SG.selectCategoryType("Service");
-        ClassObjects.SG.toggleSliderStatus();
-        ClassObjects.MS.clickonSaveButton();
-    }
+        ClassObjects.SG.enterCatOrProduOrServiceName(categoryName);
+        ClassObjects.SG.selectCategoryTypeEitherProductOrService("Service");
+        ClassObjects.SG.toggleSliderForStatus();
+        }
 
     @Then("the newly added Category is verified")
     public void theNewlyAddedCategoryIsVerified() throws AWTException {
@@ -55,12 +54,15 @@ public class StepCategory {
         ClassObjects.SG.selectKebabOption("edit");
     }
 
-    @When("the Category name is modified and the Save button is clicked")
+    @When("the Category name is modified")
     public void theCategoryNameIsModifiedAndTheButtonIsClicked() {
-        ClassObjects.SG.enterCategoryName(modifyCategoryName);
-        ClassObjects.SG.toggleSliderStatus();
+        ClassObjects.SG.enterCatOrProduOrServiceName(modifyCategoryName);
+        ClassObjects.SG.toggleSliderForStatus();
+         }
+    @When("clicks the Save Changes button")
+    public void ClicksTheSaveChangesButton(){
         ClassObjects.SG.clickSaveChangesButton();
-    }
+           }
 
     @Then("the modified Category name is verified")
     public void theModifiedCategoryNameIsVerified() throws AWTException {
@@ -81,7 +83,7 @@ public class StepCategory {
     @Then("the Category should no longer appear in the list")
     public void theCategoryShouldNoLongerAppearInTheList() throws AWTException {
         ClassObjects.CC.searchField(modifyCategoryName);
-        String text = ClassObjects.SG.getCategoryEmptyPageText();
-        Assert.assertTrue(text.trim().equalsIgnoreCase("No Records Found!"), "The category was not deleted.");
+        Assert.assertEquals(ClassObjects.SG.getCatProdAndServicePageEmptyText().trim(),"No Records Found!");
+        
     }
 }

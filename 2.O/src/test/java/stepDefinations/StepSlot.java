@@ -10,25 +10,23 @@ public class StepSlot
 {
 	@When("the MallUser link and Slot tab is clicked")
 	public void theMallUserLinkAndSlotTabIsClicked() {
-	     ClassObjects.CC.selectPageLink("Mall Settings");
-	     ClassObjects.MS.selectTabBylinks("Slots");
+	ClassObjects.CC.selectPageLink("Mall Settings");
+	ClassObjects.MS.selectTabBylinks("Slots");
 	}
 
 	@Then("the Slot page text is validated")
 	public void theSlotPageTextIsValidated() {
-		String text = ClassObjects.CC.getHomePageText();
-	    Assert.assertEquals(text.trim().equalsIgnoreCase("Mall Slots"), true, "The lead page text is not valid.");  
+	Assert.assertEquals(ClassObjects.MS.getSlotHomePageText(),"Mall Slots");  
 	}
 
 	@When("the Add Slot button is clicked")
 	public void theAddSlotButtonIsClicked() {
-	     ClassObjects.MS.clickAddSlot();
+	ClassObjects.MS.clickAddSlot();
 	}
 
 	@Then("the user is on the Add Slot page")
-	public void theUserIsOnTheAddSlotPage() {
-//		String text = ClassObjects.MS.getSlotAddPageText();
-//		Assert.assertEquals(text.trim(), "Add Slot", "The new mall name is not valid.");
+	public void theUserIsOnTheAddSlotPage() {   
+    Assert.assertEquals(ClassObjects.MS.getSlotAddPageText(),"Add Slot");
 	}
     
     String mall = "sep5-- Austin Town, Bengaluru";
@@ -42,7 +40,6 @@ public class StepSlot
 	     ClassObjects.MS.setClosingTime(closingTime);
 	     ClassObjects.MS.setSlotLimit("25");
 	     ClassObjects.MS.selectSlotInterval("15 minutes");
-	     ClassObjects.MS.clickonSaveButton();
 	}
 
 	@Then("the new Slot is verified")
@@ -61,10 +58,10 @@ public class StepSlot
 	String modopeningTime = "12";
     String modclosingTime = "12";
     
-	@When("the Slot name is modified and the Save button is clicked")
+	@When("the Slot name is modified")
 	public void theSlotNameIsModifiedAndTheSaveButtonIsClicked() throws AWTException{
 		ClassObjects.MS.setOpeningTime(modopeningTime);
-	     ClassObjects.MS.setClosingTime(modclosingTime);
+	    ClassObjects.MS.setClosingTime(modclosingTime);
 	}
 
 	@Then("the modified Slot name is verified")

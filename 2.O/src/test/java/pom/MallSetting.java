@@ -24,6 +24,7 @@ public class MallSetting extends Constructor
        for (WebElement option : tabLinksOfMallsetting) {
            if (option.getText().equalsIgnoreCase(tab)){
                option.click(); break; }   }   }
+   
    //Home Page button
    @FindBy(xpath="//button[@class='dropbtn_list_options action_btn_container']") WebElement kebabIcon;
    @FindBy(xpath="//a[text()='Add User']/..")        WebElement btnAddUser;
@@ -53,13 +54,12 @@ public class MallSetting extends Constructor
 	   kebabIcon.click();
        btnEdit.click();
    }
-   //All Commpon Code For Add page
+   //All Common Code For Add page
    @FindBy(xpath="//input[@id='name']")          WebElement fieldName;
    @FindBy(xpath="//select[@id='status']")       WebElement dropStatus;
    @FindBy(xpath="//select[@id='citySelect']")   WebElement dropCity;
    @FindBy(xpath="//select[@id='areaSelect']")   WebElement dropArea;
-   @FindBy(xpath="//button[text()='Save']")      WebElement btnSave;
-
+   
    public void setName(String name) {
        fieldName.clear();
        fieldName.sendKeys(name);
@@ -82,20 +82,27 @@ public class MallSetting extends Constructor
 	  Select area=new Select(dropArea);
 	  area.selectByVisibleText(Area);
    }
-
-   public void clickonSaveButton() {
-	   JavascriptExecutor js = (JavascriptExecutor) driver;
-	   js.executeScript("arguments[0].click();", btnSave);
-	  // btnSave.click();
-   }
    
-   //User Add Page
-   @FindBy(xpath="//div[@class='icon-heading second-heading']") WebElement addpagetxt;
+//User Home Page
+   @FindBy(xpath="(//a[text()='Users'])[1]")                         private WebElement UserHomePageText;
+   @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[1]")private WebElement firstRecordUserName;
+   @FindBy(xpath="//h4[text()='No Users Found!']")                   private WebElement UserEmptyPageText;
+  
+   public String getUserHomePageText() {
+   return UserHomePageText.getText();  } 
+   
+   public String GetFirstRecUserName()  {
+   return firstRecordUserName.getText();}
+
+   public String getUserPageEmptyText() {
+   return UserEmptyPageText.getText();  }
+   
+   @FindBy(xpath="//a[text()='Add User']") WebElement addpagetxt;
    @FindBy(xpath="//input[@id='mobile']")  WebElement fieldMobile;
    @FindBy(xpath="//input[@id='email']")   WebElement fieldMail;
    @FindBy(xpath="//input[@id='password']")WebElement fieldPassword;
    
-   public String userAddPageText() {
+   public String getUserAddPageText() {
 	   return addpagetxt.getText();
    }
    
@@ -145,17 +152,19 @@ public class MallSetting extends Constructor
        btnCancel.click();    }
 
    //Mall Add Page
-   @FindBy(xpath="//select[@id='group']")                  WebElement malldropGroup;
-   @FindBy(xpath="//input[@id='customer_number']")         WebElement numberCustomer;
-   @FindBy(xpath="//input[@id='supervisor_number']")       WebElement numberSuprevisor;
-   @FindBy(xpath="//span[text()='Select Sub Locations']")  WebElement dropLocation;
-   @FindBy(xpath="//div[@class='label-div cities']/label") WebElement txtsublocation;
+   @FindBy(xpath="(//a[text()='Malls'])[2]")               private WebElement mallHomePageText;
+   @FindBy(xpath="//select[@id='group']")                  private WebElement malldropGroup;
+   @FindBy(xpath="//input[@id='customer_number']")         private WebElement numberCustomer;
+   @FindBy(xpath="//input[@id='supervisor_number']")       private WebElement numberSuprevisor;
+   @FindBy(xpath="//span[text()='Select Sub Locations']")  private WebElement dropLocation;
+   @FindBy(xpath="//div[@class='label-div cities']/label") private WebElement txtsublocation;
    @FindBy(xpath="//input[@id='selectAll']/../../div")List<WebElement> optionSubLocation;
-   @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[2]")WebElement userName;
-  
-   public String GetFirstRecUserName() {
-	   return userName.getText();
+ 
+   
+   public String GetMallHomePageName() {
+	   return mallHomePageText.getText();
    }
+  
    
    public void setCustomerNumber(String number) {
        numberCustomer.clear();
@@ -180,7 +189,8 @@ public class MallSetting extends Constructor
    }
    
  //Slot Add
-   @FindBy(xpath="//h2[@class='heading2']") WebElement slotAddPagetex;
+   @FindBy(xpath="//a[text()='Mall Slots']") WebElement slotHomePageText;
+   @FindBy(xpath="//h2[text()='Add Slot']") WebElement slotAddPagetex;
    @FindBy(xpath="//select[@id='mall']")    WebElement selectSlotMall;
    @FindBy(xpath="//select[@id='intervel']")WebElement dropSlotInterval;
    @FindBy(xpath="//input[@id='opentime']") WebElement fieldOpeningTime;
@@ -191,11 +201,14 @@ public class MallSetting extends Constructor
    @FindBy(xpath="(//input[@aria-label='Hour'])[1]")WebElement openingHour;
    @FindBy(xpath="(//table[@class='data-table']//tbody)[1]/tr/td[3]")WebElement ClosingTime;
    @FindBy(xpath="(//input[@aria-label='Hour'])[2]")WebElement closingHour;
+   public String getSlotHomePageText()
+   {
+	   return slotHomePageText.getText();
+   }
+   
    public String getSlotHomeMallNameOpeningAndClosingTimeTexy() {
 	   return slotHomeMallName.getText()+" "+OpeningTime.getText()+" "+ClosingTime.getText();
    } 
-   
-   
    public String getSlotAddPageText() {
 	   return slotAddPagetex.getText();
    } 
