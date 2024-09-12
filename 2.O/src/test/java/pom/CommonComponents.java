@@ -1,7 +1,6 @@
 package pom;
 
 import java.awt.AWTException;
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -23,7 +22,14 @@ public class CommonComponents extends Constructor {
     @FindBy(xpath = "//div[@class='toast-message']") private WebElement succesfulMessage;
     @FindBy(xpath="//button[text()='Save']")         private WebElement btnSave;
     @FindBy(xpath = "//a[text()='Cancel']")          private WebElement btnCancel;
-   
+    @FindBy(xpath = "//div[@class='dropdown_list_options']/button")WebElement kebabIcon;
+    @FindBy(xpath = "//span[@class='material-symbols-outlined']") List<WebElement> kebabOptionsED;
+    public void selectKebabOption(String optionText) {
+    	kebabIcon.click();
+    	for (WebElement option : kebabOptionsED) {
+            if (option.getText().equalsIgnoreCase(optionText)) {
+            	option.click(); break;   }   }   }
+    
     public void selectPageLink(String page) {
         for(WebElement link : allPageLinks) {
          if(link.getText().trim().equalsIgnoreCase(page)) {

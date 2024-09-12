@@ -1,5 +1,6 @@
 package pom;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -38,10 +39,8 @@ public class Setting extends Constructor {
 // Category Page
     @FindBy(xpath = "//a[text()='Category']")                 WebElement catHomePageHeading;
     @FindBy(xpath = "//tbody[@class='ui-sortable']/tr/td[2]") WebElement categoryName;
-    @FindBy(xpath = "//tbody[@class='ui-sortable']/tr/td[3]//span[2]")   WebElement statusText;
+    @FindBy(xpath = "//tbody[@class='ui-sortable']/tr/td[3]//span[2]") WebElement statusText;
     @FindBy(xpath = "//a[text()='Add New']")                  WebElement addButton;//Service And Subscription Add Button
-    @FindBy(xpath = "//button[@type='button']")               WebElement kebabIcon;
-    @FindBy(xpath = "//span[@class='material-symbols-outlined']") List<WebElement> kebabOptionsED;
     @FindBy(xpath = "//button[text()='Save Order']")          WebElement saveOrder;
    
     public String getCategoryFirstRecordName()
@@ -55,12 +54,6 @@ public class Setting extends Constructor {
 
     public void clickAddButton() 
         {addButton.click();}  
-      
-    public void selectKebabOption(String optionText) {
-    	kebabIcon.click();
-    	for (WebElement option : kebabOptionsED) {
-            if (option.getText().equalsIgnoreCase(optionText)) {
-            	option.click(); break;   }   }   }
           
     public void clickSaveOrder() 
         { saveOrder.click();}
@@ -136,14 +129,13 @@ public class Setting extends Constructor {
     @FindBy(xpath="//input[@id='time']")  private WebElement timeTaken;
     @FindBy(xpath="//input[@id='sqft']")  private WebElement paintServicePrice;
     @FindBy(xpath="//div[@role='textbox']/p") WebElement tagTextfield;
-    @FindBy(xpath="//select[@id='mall']") private WebElement serviceAvailability;
+    @FindBy(xpath="//select[@id='mall']") private WebElement serviceAvailabilityOption;
     @FindBy(xpath="//input[@id='e_time']")private WebElement estimateTime;	
     @FindBy(xpath="//input[@id='video']") private WebElement videoLink;
 
     public void selectServicePageCategoryOption(String category) {
         Select select = new Select(selectCategory);
-        select.selectByVisibleText(category);
-    }
+        select.selectByVisibleText(category);      }
 
     public void selectGSTOption(String gst) {
         Select select = new Select(selectGST);
@@ -162,7 +154,7 @@ public class Setting extends Constructor {
         tagTextfield.sendKeys(tag);      }
 
     public void selectServiceAvailability(String availability) {
-        Select select = new Select(serviceAvailability);
+        Select select = new Select(serviceAvailabilityOption);
         select.selectByVisibleText(availability);              }
 
     public void enterEstimateTime(String eTime) {
@@ -171,37 +163,35 @@ public class Setting extends Constructor {
 
 //Add Service Page   
     @FindBy(xpath="//th[text()='Mall Name']/../../../tbody/tr/td[1]")                 List<WebElement> selectMall;
-    @FindBy(xpath="//th[text()='Mall Name']/../../../tbody/tr/td[3]")                 List<WebElement> selectCheckBox;
+    @FindBy(xpath="//th[text()='Mall Name']/../../../tbody/tr/td[3]/input")                 List<WebElement> selectCheckBox;
     @FindBy(xpath="//label[text()='Price*']/following-sibling::input")                List<WebElement> price ;
     @FindBy(xpath="//label[text()='Special Price']/following-sibling::input")         List<WebElement> specialPrice;
     @FindBy(xpath="//label[text()='Service Price in Mall']/following-sibling::input") List<WebElement> servicePriceInMall;
-    public void selectMall(String name) {
-    int count=0;
-    for(WebElement mall:selectMall)     {
-    	count++;
-    if(mall.getText().equalsIgnoreCase(name))
-    	{
-    		break;
-    	}    }
-    int CCount=0;
-    for(WebElement Check:selectCheckBox)
-    {
-    	CCount++;
-    	if(CCount==count)
-    	{
-    		Check.click();
-    	}
-    }
-    }
+    @FindBy(xpath="//div[@class='hr-sub-nav-container']//li")                         List<WebElement> serviceEditPageTabLinks;
+    
+    public void clickOnServiceEditPageLinks(String name){
+    	for(WebElement tab:serviceEditPageTabLinks)    {
+    		if(tab.getText().equalsIgnoreCase(name))  {
+    			tab.click();break;     		          }}}
+    
+    public void selectavailableMall(String name) {
+        int index = -1;
+        ArrayList<WebElement> listM = new ArrayList<>(selectMall);
+        ArrayList<WebElement> list = new ArrayList<>(selectCheckBox);
+          for(WebElement mall : listM) {
+          if(mall.getText().equalsIgnoreCase(name)) {
+              index = listM.indexOf(mall);
+              break; } }
+            list.get(index).click();
+              } 
 
     public void enterPrice(int index, String priceValue) {
         price.get(index).clear();
         price.get(index).sendKeys(priceValue);
     }
 
-    public void enterSpecialPrice(int index, String specialPriceValue) {
-        specialPrice.get(index).clear();
-        specialPrice.get(index).sendKeys(specialPriceValue);
+    public void enterSpecialPrice() {
+        
     }
 
     public void enterServicePriceInMall(int index, String servicePriceValue) {

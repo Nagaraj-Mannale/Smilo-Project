@@ -1,9 +1,13 @@
 package pom;
 
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+
 import basePage.Constructor;
 
 public class Lead extends Constructor {
@@ -12,7 +16,7 @@ public class Lead extends Constructor {
         super(driver);
     }
 
-    @FindBy(xpath = "//span[text()='Add Leads']")     private WebElement leadAddPageText;
+    
     @FindBy(xpath = "//button[text()='Import']")      private WebElement btnImport;
     @FindBy(xpath = "//a[text()='Add']")              private WebElement btnAdd;            
     @FindBy(xpath = "//button[@id='convert_button']") private WebElement btnConvert;
@@ -22,32 +26,10 @@ public class Lead extends Constructor {
     public String getLeadHomePageText() {
         return HomePageText.getText();
     }
-    public String getLeadAddPageText() {
-        return leadAddPageText.getText();
-    }
+   
 
     public void clickImportButton() {
-//        btnImport.click();
-//        
-//        String filePath = System.getProperty("Import Lead.xlsx") + "/home/active35/Music/BodyCoat Screen Shot";
-//
-//        // Create a File object
-//        File file = new File(filePath);
-//
-//        try {
-//            // Create a Scanner object to read the file
-//            Scanner scanner = new Scanner(file);
-//
-//            // Read and print the file content line by line
-//            while (scanner.hasNextLine()) {
-//                String line = scanner.nextLine();
-//                System.out.println(line);
-//            }
-//            scanner.close();
-//        } catch (FileNotFoundException e) {
-//            System.out.println("File not found: " + file.getAbsolutePath());
-//            e.printStackTrace();
-//        }
+
     }
 
     public void clickAddButton() {
@@ -65,9 +47,123 @@ public class Lead extends Constructor {
     public void clickExportLink() {
         linkExport.click();
     }
+    @FindBy(xpath="(//a[text()='Lead'])[2]/../../span[4]/a")private WebElement leadInsidePageText;
+    @FindBy(xpath="//Select[@id='status']")        private WebElement dropStatus;
+    @FindBy(xpath="//label[@class='brws-img-btn']")private WebElement uploadPhoto;
+    @FindBy(xpath="//input[@id='name']")           private WebElement fieldLeadName;
+    @FindBy(xpath="//select[@id='status']")        private WebElement dropLeadStatus;
+    @FindBy(xpath="//input[@id='email']")          private WebElement fieldEmail;
+    @FindBy(xpath="//input[@id='mobile'")          private WebElement fieldMobile;
+    @FindBy(xpath="//input[@id='lead_lable']")     private WebElement fieldLabel;
+    @FindBy(xpath="//input[@id='lead_address']")   private WebElement fieldAddress;
+    @FindBy(xpath="//select[@id='city']")          private WebElement dropCity;
+    @FindBy(xpath="//select[@id='areaSelect']")    private WebElement dropLocality;
+    @FindBy(xpath="//input[@id='pin']")            private WebElement fieldPostalCode;
 
-    @FindBy(xpath = "//Select[@id='status']") 
-    private WebElement dropStatus;
+    public String getLeadAddPageText() {
+        return leadInsidePageText.getText();
+    }
+    public void selectLeadStatus(String status) {
+    	Select select=new Select(dropStatus);
+    	select.selectByVisibleText(status);
+    }
+    public void uploadPhoto(String filePath) {
+        uploadPhoto.click();  
+        uploadPhoto.sendKeys(filePath);// You can use this if your framework allows auto-upload
+    }
+    public void setLeadName(String leadName) {
+        fieldLeadName.clear();
+        fieldLeadName.sendKeys(leadName);
+    }
+    public void setLeadStatus(String status) {
+        Select dropdown = new Select(dropLeadStatus);
+        dropdown.selectByVisibleText(status);
+    }
+    public void setEmail(String email) {
+        fieldEmail.clear();
+        fieldEmail.sendKeys(email);
+    }
+    public void setMobile(String mobile) {
+        fieldMobile.clear();
+        fieldMobile.sendKeys(mobile);
+    }
+    public void setLabel(String label) {
+        fieldLabel.clear();
+        fieldLabel.sendKeys(label);
+    }
 
-    // Additional methods for interacting with the status dropdown, if needed
+    public void setAddress(String address) {
+        fieldAddress.clear();
+        fieldAddress.sendKeys(address);
+    }
+
+    public void selectCity(String city) {
+        Select dropdown = new Select(dropCity);
+        dropdown.selectByVisibleText(city);
+    }
+
+    public void selectLocality(String locality) {
+        Select dropdown = new Select(dropLocality);
+        dropdown.selectByVisibleText(locality);
+    }
+
+    public void setPostalCode(String postalCode) {
+        fieldPostalCode.clear();
+        fieldPostalCode.sendKeys(postalCode);
+    }
+//Add Car and Adress
+    @FindBy(xpath="//ul[@class='hr-sub-nav-ul loader']/li") private List<WebElement> viewPageTabsLinks;
+    
+    public void selectViewPageTabs(String tab) {
+    	for(WebElement link:viewPageTabsLinks)  {
+    	if(link.getText().equalsIgnoreCase(tab)) {
+    			link.click();break;     } 	}   }
+    
+    @FindBy(xpath="//button[text()='Add Address']") private WebElement buttonAddAddress;
+    @FindBy(xpath="//input[@id='label']")           private WebElement fieldAddressLabel;
+    @FindBy(xpath="//div[@class='loader card-table-edit-btns']//span")private WebElement iconEditDelete;
+    @FindBy(xpath="//button[@class=' primary-btn car_add_btn']")      private WebElement btnAddCar;
+    @FindBy(xpath="//input[@id='regno']")      private WebElement registerNumber;
+    @FindBy(xpath="//select[@id='brand_id']")  private WebElement dropCarBrand;
+    @FindBy(xpath="//select[@id='model']")     private WebElement dropModel;
+    @FindBy(xpath="//input[@id='year']")       private WebElement fieldYear;
+    
+    public void clickAddAddress() {
+        buttonAddAddress.click();
+    }
+
+    public void setAddressLabel(String label) {
+        fieldAddressLabel.clear();
+        fieldAddressLabel.sendKeys(label);
+    }
+
+    public void clickEditDeleteIcon() {
+        iconEditDelete.click();
+    }
+
+    public void clickAddCar() {
+        btnAddCar.click();
+    }
+
+    public void setRegisterNumber(String regNo) {
+        registerNumber.clear();
+        registerNumber.sendKeys(regNo);
+    }
+
+    public void selectCarBrand(String brand) {
+        Select dropdown = new Select(dropCarBrand);
+        dropdown.selectByVisibleText(brand);
+    }
+
+    public void selectCarModel(String model) {
+        Select dropdown = new Select(dropModel);
+        dropdown.selectByVisibleText(model);
+    }
+
+    public void setCarYear(String year) {
+        fieldYear.clear();
+        fieldYear.sendKeys(year);
+    }
+    
+    
 }

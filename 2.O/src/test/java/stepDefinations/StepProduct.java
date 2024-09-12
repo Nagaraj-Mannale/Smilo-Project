@@ -66,7 +66,7 @@ public class StepProduct {
 	@When("a Product is selected and the Edit button is clicked")
 	public void aProductIsSelectedAndTheEditButtonIsClicked() throws AWTException {
 		ClassObjects.CC.searchField(ProductName);
-		ClassObjects.SG.selectKebabOption("Edit");
+		ClassObjects.CC.selectKebabOption("Edit");
 	}
     String modifyProductName="Back Wheel";
 	@When("the Product name is modified")
@@ -87,7 +87,7 @@ public class StepProduct {
 	@When("a Product is selected and the Delete button is clicked")
 	public void aProductIsSelectedAndTheDeleteButtonIsClicked() throws AWTException {
 		ClassObjects.CC.searchField(modifyProductName);
-		ClassObjects.SG.selectKebabOption("delete");
+		ClassObjects.CC.selectKebabOption("delete");
 		ClassObjects.CC.deletePopupHandle("yes");
 	}
 

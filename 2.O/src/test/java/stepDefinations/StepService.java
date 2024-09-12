@@ -28,7 +28,7 @@ public class StepService {
 	public void theUserShouldBeRedirectedToTheServiceMallPage() {
 	 Assert.assertEquals(ClassObjects.SG.getServiceAddPagetext(),"Add Service");
 	}
-   String ServiceName="linerChange";
+   String ServiceName="OIL Change";
 	@When("the user enters all necessary data on the General page")
 	public void userEntersNecessaryDataOnGeneralPage() {
 	    ClassObjects.SG.enterCatOrProduOrServiceName(ServiceName);
@@ -72,13 +72,18 @@ public class StepService {
 	@When("a Service is selected and the Edit button is clicked")
 	public void aServiceIsSelectedAndTheEditButtonIsClicked( ) throws AWTException {
 		ClassObjects.CC.searchField(ServiceName);
-		ClassObjects.SG.selectKebabOption("Edit");
+		ClassObjects.CC.selectKebabOption("Edit");
 		
 	}
     String modifiedServiceName="Ghare Box Change";
 	@When("the Service name is modified")
 	public void theServiceNameIsModifiedAndTheButtonIsClicked( ) {
 	 ClassObjects.SG.enterCatOrProduOrServiceName(modifiedServiceName);
+	 ClassObjects.CC.clickonSaveButton();
+	 ClassObjects.SG.clickOnServiceEditPageLinks("Service Availability");
+	 ClassObjects.SG.selectServiceAvailability("Home and Mall Service");
+	 ClassObjects.SG.enterEstimateTime("15");
+	 ClassObjects.SG.selectavailableMall("RMZ Millenia"); 
 	}
 	@When("get back to the Service home page")
 	public void getBackTotheServiceHomePage() {
@@ -93,7 +98,7 @@ public class StepService {
 	@When("a Service is selected and the Delete button is clicked")
 	public void aServiceIsSelectedAndTheDeleteButtonIsClicked( ) throws AWTException {
 		ClassObjects.CC.searchField(modifiedServiceName);
-		ClassObjects.SG.selectKebabOption("delete");
+		ClassObjects.CC.selectKebabOption("delete");
 		ClassObjects.CC.deletePopupHandle("yes");
 	}
 

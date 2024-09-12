@@ -51,7 +51,7 @@ public class StepCategory {
     @When("a Category is selected and the Edit button is clicked")
     public void aCategoryIsSelectedAndTheEditButtonIsClicked() throws AWTException {
         ClassObjects.CC.searchField(categoryName);
-        ClassObjects.SG.selectKebabOption("edit");
+        ClassObjects.CC.selectKebabOption("edit");
     }
 
     @When("the Category name is modified")
@@ -76,7 +76,7 @@ public class StepCategory {
     @When("a Category is selected and the Delete button is clicked")
     public void aCategoryIsSelectedAndTheDeleteButtonIsClicked() throws AWTException {
         ClassObjects.CC.searchField(modifyCategoryName);
-        ClassObjects.SG.selectKebabOption("delete");
+        ClassObjects.CC.selectKebabOption("delete");
         ClassObjects.CC.deletePopupHandle("yes");
     }
 
