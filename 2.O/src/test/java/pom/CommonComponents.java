@@ -1,61 +1,60 @@
 package pom;
 
-import java.awt.AWTException;
-import java.util.List;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import basePage.Constructor;
 
+import java.awt.AWTException;
+import java.util.List;
+
 public class CommonComponents extends Constructor {
 
     public CommonComponents(WebDriver driver) {
-        super(driver);                        }
+        super(driver);
+    }
 
     @FindBy(xpath = "//div[@class='logo-container']/following-sibling::nav//li")
     private List<WebElement> allPageLinks;
-    @FindBy(xpath = "//input[@id='search']")         private WebElement fieldSearch;
-    @FindBy(xpath = "//input[@id='confirmYes']")     private WebElement popupDeleteYes;
-    @FindBy(xpath = "//input[@id='confirmNo']")      private WebElement popupDeleteNo;
+    @FindBy(xpath = "//input[@id='search']")     private WebElement fieldSearch;
+    @FindBy(xpath = "//input[@id='confirmYes']") private WebElement popupDeleteYes;
+    @FindBy(xpath = "//input[@id='confirmNo']")  private WebElement popupDeleteNo;
     @FindBy(xpath = "//div[@class='toast-message']") private WebElement succesfulMessage;
     @FindBy(xpath="//button[text()='Save']")         private WebElement btnSave;
     @FindBy(xpath = "//a[text()='Cancel']")          private WebElement btnCancel;
-    @FindBy(xpath = "//div[@class='dropdown_list_options']/button")WebElement kebabIcon;
-    @FindBy(xpath = "//span[@class='material-symbols-outlined']") List<WebElement> kebabOptionsED;
+    @FindBy(xpath = "//div[@class='dropdown_list_options']/button") private WebElement kebabIcon;
+    @FindBy(xpath = "//span[@class='material-symbols-outlined']")   private List<WebElement> kebabOptionsED;
+   
+    public void clickOnKebabIcon() { kebabIcon.click(); }
     public void selectKebabOption(String optionText) {
-    	kebabIcon.click();
-    	for (WebElement option : kebabOptionsED) {
-            if (option.getText().equalsIgnoreCase(optionText)) {
-            	option.click(); break;   }   }   }
-    
-    public void selectPageLink(String page) {
-        for(WebElement link : allPageLinks) {
-         if(link.getText().trim().equalsIgnoreCase(page)) {
-                link.click();break;}    }    }
-    
-    public void searchField(String value) throws AWTException{
-        fieldSearch.clear();
-    	fieldSearch.sendKeys(value);
-        keyboardAction("Enter"); }           
+        kebabIcon.click();
+        for (WebElement option : kebabOptionsED) {
+        if (option.getText().equalsIgnoreCase(optionText)) {
+        option.click();break; }  }  }
+
+    public void selectPageLink(String page)  {
+        for (WebElement link : allPageLinks) {
+        if (link.getText().trim().equalsIgnoreCase(page)) {
+        link.click();break;}  }  }     
             
-    public void deletePopupHandle(String order){
-    	switch(order.trim().toLowerCase()) {
-    	case "yes":popupDeleteYes.click();break;
-    	case "no":popupDeleteNo.click();break;
-    	default:System.out.println("Given order is not good");}}
-    	
-    public String getSuccessMessage() {
-        return succesfulMessage.getText(); } 
-    
-    public void clickonSaveButton() {
-  	   JavascriptExecutor js = (JavascriptExecutor) driver;
-  	   js.executeScript("arguments[0].click();", btnSave);  }
-  
-    public void clickOnCancelButton() {
-        btnCancel.click();          }
-    
+
+    public void searchField(String value) throws AWTException {
+        fieldSearch.clear();
+        fieldSearch.sendKeys(value);
+        keyboardAction("Enter");
+    }
+
+    public void deletePopupHandle(String order) {
+        switch (order.trim().toLowerCase()) {
+        case "yes": popupDeleteYes.click(); break;
+        case "no": popupDeleteNo.click(); break;
+        default: System.out.println("Given order is not good");
+        }    }
+
+    public String getSuccessMessage() { return succesfulMessage.getText(); }
+    public void clickOnSaveButton() { btnSave.click(); }
+    public void clickOnCancelButton() { btnCancel.click(); }
+
     @FindBy(xpath = "//button[@id='clear_button']")  private WebElement btnReset;
     @FindBy(xpath = "//button[text()='SET']")        private WebElement btnSet;   
     @FindBy(xpath = "//input[@id='from_date']")      private WebElement dateFrom;

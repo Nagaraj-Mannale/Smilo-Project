@@ -3,6 +3,7 @@ package pom;
 
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,22 +17,34 @@ public class Lead extends Constructor {
         super(driver);
     }
 
-    
     @FindBy(xpath = "//button[text()='Import']")      private WebElement btnImport;
     @FindBy(xpath = "//a[text()='Add']")              private WebElement btnAdd;            
     @FindBy(xpath = "//button[@id='convert_button']") private WebElement btnConvert;
     @FindBy(xpath = "//button[text()='Delete']")      private WebElement btnDelete;    
     @FindBy(xpath = "//a[@id='export_btn']")          private WebElement linkExport;        
     @FindBy(xpath="(//span[text()='Lead'])[2]")       private WebElement HomePageText;
-    public String getLeadHomePageText() {
+    @FindBy(xpath="(//td[@id='td-lead-id'])[1]")      private WebElement firstRecordleadId;
+    @FindBy(xpath="(//td[@id='td-lead-name'])[1]")    private WebElement firstRecordName;
+    @FindBy(xpath="(//td[@id=\"td-email\"])[1]")      private WebElement firstRecordMail;
+    
+    public String getfirstRecordMail() {
+    	return firstRecordMail.getText();
+    }
+    
+    public String getfirstRecordName() {
+    	return firstRecordName.getText();
+    }
+    
+    public String getFirstRecordLeadId() {
+    	return firstRecordleadId.getText();
+    }
+    
+    public String getLeadHomePageText(){
         return HomePageText.getText();
     }
-   
-
     public void clickImportButton() {
 
     }
-
     public void clickAddButton() {
         btnAdd.click();
     }
@@ -53,14 +66,14 @@ public class Lead extends Constructor {
     @FindBy(xpath="//input[@id='name']")           private WebElement fieldLeadName;
     @FindBy(xpath="//select[@id='status']")        private WebElement dropLeadStatus;
     @FindBy(xpath="//input[@id='email']")          private WebElement fieldEmail;
-    @FindBy(xpath="//input[@id='mobile'")          private WebElement fieldMobile;
+    @FindBy(xpath="//input[@id='mobile']")          private WebElement fieldMobile;
     @FindBy(xpath="//input[@id='lead_lable']")     private WebElement fieldLabel;
     @FindBy(xpath="//input[@id='lead_address']")   private WebElement fieldAddress;
     @FindBy(xpath="//select[@id='city']")          private WebElement dropCity;
     @FindBy(xpath="//select[@id='areaSelect']")    private WebElement dropLocality;
     @FindBy(xpath="//input[@id='pin']")            private WebElement fieldPostalCode;
 
-    public String getLeadAddPageText() {
+    public String getLeadAddViewEditPageText() {
         return leadInsidePageText.getText();
     }
     public void selectLeadStatus(String status) {
@@ -120,16 +133,25 @@ public class Lead extends Constructor {
     			link.click();break;     } 	}   }
     
     @FindBy(xpath="//button[text()='Add Address']") private WebElement buttonAddAddress;
-    @FindBy(xpath="//input[@id='label']")           private WebElement fieldAddressLabel;
-    @FindBy(xpath="//div[@class='loader card-table-edit-btns']//span")private WebElement iconEditDelete;
+    @FindBy(xpath="//input[@id='lead_lable']")           private WebElement fieldAddressLabel;
+    @FindBy(xpath="//div[@class='dropdown-content_list_options']//a/span") private List<WebElement> leadkebabOptions;
     @FindBy(xpath="//button[@class=' primary-btn car_add_btn']")      private WebElement btnAddCar;
     @FindBy(xpath="//input[@id='regno']")      private WebElement registerNumber;
     @FindBy(xpath="//select[@id='brand_id']")  private WebElement dropCarBrand;
     @FindBy(xpath="//select[@id='model']")     private WebElement dropModel;
     @FindBy(xpath="//input[@id='year']")       private WebElement fieldYear;
+    @FindBy(xpath="//a[@href='/lead/edit_lead/17498']") private WebElement ViewPageEditIcon;
+    @FindBy(xpath="//p[text()='No lead Found!']") private WebElement deletePageText;
+    
+    public String getDeletePageText()    {
+    return deletePageText.getText();
+    }
+    public void clickOnViewPageEditIcon()    {
+    ViewPageEditIcon.click();
+    }
     
     public void clickAddAddress() {
-        buttonAddAddress.click();
+    buttonAddAddress.click();
     }
 
     public void setAddressLabel(String label) {
@@ -137,12 +159,14 @@ public class Lead extends Constructor {
         fieldAddressLabel.sendKeys(label);
     }
 
-    public void clickEditDeleteIcon() {
-        iconEditDelete.click();
-    }
+    public void clickOnKebabOption(String option) {
+     for(WebElement element:leadkebabOptions)      {
+     if(element.getText().equalsIgnoreCase(option)) {
+     JavascriptExecutor js = (JavascriptExecutor) driver;
+     js.executeScript("arguments[0].click();", element); } } }
 
     public void clickAddCar() {
-        btnAddCar.click();
+     btnAddCar.click();
     }
 
     public void setRegisterNumber(String regNo) {
@@ -164,6 +188,6 @@ public class Lead extends Constructor {
         fieldYear.clear();
         fieldYear.sendKeys(year);
     }
-    
+ 
     
 }

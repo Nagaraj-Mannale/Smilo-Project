@@ -79,7 +79,7 @@ public class StepService {
 	@When("the Service name is modified")
 	public void theServiceNameIsModifiedAndTheButtonIsClicked( ) {
 	 ClassObjects.SG.enterCatOrProduOrServiceName(modifiedServiceName);
-	 ClassObjects.CC.clickonSaveButton();
+	 ClassObjects.CC.clickOnSaveButton();
 	 ClassObjects.SG.clickOnServiceEditPageLinks("Service Availability");
 	 ClassObjects.SG.selectServiceAvailability("Home and Mall Service");
 	 ClassObjects.SG.enterEstimateTime("15");

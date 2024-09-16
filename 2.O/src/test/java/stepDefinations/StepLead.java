@@ -8,20 +8,20 @@ import io.cucumber.java.en.*;
 
 public class StepLead extends StepBaseClass {
  
-
+	 // private String leadId="";
+	  private String leadName="Tester";
+	  private String leadMail="nagaraj@rokkun.io";
+	  private String modifyLeadName="tester2";
+	    
     @When("the lead link is clicked")
     public void theLeadLinkIsClicked() {
         ClassObjects.CC.selectPageLink("Lead");
     }
-
+    
     @Then("the lead page text is validated")
     public void theLeadPageTextIsValidated() {
          Assert.assertEquals(ClassObjects.LD.getLeadHomePageText(),"Lead");
-    }
-
-    @When("the Import button is clicked")
-    public void theImportButtonIsClicked() {
-    	ClassObjects.LD.clickImportButton();
+        // leadId=ClassObjects.LD.getFirstRecordLeadId();
     }
 
     @When("the Add button is clicked")
@@ -31,24 +31,76 @@ public class StepLead extends StepBaseClass {
 
     @Then("the lead add page text is validated")
     public void theLeadAddPageTextIsValidated() {
-      Assert.assertEquals(ClassObjects.LD.getLeadAddPageText(),"Add Leads");
+      Assert.assertEquals(ClassObjects.LD.getLeadAddViewEditPageText(),"Add"); //Add lead
     }
-
-    @When("the user navigates back to the lead home page")
-    public void theUserNavigatesBackToTheLeadHomePage() {
-    	ClassObjects.CC.selectPageLink("Lead");
-    }
-
-    @When("the Convert button is clicked")
+  
+    @When("enter the all necessary data to create lead")
     public void theConvertButtonIsClicked() {
-        // lead.clickConvertButton();
+      ClassObjects.LD.setLeadName(leadName);
+      ClassObjects.LD.selectLeadStatus("Contact Made");
+      ClassObjects.LD.setEmail(leadMail);
+      ClassObjects.LD.setMobile("4567891234");
+      ClassObjects.LD.setAddressLabel("Banglore");
+      ClassObjects.LD.setAddress("Bengaluru");
+      ClassObjects.LD.selectCity("Bengaluru");
+      ClassObjects.CC.clickOnSaveButton();
+    }
+    
+    @Then("Validate the new added lead")
+    public void validateTheNewAddedLead() throws AWTException {
+      //ClassObjects.CC.searchField(leadName);
+      Assert.assertEquals(ClassObjects.LD.getfirstRecordName(),leadName);
+      Assert.assertEquals(ClassObjects.LD.getfirstRecordMail(),leadMail);
+      System.out.println(ClassObjects.LD.getfirstRecordName()+" "+ClassObjects.LD.getfirstRecordMail());
+    }
+    
+//    @When("the View button is clicked")
+//    public void theViewButtonIsClicked() throws AWTException {
+//     ClassObjects.CC.searchField(leadName);
+//     ClassObjects.LD.clickOnKebabOption("View");
+//    }
+//    
+//    @Then("verify the lead view page is displayed")
+//    public void verifyTheLeadViewPageIsDisplayed() {
+//    Assert.assertEquals(ClassObjects.LD.getLeadAddViewEditPageText(),"View Lead");
+//    }
+    
+    @When("the Edit button is clicked")
+    public void theEditButtonIsClicked() throws AWTException {
+//    ClassObjects.LD.clickOnViewPageEditIcon();
+    	ClassObjects.CC.searchField(leadName);
+    	
+    	ClassObjects.CC.clickOnKebabIcon();
+    	ClassObjects.LD.clickOnKebabOption("Edit");
+    }
+
+    @Then("verify the lead edit page is displayed")
+    public void verifyTheLeadEditPageIsDisplayed() {
+    Assert.assertEquals(ClassObjects.LD.getLeadAddViewEditPageText(),"Edit Leads");
+    }
+
+    @When("modify the leadmailid")
+    public void modifyTheLeadMailId() {
+  	ClassObjects.LD.setLeadName(modifyLeadName);
+    }
+    
+    @When("Validate the modified lead")
+    public void validateTheModifiedLead() {
+    Assert.assertEquals(ClassObjects.LD.getfirstRecordMail(),modifyLeadName);
     }
 
     @When("the Delete button is clicked")
     public void theDeleteButtonIsClicked() {
-        // lead.clickDeleteButton();
+    ClassObjects.LD.clickOnKebabOption("Delete");
+    ClassObjects.CC.deletePopupHandle("Yes");
     }
 
+    @Then("verify the record is deleted")
+    public void verifyTheRecordIsDeleted() throws AWTException {
+    ClassObjects.CC.searchField(modifyLeadName);	
+    Assert.assertEquals(ClassObjects.LD.getDeletePageText(),"No lead Found!");
+    }
+    
     @When("the Export link is clicked")
     public void theExportLinkIsClicked() {
         // lead.clickExportLink();
@@ -61,7 +113,7 @@ public class StepLead extends StepBaseClass {
 
     @Then("the records on the page are verified")
     public void theRecordsOnThePageAreVerified() {
-        // Implement logic to verify the records on the page
+      
     }
 
     @When("the reset button is clicked")
@@ -71,17 +123,17 @@ public class StepLead extends StepBaseClass {
 
     @Then("verify the page limit is set correctly")
     public void verifyThePageLimitIsSetCorrectly() {
-        // Implement logic to verify the page limit
+       
     }
 
     @When("the city dropdown is applied")
     public void theCityDropdownIsApplied() {
-        // Implement logic for applying the city dropdown filter
+        
     }
 
     @Then("verify the city column reflects the selected city")
     public void verifyTheCityColumnReflectsTheSelectedCity() {
-        // Implement logic to verify the city column
+       
     }
 
     @When("the lead is searched by name")
@@ -91,7 +143,7 @@ public class StepLead extends StepBaseClass {
 
     @Then("validate the received records")
     public void validateTheReceivedRecords() {
-        // Implement logic to validate the received records
+       
     }
 
     @When("the From date and To date are set")
@@ -106,36 +158,15 @@ public class StepLead extends StepBaseClass {
 
     @Then("verify the received records meet the applied filter criteria")
     public void verifyTheReceivedRecordsMeetTheAppliedFilterCriteria() {
-        // Implement logic to verify the received records based on filter criteria
-    }
 
-    @When("the View button is clicked")
-    public void theViewButtonIsClicked() {
-        // Implement logic for clicking the View button
-    }
-
-    @Then("verify the lead view page is displayed")
-    public void verifyTheLeadViewPageIsDisplayed() {
-        // Implement logic to verify the lead view page
-    }
-
-    @When("the Edit button is clicked")
-    public void theEditButtonIsClicked() {
-        // Implement logic for clicking the Edit button
-    }
-
-    @Then("verify the lead edit page is displayed")
-    public void verifyTheLeadEditPageIsDisplayed() {
-        // Implement logic to verify the lead edit page
-    }
-
-    @Then("verify the record is deleted")
-    public void verifyTheRecordIsDeleted() {
-        // Implement logic to verify the record deletion
     }
 
     @Given("the user logs out of the account")
     public void theUserLogsOutOfTheAccount() {
         // Implement logic for logging out of the account
     }
+
+
+
+
 }

@@ -40,7 +40,7 @@ public class StepMallUser extends StepBaseClass {
 
 	@When("the Save button is clicked")
 	public void theSaveButtonIsClicked() {
-		ClassObjects.CC.clickonSaveButton();
+		ClassObjects.CC.clickOnSaveButton();
 	}
 
 	@Then("the new MallUser is verified")
