@@ -3,7 +3,9 @@ package pom;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -133,16 +135,21 @@ public class Lead extends Constructor {
     			link.click();break;     } 	}   }
     
     @FindBy(xpath="//button[text()='Add Address']") private WebElement buttonAddAddress;
-    @FindBy(xpath="//input[@id='lead_lable']")           private WebElement fieldAddressLabel;
-    @FindBy(xpath="//div[@class='dropdown-content_list_options']//a/span") private List<WebElement> leadkebabOptions;
-    @FindBy(xpath="//button[@class=' primary-btn car_add_btn']")      private WebElement btnAddCar;
+    @FindBy(xpath="//input[@id='lead_lable']")      private WebElement fieldAddressLabel;
+    @FindBy(xpath="//span[text()='computer']/../..//span") private List<WebElement> leadkebabOptions;
+    @FindBy(xpath="//button[@class=' primary-btn car_add_btn']") private WebElement btnAddCar;
     @FindBy(xpath="//input[@id='regno']")      private WebElement registerNumber;
     @FindBy(xpath="//select[@id='brand_id']")  private WebElement dropCarBrand;
     @FindBy(xpath="//select[@id='model']")     private WebElement dropModel;
     @FindBy(xpath="//input[@id='year']")       private WebElement fieldYear;
-    @FindBy(xpath="//a[@href='/lead/edit_lead/17498']") private WebElement ViewPageEditIcon;
-    @FindBy(xpath="//p[text()='No lead Found!']") private WebElement deletePageText;
+    @FindBy(xpath="//button[@class='edit-btn']/a") private WebElement ViewPageEditIcon;
+    @FindBy(xpath="//p[text()='No lead Found!']")  private WebElement deletePageText;
+    @FindBy(xpath="//input[@id='selected_leads']") private WebElement checkBox;
     
+    public void clickonCheckBox()
+    {
+    	checkBox.click();
+    }
     public String getDeletePageText()    {
     return deletePageText.getText();
     }
@@ -160,10 +167,27 @@ public class Lead extends Constructor {
     }
 
     public void clickOnKebabOption(String option) {
-     for(WebElement element:leadkebabOptions)      {
-     if(element.getText().equalsIgnoreCase(option)) {
-     JavascriptExecutor js = (JavascriptExecutor) driver;
-     js.executeScript("arguments[0].click();", element); } } }
+        boolean elementClicked = false;
+        int retries = 3; // Retry up to 3 times if StaleElementReferenceException occurs
+
+        while (!elementClicked && retries > 0) {
+            try {for (WebElement element : leadkebabOptions) {	
+              if (element.getText().equalsIgnoreCase(option)) {
+                 JavascriptExecutor js = (JavascriptExecutor) driver;
+                 js.executeScript("arguments[0].click();", element);
+                 elementClicked = true;break;  // Exit loop once element is clicked
+                    } } } 
+            catch (StaleElementReferenceException e) {
+                retries--;  // Decrement the retry count and re-find elements
+                // Re-find elements in case DOM changed
+                leadkebabOptions = driver.findElements(By.xpath("//span[text()='computer']/../..//span"));
+                if (retries == 0) {
+                    throw e;  // Throw exception if max retries are reached
+                }
+            }
+        }
+    }
+
 
     public void clickAddCar() {
      btnAddCar.click();

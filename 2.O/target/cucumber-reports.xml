@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="19.708" tests="2" skipped="0" failures="1" errors="0">
-<testcase classname="Verify Lead functionality" name="Successful Login with Valid Credentials" time="18.028">
+<testsuite name="Cucumber" time="33.622" tests="4" skipped="0" failures="1" errors="0">
+<testcase classname="Verify Lead functionality" name="Successful Login with Valid Credentials" time="12.004">
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................passed
 When the valid username and password are entered............................passed
@@ -9,27 +9,44 @@ And the lead link is clicked................................................pass
 Then the lead page text is validated........................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Lead functionality" name="Viewing and Editing Lead Details" time="1.389">
-<failure type="org.openqa.selenium.StaleElementReferenceException" message="stale element reference: stale element not found
+<testcase classname="Verify Lead functionality" name="Adding a Lead Successful" time="2.743">
+<system-out><![CDATA[
+When the Add button is clicked..............................................passed
+Then the lead add page text is validated....................................passed
+When enter the all necessary data to create lead............................passed
+Then Validate the new added lead............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Verify Lead functionality" name="Viewing and Editing Lead Details" time="5.079">
+<system-out><![CDATA[
+When the View button is clicked.............................................passed
+Then verify the lead view page is displayed.................................passed
+When the Edit button is clicked.............................................passed
+Then verify the lead edit page is displayed.................................passed
+When modify the leadName....................................................passed
+And the Save button is clicked..............................................passed
+Then Validate the modified lead.............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Verify Lead functionality" name="Deleting a Lead" time="13.428">
+<failure type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//p[text()='No lead Found!']&quot;}
   (Session info: chrome=128.0.6613.137)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.11.0', revision: '040bc5406b'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-40-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1a786d9c945d7700cd2c33e9652a9fc6, getElementText {id=f.E683AFE6A3E0A0745C3F3A16C6987851.d.11C11A4EB39CFD025EA625D4182782AE.e.94}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.137, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:45227}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:45227/devtoo..., se:cdpVersion: 128.0.6613.137, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on linux (1a786d9c945d7700cd2c33e9652a9fc6)] -&gt; xpath: //div[@class='dropdown-content_list_options']//a/span]
-Session ID: 1a786d9c945d7700cd2c33e9652a9fc6">
-<![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+Command: [261e29686cc5f8b229c752032875fb36, findElement {using=xpath, value=//p[text()='No lead Found!']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.137, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:43321}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:43321/devtoo..., se:cdpVersion: 128.0.6613.137, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 261e29686cc5f8b229c752032875fb36">
+<![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[text()='No lead Found!']"}
   (Session info: chrome=128.0.6613.137)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.11.0', revision: '040bc5406b'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-40-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1a786d9c945d7700cd2c33e9652a9fc6, getElementText {id=f.E683AFE6A3E0A0745C3F3A16C6987851.d.11C11A4EB39CFD025EA625D4182782AE.e.94}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.137, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:45227}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:45227/devtoo..., se:cdpVersion: 128.0.6613.137, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on linux (1a786d9c945d7700cd2c33e9652a9fc6)] -> xpath: //div[@class='dropdown-content_list_options']//a/span]
-Session ID: 1a786d9c945d7700cd2c33e9652a9fc6
+Command: [261e29686cc5f8b229c752032875fb36, findElement {using=xpath, value=//p[text()='No lead Found!']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.137, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:43321}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:43321/devtoo..., se:cdpVersion: 128.0.6613.137, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 261e29686cc5f8b229c752032875fb36
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -42,19 +59,23 @@ Session ID: 1a786d9c945d7700cd2c33e9652a9fc6
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:192)
-	at pom.Lead.clickOnKebabOption(Lead.java:164)
-	at stepDefinations.StepLead.theEditButtonIsClicked(StepLead.java:74)
-	at ✽.the Edit button is clicked(file:///home/active35/eclipse-workspace/2.O/src/test/resources/Feature%20file/Lead.feature:19)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy29.getText(Unknown Source)
+	at pom.Lead.getDeletePageText(Lead.java:154)
+	at stepDefinations.StepLead.verifyTheRecordIsDeleted(StepLead.java:105)
+	at ✽.verify the record is deleted(file:///home/active35/eclipse-workspace/2.O/src/test/resources/Feature%20file/Lead.feature:27)
 ]]>
 </failure>
 <system-out><![CDATA[
-When the Edit button is clicked.............................................failed
-Then verify the lead edit page is displayed.................................skipped
-When modify the leadmailid..................................................skipped
-And the Save button is clicked..............................................skipped
-Then Validate the modified lead.............................................skipped
+When select one lead and the Delete button is clicked.......................passed
+Then verify the record is deleted...........................................skipped
+When select one check box...................................................skipped
+And home delete button is clicked...........................................skipped
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -7,24 +7,27 @@ Feature: Verify Lead functionality
     And the lead link is clicked
     Then the lead page text is validated
 
- #Scenario: Adding a Lead Successful
-    #When the Add button is clicked 
-    #Then the lead add page text is validated
-    #When enter the all necessary data to create lead
-    #Then Validate the new added lead
+ Scenario: Adding a Lead Successful
+    When the Add button is clicked 
+    Then the lead add page text is validated
+    When enter the all necessary data to create lead
+    Then Validate the new added lead
 
   Scenario: Viewing and Editing Lead Details
-    #When the View button is clicked
-    #Then verify the lead view page is displayed
+    When the View button is clicked
+    Then verify the lead view page is displayed
     When the Edit button is clicked
     Then verify the lead edit page is displayed
-    When modify the leadmailid
+    When modify the leadName
     And the Save button is clicked 
     Then Validate the modified lead
 
-  #Scenario: Deleting a Lead
-    #When the Delete button is clicked
-    #Then verify the record is deleted
+  Scenario: Deleting a Lead
+    When select one lead and the Delete button is clicked
+    Then verify the record is deleted
+    When select one check box
+    And home delete button is clicked
+    Then verify the record is deleted
 
   #Scenario: Navigating and Performing Actions on Lead Page
     #When the user navigates back to the lead home page

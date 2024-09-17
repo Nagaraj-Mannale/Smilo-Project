@@ -8,7 +8,7 @@ import io.cucumber.java.en.*;
 
 public class StepLead extends StepBaseClass {
  
-	 // private String leadId="";
+	  private String leadId="";
 	  private String leadName="Tester";
 	  private String leadMail="nagaraj@rokkun.io";
 	  private String modifyLeadName="tester2";
@@ -21,7 +21,7 @@ public class StepLead extends StepBaseClass {
     @Then("the lead page text is validated")
     public void theLeadPageTextIsValidated() {
          Assert.assertEquals(ClassObjects.LD.getLeadHomePageText(),"Lead");
-        // leadId=ClassObjects.LD.getFirstRecordLeadId();
+        
     }
 
     @When("the Add button is clicked")
@@ -49,66 +49,75 @@ public class StepLead extends StepBaseClass {
     @Then("Validate the new added lead")
     public void validateTheNewAddedLead() throws AWTException {
       //ClassObjects.CC.searchField(leadName);
+      leadId=ClassObjects.LD.getFirstRecordLeadId();
       Assert.assertEquals(ClassObjects.LD.getfirstRecordName(),leadName);
       Assert.assertEquals(ClassObjects.LD.getfirstRecordMail(),leadMail);
       System.out.println(ClassObjects.LD.getfirstRecordName()+" "+ClassObjects.LD.getfirstRecordMail());
     }
     
-//    @When("the View button is clicked")
-//    public void theViewButtonIsClicked() throws AWTException {
-//     ClassObjects.CC.searchField(leadName);
-//     ClassObjects.LD.clickOnKebabOption("View");
-//    }
-//    
-//    @Then("verify the lead view page is displayed")
-//    public void verifyTheLeadViewPageIsDisplayed() {
-//    Assert.assertEquals(ClassObjects.LD.getLeadAddViewEditPageText(),"View Lead");
-//    }
+    @When("the View button is clicked")
+    public void theViewButtonIsClicked() throws AWTException {
+     ClassObjects.CC.searchField(leadId);
+     Assert.assertEquals(ClassObjects.LD.getfirstRecordMail(),leadMail);
+     ClassObjects.CC.clickOnKebabIcon();
+ 	 ClassObjects.LD.clickOnKebabOption("computer");
+     
+    }
+    
+    @Then("verify the lead view page is displayed")
+    public void verifyTheLeadViewPageIsDisplayed() {
+    Assert.assertEquals(ClassObjects.LD.getLeadAddViewEditPageText(),"View Lead");
+    }
     
     @When("the Edit button is clicked")
     public void theEditButtonIsClicked() throws AWTException {
-//    ClassObjects.LD.clickOnViewPageEditIcon();
-    	ClassObjects.CC.searchField(leadName);
-    	
-    	ClassObjects.CC.clickOnKebabIcon();
-    	ClassObjects.LD.clickOnKebabOption("Edit");
+    ClassObjects.LD.clickOnViewPageEditIcon();
+
     }
 
     @Then("verify the lead edit page is displayed")
     public void verifyTheLeadEditPageIsDisplayed() {
-    Assert.assertEquals(ClassObjects.LD.getLeadAddViewEditPageText(),"Edit Leads");
+    Assert.assertEquals(ClassObjects.LD.getLeadAddViewEditPageText(),"Edit Lead");
     }
 
-    @When("modify the leadmailid")
-    public void modifyTheLeadMailId() {
-  	ClassObjects.LD.setLeadName(modifyLeadName);
+    @When("modify the leadName")
+    public void modifyTheLeadName()  {
+    ClassObjects.LD.setLeadName(modifyLeadName);
     }
     
     @When("Validate the modified lead")
-    public void validateTheModifiedLead() {
-    Assert.assertEquals(ClassObjects.LD.getfirstRecordMail(),modifyLeadName);
+    public void validateTheModifiedLead()throws AWTException {
+    ClassObjects.CC.searchField(leadId);
+    Assert.assertEquals(ClassObjects.LD.getfirstRecordName(),modifyLeadName);
     }
 
-    @When("the Delete button is clicked")
-    public void theDeleteButtonIsClicked() {
+    @When("select one lead and the Delete button is clicked")
+    public void theDeleteButtonIsClicked() throws AWTException {
+    ClassObjects.CC.searchField(leadId);
+    ClassObjects.CC.clickOnKebabIcon();
     ClassObjects.LD.clickOnKebabOption("Delete");
     ClassObjects.CC.deletePopupHandle("Yes");
     }
 
     @Then("verify the record is deleted")
     public void verifyTheRecordIsDeleted() throws AWTException {
-    ClassObjects.CC.searchField(modifyLeadName);	
+    ClassObjects.CC.searchField(leadId);	
     Assert.assertEquals(ClassObjects.LD.getDeletePageText(),"No lead Found!");
+    ClassObjects.CC.clickResetButton();
     }
     
-    @When("the Export link is clicked")
-    public void theExportLinkIsClicked() {
-        // lead.clickExportLink();
+    @When("select one check box")
+    public void thePageLimitIsSetToAnd() throws AWTException {
+    	System.out.println(leadId);
+    	leadId=ClassObjects.LD.getFirstRecordLeadId();
+    	ClassObjects.CC.searchField(leadId);  
+    	System.out.println(leadId);
+    	ClassObjects.LD.clickonCheckBox();
     }
-
-    @When("the page limit is set to {int}, {int}, and {int}")
-    public void thePageLimitIsSetToAnd(Integer int1, Integer int2, Integer int3) {
-        // Implement logic for setting page limit
+    
+    @When("home delete button is clicked")
+    public void theExportLinkIsClicked() {
+      ClassObjects.LD.clickDeleteButton();
     }
 
     @Then("the records on the page are verified")
