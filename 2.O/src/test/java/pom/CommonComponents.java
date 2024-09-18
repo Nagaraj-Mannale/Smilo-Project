@@ -60,8 +60,8 @@ public class CommonComponents extends Constructor {
     @FindBy(xpath = "//input[@id='from_date']")      private WebElement dateFrom;
     @FindBy(xpath = "//input[@id='to_date']")        private WebElement dateTo; 
     @FindBy(xpath = "//Select[@id='showDropdown']")  private WebElement dropPagination;
-    @FindBy(xpath = "(//a[@class='page-link'])[3]")  private WebElement iconNextPage;
-    @FindBy(xpath = "(//a[@class='page-link'])[4]")  private WebElement iconLastPage;
+    @FindBy(xpath = "//div[@class='pagination-bar']//a")  private List<WebElement> pageCount;
+   // @FindBy(xpath = "(//a[@class='page-link'])[4]")  private WebElement iconLastPage;
     
     public void clickResetButton() {
         btnReset.click();
@@ -71,11 +71,8 @@ public class CommonComponents extends Constructor {
         btnSet.click();
     }
 
-    public void clickNextPageButton() {
-        iconNextPage.click();
-    }
+//    public void clickNextPageButton() {
+//    	pageCount.add(btnCancel);
+//    }
 
-    public void clickLastPageButton() {
-        iconLastPage.click();
-    }
 }

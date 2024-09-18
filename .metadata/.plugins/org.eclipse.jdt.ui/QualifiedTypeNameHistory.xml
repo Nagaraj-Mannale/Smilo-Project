@@ -24,10 +24,7 @@
     <fullyQualifiedTypeName name="pom.Serviceman"/>
     <fullyQualifiedTypeName name="pom.CommonComponents"/>
     <fullyQualifiedTypeName name="pom.Orders"/>
-    <fullyQualifiedTypeName name="java.lang.Thread"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
     <fullyQualifiedTypeName name="stepDefinations.StepBaseClass"/>
-    <fullyQualifiedTypeName name="basePage.Constructor"/>
     <fullyQualifiedTypeName name="pom.Setting"/>
     <fullyQualifiedTypeName name="practice.Arrays"/>
     <fullyQualifiedTypeName name="java.lang.invoke.MethodHandles.Lookup.ClassOption"/>
@@ -37,8 +34,11 @@
     <fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
     <fullyQualifiedTypeName name="io.cucumber.junit.Cucumber"/>
     <fullyQualifiedTypeName name="io.cucumber.junit.CucumberOptions"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
     <fullyQualifiedTypeName name="stepDefinations.ClassObjects"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="basePage.Constructor"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

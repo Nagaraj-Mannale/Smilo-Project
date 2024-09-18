@@ -1,14 +1,10 @@
 package stepDefinations;
 
 import java.awt.AWTException;
-
 import org.testng.Assert;
 import io.cucumber.java.en.*;
-
-
 public class StepLead extends StepBaseClass {
- 
-	  private String leadId="";
+ 	  private static String leadId="";
 	  private String leadName="Tester";
 	  private String leadMail="nagaraj@rokkun.io";
 	  private String modifyLeadName="tester2";
@@ -61,7 +57,6 @@ public class StepLead extends StepBaseClass {
      Assert.assertEquals(ClassObjects.LD.getfirstRecordMail(),leadMail);
      ClassObjects.CC.clickOnKebabIcon();
  	 ClassObjects.LD.clickOnKebabOption("computer");
-     
     }
     
     @Then("verify the lead view page is displayed")
@@ -97,27 +92,28 @@ public class StepLead extends StepBaseClass {
     ClassObjects.CC.clickOnKebabIcon();
     ClassObjects.LD.clickOnKebabOption("Delete");
     ClassObjects.CC.deletePopupHandle("Yes");
+   
     }
 
     @Then("verify the record is deleted")
-    public void verifyTheRecordIsDeleted() throws AWTException {
-    ClassObjects.CC.searchField(leadId);	
+    public void verifyTheRecordIsDeleted() throws AWTException{
+    ClassObjects.CC.searchField(leadId);
     Assert.assertEquals(ClassObjects.LD.getDeletePageText(),"No lead Found!");
     ClassObjects.CC.clickResetButton();
     }
     
     @When("select one check box")
-    public void thePageLimitIsSetToAnd() throws AWTException {
-    	System.out.println(leadId);
+    public void thePageLimitIsSetToAnd() throws AWTException{
     	leadId=ClassObjects.LD.getFirstRecordLeadId();
+    	leadMail=ClassObjects.LD.getfirstRecordMail();
     	ClassObjects.CC.searchField(leadId);  
-    	System.out.println(leadId);
-    	ClassObjects.LD.clickonCheckBox();
+      	ClassObjects.LD.clickonCheckBox();
     }
     
     @When("home delete button is clicked")
     public void theExportLinkIsClicked() {
       ClassObjects.LD.clickDeleteButton();
+      ClassObjects.CC.deletePopupHandle("yes");
     }
 
     @Then("the records on the page are verified")

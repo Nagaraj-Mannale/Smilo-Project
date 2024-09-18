@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="33.622" tests="4" skipped="0" failures="1" errors="0">
-<testcase classname="Verify Lead functionality" name="Successful Login with Valid Credentials" time="12.004">
+<testsuite name="Cucumber" time="27.391" tests="4" skipped="0" failures="1" errors="0">
+<testcase classname="Verify Lead functionality" name="Successful Login with Valid Credentials" time="7.04">
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................passed
 When the valid username and password are entered............................passed
@@ -9,7 +9,7 @@ And the lead link is clicked................................................pass
 Then the lead page text is validated........................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Lead functionality" name="Adding a Lead Successful" time="2.743">
+<testcase classname="Verify Lead functionality" name="Adding a Lead Successful" time="2.528">
 <system-out><![CDATA[
 When the Add button is clicked..............................................passed
 Then the lead add page text is validated....................................passed
@@ -17,7 +17,7 @@ When enter the all necessary data to create lead............................pass
 Then Validate the new added lead............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Lead functionality" name="Viewing and Editing Lead Details" time="5.079">
+<testcase classname="Verify Lead functionality" name="Viewing and Editing Lead Details" time="4.309">
 <system-out><![CDATA[
 When the View button is clicked.............................................passed
 Then verify the lead view page is displayed.................................passed
@@ -28,25 +28,25 @@ And the Save button is clicked..............................................pass
 Then Validate the modified lead.............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Lead functionality" name="Deleting a Lead" time="13.428">
+<testcase classname="Verify Lead functionality" name="Deleting a Lead" time="13.197">
 <failure type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//p[text()='No lead Found!']&quot;}
   (Session info: chrome=128.0.6613.137)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.11.0', revision: '040bc5406b'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-40-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [261e29686cc5f8b229c752032875fb36, findElement {using=xpath, value=//p[text()='No lead Found!']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.137, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:43321}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:43321/devtoo..., se:cdpVersion: 128.0.6613.137, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 261e29686cc5f8b229c752032875fb36">
+Command: [96574948f82e64b5af1faf472f924122, findElement {using=xpath, value=//p[text()='No lead Found!']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.137, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:43243}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:43243/devtoo..., se:cdpVersion: 128.0.6613.137, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 96574948f82e64b5af1faf472f924122">
 <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[text()='No lead Found!']"}
   (Session info: chrome=128.0.6613.137)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.11.0', revision: '040bc5406b'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-40-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [261e29686cc5f8b229c752032875fb36, findElement {using=xpath, value=//p[text()='No lead Found!']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.137, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:43321}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:43321/devtoo..., se:cdpVersion: 128.0.6613.137, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 261e29686cc5f8b229c752032875fb36
+Command: [96574948f82e64b5af1faf472f924122, findElement {using=xpath, value=//p[text()='No lead Found!']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.137, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:43243}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:43243/devtoo..., se:cdpVersion: 128.0.6613.137, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 96574948f82e64b5af1faf472f924122
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -67,7 +67,7 @@ Session ID: 261e29686cc5f8b229c752032875fb36
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
 	at jdk.proxy2/jdk.proxy2.$Proxy29.getText(Unknown Source)
 	at pom.Lead.getDeletePageText(Lead.java:154)
-	at stepDefinations.StepLead.verifyTheRecordIsDeleted(StepLead.java:105)
+	at stepDefinations.StepLead.verifyTheRecordIsDeleted(StepLead.java:106)
 	at ✽.verify the record is deleted(file:///home/active35/eclipse-workspace/2.O/src/test/resources/Feature%20file/Lead.feature:27)
 ]]>
 </failure>

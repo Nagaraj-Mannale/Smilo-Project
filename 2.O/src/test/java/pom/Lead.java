@@ -27,7 +27,7 @@ public class Lead extends Constructor {
     @FindBy(xpath="(//span[text()='Lead'])[2]")       private WebElement HomePageText;
     @FindBy(xpath="(//td[@id='td-lead-id'])[1]")      private WebElement firstRecordleadId;
     @FindBy(xpath="(//td[@id='td-lead-name'])[1]")    private WebElement firstRecordName;
-    @FindBy(xpath="(//td[@id=\"td-email\"])[1]")      private WebElement firstRecordMail;
+    @FindBy(xpath="(//td[@id='td-email'])[1]")        private WebElement firstRecordMail;
     
     public String getfirstRecordMail() {
     	return firstRecordMail.getText();
@@ -62,7 +62,7 @@ public class Lead extends Constructor {
     public void clickExportLink() {
         linkExport.click();
     }
-    @FindBy(xpath="(//a[text()='Lead'])[2]/../../span[4]/a")private WebElement leadInsidePageText;
+    @FindBy(xpath="(//a[text()='Lead'])[2]/../../span[4]/a")private WebElement leadInsidePagesText;
     @FindBy(xpath="//Select[@id='status']")        private WebElement dropStatus;
     @FindBy(xpath="//label[@class='brws-img-btn']")private WebElement uploadPhoto;
     @FindBy(xpath="//input[@id='name']")           private WebElement fieldLeadName;
@@ -76,7 +76,7 @@ public class Lead extends Constructor {
     @FindBy(xpath="//input[@id='pin']")            private WebElement fieldPostalCode;
 
     public String getLeadAddViewEditPageText() {
-        return leadInsidePageText.getText();
+        return leadInsidePagesText.getText();
     }
     public void selectLeadStatus(String status) {
     	Select select=new Select(dropStatus);

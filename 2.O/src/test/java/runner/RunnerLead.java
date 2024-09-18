@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/resources/Feature file/Lead.feature",
-    glue = "stepDefinations",
+      glue = "stepDefinations",
     plugin = {
         "html:target/cucumber-reports.html",
         "json:target/cucumber-reports.json",
@@ -17,5 +17,5 @@ import io.cucumber.junit.CucumberOptions;
     dryRun = false
 )
 public class RunnerLead {
-    // No additional code needed here
+    
 }
