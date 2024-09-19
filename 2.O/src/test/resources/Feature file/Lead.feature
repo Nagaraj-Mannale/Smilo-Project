@@ -3,7 +3,7 @@ Feature: Verify Lead functionality
   Scenario: Successful Login with Valid Credentials
     Given the browser is open and the URL is entered
     When the valid username and password are entered
-    And the Login button is clicked
+    And the login button is clicked
     And the lead link is clicked
     Then the lead page text is validated
 
@@ -11,6 +11,7 @@ Feature: Verify Lead functionality
     When the Add button is clicked 
     Then the lead add page text is validated
     When enter the all necessary data to create lead
+    And the Save button is clicked
     Then Validate the new added lead
 
   Scenario: Viewing and Editing Lead Details

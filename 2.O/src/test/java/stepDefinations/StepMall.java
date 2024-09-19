@@ -4,6 +4,8 @@ import java.awt.AWTException;
 
 import org.testng.Assert;
 
+import basePage.ClassObjects;
+import basePage.StepBaseClass;
 import io.cucumber.java.en.*;
 public class StepMall extends StepBaseClass {
 

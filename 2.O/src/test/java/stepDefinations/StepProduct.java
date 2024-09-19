@@ -4,6 +4,7 @@ import java.awt.AWTException;
 
 import org.testng.Assert;
 
+import basePage.ClassObjects;
 import io.cucumber.java.en.*;
 
 public class StepProduct {

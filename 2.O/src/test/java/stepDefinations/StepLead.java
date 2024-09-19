@@ -2,6 +2,9 @@ package stepDefinations;
 
 import java.awt.AWTException;
 import org.testng.Assert;
+
+import basePage.ClassObjects;
+import basePage.StepBaseClass;
 import io.cucumber.java.en.*;
 public class StepLead extends StepBaseClass {
  	  private static String leadId="";
@@ -31,7 +34,7 @@ public class StepLead extends StepBaseClass {
     }
   
     @When("enter the all necessary data to create lead")
-    public void theConvertButtonIsClicked() {
+    public void setTheLeadData() {
       ClassObjects.LD.setLeadName(leadName);
       ClassObjects.LD.selectLeadStatus("Contact Made");
       ClassObjects.LD.setEmail(leadMail);
@@ -39,10 +42,10 @@ public class StepLead extends StepBaseClass {
       ClassObjects.LD.setAddressLabel("Banglore");
       ClassObjects.LD.setAddress("Bengaluru");
       ClassObjects.LD.selectCity("Bengaluru");
-      ClassObjects.CC.clickOnSaveButton();
+     
     }
     
-    @Then("Validate the new added lead")
+    @When("Validate the new added lead")
     public void validateTheNewAddedLead() throws AWTException {
       //ClassObjects.CC.searchField(leadName);
       leadId=ClassObjects.LD.getFirstRecordLeadId();

@@ -1,6 +1,9 @@
 package stepDefinations;
 
 import org.testng.Assert;
+
+import basePage.ClassObjects;
+import basePage.StepBaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,7 +20,7 @@ public class StepLogin extends StepBaseClass {
         ClassObjects.LP.enterUserNameAndPassword("admin@bc.com", "Admin@12");
     }
 
-    @When("the Login button is clicked")
+    @When("the login button is clicked")
     public void theLoginButtonIsClicked() {
         ClassObjects.LP.clickLoginButton();
     }

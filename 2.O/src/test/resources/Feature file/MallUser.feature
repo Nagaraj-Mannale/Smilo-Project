@@ -1,9 +1,9 @@
 Feature: Verify MallUser Functionality
 
-  Scenario: Successful Login with Valid Credentials
+  Scenario: Successful login with Valid Credentials
     Given the browser is open and the URL is entered
     When the valid username and password are entered
-    And the Login button is clicked
+    And the login button is clicked
     And the MallUser link is clicked
     Then the User page text is validated
 

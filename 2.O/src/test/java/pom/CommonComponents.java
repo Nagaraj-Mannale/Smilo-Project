@@ -6,10 +6,22 @@ import org.openqa.selenium.support.FindBy;
 import basePage.Constructor;
 
 import java.awt.AWTException;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class CommonComponents extends Constructor {
 
+	public static LocalDate currentDate = LocalDate.now();
+    public static String formattedDate = currentDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+    public static LocalDate today = LocalDate.now();
+    static LocalDate monday = today.with(DayOfWeek.MONDAY);
+    static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    public static String mondayFormatted = monday.format(formatter);
+    public static String todayFormatted = today.format(formatter);
+    
+    
     public CommonComponents(WebDriver driver) {
         super(driver);
     }
@@ -61,7 +73,8 @@ public class CommonComponents extends Constructor {
     @FindBy(xpath = "//input[@id='to_date']")        private WebElement dateTo; 
     @FindBy(xpath = "//Select[@id='showDropdown']")  private WebElement dropPagination;
     @FindBy(xpath = "//div[@class='pagination-bar']//a")  private List<WebElement> pageCount;
-   // @FindBy(xpath = "(//a[@class='page-link'])[4]")  private WebElement iconLastPage;
+    
+   
     
     public void clickResetButton() {
         btnReset.click();

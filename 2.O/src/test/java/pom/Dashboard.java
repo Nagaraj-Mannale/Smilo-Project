@@ -16,43 +16,80 @@ public class Dashboard extends Constructor {
 	@FindBy(xpath="//table[@aria-label='Order Service']/thead//span")List<WebElement> orderServiceColumnHeader;
 	@FindBy(xpath="//table[@aria-label='Order Service']/tbody//span")List<WebElement> todayWeekYearOrderServiceData;
 	
-	public String getOrderServiceColumnHeaders(String header) {
+	public String getOrderServiceData(String header) {
 	    int index = -1;
-	    for (int i = 0; i < orderServiceColumnHeader.size(); i++) 
-	    {
-	        WebElement link = orderServiceColumnHeader.get(i);
-	    if  (link.getText().equalsIgnoreCase(header)) 
-	     {index = i; break; }                                     
-	    } 
+	    ArrayList<WebElement>headerLinks=new ArrayList<WebElement>(orderServiceColumnHeader);
+	    ArrayList<WebElement>serviceData=new ArrayList<WebElement>(todayWeekYearOrderServiceData);
 	    
-	    if (index != -1 && index < todayWeekYearOrderServiceData.size()) 
-	         {return todayWeekYearOrderServiceData.get(index).getText(); }
+	    for(WebElement headerlink:headerLinks)
+	    {
+	    	if(headerlink.getText().equalsIgnoreCase(header))
+	    	{
+	    		index=headerLinks.indexOf(headerlink);break;
+	    	}
+	    }
+	    
+	    if (index != -1 && index < serviceData.size()) 
+	         {return serviceData.get(index).getText(); }
 	    else {System.out.println("Header not found or data index out of bounds.");return null;}       
 	 }
 	     	
 	
 	@FindBy(xpath="//table[@aria-label='Sales Generated']/thead//th")List<WebElement> salesGeneratedColumnHeader;
 	@FindBy(xpath="//table[@aria-label='Sales Generated']/tbody//td")List<WebElement> todayWeekYearOrderSalesData;
-	
-	public void getSalesGeneratedColumnHeaders(String header) {
-    	for(WebElement link:salesGeneratedColumnHeader)  {
-    	if(link.getText().equalsIgnoreCase(header)) {
-    			link.click();break;     } 	}   }
-	
+
+     // Why Fail???????
+//	public String getSalesGeneratedDataByColumnHeaders(String header) {
+//	    int index = -1;
+//	    for(int i = 0; i < orderServiceColumnHeader.size(); i++) 
+//	    {
+//	       WebElement link = orderServiceColumnHeader.get(i);
+//	    if(link.getText().equalsIgnoreCase(header)) 
+//	       {index = i; break; }                                     
+//	    } 
+//	    if (index != -1 && index < todayWeekYearOrderServiceData.size()) 
+//	         {return todayWeekYearOrderSalesData.get(index).getText(); }
+//	    else {System.out.println("Header not found or data index out of bounds.");return null;}       
+//	 }
 
 	@FindBy(xpath="//table[@aria-label='Lead Generated']/thead//th") List<WebElement> leadGeneratedColumnHeader;
 	@FindBy(xpath="//table[@aria-label='Lead Generated']/tbody//td") List<WebElement> todayWeekYearLeadsData;
-	public void getLeadGeneratedColumnHeaders(String header) {
-    	for(WebElement link:leadGeneratedColumnHeader)  {
-    	if(link.getText().equalsIgnoreCase(header)) {
-    			link.click();break;     } 	}   }
+	
+	public String getLeadGeneratedDataByColumnHeaders(String header) {
+		 int index = -1;
+	     ArrayList<WebElement> listheader = new ArrayList<>(leadGeneratedColumnHeader);
+	     ArrayList<WebElement> listData = new ArrayList<>(todayWeekYearLeadsData);
+	     
+	     for(WebElement headerlink : listheader){
+	            if(headerlink.getText().equalsIgnoreCase(header)) 
+	              {
+	              index = listheader.indexOf(headerlink);break; 
+	              } 
+	         }
+	            	              
+	     if(index != -1 && index < listData.size()) 
+	        {return listData.get(index).getText();}
+	     else{System.out.println("Header not found or data index out of bounds.");return null;}       
+	 }
 	
 	@FindBy(xpath="//table[@aria-label='Lead Converted']/thead//th") List<WebElement> leadConvertedColumnHeader;
 	@FindBy(xpath="//table[@aria-label='Lead Converted']/tbody//td") List<WebElement> todayWeekYearConvertedLeadsData;
-	public void getLeadConvertedColumnHeaders(String header) {
-    	for(WebElement link:leadConvertedColumnHeader)  {
-    	if(link.getText().equalsIgnoreCase(header)) {
-    			link.click();break;     } 	}   }
+	
+	public String getLeadConvertedDataByColumnHeaders(String header) {
+		int index = -1;
+		ArrayList<WebElement>listOFHeaderLinks=new ArrayList<WebElement>(leadConvertedColumnHeader);
+		ArrayList<WebElement>listOFData=new ArrayList<WebElement>(todayWeekYearConvertedLeadsData);
+	    for(WebElement headerlink:listOFHeaderLinks)
+	    {
+	    	if(headerlink.getText().equalsIgnoreCase(header))
+	    	{
+	    		index=listOFHeaderLinks.indexOf(headerlink);break;
+	    	}
+	    }
+	    if(index != -1 && index < listOFData.size()) 
+	       {return listOFData.get(index).getText();}
+	    else{System.out.println("Header not found or data index out of bounds.");return null;}       
+	 }
 	
 	@FindBy(xpath="//*[@id='chartContainer2']")WebElement ServiceOrdersByStageWhenDiagram;
 	

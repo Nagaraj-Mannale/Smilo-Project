@@ -10,8 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import basePage.ClassObjects;
 import basePage.Constructor;
-import stepDefinations.ClassObjects;
 
 public class MallSetting extends Constructor 
 {
