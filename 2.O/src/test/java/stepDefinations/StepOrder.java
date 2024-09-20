@@ -1,22 +1,29 @@
 package stepDefinations;
 
+
+import basePage.ClassObjects;
 import io.cucumber.java.en.*;
+import pom.CommonComponents;
 
 public class StepOrder {
-
-	  @When("the order link is clicked")
+        private static String FromDate=null;
+        private static String ToDate=null;
+	    @When("the order link is clicked")
 	    public void clickOnOrderLink() {
-	       
+		  ClassObjects.CC.selectPageLink("Order");
 	    }
 
 	    @And("the current date filter is applied")
-	    public void applyCurrentDateFilter() {
-	       
+	    public void applyCurrentDateFilter()  {
+	    	FromDate=CommonComponents.todayFormatted;
+	    	ToDate=CommonComponents.todayFormatted.substring(0,2);
+	        ClassObjects.CC.enterFromDateAndToDate(FromDate, ToDate);
+	        ClassObjects.CC.clickSetButton();
 	    }
 
-	    @And("the Sub Total data is collected")
+	    @And("the Sub Total data is collected except cancel order")
 	    public void collectSubTotalData() {
-	        
+	        ClassObjects.OR.getSubTotal();
 	    }
 
 	    @And("the cancel request status filter is applied")
@@ -30,8 +37,11 @@ public class StepOrder {
 	    }
 
 	    @And("the current week date filter is applied")
-	    public void applyCurrentWeekDateFilter() {
-	       
+	    public void applyCurrentWeekDateFilter()  {
+	    	ToDate=CommonComponents.todayFormatted.substring(0,2);
+	    	FromDate=CommonComponents.mondayFormatted;
+	    	ClassObjects.CC.enterFromDateAndToDate(FromDate, ToDate);
+	    	ClassObjects.CC.clickSetButton();
 	    }
 
 	    @And("the current month date filter is applied")
@@ -42,10 +52,10 @@ public class StepOrder {
 	    public void calculateTotalWithAndWithoutGst() {
 	     
 	    }
-	    @And("navigate to the dashboard")
-	    public void navigateToTheDashboard() {
-	     
-	    }
+//	    @And("navigate to the dashboard")
+//	    public void navigateToTheDashboard() {
+//	     
+//	    }
 	    @Then("verify the data with dashboard data")
 	    public void verifytheDataWithDashboardData() {
 	     

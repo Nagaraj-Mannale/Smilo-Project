@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="13.489" tests="2" skipped="0" failures="0" errors="0">
-<testcase classname="Verify Dashboard functionality" name="Successful Login with Valid Credentials" time="6.562">
+<testsuite name="Cucumber" time="18.985" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Validate the data flow from Order to Dashboard" name="Successful Login with Valid Credentials" time="9.609">
 <system-out><![CDATA[
 Given the browser is open and the URL is entered............................passed
 When the valid username and password are entered............................passed
-And the Login button is clicked.............................................passed
-Then the landing page text is validated.....................................passed
+And the login button is clicked.............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify Dashboard functionality" name="Verify the Dashboard lead converted data" time="6.663">
+<testcase classname="Validate the data flow from Order to Dashboard" name="Validate the order services and Sales generated data flow" time="9.087">
 <system-out><![CDATA[
-When get the today this week and this month converted count data............passed
-And the lead link is clicked................................................passed
-And select one lead and click on convert button.............................passed
-And navigate to the customer page...........................................passed
-Then verify the converted lead in the customer page.........................passed
-When navigate to the dashboard..............................................passed
-Then verify the lead converted count data...................................passed
+When the order link is clicked..............................................passed
+And the current week date filter is applied.................................passed
+And the Sub Total data is collected.........................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

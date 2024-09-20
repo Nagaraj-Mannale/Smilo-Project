@@ -16,7 +16,7 @@ public class CommonComponents extends Constructor {
 	public static LocalDate currentDate = LocalDate.now();
     public static String formattedDate = currentDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     public static LocalDate today = LocalDate.now();
-    static LocalDate monday = today.with(DayOfWeek.MONDAY);
+    public static LocalDate monday = today.with(DayOfWeek.MONDAY);
     static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     public static String mondayFormatted = monday.format(formatter);
     public static String todayFormatted = today.format(formatter);
@@ -74,7 +74,14 @@ public class CommonComponents extends Constructor {
     @FindBy(xpath = "//Select[@id='showDropdown']")  private WebElement dropPagination;
     @FindBy(xpath = "//div[@class='pagination-bar']//a")  private List<WebElement> pageCount;
     
-   
+    public void enterFromDateAndToDate(String from, String To) {
+    	//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    	//dateTo.sendKeys(from.format(formatter));   
+    	    dateFrom.clear();
+    	    dateFrom.sendKeys(from);
+     	    dateTo.clear();
+    	    dateTo.sendKeys(To);
+    }
     
     public void clickResetButton() {
         btnReset.click();
