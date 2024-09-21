@@ -37,20 +37,21 @@ public class Dashboard extends Constructor {
 	
 	@FindBy(xpath="//table[@aria-label='Sales Generated']/thead//th")List<WebElement> salesGeneratedColumnHeader;
 	@FindBy(xpath="//table[@aria-label='Sales Generated']/tbody//td")List<WebElement> todayWeekYearOrderSalesData;
-
-     // Why Fail???????
-//	public String getSalesGeneratedDataByColumnHeaders(String header) {
-//	    int index = -1;
-//	    for(int i = 0; i < orderServiceColumnHeader.size(); i++) 
-//	    {
-//	       WebElement link = orderServiceColumnHeader.get(i);
-//	    if(link.getText().equalsIgnoreCase(header)) 
-//	       {index = i; break; }                                     
-//	    } 
-//	    if (index != -1 && index < todayWeekYearOrderServiceData.size()) 
-//	         {return todayWeekYearOrderSalesData.get(index).getText(); }
-//	    else {System.out.println("Header not found or data index out of bounds.");return null;}       
-//	 }
+    public String getSalesGenereatedData(String header)
+    {   String Data="";
+    	ArrayList<WebElement> headers=new ArrayList<WebElement>(salesGeneratedColumnHeader);
+    	ArrayList<WebElement> data=new ArrayList<WebElement>(todayWeekYearOrderSalesData);
+    	
+    	for(int i=0;i<headers.size();i++)
+    	{
+    		if(headers.get(i).getText().trim().equalsIgnoreCase(header))
+    		{
+    			Data=data.get(i).getText().replace("₹","").replace("Rs. ","").trim();
+    			break;
+    		}
+    	}
+    	return Data;
+    }
 
 	@FindBy(xpath="//table[@aria-label='Lead Generated']/thead//th") List<WebElement> leadGeneratedColumnHeader;
 	@FindBy(xpath="//table[@aria-label='Lead Generated']/tbody//td") List<WebElement> todayWeekYearLeadsData;

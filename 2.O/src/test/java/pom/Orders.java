@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import basePage.ClassObjects;
 import basePage.Constructor;
 
 public class Orders extends Constructor
@@ -43,49 +44,29 @@ public String getFirstRecordSubOrderId()
 public String getCustomerName() 
  {return customerName.getText();}
 
-public void getSubTotal() {
+public double getSubTotal() {
     ArrayList<WebElement> TotalOrders = new ArrayList<WebElement>(orderTotal);
     ArrayList<WebElement> OrderStatus = new ArrayList<WebElement>(orderStatus);
     double totalOrder = 0.0;
-
-    // Print the size of both lists for debugging
-    System.out.println("OrderStatus size: " + OrderStatus.size());
-    System.out.println("TotalOrders size: " + TotalOrders.size());
-
     for (int i = 0; i < OrderStatus.size(); i++) {
         WebElement status = OrderStatus.get(i);
+      if(!status.getText().trim().equals("Cancelled Order") && i<TotalOrders.size()) { 
+          try {totalOrder+=Double.parseDouble(TotalOrders.get(i).getText().trim());} 
+	      catch(Exception e) {System.out.println("Invalid number format "+TotalOrders.get(i).getText().trim());}
+       } 
+    }    		  
+    	  
+      
 
-        // Print the status for debugging
-        System.out.println("Status at index " + i + ": " + status.getText());
-
-        // Skip if the status is "Cancelled Order"
-        if (status.getText().trim().equalsIgnoreCase("Cancelled Order")) {
-            System.out.println("Cancelled order at index " + i);
-            continue; // Skip to the next iteration for cancelled orders
-        }
-
-        // Ensure the index exists in TotalOrders
-        if (i < TotalOrders.size()) {
-            WebElement order = TotalOrders.get(i);
-
-            // Print the corresponding order total for debugging
-            System.out.println("Order total at index " + i + ": " + order.getText());
-
-            try {
-                // Add the corresponding value from TotalOrders as a double
-                totalOrder += Double.parseDouble(order.getText().trim());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid number format at index " + i);
-            }
-        } else {
-            System.out.println("No corresponding order total for status at index " + i);
-        }
+   
+    boolean hasNextPage=ClassObjects.CC.handlePages(">");
+    if(hasNextPage==true)
+    {
+    totalOrder+=getSubTotal();
     }
-
-    System.out.println("Final Total Order: " + totalOrder);
+  
+    return totalOrder;
 }
-
-
 
 
 

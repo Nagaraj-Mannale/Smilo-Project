@@ -9,6 +9,7 @@ import java.awt.AWTException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CommonComponents extends Constructor {
@@ -73,6 +74,21 @@ public class CommonComponents extends Constructor {
     @FindBy(xpath = "//input[@id='to_date']")        private WebElement dateTo; 
     @FindBy(xpath = "//Select[@id='showDropdown']")  private WebElement dropPagination;
     @FindBy(xpath = "//div[@class='pagination-bar']//a")  private List<WebElement> pageCount;
+    public boolean handlePages(String icon)
+    {
+    	boolean hasNextPage=false;
+    	ArrayList<WebElement> pages=new ArrayList<WebElement>(pageCount);
+    	for(WebElement page:pages)
+    	{
+    		if(page.getText().trim().equalsIgnoreCase(icon))
+    		{
+    			page.click();
+    			hasNextPage=true;
+    			break;
+    		} 
+    	}
+    	return hasNextPage;
+    }
     
     public void enterFromDateAndToDate(String from, String To) {
     	//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
