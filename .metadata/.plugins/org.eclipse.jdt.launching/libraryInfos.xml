@@ -2,5 +2,5 @@
 <libraryInfos>
     <libraryInfo home="/home/active35/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_17.0.12.v20240802-1518" version="17.0.12"/>
     <libraryInfo home="/home/active35/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_17.0.12.v20240802-1518/jre" version="17.0.12"/>
-    <libraryInfo home="/usr/lib/jvm/java-11-openjdk-amd64" version="11.0.24"/>
+    <libraryInfo home="/usr/lib/jvm/java-11-openjdk-amd64" version="11.0.25"/>
 </libraryInfos>

@@ -44,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="Smilo"/>
 			<item value="3.0"/>
 			<item value="01"/>
 			<item value="BodyCoat"/>
@@ -51,6 +52,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="2.0"/>
 			<item value="Smilo"/>
 			<item value="2.O"/>
 		</list>
