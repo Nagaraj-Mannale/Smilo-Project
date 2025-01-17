@@ -7,13 +7,13 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/resources/Features", 
-    glue = "stepDefinition",   
-    plugin = {
-        "pretty",                             
-        "html:target/cucumber-reports.html",  
-        "json:target/cucumber-reports.json",  
-        "junit:target/cucumber-reports.xml"   
-    },
+        glue = "stepDefinition",   
+      plugin = {
+         "pretty",                             
+         "html:target/cucumber-reports.html",  
+         "json:target/cucumber-reports.json",  
+         "junit:target/cucumber-reports.xml"   
+                },
     monochrome = true,                         // Clean console output
     dryRun = false,                            // If true, checks mappings without executing
     tags = "@YourTag"                          // Filter scenarios by tags (if needed)
