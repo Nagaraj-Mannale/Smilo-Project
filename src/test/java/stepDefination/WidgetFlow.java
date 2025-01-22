@@ -1,104 +1,101 @@
 package stepDefination;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-
 import basePage.BaseClass;
 import io.cucumber.java.en.*;
+import pom.Widget;
 
-public class WidgetFlow extends BaseClass{
-	public WidgetFlow(WebDriver driver) {
-		super(driver);
-		}
 
-	WebDriver driver;
+public class WidgetFlow extends BaseClass {
 	
+	public static Widget wi;
+    
+    @Given("launch the browser and enter the URL")
+    public void launchBrowserAndEnterUrl() {
+        
+    	setup("get-started/n9UyYRbhUU3yBR17pXjoMKwBPirr5NPS5V4J0AFTe8r60SyXAB");
+    }
 
-	@Given("launch the browser and enter the URL")
-	public void launchBrowserAndEnterUrl() {
-	    setup("get-started/n9UyYRbhUU3yBR17pXjoMKwBPirr5NPS5V4J0AFTe8r60SyXAB");
-	}
+    @Then("ensure your on the first page")
+    public void ensureYouAreOnFirstPageContent() {
+    	 wi=new Widget(driver);
+        Assert.assertEquals(wi.getStartedPageText(), "Home");
+    }
 
-	@Then("ensure you're on the first page content")
-	public void ensureYouAreOnFirstPageContent() {
-	    Assert.assertEquals(getStartedPageText(), "Start Your Oral Health Check Now");
-	}
+    @When("click on get start button")
+    public void clickOnGetStartedButton() {
+        wi.startNowBtn();
+    }
 
-	@When("click on get started button")
-	public void clickOnGetStartedButton() {
-		startNowBtn();
-	}
+    @Then("ensure your on the second page")
+    public void ensureYouAreOnSecondPage() {
+        Assert.assertEquals(wi.purposeOfVisitPageText(), "Select reason for your visit");
+    }
 
-	@Then("ensure you're on the second page")
-	public void ensureYouAreOnSecondPage() {
-	    Assert.assertEquals(purposeOfVisitPageText(), "Select reason for your visit");
-	}
+    @When("select one card and click on the continue button")
+    public void selectOneCardAndClickContinue() throws InterruptedException {
+        wi.clickOnResonVisitCard("General Checkup");
+        Thread.sleep(2000);
+        wi.VisitContBtn();
+    }
 
-	@When("select one card and click on the continue button")
-	public void selectOneCardAndClickContinue() {
-		clickOnResonVisitCard("General Checkup");
-	    VisitContBtn();
-	}
+    @Then("ensure your on the third page")
+    public void ensureYouAreOnThirdPage() {
+        Assert.assertEquals(wi.consentAgreementPageText(), "Consent & Agree");
+    }
 
-	@Then("ensure you're on the third page")
-	public void ensureYouAreOnThirdPage() {
-	    Assert.assertEquals(consentAgreementPageText(), "Consent & Agree");
-	}
+    @When("click on the continue button")
+    public void clickOnContinueButton() {
+        wi.consentAgreeContBtn();
+    }
 
-	@When("click on the continue button")
-	public void clickOnContinueButton() {
-		consentAgreeContBtn();
-	}
+    @Then("ensure your on the fourth page")
+    public void ensureYouAreOnFourthPage() {
+        Assert.assertEquals(wi.preferencePageText(), "Select Your Preferences");
+    }
 
-	@Then("ensure you're on the fourth page")
-	public void ensureYouAreOnFourthPage() {
-	    Assert.assertEquals(preferencePageText(), "Select Your Preferences");
-	}
+    @When("select the OHR card and click on the continue button")
+    public void selectOhrCardAndClickContinue() {
+        wi.selectOHRCard("Oral Health Rating");
+        wi.preferenceContBtn();
+    }
 
-	@When("select the OHR card and click on the continue button")
-	public void selectOhrCardAndClickContinue() {
-	    selectOHRCard("Oral Health Rating");
-	    preferenceContBtn();
-	}
+    @Then("ensure you are on the upload image page")
+    public void ensureYouAreOnUploadImagePage() {
+        Assert.assertEquals(wi.uploadPageText(), "Upload Your Image");
+    }
 
-	@Then("ensure you are on the upload image page")
-	public void ensureYouAreOnUploadImagePage() {
-	    Assert.assertEquals(uploadPageText(), "Upload Your Image");
-	}
+    @When("upload an image from your local space")
+    public void uploadImageFromLocalSpace() {
+        wi.uploadPageSpace("/home/active35/Downloads/1st.jpeg");
+    }
 
-	@When("upload an image from your local space")
-	public void uploadImageFromLocalSpace() {
-	    uploadPageSpace(); // Code to handle file upload
-	}
+    @When("click on the get result button")
+    public void clickOnResultButton() {
+            wi.FrontPageResultBtn();
+    }
 
-	@When("click on the available button")
-	public void clickOnAvailableButton() {
-	    doneBtn();
-	}
+    @Then("ensure you are on the contact info page")
+    public void ensureYouAreOnContactInfoPage() {
+        Assert.assertEquals(wi.contactPageText(), "Enter Your Details");
+    }
 
-	@Then("ensure you are on the contact info page")
-	public void ensureYouAreOnContactInfoPage() {
-	    Assert.assertEquals(contactPageText(), "Uploaded Successfully");
-	}
+    @When("fill all the necessary information and click on the submit button")
+    public void fillContactInfoAndSubmit() {
+        wi.firstNameField("John");
+        wi.lastNameField("Doe");
+        wi.emailField("john.doe@example.com");
+        wi.mobileField("1234567890");
+        wi.submitButton();
+    }
 
-	@When("fill all the necessary information and click on the submit button")
-	public void fillContactInfoAndSubmit() {
-	    firstNameField("John");
-	    lastNameField("Doe");
-	    emailField("john.doe@example.com");
-	    mobileField("1234567890");
-	    submitButton();
-	}
+    @Then("Ensure you are on the result page with cards")
+    public void ensureYouAreOnResultPageWithCards() {
+        Assert.assertEquals(wi.accessReportPageText(), " What’s Next ");
+    }
 
-	@Then("ensure you are on the result page with cards")
-	public void ensureYouAreOnResultPageWithCards() {
-	    Assert.assertEquals(accessReportPageText(), "Your Smile Check Rating");
-	}
-
-	@Then("verify that all card buttons are enabled")
-	public void verifyAllCardButtonsAreEnabled() {
-	   
-	}
-
-	
+    @Then("verify the all cards buttons are enabled")
+    public void verifyAllCardButtonsAreEnabled() {
+        // Implement this method to check button statuses.
+    }
 }

@@ -6,21 +6,15 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import pom.Widget;
 
-public class BaseClass extends Widget
-{
-public BaseClass(WebDriver driver) {
-		super(driver);
-		
-	}
-
-@Before
-public void setup(String url)
-{
-	ChromeDriver driver=new ChromeDriver();
-	driver.manage().window().maximize();
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	driver.get("v2widget.tech-active.com/"+url);
-}
+public class BaseClass {
+    protected WebDriver driver; // Use the global WebDriver instance.
+    @Before
+    public void setup(String url) {
+        //WebDriverManager.chromedriver().setup(); // Set up the ChromeDriver binary automatically.
+        driver = new ChromeDriver(); // Instantiate the WebDriver.
+        driver.manage().window().maximize(); // Maximize the browser window.
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Add an implicit wait.
+        driver.get("https://v2widget.tech-active.com/" + url); // Navigate to the target URL.
+    }
 }
