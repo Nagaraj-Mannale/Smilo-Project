@@ -1,19 +1,24 @@
 package pom;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class Widget {
+
+import basePage.Constructor;
+
+public class Widget extends Constructor {
 
 	public WebDriver driver;
 
 	public Widget(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		super(driver);
 	}
 
 	@FindBy(xpath = "//a[text()='Home']")
@@ -100,10 +105,17 @@ public class Widget {
 		return uploadPageText.getText();
 	}
 
-	public void uploadPageSpace(String imagePath) {
+	public void uploadPageSpace(String imagePath) throws AWTException, InterruptedException {
+		JavascriptExecutor js=(JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", uploadPageSpace );
 		uploadPageSpace.click();
-        String filepath=imagePath;
-        uploadPageSpace.sendKeys(filepath);
+		Thread.sleep(2000);
+	    uploadPageSpace.sendKeys(imagePath);
+        Thread.sleep(2000);
+        Robot rb=new Robot();
+        rb.keyPress(KeyEvent.VK_ENTER);
+        Thread.sleep(2000);
+        rb.keyRelease(KeyEvent.VK_ENTER);
         doneButton.click();
 
 	}

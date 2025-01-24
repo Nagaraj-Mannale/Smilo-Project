@@ -15,6 +15,6 @@ public class BaseClass {
         driver = new ChromeDriver(); // Instantiate the WebDriver.
         driver.manage().window().maximize(); // Maximize the browser window.
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Add an implicit wait.
-        driver.get("https://v2widget.tech-active.com/" + url); // Navigate to the target URL.
+        driver.get(url); // Navigate to the target URL.
     }
 }

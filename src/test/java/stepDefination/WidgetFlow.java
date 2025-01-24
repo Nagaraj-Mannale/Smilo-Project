@@ -1,5 +1,7 @@
 package stepDefination;
 
+import java.awt.AWTException;
+
 import org.junit.Assert;
 import basePage.BaseClass;
 import io.cucumber.java.en.*;
@@ -13,7 +15,7 @@ public class WidgetFlow extends BaseClass {
     @Given("launch the browser and enter the URL")
     public void launchBrowserAndEnterUrl() {
         
-    	setup("get-started/n9UyYRbhUU3yBR17pXjoMKwBPirr5NPS5V4J0AFTe8r60SyXAB");
+    	setup("v2admin.tech-active.com/get-started/n9UyYRbhUU3yBR17pXjoMKwBPirr5NPS5V4J0AFTe8r60SyXAB");
     }
 
     @Then("ensure your on the first page")
@@ -66,7 +68,7 @@ public class WidgetFlow extends BaseClass {
     }
 
     @When("upload an image from your local space")
-    public void uploadImageFromLocalSpace() {
+    public void uploadImageFromLocalSpace() throws AWTException, InterruptedException {
         wi.uploadPageSpace("/home/active35/Downloads/1st.jpeg");
     }
 

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="20.317" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="20.024">
-<failure type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h1[text()=' Upload Your Image ']&quot;}
+<testsuite name="Cucumber" time="15.293" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="15.106">
+<failure type="org.openqa.selenium.ElementNotInteractableException" message="element not interactable
   (Session info: chrome=131.0.6778.204)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.18.1', revision: 'b1d3319b48'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-51-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e372031b751405bd9bb5afbe9eb24373, findElement {using=xpath, value=//h1[text()=' Upload Your Image ']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:45559}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:45559/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e372031b751405bd9bb5afbe9eb24373">
-<![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h1[text()=' Upload Your Image ']"}
+Command: [63f51d0e3649f8cdb89b9341782e6706, sendKeysToElement {value=[Ljava.lang.CharSequence;@640dc4c6, id=f.42AF1FAF2E206D616EC4183887603872.d.D283A4CA5BB2F0992B0F7E93EF1F1CFA.e.75}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:44157}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:44157/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on linux (63f51d0e3649f8cdb89b9341782e6706)] -&gt; xpath: //div[@class='upload_image_div']]
+Session ID: 63f51d0e3649f8cdb89b9341782e6706">
+<![CDATA[org.openqa.selenium.ElementNotInteractableException: element not interactable
   (Session info: chrome=131.0.6778.204)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.18.1', revision: 'b1d3319b48'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-51-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e372031b751405bd9bb5afbe9eb24373, findElement {using=xpath, value=//h1[text()=' Upload Your Image ']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:45559}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:45559/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e372031b751405bd9bb5afbe9eb24373
+Command: [63f51d0e3649f8cdb89b9341782e6706, sendKeysToElement {value=[Ljava.lang.CharSequence;@640dc4c6, id=f.42AF1FAF2E206D616EC4183887603872.d.D283A4CA5BB2F0992B0F7E93EF1F1CFA.e.75}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:44157}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:44157/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on linux (63f51d0e3649f8cdb89b9341782e6706)] -> xpath: //div[@class='upload_image_div']]
+Session ID: 63f51d0e3649f8cdb89b9341782e6706
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -31,16 +31,17 @@ Session ID: e372031b751405bd9bb5afbe9eb24373
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy21.getText(Unknown Source)
-	at pom.Widget.uploadPageText(Widget.java:88)
-	at stepDefination.WidgetFlow.ensureYouAreOnUploadImagePage(WidgetFlow.java:67)
-	at ✽.ensure you are on the upload image page(file:///home/active35/Music/Smilo%20Project/src/test/resources/Features/flow.feature:14)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:110)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy21.sendKeys(Unknown Source)
+	at pom.Widget.uploadPageSpace(Widget.java:116)
+	at stepDefination.WidgetFlow.uploadImageFromLocalSpace(WidgetFlow.java:72)
+	at ✽.upload an image from your local space(file:///home/active35/Music/Smilo%20Project/src/test/resources/Features/flow.feature:15)
 ]]>
 </failure>
 <system-out><![CDATA[
@@ -53,9 +54,9 @@ Then ensure your on the third page..........................................pass
 When click on the continue button...........................................passed
 Then ensure your on the fourth page.........................................passed
 When select the OHR card and click on the continue button...................passed
-Then ensure you are on the upload image page................................failed
-When upload an image from your local space..................................skipped
-And click on the done button and get reult button...........................skipped
+Then ensure you are on the upload image page................................passed
+When upload an image from your local space..................................failed
+And click on the get result button..........................................skipped
 Then ensure you are on the contact info page................................skipped
 When fill all the necessary information and click on the submit button......skipped
 Then Ensure you are on the result page with cards...........................skipped
