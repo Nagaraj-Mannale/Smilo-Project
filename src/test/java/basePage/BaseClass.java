@@ -1,20 +1,28 @@
 package basePage;
 
 import java.time.Duration;
-
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-    protected WebDriver driver; // Use the global WebDriver instance.
-    @Before
-    public void setup(String url) {
-        //WebDriverManager.chromedriver().setup(); // Set up the ChromeDriver binary automatically.
-        driver = new ChromeDriver(); // Instantiate the WebDriver.
-        driver.manage().window().maximize(); // Maximize the browser window.
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Add an implicit wait.
-        driver.get(url); // Navigate to the target URL.
+    public static WebDriver driver;
+
+    // Singleton WebDriver Initialization
+    public static void setup(String url) {
+        if (driver == null) { 
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        }
+        driver.get("https://"+url);
+    }
+
+    public static void tearDown() {
+        if (driver != null) {
+            driver.quit();
+            driver = null; // Ensures driver is reset after execution.
+        }
     }
 }

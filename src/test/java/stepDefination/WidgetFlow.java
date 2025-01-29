@@ -15,7 +15,7 @@ public class WidgetFlow extends BaseClass {
     @Given("launch the browser and enter the URL")
     public void launchBrowserAndEnterUrl() {
         
-    	setup("v2admin.tech-active.com/get-started/n9UyYRbhUU3yBR17pXjoMKwBPirr5NPS5V4J0AFTe8r60SyXAB");
+    	setup("v2widget.tech-active.com");
     }
 
     @Then("ensure your on the first page")
