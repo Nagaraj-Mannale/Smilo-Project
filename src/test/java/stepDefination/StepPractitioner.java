@@ -1,5 +1,7 @@
 package stepDefination;
 
+import org.testng.Assert;
+
 import basePage.BaseClass;
 import io.cucumber.java.en.*;
 import pom.DentalPractice;
@@ -16,12 +18,12 @@ public class StepPractitioner
 
 	@Then("the user should be on the Practitioner page")
 	public void the_user_should_be_on_the_practitioner_page() {
-	    
+	    Assert.assertEquals(dp.pageName(), "Dental Practice");
 	}
 
 	@When("the user clicks the Add button")
 	public void the_user_clicks_the_add_button() {
-	    
+	    dp.addPracticeBtn();
 	}
 
 	@Then("the user should be redirected to the Company Info page")
