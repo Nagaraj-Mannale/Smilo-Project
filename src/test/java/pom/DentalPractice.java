@@ -40,7 +40,7 @@ public class DentalPractice extends Constructor {
 		}
 	}
 
-	public String pageName() {
+	public String HomepageName() {
 		return pageName.getText();
 	}
 
@@ -64,16 +64,13 @@ public class DentalPractice extends Constructor {
 	}
 
 	
-	//Add Practitioner first Page
-	
+	//Add Practitioner first Page	
 	@FindBy(xpath = "//a[@class='add_button add_admin_practice']")
 	WebElement addPractice;
 	@FindBy(xpath = "//input[@id='practice_name']")
 	WebElement practiceName;
 	@FindBy(xpath="//a[@id='company_info-tab']/span[1]")
 	WebElement firstPageName;
-	@FindBy(xpath="//h4[text()='Add Primary Contact']")
-	WebElement secondPageName;
 	@FindBy(xpath = "//input[@id='license_number']")
 	WebElement licenceNumber;
 	@FindBy(xpath = "//input[@id='email']")
@@ -100,46 +97,36 @@ public class DentalPractice extends Constructor {
     public void addPracticeBtn() {
 		addPractice.click();
 	}
-
 	public void practiceName(String name) {
 		practiceName.sendKeys(name);
 	}
-
 	public void licenceNumber(String number) {
 		licenceNumber.sendKeys(number);
 	}
-
 	public void emailField(String Email) {
 		email.sendKeys(Email);
 	}
-
 	public void websiteUrl(String weburl) {
 		webSiteUrl.sendKeys(weburl);
 	}
-
 	public void description(String Description) {
 		description.sendKeys(Description);
 	}
-
 	public void adress(String Adress) {
 		adress.sendKeys(Adress);
 	}
-
 	public void countryAndState(String Country, String State) {
 		Select sel = new Select(country);
 		Select sels = new Select(state);
 		sel.selectByVisibleText(Country);
 		sels.selectByVisibleText(State);
 	}
-
 	public void city(String City) {
 		city.sendKeys(City);
 	}
-
 	public void BookingAdress(String urladress) {
 		bookingAdress.sendKeys(urladress);
 	}
-
 	public void multibranchesOrAuthentication(String name) {
 		switch (name) {
 		case "multibranch":
@@ -154,9 +141,25 @@ public class DentalPractice extends Constructor {
 			break;
 		}
 	}
-
-	//Add Second page
+    public String FirstAndSecondpageName(String name)
+    {
+    	if(name==null)
+    	{
+    		throw new IllegalArgumentException("Page name cannot be null");
+    	}
+      String result="";
+	  switch(name)
+	  {
+	   case "first":result=firstPageName.getText();break;
+	   case "second":result=secondPageName.getText();break;
+	   default: throw new IllegalArgumentException("invalid page name:"+name);
+	  }
+	   return result;
+    }
 	
+    //Add Second page
+	@FindBy(xpath="//h4[text()='Add Primary Contact']")
+	WebElement secondPageName;
 	@FindBy(xpath="//input[@id='primary_first_name']")    
 	WebElement firstName;
 	@FindBy(xpath="//input[@id='primary_last_name']")      
@@ -206,26 +209,125 @@ public class DentalPractice extends Constructor {
     List<WebElement> ohrFlow;
     @FindBy(xpath="//input[@name='cta_options[]']/following-sibling::label")
     List<WebElement> CTAOptions;
+    
+	public void settingPageTabs(String tab) {
+		for (WebElement Tab : settingPageOption) {
+			if (Tab.getText().equalsIgnoreCase(tab)) {
+				Tab.click();
+			}
+		}
+	}
+    public void widgetButtons(List<String> button)
+    {  	for(WebElement btns:settingPageOption)
+    	{	String buttonText=btns.getText().trim();
+     		if(button.contains(buttonText))
+    		{
+    			if(!btns.isSelected())
+    			{
+    			btns.click();
+    		    }
+    	    }
+    	}
+    }
+    public void ohrFlow(String flow)
+    {
+    	for(WebElement flows:ohrFlow)
+    	{
+    		if(flows.getText().equalsIgnoreCase(flow))
+    		{
+    			flows.click();
+    		}
+    	}
+    }
+    public void CTA(List<String> option)
+    {  	for(WebElement cta:CTAOptions)
+       	{
+    	if(option.contains(cta.getText().trim()))
+          {if(!cta.isSelected())
+    	    {cta.click();}
+    	  }
+    	}
+    }
+
     @FindBy(xpath="(//input[@name='is_d4w'])[1]")
     WebElement d4wS;
     @FindBy(xpath="//input[@name='d4w_practice_id']")
     WebElement d4wPracticeId;
     @FindBy(xpath="(//input[@name='is_d4w'])[2]")
     WebElement d4wN;
+    
+    public void d4w(String order)
+     {
+	   if(order.equalsIgnoreCase("Y"))
+	   {
+		   d4wS.click();
+		   if(d4wS.isSelected())
+		   {
+			   d4wPracticeId.sendKeys("1492");
+		   }
+	   }
+	   else if(order.equalsIgnoreCase("N"))
+	   {
+		   d4wN.click();
+	   }
+     }
+    
     @FindBy(xpath="(//input[@name='is_dentally'])[1]")
     WebElement isDentallyYes;
     @FindBy(xpath="(//input[@name='dentally_access_token']")
     WebElement isDentallyToken;
     @FindBy(xpath="(//input[@name='is_dentally'])[2]")
     WebElement isDentallyNo;
+    
+    public void dentally(String order)
+    {
+    	if(order.equalsIgnoreCase("Y"))
+    	{
+    		isDentallyYes.click();
+    		if(isDentallyYes.isSelected())
+    		{
+    			isDentallyToken.sendKeys("");
+    		}
+    	}
+    	else if(order.equalsIgnoreCase("N"))
+    	{
+    		isDentallyNo.click();
+    	}
+    }
+ 
     @FindBy(xpath="(//input[@name='is_core_practice'])[1]")
     WebElement corePracticeYes;
     @FindBy(xpath="(//input[@name='is_core_practice'])[2]")
     WebElement corePracticeNo;
+    
+    public void corePractice(String Order)
+    {
+    	if(Order.equalsIgnoreCase("Y"))
+    	{
+    		corePracticeYes.click();
+    	}
+    	else if(Order.equalsIgnoreCase("N"))
+    	{
+    		corePracticeNo.click();
+    	}
+    }
+    
     @FindBy(xpath="(//input[@name='is_dabur_flow'])[1]")
     WebElement isDabourYes;
     @FindBy(xpath="(//input[@name='is_dabur_flow'])[2]")
     WebElement isDabourNo;
+    
+    public void dabour(String Order)
+    {
+    	if(Order.equalsIgnoreCase("Y"))
+    	{
+    		isDabourYes.click();
+    	}
+    	else
+    	{
+    		isDabourNo.click();
+    	}
+    }
     
     @FindBy(xpath="(//input[@name='required_img'])[1]")
     WebElement OneImage;
@@ -234,14 +336,22 @@ public class DentalPractice extends Constructor {
     @FindBy(xpath="(//input[@name='required_img'])[3]")
     WebElement FiveImage;
     
-    
+    public void image(String order)
+    {
+    	if(order.equalsIgnoreCase("1"))
+    	{
+    		OneImage.click();
+    	}
+    	else if(order.equalsIgnoreCase("3"))
+    	{
+    		ThreeImage.click();
+    	}
+    	else
+    	{
+    		FiveImage.click();
+    	}
+    }
 
-	public void settingPageTabs(String tab) {
-		for (WebElement Tab : settingPageOption) {
-			if (Tab.getText().equalsIgnoreCase(tab)) {
-				Tab.click();
-			}
-		}
-	}
+
 
 }
