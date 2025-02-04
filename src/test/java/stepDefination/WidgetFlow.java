@@ -15,7 +15,7 @@ public class WidgetFlow extends BaseClass {
     @Given("launch the browser and enter the URL")
     public void launchBrowserAndEnterUrl() {
         
-    	setup("v2widget.tech-active.com");
+    	setup("v2widget.tech-active.com/get-started/n9UyYRbhUU3yBR17pXjoMKwBPirr5NPS5V4J0AFTe8r60SyXAB");
     }
 
     @Then("ensure your on the first page")
@@ -69,7 +69,7 @@ public class WidgetFlow extends BaseClass {
 
     @When("upload an image from your local space")
     public void uploadImageFromLocalSpace() throws AWTException, InterruptedException {
-        wi.uploadPageSpace("/home/active35/Downloads/1st.jpeg");
+        wi.uploadPageSpace();//"/home/active35/Downloads/1st.jpeg"
     }
 
     @When("click on the get result button")

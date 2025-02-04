@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="1.93" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="1.719">
-<failure type="org.openqa.selenium.InvalidArgumentException" message="invalid argument
+<testsuite name="Cucumber" time="19.366" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="19.144">
+<failure type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h3[text()='Enter Your Details']&quot;}
   (Session info: chrome=131.0.6778.204)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-51-generic', java.version: '17.0.12'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-52-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [157093bbf5c64e93203cbb5860d30737, get {url=v2admin.tech-active.com}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:45137}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:45137/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 157093bbf5c64e93203cbb5860d30737">
-<![CDATA[org.openqa.selenium.InvalidArgumentException: invalid argument
+Command: [bc8bec1709e3f556e393c13e7c5c87c1, findElement {using=xpath, value=//h3[text()='Enter Your Details']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:34521}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:34521/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: bc8bec1709e3f556e393c13e7c5c87c1">
+<![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h3[text()='Enter Your Details']"}
   (Session info: chrome=131.0.6778.204)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-51-generic', java.version: '17.0.12'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-52-generic', java.version: '17.0.12'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [157093bbf5c64e93203cbb5860d30737, get {url=v2admin.tech-active.com}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:45137}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:45137/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 157093bbf5c64e93203cbb5860d30737
+Command: [bc8bec1709e3f556e393c13e7c5c87c1, findElement {using=xpath, value=//h3[text()='Enter Your Details']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:34521}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:34521/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: bc8bec1709e3f556e393c13e7c5c87c1
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -29,26 +31,32 @@ Session ID: 157093bbf5c64e93203cbb5860d30737
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:301)
-	at basePage.BaseClass.setup(BaseClass.java:18)
-	at stepDefination.WidgetFlow.launchBrowserAndEnterUrl(WidgetFlow.java:18)
-	at ✽.launch the browser and enter the URL(file:///home/active35/Music/Smilo%20Project/src/test/resources/Widget_Features/flow.feature:5)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy20.getText(Unknown Source)
+	at pom.Widget.contactPageText(Widget.java:167)
+	at stepDefination.WidgetFlow.ensureYouAreOnContactInfoPage(WidgetFlow.java:82)
+	at ✽.ensure you are on the contact info page(file:///home/active35/Music/Smilo%20Project/src/test/resources/Widget_Features/flow.feature:17)
 ]]>
 </failure>
 <system-out><![CDATA[
-Given launch the browser and enter the URL..................................failed
-Then ensure your on the first page..........................................skipped
-When click on get start button..............................................skipped
-Then ensure your on the second page.........................................skipped
-When select one card and click on the continue button.......................skipped
-Then ensure your on the third page..........................................skipped
-When click on the continue button...........................................skipped
-Then ensure your on the fourth page.........................................skipped
-When select the OHR card and click on the continue button...................skipped
-Then ensure you are on the upload image page................................skipped
-When upload an image from your local space..................................skipped
-And click on the get result button..........................................skipped
-Then ensure you are on the contact info page................................skipped
+Given launch the browser and enter the URL..................................passed
+Then ensure your on the first page..........................................passed
+When click on get start button..............................................passed
+Then ensure your on the second page.........................................passed
+When select one card and click on the continue button.......................passed
+Then ensure your on the third page..........................................passed
+When click on the continue button...........................................passed
+Then ensure your on the fourth page.........................................passed
+When select the OHR card and click on the continue button...................passed
+Then ensure you are on the upload image page................................passed
+When upload an image from your local space..................................passed
+And click on the get result button..........................................passed
+Then ensure you are on the contact info page................................failed
 When fill all the necessary information and click on the submit button......skipped
 Then Ensure you are on the result page with cards...........................skipped
 And verify the all cards buttons are enabled................................skipped

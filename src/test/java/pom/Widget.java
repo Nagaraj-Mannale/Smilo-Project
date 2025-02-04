@@ -105,18 +105,38 @@ public class Widget extends Constructor {
 		return uploadPageText.getText();
 	}
 
-	public void uploadPageSpace(String imagePath) throws AWTException, InterruptedException {
-		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", uploadPageSpace );
+	public void uploadPageSpace() throws AWTException, InterruptedException {
+//		JavascriptExecutor js=(JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", uploadPageSpace );
 		uploadPageSpace.click();
-		Thread.sleep(2000);
-	    uploadPageSpace.sendKeys(imagePath);
-        Thread.sleep(2000);
-        Robot rb=new Robot();
-        rb.keyPress(KeyEvent.VK_ENTER);
-        Thread.sleep(2000);
-        rb.keyRelease(KeyEvent.VK_ENTER);
-        doneButton.click();
+		Robot rb=new Robot();
+		  rb.keyPress(KeyEvent.VK_CAPS_LOCK);
+		  //Thread.sleep(500);
+          //rb.keyPress(KeyEvent.VK_TAB);
+          Thread.sleep(500);  // Hold ALT+TAB for half a second
+          rb.keyRelease(KeyEvent.VK_CAPS_LOCK);
+        //  rb.keyRelease(KeyEvent.VK_ALT);
+//
+//		Thread.sleep(2000);
+//		rb.keyPress(KeyEvent.VK_ALT);
+//		rb.keyPress(KeyEvent.VK_TAB);
+//		rb.keyRelease(KeyEvent.VK_ALT);
+//		rb.keyRelease(KeyEvent.VK_TAB);
+//		int i=1;
+//		while(i<=8)
+//		{
+//			rb.keyPress(KeyEvent.VK_TAB);
+//			rb.keyRelease(KeyEvent.VK_TAB);
+//			Thread.sleep(2000);
+//			i++;
+//		}
+//		uploadPageSpace.sendKeys(imagePath);
+//        Thread.sleep(2000);
+//        
+//        rb.keyPress(KeyEvent.VK_ENTER);
+//        Thread.sleep(2000);
+//        rb.keyRelease(KeyEvent.VK_ENTER);
+      //  doneButton.click();
 
 	}
 
@@ -125,7 +145,7 @@ public class Widget extends Constructor {
 	}*/
 
 	public void FrontPageResultBtn() {
-		frontPageResultButton.click();
+                                                                                     
 	}
 
 	@FindBy(xpath = "//h3[text()='Enter Your Details']")
