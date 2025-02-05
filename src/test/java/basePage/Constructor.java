@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class Constructor {
-WebDriver driver;
+protected WebDriver driver;
 public Constructor(WebDriver driver)
 {
 	this.driver=driver;

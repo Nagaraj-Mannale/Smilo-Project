@@ -4,21 +4,23 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.List;
-
-import org.openqa.selenium.JavascriptExecutor;
+import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import basePage.Constructor;
 
 public class Widget extends Constructor {
 
-	public WebDriver driver;
+	private WebDriverWait wait;
 
 	public Widget(WebDriver driver) {
 		super(driver);
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 	}
 
 	@FindBy(xpath = "//a[text()='Home']")
@@ -48,17 +50,12 @@ public class Widget extends Constructor {
 		return purposeOfVisitText.getText();
 	}
 
-	public void clickOnResonVisitCard(String cardName)
-
-	{
-		for (WebElement Card : visitPageCards) {
-			if (Card.getText().equalsIgnoreCase(cardName)) {
-				Card.click();
-			}
-		}
+	// Refactored to use the reusable method
+	public void clickOnVisitCard(String cardName) {
+		selectCard(visitPageCards, cardName);
 	}
 
-	public void VisitContBtn() {
+	public void visitContBtn() {
 		visitPageContinueButton.click();
 	}
 
@@ -90,11 +87,7 @@ public class Widget extends Constructor {
 	}
 
 	public void selectOHRCard(String cardName) {
-		for (WebElement card : preferencePageCards) {
-			if (card.getText().equalsIgnoreCase(cardName)) {
-				card.click();
-			}
-		}
+		selectCard(preferencePageCards, cardName);
 	}
 
 	public void preferenceContBtn() {
@@ -105,51 +98,84 @@ public class Widget extends Constructor {
 		return uploadPageText.getText();
 	}
 
-	public void uploadPageSpace() throws AWTException, InterruptedException {
-//		JavascriptExecutor js=(JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].scrollIntoView(true);", uploadPageSpace );
+	public void uploadPageSpace() throws AWTException {
 		uploadPageSpace.click();
-		Robot rb=new Robot();
-		  rb.keyPress(KeyEvent.VK_CAPS_LOCK);
-		  //Thread.sleep(500);
-          //rb.keyPress(KeyEvent.VK_TAB);
-          Thread.sleep(500);  // Hold ALT+TAB for half a second
-          rb.keyRelease(KeyEvent.VK_CAPS_LOCK);
-        //  rb.keyRelease(KeyEvent.VK_ALT);
-//
-//		Thread.sleep(2000);
-//		rb.keyPress(KeyEvent.VK_ALT);
-//		rb.keyPress(KeyEvent.VK_TAB);
-//		rb.keyRelease(KeyEvent.VK_ALT);
-//		rb.keyRelease(KeyEvent.VK_TAB);
-//		int i=1;
-//		while(i<=8)
-//		{
-//			rb.keyPress(KeyEvent.VK_TAB);
-//			rb.keyRelease(KeyEvent.VK_TAB);
-//			Thread.sleep(2000);
-//			i++;
-//		}
-//		uploadPageSpace.sendKeys(imagePath);
-//        Thread.sleep(2000);
-//        
-//        rb.keyPress(KeyEvent.VK_ENTER);
-//        Thread.sleep(2000);
-//        rb.keyRelease(KeyEvent.VK_ENTER);
-      //  doneButton.click();
+		driver = new ChromeDriver();
+		driver.get("https://www.google.com");
+		driver.quit();
 
+		Robot rb = new Robot();
+
+		int i = 1;
+		while (i <= 8) {
+			rb.keyPress(KeyEvent.VK_TAB);
+			rb.keyRelease(KeyEvent.VK_TAB);
+			i++;
+		}
+
+		// Press ENTER
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+
+		// Press ENTER again
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+
+		// Pass string through Robot class
+		typeString(rb, "1st");
+
+		// Press ENTER after typing
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+		rb.delay(100);
+		rb.keyPress(KeyEvent.VK_TAB);
+		rb.keyRelease(KeyEvent.VK_TAB);
+		rb.delay(100);
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+
+		wait.until(ExpectedConditions.elementToBeClickable(doneButton));
+		doneButton.click();
 	}
 
-	/*public void doneBtn() {
-		doneButton.click();
-	}*/
+	public static void typeString(Robot rb, String text) {
+		for (char c : text.toCharArray()) {
+			typeCharacter(rb, c);
+		}
+	}
+
+	public static void typeCharacter(Robot rb, char c) {
+		try {
+			int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
+			if (keyCode == KeyEvent.VK_UNDEFINED) {
+				System.out.println("Cannot type character: " + c);
+				return;
+			}
+			rb.keyPress(keyCode);
+			rb.keyRelease(keyCode);
+			rb.delay(100); // Small delay for typing effect
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void selectCard(List<WebElement> cards, String cardName) {
+		for (WebElement card : cards) {
+			if (card.getText().equalsIgnoreCase(cardName)) {
+				card.click();
+				break;
+			}
+		}
+	}
 
 	public void FrontPageResultBtn() {
-                                                                                     
+		wait.until(ExpectedConditions.elementToBeClickable(frontPageResultButton));
+		frontPageResultButton.click();
 	}
 
 	@FindBy(xpath = "//h3[text()='Enter Your Details']")
-	WebElement contactPageText; //
+	WebElement contactPageText;
 	@FindBy(xpath = "//input[@placeholder='First Name']")
 	WebElement firstNameField;
 	@FindBy(xpath = "//input[@placeholder='Last Name']")
@@ -179,10 +205,15 @@ public class Widget extends Constructor {
 		emailField.sendKeys(email);
 	}
 
-	public void countriesCodeField(String Code) {
-		for (WebElement code : countriesCodeField) {
-			if (code.getText().equalsIgnoreCase(Code)) {
-				code.click();
+	public void countriesCodeField(String code) {
+		selectCountryCode(countriesCodeField, code);
+	}
+
+	private void selectCountryCode(List<WebElement> codes, String code) {
+		for (WebElement c : codes) {
+			if (c.getText().equalsIgnoreCase(code)) {
+				c.click();
+				break;
 			}
 		}
 	}
@@ -193,41 +224,41 @@ public class Widget extends Constructor {
 
 	public void submitButton() {
 		submitButton.click();
+		// Add WebDriverWait to ensure the next page loads properly
+		// wait.until(ExpectedConditions.urlContains("nextPage"));
 	}
 
-	@FindBy(xpath = "//h1[text()=' What’s Next ']")
+	@FindBy(xpath = "//div[@class='banner-content']/h1")
 	WebElement accessReportPageText;
 	@FindBy(xpath = "//h4[text()='Download Your Oral Health Report']")
 	WebElement downloadCard;
 	@FindBy(xpath = "//button[text()=' Download Report ']")
-	WebElement downloadreportButton;
+	WebElement downloadReportButton;
 	@FindBy(xpath = "//input[@type='radio'][1]")
 	WebElement downloadEmailRadioButton;
 	@FindBy(xpath = "//input[@type='radio'][1]")
-	WebElement downloadwhatsapplRadioButton;
+	WebElement downloadWhatsappRadioButton;
 	@FindBy(xpath = "//button[text()=' Confirm ']")
-	WebElement ReportConfirmationBtn;
+	WebElement reportConfirmationBtn;
 	@FindBy(xpath = "//h2[text()='Report Shared']")
-	WebElement reportsentConfirmationReport;
+	WebElement reportSentConfirmationReport;
 
 	public String accessReportPageText() {
+		wait.until(ExpectedConditions.elementToBeSelected(accessReportPageText));
 		return accessReportPageText.getText();
 	}
 
-	public void DownloadReportCard(String option) {
-		downloadreportButton.click();
-
+	public void downloadReportCard(String option) {
+		downloadReportButton.click();
 		if (option.equalsIgnoreCase("email")) {
 			downloadEmailRadioButton.click();
 		} else {
-			downloadwhatsapplRadioButton.click();
+			downloadWhatsappRadioButton.click();
 		}
-
-		ReportConfirmationBtn.click();
+		reportConfirmationBtn.click();
 	}
 
 	public String reportSentConfirmationMsg() {
-		return reportsentConfirmationReport.getText();
+		return reportSentConfirmationReport.getText();
 	}
-
 }
