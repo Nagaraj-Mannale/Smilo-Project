@@ -15,7 +15,7 @@ import pom.Widget;
 
 public class WidgetFlow extends BaseClass {
 
-	public static Widget wi;
+	private static Widget wi;
 
 	@Given("launch the browser and enter the URL")
 	public void launchBrowserAndEnterUrl() {
@@ -97,7 +97,7 @@ public class WidgetFlow extends BaseClass {
 
 	@Then("Ensure you are on the result page with cards")
 	public void ensureYouAreOnResultPageWithCards() {
-		Assert.assertEquals(wi.accessReportPageText(), " What’s Next ");
+		Assert.assertEquals(wi.accessReportPageText(), true);
 	}
 
 	@Then("verify the all cards buttons are enabled")

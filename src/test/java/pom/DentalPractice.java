@@ -3,26 +3,33 @@ package pom;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+//import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+//import org.openqa.selenium.support.ui.WebDriverWait;
 
 import basePage.Constructor;
 
 public class DentalPractice extends Constructor {
-	WebElement driver;
-
+	
+//	private WebDriverWait wait;
 	public DentalPractice(WebDriver driver) {
 		super(driver);
+		//this.wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 	}
 
 	
 	//Home page paths
 	@FindBy(xpath = "//div[@class='navbar_sidebar']/ul/li/a/span[2]")
-	List<WebElement> sideBar;
+	List<WebElement> sideBarText;
+	@FindBy(xpath = "(//a[@href='https://v2admin.tech-active.com/admin_practice'])[1]")
+	WebElement sideBarIcon;
 	@FindBy(xpath = "//h4[text()='Dental Practice']")
 	WebElement pageName;
 	@FindBy(xpath = "//input[@type='search']")
@@ -31,33 +38,35 @@ public class DentalPractice extends Constructor {
 	WebElement kebabIcon;
 	@FindBy(xpath = "//div[@class='dropdown-content']/a/span")
 	List<WebElement> kebabIconOption;
-	
+	@FindBy(xpath="//a[@id='toggle_icons_line_a']/span")
+	WebElement menuIcon;
 	public void titleNames(String title) {
-		for (WebElement page : sideBar) {
-			if (page.getText().equals(title)) {
-				page.click();
-			}
-		}
-	}
+		sideBarIcon.click();
 
-	public String HomepageName() {
+}
+
+	public String PractitionerHomepageName() {
 		return pageName.getText();
 	}
-
-	public void seachfield(String name) throws AWTException {
+	private static Robot ro;
+	public void searchfield(String name) throws AWTException {
 		searchField.sendKeys(name);
-		Robot ro = new Robot();
+		ro = new Robot();
 		ro.keyPress(KeyEvent.VK_ENTER);
 		ro.keyRelease(KeyEvent.VK_ENTER);
 	}
 
 	public void kebabIcon() {
-		kebabIcon.click();
+		Actions act=new Actions(driver);
+		act.moveToElement(kebabIcon);
+		ro.delay(2000);
+		//kebabIcon.click();
 	}
 
 	public void kebabIconOptions(String option) {
+		
 		for (WebElement options : kebabIconOption) {
-			if (options.getText().equals(option)) {
+			if (options.getText().equalsIgnoreCase(option)) {
 				options.click();
 			}
 		}
@@ -93,7 +102,7 @@ public class DentalPractice extends Constructor {
 	WebElement multipleBranch;
 	@FindBy(xpath = "(//input[@type='checkbox']/../label)[2]")
 	WebElement authentication;
-	
+
     public void addPracticeBtn() {
 		addPractice.click();
 	}
@@ -168,10 +177,8 @@ public class DentalPractice extends Constructor {
 	WebElement countryCodeBtn;
 	@FindBy(xpath="//div[@role='combobox']/../ul/li/span") 
 	List<WebElement> countryOptions;
-	@FindBy(xpath="//input[@value='Save']")                
-	WebElement saveButton;
-	@FindBy(xpath="//input[@value='Cancel']")              
-	WebElement cancelButton;
+	
+	
 	
 	public void firstName(String firstname, String lastname)
 	{
@@ -189,15 +196,6 @@ public class DentalPractice extends Constructor {
 			}
 		}
 	}
-	public void savebtn()
-	{
-		saveButton.click();
-	}
-	public void cancelbutton()
-	{
-		cancelButton.click();
-	}
-	
 	
 	//Update Practitioner
 	
@@ -217,7 +215,7 @@ public class DentalPractice extends Constructor {
 			}
 		}
 	}
-    public void widgetButtons(List<String> button)
+    public void widgetButtons(String button)
     {  	for(WebElement btns:settingPageOption)
     	{	String buttonText=btns.getText().trim();
      		if(button.contains(buttonText))
@@ -239,7 +237,7 @@ public class DentalPractice extends Constructor {
     		}
     	}
     }
-    public void CTA(List<String> option)
+    public void CTA(String option)
     {  	for(WebElement cta:CTAOptions)
        	{
     	if(option.contains(cta.getText().trim()))
@@ -323,7 +321,7 @@ public class DentalPractice extends Constructor {
     	{
     		isDabourYes.click();
     	}
-    	else
+    	else if(Order.equalsIgnoreCase("N"))
     	{
     		isDabourNo.click();
     	}
@@ -336,22 +334,38 @@ public class DentalPractice extends Constructor {
     @FindBy(xpath="(//input[@name='required_img'])[3]")
     WebElement FiveImage;
     
-    public void image(String order)
+    public void requiredOhrimages(String order)
     {
-    	if(order.equalsIgnoreCase("1"))
+    	if(order.equals("1"))
     	{
     		OneImage.click();
     	}
-    	else if(order.equalsIgnoreCase("3"))
+    	else if(order.equals("3"))
     	{
     		ThreeImage.click();
     	}
-    	else
+    	else if(order.equals("5"))
     	{
     		FiveImage.click();
     	}
     }
-
-
+    
+//Save and Cancel Buttons
+	@FindBy(xpath="//input[@id='save_practice_company_info']")
+	WebElement firstpageContinueButton;
+	@FindBy(xpath="//input[@value='Save']")                
+	WebElement saveButton;
+	@FindBy(xpath="(//input[@value='Cancel'])[1]")              
+	WebElement cancelButton;
+    public void clickOnContinueOrSaveOrCancelButton(String page)
+    {
+    	switch(page)
+    	{
+    	case "first": firstpageContinueButton.click();
+    	case "second":saveButton.click();
+    	case "third":saveButton.click();
+    	default:cancelButton.click();
+    	}
+    }
 
 }

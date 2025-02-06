@@ -228,8 +228,8 @@ public class Widget extends Constructor {
 		// wait.until(ExpectedConditions.urlContains("nextPage"));
 	}
 
-	@FindBy(xpath = "//div[@class='banner-content']/h1")
-	WebElement accessReportPageText;
+	@FindBy(xpath = "//img[@src='assets/images/severe_g.png']")
+	WebElement accessReportPageImage;
 	@FindBy(xpath = "//h4[text()='Download Your Oral Health Report']")
 	WebElement downloadCard;
 	@FindBy(xpath = "//button[text()=' Download Report ']")
@@ -243,9 +243,13 @@ public class Widget extends Constructor {
 	@FindBy(xpath = "//h2[text()='Report Shared']")
 	WebElement reportSentConfirmationReport;
 
-	public String accessReportPageText() {
-		wait.until(ExpectedConditions.elementToBeSelected(accessReportPageText));
-		return accessReportPageText.getText();
+	public boolean accessReportPageText() {
+		System.out.println("My work1");
+		wait.until(ExpectedConditions.visibilityOf(accessReportPageImage));
+		System.out.println("My work2");
+		boolean a= accessReportPageImage.isDisplayed();
+		System.out.println("My work3");
+	    return a;
 	}
 
 	public void downloadReportCard(String option) {

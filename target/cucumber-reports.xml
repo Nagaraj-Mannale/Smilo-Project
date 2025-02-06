@@ -1,65 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="33.963" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="33.707">
-<failure type="org.openqa.selenium.NoSuchWindowException" message="no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=131.0.6778.204)
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-52-generic', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [71f68b6b524d9a368588261ce786b42d, findElement {value=//a[text()='Home'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:46523}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:46523/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 71f68b6b524d9a368588261ce786b42d">
-<![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=131.0.6778.204)
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-52-generic', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [71f68b6b524d9a368588261ce786b42d, findElement {value=//a[text()='Home'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.204, chrome: {chromedriverVersion: 131.0.6778.264 (2d05e315153..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:46523}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:46523/devtoo..., se:cdpVersion: 131.0.6778.204, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 71f68b6b524d9a368588261ce786b42d
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy20.getText(Unknown Source)
-	at pom.Widget.getStartedPageText(Widget.java:42)
-	at stepDefination.WidgetFlow.ensureYouAreOnFirstPageContent(WidgetFlow.java:28)
-	at ✽.ensure your on getStarted page(file:///home/active35/Music/Smilo%20Project/src/test/resources/Widget_Features/flow.feature:6)
-]]>
-</failure>
+<testsuite name="Cucumber" time="36.999" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="36.774">
 <system-out><![CDATA[
 Given launch the browser and enter the URL..................................passed
-Then ensure your on getStarted page.........................................failed
-When click on get start button..............................................skipped
-Then ensure your on the purpose Of Visit Page...............................skipped
-When select one card and click on the continue button.......................skipped
-Then ensure your on the consent Agreement page..............................skipped
-When click on the continue button...........................................skipped
-Then ensure your on the preference Page.....................................skipped
-When select the OHR card and click on the continue button...................skipped
-Then ensure you are on the upload image page................................skipped
-When upload an image from your local space..................................skipped
-And click on the get result button..........................................skipped
-Then ensure you are on the contact info page................................skipped
-When fill all the necessary information and click on the submit button......skipped
-Then Ensure you are on the result page with cards...........................skipped
-And verify the all cards buttons are enabled................................skipped
+Then ensure your on getStarted page.........................................passed
+When click on get start button..............................................passed
+Then ensure your on the purpose Of Visit Page...............................passed
+When select one card and click on the continue button.......................passed
+Then ensure your on the consent Agreement page..............................passed
+When click on the continue button...........................................passed
+Then ensure your on the preference Page.....................................passed
+When select the OHR card and click on the continue button...................passed
+Then ensure you are on the upload image page................................passed
+When upload an image from your local space..................................passed
+And click on the get result button..........................................passed
+Then ensure you are on the contact info page................................passed
+When fill all the necessary information and click on the submit button......passed
+Then Ensure you are on the result page with cards...........................passed
+And verify the all cards buttons are enabled................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
