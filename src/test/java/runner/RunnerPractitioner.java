@@ -15,7 +15,7 @@ import io.cucumber.junit.CucumberOptions;
 		},
 		monochrome = true,                         // Clean console output
 		    dryRun = false                        // If true, checks mappings without executing
-			    //tags = "@smoke"                          // Filter scenarios by tags (if needed)
+			//tags = "@smoke"                    // Filter scenarios by tags (if needed)
 		
 		
 		)

@@ -16,7 +16,7 @@ public class StepPractitioner
         dp = new DentalPractice(BaseClass.driver);
         dp.titleNames("Dental Practice");
     }
-
+       
     @Then("the user should be on the Practitioner page")
     public void theUserShouldBeOnThePractitionerPage() {
         Assert.assertEquals(dp.PractitionerHomepageName(), "Dental Practice");

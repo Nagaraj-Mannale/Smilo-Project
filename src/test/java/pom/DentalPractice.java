@@ -36,7 +36,7 @@ public class DentalPractice extends Constructor {
 	WebElement searchField;
 	@FindBy(xpath = "//div[@class='three-dots-div dropbtn']")
 	WebElement kebabIcon;
-	@FindBy(xpath = "//div[@class='dropdown-content']/a/span")
+	@FindBy(xpath = "//a[@title='Edit']/../a")
 	List<WebElement> kebabIconOption;
 	@FindBy(xpath="//a[@id='toggle_icons_line_a']/span")
 	WebElement menuIcon;
@@ -58,7 +58,7 @@ public class DentalPractice extends Constructor {
 
 	public void kebabIcon() {
 		Actions act=new Actions(driver);
-		act.moveToElement(kebabIcon);
+		act.moveToElement(kebabIcon).perform();
 		ro.delay(2000);
 		//kebabIcon.click();
 	}
@@ -66,7 +66,7 @@ public class DentalPractice extends Constructor {
 	public void kebabIconOptions(String option) {
 		
 		for (WebElement options : kebabIconOption) {
-			if (options.getText().equalsIgnoreCase(option)) {
+			if (options.getText().trim().equalsIgnoreCase(option)) {
 				options.click();
 			}
 		}
@@ -76,30 +76,43 @@ public class DentalPractice extends Constructor {
 	//Add Practitioner first Page	
 	@FindBy(xpath = "//a[@class='add_button add_admin_practice']")
 	WebElement addPractice;
+	
 	@FindBy(xpath = "//input[@id='practice_name']")
 	WebElement practiceName;
-	@FindBy(xpath="//a[@id='company_info-tab']/span[1]")
+	
+	@FindBy(xpath="//h4[text()='Company Info']")
 	WebElement firstPageName;
+	
 	@FindBy(xpath = "//input[@id='license_number']")
 	WebElement licenceNumber;
+	
 	@FindBy(xpath = "//input[@id='email']")
 	WebElement email;
+	
 	@FindBy(xpath = "//input[@id='website_url']")
 	WebElement webSiteUrl;
+	
 	@FindBy(xpath = "//input[@id='description']")
 	WebElement description;
+	
 	@FindBy(xpath = "//input[@id='address']")
 	WebElement adress;
+	
 	@FindBy(xpath = "//select[@id='country_id']")
 	WebElement country;
+	
 	@FindBy(xpath = "//select[@id='state_id']")
 	WebElement state;
+	
 	@FindBy(xpath = "//input[@id='city']")
 	WebElement city;
+	
 	@FindBy(xpath = "//input[@id='bookingURL']")
 	WebElement bookingAdress;
+	
 	@FindBy(xpath = "(//input[@type='checkbox']/../label)[1]")
 	WebElement multipleBranch;
+	
 	@FindBy(xpath = "(//input[@type='checkbox']/../label)[2]")
 	WebElement authentication;
 
