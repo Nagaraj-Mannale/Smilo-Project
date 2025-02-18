@@ -3,7 +3,10 @@ package pom;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,31 +26,40 @@ public class Widget extends Constructor {
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 	}
 
-	@FindBy(xpath = "//a[text()='Home']")
-	WebElement getStartedPageText;
-	@FindBy(xpath = "//button[text()=' Start Now ']")
-	WebElement startNowButton;
-	@FindBy(xpath = "//h1[text()='Select reason for your visit']")
-	WebElement purposeOfVisitText;
-	@FindBy(xpath = "//div[@id='general_checkup']/../div//label/h3")
-	List<WebElement> visitPageCards;
-	@FindBy(xpath = "//button[text()=' Continue ']")
-	WebElement visitPageContinueButton;
-	@FindBy(xpath = "//h1[text()='Consent & Agree']")
-	WebElement consentAgreementPageText;
-	@FindBy(xpath = "//span[text()='Continue']")
-	WebElement consentAgreementPageContinueButton;
+	@FindBy(xpath = "//a[text()='Home']")                       	 WebElement getStartedPageText;
+	@FindBy(xpath = "//button[text()=' Start Now ']")     	         WebElement startNowButton;
+	@FindBy(xpath = "//h1[text()='Select reason for your visit']")	 WebElement purposeOfVisitText;
+	@FindBy(xpath = "//div[@id='general_checkup']/../div//label/h3") List<WebElement> visitPageCards;
+	@FindBy(xpath = "//button[text()=' Continue ']")	             WebElement visitPageContinueButton;
+	@FindBy(xpath = "//h1[text()='Consent & Agree']")      	         WebElement consentAgreementPageText;
+	@FindBy(xpath = "//span[text()='Continue']")     	             WebElement consentAgreementPageContinueButton;
+	@FindBy(xpath = "//div[@id='general_checkup']//h3")	             List<WebElement> selectPreferencepageCards;
+	
+	public Map<Integer, List<String>> cardCountWithName() {
+	    List<String> cardsName = new ArrayList<>();
+	    int cardCount = 0;
+
+	    for (WebElement card : selectPreferencepageCards) {
+	        cardsName.add(card.getText().trim());
+	        cardCount++;                                  }
+
+	    Map<Integer, List<String>> result = new HashMap<>();
+	    result.put(cardCount, cardsName);
+	    return result;
+	}
+		
+	
 
 	public String getStartedPageText() {
-		return getStartedPageText.getText();
+        return getStartedPageText.getText();
 	}
 
 	public void startNowBtn() {
-		startNowButton.click();
+	    startNowButton.click();
 	}
 
 	public String purposeOfVisitPageText() {
-		return purposeOfVisitText.getText();
+	    return purposeOfVisitText.getText();
 	}
 
 	// Refactored to use the reusable method
@@ -56,7 +68,7 @@ public class Widget extends Constructor {
 	}
 
 	public void visitContBtn() {
-		visitPageContinueButton.click();
+	    visitPageContinueButton.click();
 	}
 
 	public String consentAgreementPageText() {
@@ -122,7 +134,7 @@ public class Widget extends Constructor {
 		rb.keyRelease(KeyEvent.VK_ENTER);
 
 		// Pass string through Robot class
-		typeString(rb, "1st");
+		typeString(rb, "1.7");
 
 		// Press ENTER after typing
 		rb.keyPress(KeyEvent.VK_ENTER);
@@ -244,12 +256,9 @@ public class Widget extends Constructor {
 	WebElement reportSentConfirmationReport;
 
 	public boolean accessReportPageText() {
-		System.out.println("My work1");
 		wait.until(ExpectedConditions.visibilityOf(accessReportPageImage));
-		System.out.println("My work2");
-		boolean a= accessReportPageImage.isDisplayed();
-		System.out.println("My work3");
-	    return a;
+		boolean a = accessReportPageImage.isDisplayed();
+		return a;
 	}
 
 	public void downloadReportCard(String option) {
@@ -265,4 +274,26 @@ public class Widget extends Constructor {
 	public String reportSentConfirmationMsg() {
 		return reportSentConfirmationReport.getText();
 	}
+
+	@FindBy(xpath = "//h4[text()='Find A Dentist Near You']")
+	WebElement appointmentCard;
+	@FindBy(xpath = "//button[text()=' Book Now ']")
+	WebElement appointmentCardBookNowButton;
+	@FindBy(xpath = "//h4[text()='Get Special Offers']")
+	WebElement getofferCard;
+	@FindBy(xpath = "//button[text()=' Get Now ']")
+	WebElement offerCardGetNow;
+
+	public String getcardtext(String name) {
+		String result = "";
+		if ("appointment".equalsIgnoreCase(name)) {
+			result = appointmentCard.getText();
+		} else if ("offer".equalsIgnoreCase(name)) {
+			result = getofferCard.getText();
+		} else if ("All".equalsIgnoreCase(name)) {
+			result = appointmentCard.getText() + " " + getofferCard.getText();
+		}
+		return result;
+	}
+
 }
