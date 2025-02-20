@@ -19,6 +19,7 @@ Feature: Ensure dental practice functionalities are working
 Scenario: Validate practitioner modification functionality
 Given the user launches the browser and enters the application URL
 When enter the email and pwd and click on the signin button
+And extract the otp from mail and enter into the otp fields and click on the save button
 Then ensure user on the dashboard page
 When the user navigates to the Practitioner page
 Then the user should be on the Practitioner page
