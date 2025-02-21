@@ -170,12 +170,14 @@ public class DentalPractice extends Constructor {
     		throw new IllegalArgumentException("Page name cannot be null");
     	}
       String result="";
+      System.out.println(firstPageName.getText());
 	  switch(name)
 	  {
 	   case "first":result=firstPageName.getText();break;
 	   case "second":result=secondPageName.getText();break;
 	   default: throw new IllegalArgumentException("invalid page name:"+name);
 	  }
+	  System.out.println(result);
 	   return result;
     }
 	

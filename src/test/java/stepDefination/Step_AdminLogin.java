@@ -14,12 +14,11 @@ public class Step_AdminLogin {
 	}
 
 	@When("enter the email and pwd and click on the signin button")
-	public void enter_the_email_and_pwd_and_click_on_the_signin_button() throws InterruptedException {
+	public void enter_the_email_and_pwd_and_click_on_the_signin_button()  {
 	    al=new AdminLogin(BaseClass.driver);
 	    al.emailField("nagaraj@rokkun.io");
 	    al.passwordField("Ind@123");
 	    al.signInButton();
-	    Thread.sleep(2000);
 	}
     @Then("extract the otp from mail and enter into the otp fields and click on the save button")
     public void verifyOtp()

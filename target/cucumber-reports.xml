@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="37.833" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="37.583">
+<system-out><![CDATA[
+Given launch the browser and enter the URL..................................passed
+Then ensure your on getStarted page.........................................passed
+When click on get start button..............................................passed
+Then ensure your on the purpose Of Visit Page...............................passed
+When select one card and click on the continue button.......................passed
+When click on the continue button...........................................passed
+When select the OHR card and click on the continue button...................passed
+When upload an image from your local space..................................passed
+And click on the get result button..........................................passed
+When fill all the necessary information and click on the submit button......passed
+Then Ensure you are on the result page with cards...........................passed
+And verify the all cards buttons are enabled................................passed
+]]></system-out>
+</testcase>
+</testsuite>

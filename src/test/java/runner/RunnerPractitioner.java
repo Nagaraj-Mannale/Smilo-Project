@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 		plugin= {
 				"pretty",                             
 		         "html:target/cucumber-reports.html"
-		},
+		}, 	
 		monochrome = true,                         // Clean console output
 		    dryRun = false                        // If true, checks mappings without executing
 			//tags = "@smoke"                    // Filter scenarios by tags (if needed)

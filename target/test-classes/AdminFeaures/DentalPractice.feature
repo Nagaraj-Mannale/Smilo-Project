@@ -1,12 +1,14 @@
-Feature: Ensure dental practice functionalities are working
+Feature: Ensure Dental Practice Functionalities are Working
 
-#Scenario: Validate practitioner creation functionality
-#
-#Given the user launches the browser and enters the application URL
-#When enter the email and pwd and click on the signin button
-#Then ensure user on the dashboard page
-#When the user navigates to the Practitioner page
-#Then the user should be on the Practitioner page
+Background:
+Given the user launches the browser and enters the application URL
+When enter the email and pwd and click on the signin button
+And extract the otp from mail and enter into the otp fields and click on the save button
+Then ensure user on the dashboard page
+When the user navigates to the Practitioner page
+Then the user should be on the Practitioner page
+
+#Scenario: Validate Practitioner Creation Functionality
 #When the user clicks the Add button
 #Then the user should be redirected to the Company Info page
 #When the user fills in all required details and clicks the Continue button
@@ -17,12 +19,6 @@ Feature: Ensure dental practice functionalities are working
 #Then the user should be redirected to the Home page, and the newly created practitioner should be listed
 
 Scenario: Validate practitioner modification functionality
-Given the user launches the browser and enters the application URL
-When enter the email and pwd and click on the signin button
-And extract the otp from mail and enter into the otp fields and click on the save button
-Then ensure user on the dashboard page
-When the user navigates to the Practitioner page
-Then the user should be on the Practitioner page
 When the user searches for the practitioner and clicks the edit button
 Then the user should be redirected to the Company Info page
 #When updates the required company info and clicks continue
