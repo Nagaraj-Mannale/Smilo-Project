@@ -21,6 +21,6 @@ import io.cucumber.junit.CucumberOptions;
 		)
 
 
-public class RunnerPractitioner {
+public class RunnerPractitionerCRUD {
 
 }

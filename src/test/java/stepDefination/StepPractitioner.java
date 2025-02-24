@@ -29,7 +29,7 @@ public class StepPractitioner
 
     @Then("the user should be redirected to the Company Info page")
     public void theUserShouldBeRedirectedToTheCompanyInfoPage() {
-        Assert.assertEquals(dp.FirstAndSecondpageName("first"), "Company Info");
+        Assert.assertEquals(dp.FirstAndSecondpageName("companyinfo"), "Company Info");
     }
 
     @When("the user fills in all required details and clicks the Continue button")
@@ -41,12 +41,12 @@ public class StepPractitioner
 
     @Then("the user should be on the Contact Info page")
     public void theUserShouldBeOnTheContactInfoPage() {
-        // Implement logic for validation
-    }
+     Assert.assertEquals(dp.FirstAndSecondpageName("contactinfo"),"Add Primary Contact");    }
 
     @Then("the user should be on the Settings page")
     public void theUserShouldBeOnTheSettingsPage() {
-        // Implement logic for validation
+    	Assert.assertEquals(dp.FirstAndSecondpageName("contactinfo"),"Settings");
+
     }
 
     @Then("the user should be redirected to the Home page, and the newly created practitioner should be listed")
@@ -63,13 +63,13 @@ public class StepPractitioner
 
     @When("updates the required company info and clicks continue")
     public void updates_the_required_company_info_and_clicks_continue() {
-        dp.clickOnContinueOrSaveOrCancelButton("first");
+    	dp.clickOnContinueOrSaveOrCancelButton("continue");
     }
 
    
     @When("the user updates the required contact info and clicks continue")
     public void the_user_updates_the_required_contact_info_and_clicks_continue() {
-        dp.clickOnContinueOrSaveOrCancelButton("second");
+        dp.clickOnContinueOrSaveOrCancelButton("save");
     }
 
     @When("the user saves the changes on the settings page")

@@ -1,19 +1,19 @@
-//"";
 package basePage;
 
 import jakarta.mail.*;
 import jakarta.mail.internet.MimeMultipart;
 import jakarta.mail.search.FlagTerm;
-
+import org.jsoup.Jsoup;
 import java.util.*;
 import java.util.regex.*;
-import org.jsoup.Jsoup;
 
 public class ReadGmailOTP {
-    public static void main(String[]args){//public static String fetchOTP() {
+    public static String fetchOTP() {
         String host = "imap.gmail.com";
         String username = "nagaraj@rokkun.io"; // Replace with your email
         String password = "rtgv usyp nlzq jqqy"; // Replace with your App Password
+
+        String otp = "OTP not found"; // Default OTP value
 
         try {
             // Setup IMAP properties
@@ -28,105 +28,90 @@ public class ReadGmailOTP {
             Store store = emailSession.getStore();
             store.connect(host, username, password);
 
-            // Open the INBOX folder and fetch only unread messages
+            // Open INBOX folder
             Folder inbox = store.getFolder("INBOX");
             inbox.open(Folder.READ_WRITE);
-            Message[] messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false)); // Fetch only unread
 
-            if (messages.length == 0) {
-                System.out.println("No unread messages found.");
-                inbox.close(false);
-                store.close();
-              //  return "OTP not found";
+            // 🔄 REFRESH the inbox before fetching emails
+            inbox.getMessageCount(); // Force a refresh
+
+            // Wait for new emails (Poll for 15 seconds)
+            int retries = 0;
+            while (retries < 5) {
+                if (hasNewUnreadEmail(inbox)) {
+                    break; // New email detected
+                }
+                System.out.println("Waiting for new email...");
+                Thread.sleep(3000); // Wait for 3 seconds before checking again
+                retries++;
+                inbox.getMessageCount(); // Refresh again
             }
 
-            // Sort by recent date (descending order)
-            Arrays.sort(messages, (m1, m2) -> {
-                try {
-                    return m2.getSentDate().compareTo(m1.getSentDate());
-                } catch (MessagingException e) {
-                    return 0;
-                }
-            });
+            // Fetch latest unread email
+            Message[] messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
 
-            // Process the latest email
-            for (Message message : messages) {
-                if (isRecentEmail(message)) {  // Check if email is recent (within 5 mins)
-                    String emailContent = extractEmailContent(message);
-                    String otp = extractOTP(emailContent);
+            if (messages.length > 0) {
+                Message latestMessage = messages[messages.length - 1]; // Get latest unread email
+                String emailContent = extractLatestEmailContent(latestMessage);
 
-                    // Mark email as read
-                    message.setFlag(Flags.Flag.SEEN, true);
-
-                    inbox.close(false);
-                    store.close();
-                  //  return otp;
+                if (!emailContent.isEmpty()) {
+                    otp = extractOTP(emailContent);
+                    latestMessage.setFlag(Flags.Flag.SEEN, true); // Mark email as read
                 }
             }
 
-            // Close connections if no recent email found
+            // ✅ Print OTP before returning
+            System.out.println("Extracted OTP: " + otp);
+
+            // ✅ Ensure proper cleanup before returning
             inbox.close(false);
             store.close();
-          //  return "OTP not found";
 
         } catch (Exception e) {
             e.printStackTrace();
-          //  return "Error fetching OTP";
         }
+
+        return otp; // ✅ Return OTP after printing
     }
 
-    /**
-     * Extracts the latest content from an email.
-     */
-    private static String extractEmailContent(Message message) throws Exception {
+    private static boolean hasNewUnreadEmail(Folder inbox) throws MessagingException {
+        Message[] unreadMessages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+        return unreadMessages.length > 0;
+    }
+
+    private static String extractLatestEmailContent(Message message) throws Exception {
         if (message.isMimeType("text/plain")) {
             return message.getContent().toString();
         } else if (message.isMimeType("text/html")) {
             return Jsoup.parse(message.getContent().toString()).text();
         } else if (message.isMimeType("multipart/*")) {
-            return getTextFromMimeMultipart((MimeMultipart) message.getContent());
+            return getLatestTextFromMimeMultipart((MimeMultipart) message.getContent());
         }
         return "";
     }
 
-    /**
-     * Extracts the text from a multipart email (conversation thread).
-     */
-    private static String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
-        for (int i = mimeMultipart.getCount() - 1; i >= 0; i--) {
+    private static String getLatestTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
+        for (int i = 0; i < mimeMultipart.getCount(); i++) {
             BodyPart bodyPart = mimeMultipart.getBodyPart(i);
             if (bodyPart.isMimeType("text/plain")) {
                 return bodyPart.getContent().toString();
             } else if (bodyPart.isMimeType("text/html")) {
                 return Jsoup.parse(bodyPart.getContent().toString()).text();
             } else if (bodyPart.getContent() instanceof MimeMultipart) {
-                return getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
+                return getLatestTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
             }
         }
         return "";
     }
 
-    /**
-     * Extracts a 6-digit OTP from email content.
-     */
     private static String extractOTP(String emailContent) {
         Pattern pattern = Pattern.compile("\\b\\d{6}\\b");
         Matcher matcher = pattern.matcher(emailContent);
-        return matcher.find() ? matcher.group() : "OTP not found";
-    }
 
-    /**
-     * Checks if the email was sent within the last 5 minutes.
-     */
-    private static boolean isRecentEmail(Message message) {
-        try {
-            Date sentDate = message.getSentDate();
-            Calendar calendar = Calendar.getInstance();
-            calendar.add(Calendar.MINUTE, -5); // Check emails within last 5 minutes
-            return sentDate.after(calendar.getTime());
-        } catch (Exception e) {
-            return false;
+        String latestOTP = "OTP not found";
+        while (matcher.find()) {
+            latestOTP = matcher.group();
         }
+        return latestOTP;
     }
 }
-
