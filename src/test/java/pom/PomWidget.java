@@ -17,11 +17,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import basePage.Constructor;
 
-public class Widget extends Constructor {
+public class PomWidget extends Constructor {
 
 	private WebDriverWait wait;
 
-	public Widget(WebDriver driver) {
+	public PomWidget(WebDriver driver) {
 		super(driver);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 	}

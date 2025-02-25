@@ -5,15 +5,15 @@ import java.awt.AWTException;
 import org.testng.Assert;
 import basePage.BaseClass;
 import io.cucumber.java.en.*;
-import pom.DentalPractice;
+import pom.PomDentalPractice;
 
 public class StepPractitioner 
 {
-   private static DentalPractice dp;
+   private static PomDentalPractice dp;
 
     @When("the user navigates to the Practitioner page")
     public void theUserNavigatesToThePractitionerPage() {
-        dp = new DentalPractice(BaseClass.driver);
+        dp = new PomDentalPractice(BaseClass.driver);
         dp.titleNames("Dental Practice");
     }
        
@@ -45,7 +45,7 @@ public class StepPractitioner
 
     @Then("the user should be on the Settings page")
     public void theUserShouldBeOnTheSettingsPage() {
-    	Assert.assertEquals(dp.FirstAndSecondpageName("contactinfo"),"Settings");
+    	Assert.assertEquals(dp.FirstAndSecondpageName("settings"),"Settings");
 
     }
 
@@ -56,7 +56,7 @@ public class StepPractitioner
     
     @When("the user searches for the practitioner and clicks the edit button")
     public void the_user_searches_for_the_practitioner_and_clicks_the_edit_button() throws AWTException {
-        dp.searchfield("smilotester@gmail.com");
+        dp.searchfield("nagaraj@rokkun.io");
         dp.kebabIcon();
         dp.kebabIconOptions("edit");
     }
@@ -78,8 +78,8 @@ public class StepPractitioner
     	dp.ohrFlow("Normal Flow");
     	dp.CTA("Request for an appointment");
     	dp.d4w("N");
-    	dp.dentally("N");
-    	dp.corePractice("N");
+    	//dp.dentally("N");
+    	//dp.corePractice("N");
     	dp.dabour("y");
     	dp.requiredOhrimages("1");
         

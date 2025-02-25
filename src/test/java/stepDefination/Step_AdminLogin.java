@@ -3,10 +3,10 @@ package stepDefination;
 import org.testng.Assert;
 
 import io.cucumber.java.en.*;
-import pom.AdminLogin;
+import pom.PomAdminLogin;
 import basePage.*;
 public class Step_AdminLogin {
-    AdminLogin al;
+    PomAdminLogin al;
 	
 	@Given("the user launches the browser and enters the application URL")
 	public void launch_the_browser_and_enter_the_url() {
@@ -15,7 +15,7 @@ public class Step_AdminLogin {
 
 	@When("enter the email and pwd and click on the signin button")
 	public void enter_the_email_and_pwd_and_click_on_the_signin_button()  {
-	    al=new AdminLogin(BaseClass.driver);
+	    al=new PomAdminLogin(BaseClass.driver);
 	    al.emailField("nagaraj@rokkun.io");
 	    al.passwordField("Ind@123");
 	    al.signInButton();

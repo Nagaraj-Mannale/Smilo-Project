@@ -20,12 +20,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import basePage.Constructor;
 
-public class DentalPractice extends Constructor {
+public class PomDentalPractice extends Constructor {
 
 	private WebDriverWait wait;
-	public DentalPractice(WebDriver driver) {
+	public PomDentalPractice(WebDriver driver) {
 		super(driver);
-		 this.wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		 this.wait=new WebDriverWait(driver,Duration.ofSeconds(20));
 	}
 
 	// Home page paths
@@ -170,33 +170,33 @@ public class DentalPractice extends Constructor {
 		}
 	}
 
-	@FindBy(xpath = "//h4[text()='Company Info']")
+	@FindBy(xpath = "(//div[@class='d-flex'])[1]/h4")
 	WebElement companyinfoPageText;
-	@FindBy(xpath = "//h4[text()='Add Primary Contact']")
+	@FindBy(xpath = "(//div[@class='d-flex'])[1]/h4")
 	WebElement contactinfoPageText;
-	@FindBy(xpath = "//h4[text()='Settings']")
+	@FindBy(xpath = "(//div[@class='d-flex'])[1]/h4")
 	WebElement settingPageText;
 	
 	public String FirstAndSecondpageName(String name) {
 		if (name == null) {
 			throw new IllegalArgumentException("Page name cannot be null");
 		}
-		String result = "";
+	WebElement result;
 		switch (name) {
 		case "companyinfo":
-			result = companyinfoPageText.getText().trim();
+			result = wait.until(ExpectedConditions.visibilityOf(companyinfoPageText));  //         companyinfoPageText.getText().trim();
 			break;
 		case "contactinfo":
-			result = contactinfoPageText.getText().trim();
+			result = wait.until(ExpectedConditions.visibilityOf(contactinfoPageText));
 			break;
 		case "settings":
-			result = settingPageText.getText().trim();
+			result = wait.until(ExpectedConditions.visibilityOf(settingPageText));
 			break;
 		default:
 			throw new IllegalArgumentException("invalid page name:" + name);
 		}
 		System.out.println(result);
-		return result;
+		return result.getText().trim();
 	}
 
 	// Add Second page
@@ -262,12 +262,15 @@ public class DentalPractice extends Constructor {
 		}
 	}
 
-	public void CTA(String option) {
-		for (WebElement cta : CTAOptions) {
-			if (option.contains(cta.getText().trim())) {
-				if (!cta.isSelected()) {
-					cta.click();
-				}
+	public void CTA(String option) 
+	{
+		//JavascriptExecutor js=(JavascriptExecutor)driver;
+		
+		for (WebElement cta : CTAOptions) 
+		{
+			if (option.equalsIgnoreCase(cta.getText().trim())) 
+			{
+					wait.until(ExpectedConditions.elementToBeClickable(cta)).click();
 			}
 		}
 	}

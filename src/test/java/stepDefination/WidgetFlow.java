@@ -11,11 +11,11 @@ import basePage.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pom.Widget;
+import pom.PomWidget;
 
 public class WidgetFlow extends BaseClass {
 
-	private static Widget wi;
+	private static PomWidget wi;
 
 	@Given("launch the browser and enter the URL")
 	public void launchBrowserAndEnterUrl() {
@@ -24,7 +24,7 @@ public class WidgetFlow extends BaseClass {
 
 	@Then("ensure your on getStarted page")
 	public void ensureYouAreOnFirstPageContent() {
-		wi = new Widget(driver);
+		wi = new PomWidget(driver);
 		Assert.assertEquals(wi.getStartedPageText(), "Home");
 	}
 

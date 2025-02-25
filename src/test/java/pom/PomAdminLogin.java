@@ -11,10 +11,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import basePage.Constructor;
 
-public class AdminLogin extends Constructor
+public class PomAdminLogin extends Constructor
 {
 	private WebDriverWait wait;
-	public AdminLogin(WebDriver driver)
+	public PomAdminLogin(WebDriver driver)
       {
 	  super(driver);
 	  this.wait=new WebDriverWait(driver, Duration.ofSeconds(30));
