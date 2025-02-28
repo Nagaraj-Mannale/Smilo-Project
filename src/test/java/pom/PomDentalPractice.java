@@ -181,22 +181,27 @@ public class PomDentalPractice extends Constructor {
 		if (name == null) {
 			throw new IllegalArgumentException("Page name cannot be null");
 		}
-	WebElement result;
+	String result;
 		switch (name) {
 		case "companyinfo":
-			result = wait.until(ExpectedConditions.visibilityOf(companyinfoPageText));  //         companyinfoPageText.getText().trim();
+			wait.until(ExpectedConditions.textToBePresentInElement(companyinfoPageText, "Company Info"));
+            result=companyinfoPageText.getText().trim();
 			break;
 		case "contactinfo":
-			result = wait.until(ExpectedConditions.visibilityOf(contactinfoPageText));
+			wait.until(ExpectedConditions.textToBePresentInElement(contactinfoPageText, "Add Primary Contact"));
+			result=contactinfoPageText.getText().trim(); 
 			break;
+			
 		case "settings":
-			result = wait.until(ExpectedConditions.visibilityOf(settingPageText));
+			wait.until(ExpectedConditions.textToBePresentInElement(settingPageText,"Settings"));
+			result=settingPageText.getText().trim();	
 			break;
+			
 		default:
 			throw new IllegalArgumentException("invalid page name:" + name);
 		}
 		System.out.println(result);
-		return result.getText().trim();
+		return result;
 	}
 
 	// Add Second page
@@ -227,33 +232,55 @@ public class PomDentalPractice extends Constructor {
 	// Update Practitioner
 
 	@FindBy(xpath = "//div[@class='vertical_sidebar']//li/a")
-	List<WebElement> settingPageOption;
-	@FindBy(xpath = "//input[@class='widget_button_type']/following-sibling::label")
-	List<WebElement> widgetButtons;
-	@FindBy(xpath = "//input[@name='ohr_flow_type']")
-	List<WebElement> ohrFlow;
-	@FindBy(xpath = "//input[@name='cta_options[]']/following-sibling::label")
-	List<WebElement> CTAOptions;
+	List<WebElement> settingPageOptions;
+	
+	@FindBy(xpath = "//input[@name='ohr_flow_type']")                       	List<WebElement> ohrFlow;
+	@FindBy(xpath = "//input[@name='cta_options[]']/following-sibling::label")	List<WebElement> CTAOptions;
 
-	public void settingPageTabs(String tab) {
-		for (WebElement Tab : settingPageOption) {
+	public void settingPageTabs(String tab)          {
+		for (WebElement Tab : settingPageOptions)    {
 			if (Tab.getText().equalsIgnoreCase(tab)) {
-				Tab.click();
-			}
-		}
-	}
+				Tab.click();}	}   }
 
+	@FindBy(xpath = "//input[@class='widget_button_type']")	            List<WebElement> widgetButtons;
+	@FindBy(xpath = "//input[@class='widget_button_type']/../label")	List<WebElement> widgetButtonsText;
+	
 	public void widgetButtons(String button) {
-		for (WebElement btns : settingPageOption) {
-			String buttonText = btns.getText().trim();
-			if (button.contains(buttonText)) {
-				if (!btns.isSelected()) {
-					btns.click();
-				}
-			}
+		int index=0;
+		System.out.println(index);
+		wait.until(ExpectedConditions.visibilityOfAllElements(widgetButtonsText));
+		for (WebElement buttonText : widgetButtonsText) {
+			  System.out.println(buttonText.getText());
+//			if(buttonText.getText().trim().equalsIgnoreCase(button))
+//			{
+//				System.out.println(index);
+//				System.out.println(buttonText.getText());
+//				index++;
+//				break;
+//			}
+//			index++;
 		}
+//		System.out.println(index);
+//		for(int i=0;i<widgetButtons.size();i++)
+//		{
+//			if(i==index)
+//			{
+//				if(!widgetButtons.get(i).isSelected())
+//				{
+//					widgetButtons.get(i).click();
+//				}
+//				else
+//				{
+//					System.out.println("Given options are selected");
+//				}
+//			}
+//		}
 	}
-
+	public boolean presenceOfOhrFlow()
+	{
+		return isDabourYes.isDisplayed();
+	}
+	
 	public void ohrFlow(String flow) {
 		for (WebElement flows : ohrFlow) {
 			if (flows.getText().equalsIgnoreCase(flow)) {
@@ -264,8 +291,7 @@ public class PomDentalPractice extends Constructor {
 
 	public void CTA(String option) 
 	{
-		//JavascriptExecutor js=(JavascriptExecutor)driver;
-		
+				
 		for (WebElement cta : CTAOptions) 
 		{
 			if (option.equalsIgnoreCase(cta.getText().trim())) 
@@ -282,6 +308,11 @@ public class PomDentalPractice extends Constructor {
 	@FindBy(xpath = "(//input[@name='is_d4w'])[2]")
 	WebElement d4wN;
 
+	public boolean presenceOfD4w()
+	{
+		return d4wS.isDisplayed();
+	}
+	
 	public void d4w(String order) {
 		if (order.equalsIgnoreCase("Y")) {
 			d4wS.click();
@@ -329,6 +360,10 @@ public class PomDentalPractice extends Constructor {
 	@FindBy(xpath = "(//input[@name='is_dabur_flow'])[2]")
 	WebElement isDabourNo;
 
+	public boolean presenceOfDabour()
+	{
+		return isDabourYes.isDisplayed();
+	}
 	public void dabour(String Order) {
 		if (Order.equalsIgnoreCase("Y")) {
 			isDabourYes.click();
@@ -373,5 +408,21 @@ public class PomDentalPractice extends Constructor {
 		 js.executeScript("arguments[0].scrollIntoView(true);", element);
 		 js.executeScript("arguments[0].click();", element);
 	}
-
+	
+	//Confirmation messages
+	@FindBy(xpath="//div[text()='Practice contacts has been updated successfully']") WebElement updateSuccesfulmessage;
+    
+	public boolean successfulmessage(String method)
+    {
+    	boolean result = false;
+    	switch(method)
+    	{
+    		//case "create": result=   ;break;
+    	   case "modify":
+    	   result = wait.until(ExpectedConditions.visibilityOf(updateSuccesfulmessage)).isDisplayed();break;
+    	
+    		              
+    	}
+    	return result;
+    }
 }

@@ -77,23 +77,104 @@ public class StepPractitioner
         dp.widgetButtons("Smile Check-in");
     	dp.ohrFlow("Normal Flow");
     	dp.CTA("Request for an appointment");
-    	dp.d4w("N");
+    	//dp.d4w("N");
     	//dp.dentally("N");
     	//dp.corePractice("N");
     	dp.dabour("y");
     	dp.requiredOhrimages("1");
+    	dp.clickOnContinueOrSaveOrCancelButton("save");
         
     }
 
     @Then("the user should be redirected to the home page with a success message")
     public void the_user_should_be_redirected_to_the_home_page_with_a_success_message() {
-        
+        Assert.assertEquals(true, dp.successfulmessage("modify"));
     }
     
+        @When("navigate to the setting page")
+        public void navigateToSettingsPage(){
+            dp.settingPageTabs("Settings");
+        }
+
+        @When("uncheck the OHR button if it selected previously")
+        public void uncheckOhrButtonIfSelected() {
+            dp.widgetButtons("Oral Health Rating ( OHR )");
+        }
+
+        @Then("all components except dabour should hidden")
+        public void verifyComponentsExceptDabourHidden() {
+            Assert.assertEquals(true, dp.presenceOfDabour());
+            Assert.assertEquals(true,dp.presenceOfD4w());
+        }
+
+        @When("select OHR widget button and select the OHR normal flow")
+        public void selectOhrNormalFlow() {
+        	dp.widgetButtons("Oral Health Rating ( OHR )");
+        }
+
+        @Then("CTA Purchase a detailed report option should be hide")
+        public void verifyCtaPurchaseDetailedReportHidden() {
+            
+        }
+
+        @When("the user selects \"Request for an Appointment\" in CTA")
+        public void selectRequestForAppointmentInCTA() {
+            
+        }
+
+        @Then("D4W options should be displayed")
+        public void verifyD4wOptionsDisplayed() {
+            
+        }
+
+        @When("the user selects D4W as \"Yes\"")
+        public void selectD4wAsYes() {
+            
+        }
+
+        @Then("the D4W Practice ID field should be displayed")
+        public void verifyD4wPracticeIdDisplayed() {
+            
+        }
+
+        @When("the user unchecks \"Request for an Appointment\" if selected")
+        public void uncheckRequestForAppointmentIfSelected() {
+            
+        }
+
+        @Then("D4W options should not be displayed")
+        public void verifyD4wOptionsNotDisplayed() {
+            
+        }
+
+        @When("the user selects \"Purchase a Detailed Report\" option")
+        public void selectPurchaseDetailedReportOption() {
+            
+        }
+
+        @Then("the Payment option should be displayed")
+        public void verifyPaymentOptionDisplayed() {
+            
+        }
+
+        @When("the user unselects \"Purchase a Detailed Report\" option")
+        public void unselectPurchaseDetailedReportOption() {
+            
+        }
+
+        @Then("the Payment option should not be displayed")
+        public void verifyPaymentOptionNotDisplayed() {
+            
+        }
+    }
+
     
     
     
     
     
     
-}
+    
+    
+    
+

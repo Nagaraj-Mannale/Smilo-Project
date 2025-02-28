@@ -18,14 +18,36 @@ Then the user should be on the Practitioner page
 #When the user fills in all required details and clicks the Continue button
 #Then the user should be redirected to the Home page, and the newly created practitioner should be listed
 
-Scenario: Validate practitioner modification functionality
-When the user searches for the practitioner and clicks the edit button
-Then the user should be redirected to the Company Info page
-When updates the required company info and clicks continue
+#Scenario: Validate practitioner modification functionality
+#When the user searches for the practitioner and clicks the edit button
+#Then the user should be redirected to the Company Info page
+#When updates the required company info and clicks continue
 #Then the user should be on the Contact Info page
-When the user updates the required contact info and clicks continue
-Then the user should be on the Settings page
-When the user saves the changes on the settings page
-Then the user should be redirected to the home page with a success message
+#When the user updates the required contact info and clicks continue
+#Then the user should be on the Settings page
+#When the user saves the changes on the settings page
+#Then the user should be redirected to the home page with a success message
+#And logout from the application
 
+Scenario: validate the setting page component functionality
+When the user searches for the practitioner and clicks the edit button
+And navigate to the setting page
+And uncheck the OHR button if it selected previously
+Then all components except dabour should hidden
+#When select OHR widget button and select the OHR normal flow
+#Then CTA Purchase a detailed report option should be hide
+#
+#When the user selects "Request for an Appointment" in CTA
+#Then D4W options should be displayed
+#When the user selects D4W as "Yes"
+#Then the D4W Practice ID field should be displayed
+#When the user unchecks "Request for an Appointment" if selected 
+#Then D4W options should not be displayed
+#
+#When the user selects "Purchase a Detailed Report" option
+#Then the Payment option should be displayed
+#When the user unselects "Purchase a Detailed Report" option
+#Then the Payment option should not be displayed
+
+  
 
