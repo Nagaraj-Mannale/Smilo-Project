@@ -32,6 +32,7 @@ Then the user should be on the Practitioner page
 Scenario: validate the setting page component functionality
 When the user searches for the practitioner and clicks the edit button
 And navigate to the setting page
+Then ensure that atleast two buttons are selected; if not, make it two
 And uncheck the OHR button if it selected previously
 Then all components except dabour should hidden
 #When select OHR widget button and select the OHR normal flow

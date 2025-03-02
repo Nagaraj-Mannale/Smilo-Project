@@ -245,36 +245,62 @@ public class PomDentalPractice extends Constructor {
 	@FindBy(xpath = "//input[@class='widget_button_type']")	            List<WebElement> widgetButtons;
 	@FindBy(xpath = "//input[@class='widget_button_type']/../label")	List<WebElement> widgetButtonsText;
 	
+	public void countSelectedButtons()
+	{
+		int count=0;
+	 for(WebElement element:widgetButtons)
+	 {
+		 if(element.isSelected())
+		 {
+			 count++;
+		 }
+	 }
+	 System.out.println(count);
+	 if(count<2)
+	 {
+		for(WebElement element:widgetButtons)
+		{
+			if(!element.isSelected())
+			{
+				element.click();
+				count++;
+			}
+			if(count==2)
+			{
+				System.out.println(count);
+				break;
+			}
+	    } 
+	 }
+	}
 	public void widgetButtons(String button) {
-		int index=0;
-		System.out.println(index);
+		int index=-1;
+	//	System.out.println(index);
 		wait.until(ExpectedConditions.visibilityOfAllElements(widgetButtonsText));
 		for (WebElement buttonText : widgetButtonsText) {
-			  System.out.println(buttonText.getText());
-//			if(buttonText.getText().trim().equalsIgnoreCase(button))
-//			{
-//				System.out.println(index);
-//				System.out.println(buttonText.getText());
-//				index++;
-//				break;
-//			}
-//			index++;
+			if(buttonText.getText().trim().equalsIgnoreCase(button))
+			{
+				System.out.println(buttonText.getText());
+				index++;
+				break;
+			}
+			index++;
 		}
-//		System.out.println(index);
-//		for(int i=0;i<widgetButtons.size();i++)
-//		{
-//			if(i==index)
-//			{
-//				if(!widgetButtons.get(i).isSelected())
-//				{
-//					widgetButtons.get(i).click();
-//				}
-//				else
-//				{
-//					System.out.println("Given options are selected");
-//				}
-//			}
-//		}
+		System.out.println(index);
+		for(int i=0;i<widgetButtons.size();i++)
+		{
+			if(i==index)
+			{
+				if(widgetButtons.get(i).isSelected())
+				{
+					widgetButtons.get(i).click();
+				}
+				else
+				{
+					System.out.println("Given options are previously unselected");
+				}
+			}
+		}
 	}
 	public boolean presenceOfOhrFlow()
 	{
@@ -311,6 +337,7 @@ public class PomDentalPractice extends Constructor {
 	public boolean presenceOfD4w()
 	{
 		return d4wS.isDisplayed();
+	
 	}
 	
 	public void d4w(String order) {

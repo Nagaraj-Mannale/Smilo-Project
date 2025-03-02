@@ -96,6 +96,12 @@ public class StepPractitioner
             dp.settingPageTabs("Settings");
         }
 
+        @Then("ensure that atleast two buttons are selected; if not, make it two")
+        public void ensureWidgetButtonSelectedAsTwo()
+        {
+        	dp.countSelectedButtons();
+        }
+        
         @When("uncheck the OHR button if it selected previously")
         public void uncheckOhrButtonIfSelected() {
             dp.widgetButtons("Oral Health Rating ( OHR )");
@@ -104,7 +110,7 @@ public class StepPractitioner
         @Then("all components except dabour should hidden")
         public void verifyComponentsExceptDabourHidden() {
             Assert.assertEquals(true, dp.presenceOfDabour());
-            Assert.assertEquals(true,dp.presenceOfD4w());
+            Assert.assertEquals(false,dp.presenceOfD4w());
         }
 
         @When("select OHR widget button and select the OHR normal flow")
