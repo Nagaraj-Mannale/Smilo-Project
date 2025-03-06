@@ -56,7 +56,7 @@ public class StepPractitioner
     
     @When("the user searches for the practitioner and clicks the edit button")
     public void the_user_searches_for_the_practitioner_and_clicks_the_edit_button() throws AWTException {
-        dp.searchfield("nagaraj@rokkun.io");
+        dp.searchfield("chethan@rokkun.io");
         dp.kebabIcon();
         dp.kebabIconOptions("edit");
     }
@@ -74,9 +74,9 @@ public class StepPractitioner
 
     @When("the user saves the changes on the settings page")
     public void the_user_saves_the_changes_on_the_settings_page() {
-        dp.widgetButtons("Smile Check-in");
+        dp.checkTheButton("Smile Check-in");
     	dp.ohrFlow("Normal Flow");
-    	dp.CTA("Request for an appointment");
+    	dp.CTAClick("Request for an appointment");
     	//dp.d4w("N");
     	//dp.dentally("N");
     	//dp.corePractice("N");
@@ -104,7 +104,7 @@ public class StepPractitioner
         
         @When("uncheck the OHR button if it selected previously")
         public void uncheckOhrButtonIfSelected() {
-            dp.widgetButtons("Oral Health Rating ( OHR )");
+            dp.uncheckTheButton("Oral Health Rating ( OHR )");
         }
 
         @Then("all components except dabour should hidden")
@@ -113,24 +113,37 @@ public class StepPractitioner
             Assert.assertEquals(false,dp.presenceOfD4w());
         }
 
+        @When("select the OHR button")
+        public void selectTheOHRWidgetButton()
+        {
+        	dp.checkTheButton("Oral Health Rating ( OHR )");
+        }
+        @Then("verify all the components are displayed")
+        public void componentsAreDisplayed()
+        {
+        	System.out.println(dp.allComponentPresence());
+        	Assert.assertEquals(true, dp.allComponentPresence());
+        }
+        
         @When("select OHR widget button and select the OHR normal flow")
         public void selectOhrNormalFlow() {
-        	dp.widgetButtons("Oral Health Rating ( OHR )");
+        	dp.checkTheButton("Oral Health Rating ( OHR )");
+        	dp.ohrFlow("Normal Flow");
         }
 
         @Then("CTA Purchase a detailed report option should be hide")
         public void verifyCtaPurchaseDetailedReportHidden() {
-            
+            Assert.assertEquals(false,dp.CTAOptionsFind("Purchase a detailed report"));
         }
 
         @When("the user selects \"Request for an Appointment\" in CTA")
         public void selectRequestForAppointmentInCTA() {
-            
+            dp.CTAClick("Request for an appointment");
         }
 
-        @Then("D4W options should be displayed")
+        @Then("D4W and CorePractice options should be displayed")
         public void verifyD4wOptionsDisplayed() {
-            
+            Assert.assertEquals(true,dp.presenceofd4wandcta());
         }
 
         @When("the user selects D4W as \"Yes\"")

@@ -9,7 +9,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = "src/test/resources/AdminFeaures/DentalPractice.feature",
 		glue="stepDefination",
-		plugin= {
+		plugin= 
+	    {
 				"pretty",                             
 		         "html:target/cucumber-reports.html"
 		}, 	

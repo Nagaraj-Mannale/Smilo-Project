@@ -8,6 +8,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -200,7 +201,6 @@ public class PomDentalPractice extends Constructor {
 		default:
 			throw new IllegalArgumentException("invalid page name:" + name);
 		}
-		System.out.println(result);
 		return result;
 	}
 
@@ -231,14 +231,16 @@ public class PomDentalPractice extends Constructor {
 
 	// Update Practitioner
 
-	@FindBy(xpath = "//div[@class='vertical_sidebar']//li/a")
+	@FindBy(xpath = "//div[@class='vertical_sidebar']//li/a/span[1]")
 	List<WebElement> settingPageOptions;
 	
 	@FindBy(xpath = "//input[@name='ohr_flow_type']")                       	List<WebElement> ohrFlow;
 	@FindBy(xpath = "//input[@name='cta_options[]']/following-sibling::label")	List<WebElement> CTAOptions;
 
-	public void settingPageTabs(String tab)          {
+	public void settingPageTabs(String tab)   
+	{
 		for (WebElement Tab : settingPageOptions)    {
+			wait.until(ExpectedConditions.visibilityOf(Tab));
 			if (Tab.getText().equalsIgnoreCase(tab)) {
 				Tab.click();}	}   }
 
@@ -255,7 +257,6 @@ public class PomDentalPractice extends Constructor {
 			 count++;
 		 }
 	 }
-	 System.out.println(count);
 	 if(count<2)
 	 {
 		for(WebElement element:widgetButtons)
@@ -267,26 +268,24 @@ public class PomDentalPractice extends Constructor {
 			}
 			if(count==2)
 			{
-				System.out.println(count);
+			
 				break;
 			}
 	    } 
 	 }
 	}
-	public void widgetButtons(String button) {
+	public void uncheckTheButton(String button) {
 		int index=-1;
-	//	System.out.println(index);
 		wait.until(ExpectedConditions.visibilityOfAllElements(widgetButtonsText));
 		for (WebElement buttonText : widgetButtonsText) {
 			if(buttonText.getText().trim().equalsIgnoreCase(button))
 			{
-				System.out.println(buttonText.getText());
+				
 				index++;
 				break;
 			}
 			index++;
 		}
-		System.out.println(index);
 		for(int i=0;i<widgetButtons.size();i++)
 		{
 			if(i==index)
@@ -300,31 +299,83 @@ public class PomDentalPractice extends Constructor {
 					System.out.println("Given options are previously unselected");
 				}
 			}
-		}
+			
+		}}
+		
+		
+		public void checkTheButton(String button) {
+			int index=-1;
+			wait.until(ExpectedConditions.visibilityOfAllElements(widgetButtonsText));
+			for (WebElement buttonText : widgetButtonsText) {
+				if(buttonText.getText().trim().equalsIgnoreCase(button))
+				{
+			
+					index++;
+					break;
+				}
+				index++;
+			}
+			
+			for(int i=0;i<widgetButtons.size();i++)
+			{
+				if(i==index)
+				{
+					if(!widgetButtons.get(i).isSelected())
+					{
+						widgetButtons.get(i).click();
+					}
+					else
+					{
+						System.out.println("Given options are previously selected");
+					}
+				}
+			}
 	}
-	public boolean presenceOfOhrFlow()
-	{
-		return isDabourYes.isDisplayed();
-	}
+	
+	
+	
+	
 	
 	public void ohrFlow(String flow) {
 		for (WebElement flows : ohrFlow) {
-			if (flows.getText().equalsIgnoreCase(flow)) {
+			if (flows.getText().trim().equalsIgnoreCase(flow)) {
 				flows.click();
 			}
 		}
 	}
 
-	public void CTA(String option) 
+	public void CTAClick(String option) 
 	{
 				
 		for (WebElement cta : CTAOptions) 
 		{
 			if (option.equalsIgnoreCase(cta.getText().trim())) 
 			{
+				if(!cta.isSelected())
+				try	
+				{
 					wait.until(ExpectedConditions.elementToBeClickable(cta)).click();
+				
+				}
+				catch(StaleElementReferenceException e)
+				{
+                  	cta=wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(cta)));
+                  	cta.click();
+				}
+				
 			}
 		}
+	}
+	public boolean CTAOptionsFind(String option) 
+	{
+		for (WebElement cta : CTAOptions) 
+		{
+			if (option.equalsIgnoreCase(cta.getText().trim())) 
+			{
+			   return true;
+			}
+		}
+		return false;
 	}
 
 	@FindBy(xpath = "(//input[@name='is_d4w'])[1]")
@@ -452,4 +503,33 @@ public class PomDentalPractice extends Constructor {
     	}
     	return result;
     }
+	
+	
+	//Validations
+		@FindBy(xpath="//label[text()='OHR Flow']")               WebElement OhrLabel;
+		@FindBy(xpath="//label[text()='Configure CTA Options']")  WebElement CtaLabel;
+		@FindBy(xpath="//label[text()='Is D4W?']")                WebElement isD4wLabel;
+		@FindBy(xpath="//label[text()='Is Core Practice?']")      WebElement isCorePracticeLabel;
+		@FindBy(xpath="//label[text()='Is Dabur?']")              WebElement isDabourLabel;
+		@FindBy(xpath="//label[text()='Required Images for OHR']")WebElement requiredImagesForOhrLabel;
+		@FindBy(xpath="//label[text()='Optional image for OHR']") WebElement optionalImagesForOhrLabel;
+		public boolean presenceOfOhrFlow()
+		{
+			return isDabourLabel.isDisplayed();
+		}
+		public boolean presenceofd4wandcta()
+		{
+		    return isD4wLabel.isDisplayed()&&
+	           isCorePracticeLabel.isDisplayed();
+		}
+		public boolean allComponentPresence() {
+        		   return OhrLabel.isDisplayed() &&
+		           CtaLabel.isDisplayed() &&
+		           isDabourLabel.isDisplayed() &&
+		           requiredImagesForOhrLabel.isDisplayed() &&
+		           optionalImagesForOhrLabel.isDisplayed();
+		}
+	
+	
+	
 }
