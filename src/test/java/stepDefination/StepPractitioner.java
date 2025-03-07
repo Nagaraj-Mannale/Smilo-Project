@@ -75,8 +75,8 @@ public class StepPractitioner
     @When("the user saves the changes on the settings page")
     public void the_user_saves_the_changes_on_the_settings_page() {
         dp.checkTheButton("Smile Check-in");
-    	dp.ohrFlow("Normal Flow");
-    	dp.CTAClick("Request for an appointment");
+    	dp.ohrFlow(0);
+    	dp.CTAToSelect("Request for an appointment");
     	//dp.d4w("N");
     	//dp.dentally("N");
     	//dp.corePractice("N");
@@ -128,7 +128,7 @@ public class StepPractitioner
         @When("select OHR widget button and select the OHR normal flow")
         public void selectOhrNormalFlow() {
         	dp.checkTheButton("Oral Health Rating ( OHR )");
-        	dp.ohrFlow("Normal Flow");
+        	dp.ohrFlow(0);  //0=Normal flow //1=Reverse  //2=Lean
         }
 
         @Then("CTA Purchase a detailed report option should be hide")
@@ -138,32 +138,32 @@ public class StepPractitioner
 
         @When("the user selects \"Request for an Appointment\" in CTA")
         public void selectRequestForAppointmentInCTA() {
-            dp.CTAClick("Request for an appointment");
+            dp.CTAToSelect("Request for an appointment");
         }
 
         @Then("D4W and CorePractice options should be displayed")
         public void verifyD4wOptionsDisplayed() {
-            Assert.assertEquals(true,dp.presenceofd4wandcta());
+            Assert.assertEquals(true,dp.presenceofd4wandCorePractice());
         }
 
         @When("the user selects D4W as \"Yes\"")
         public void selectD4wAsYes() {
-            
+            dp.d4w("Yes");
         }
 
-        @Then("the D4W Practice ID field should be displayed")
+        @Then("the D4W Practice ID field should be displayed and enabled")
         public void verifyD4wPracticeIdDisplayed() {
-            
+            Assert.assertEquals(dp.presenceOfD4w(),true);
         }
 
         @When("the user unchecks \"Request for an Appointment\" if selected")
         public void uncheckRequestForAppointmentIfSelected() {
-            
+            dp.CtaToUnselect("Request for an appointment");
         }
 
-        @Then("D4W options should not be displayed")
+        @Then("D4W and corepractice options should not be displayed")
         public void verifyD4wOptionsNotDisplayed() {
-            
+            Assert.assertEquals(dp.presenceofd4wandCorePractice(), false);
         }
 
         @When("the user selects \"Purchase a Detailed Report\" option")

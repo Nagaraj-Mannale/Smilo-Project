@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 import java.time.Duration;
 //import java.time.Duration;
 import java.util.List;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -233,7 +232,6 @@ public class PomDentalPractice extends Constructor {
 
 	@FindBy(xpath = "//div[@class='vertical_sidebar']//li/a/span[1]")
 	List<WebElement> settingPageOptions;
-	
 	@FindBy(xpath = "//input[@name='ohr_flow_type']")                       	List<WebElement> ohrFlow;
 	@FindBy(xpath = "//input[@name='cta_options[]']/following-sibling::label")	List<WebElement> CTAOptions;
 
@@ -336,15 +334,17 @@ public class PomDentalPractice extends Constructor {
 	
 	
 	
-	public void ohrFlow(String flow) {
+	public void ohrFlow(int index) {
 		for (WebElement flows : ohrFlow) {
-			if (flows.getText().trim().equalsIgnoreCase(flow)) {
+			wait.until(ExpectedConditions.visibilityOf(flows));
+			int ind =ohrFlow.indexOf(flows);
+			if (ind==index) {
 				flows.click();
 			}
 		}
 	}
 
-	public void CTAClick(String option) 
+	public void CTAToSelect(String option) 
 	{
 				
 		for (WebElement cta : CTAOptions) 
@@ -365,6 +365,36 @@ public class PomDentalPractice extends Constructor {
 				
 			}
 		}
+	}
+	public void CtaToUnselect(String option)
+	{
+		for (WebElement cta : CTAOptions) 
+		{
+			
+			if (option.equalsIgnoreCase(cta.getText().trim())) 
+			{
+				
+				if(cta.isSelected())
+					System.out.println(cta.getText());
+				try	
+				{
+					
+					wait.until(ExpectedConditions.elementToBeClickable(cta)).click();
+					
+				}
+				catch(StaleElementReferenceException e)
+				{
+                  	cta=wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(cta)));
+                  	cta.click();
+                  	
+				}
+				
+			}
+		}
+		
+		
+		
+		
 	}
 	public boolean CTAOptionsFind(String option) 
 	{
@@ -392,12 +422,12 @@ public class PomDentalPractice extends Constructor {
 	}
 	
 	public void d4w(String order) {
-		if (order.equalsIgnoreCase("Y")) {
+		if (order.equalsIgnoreCase("Yes")) {
 			d4wS.click();
 			if (d4wS.isSelected()) {
 				d4wPracticeId.sendKeys("1492");
 			}
-		} else if (order.equalsIgnoreCase("N")) {
+		} else if (order.equalsIgnoreCase("No")) {
 			d4wN.click();
 		}
 	}
@@ -504,7 +534,11 @@ public class PomDentalPractice extends Constructor {
     	return result;
     }
 	
-	
+	    @FindBy(xpath="//input[@name='d4w_practice_id']")         WebElement d4wpracticefield;
+	    public boolean presenceOfd4wfield()
+	    {
+	    	return d4wpracticefield.isDisplayed() && d4wpracticefield.isEnabled();
+	    }
 	//Validations
 		@FindBy(xpath="//label[text()='OHR Flow']")               WebElement OhrLabel;
 		@FindBy(xpath="//label[text()='Configure CTA Options']")  WebElement CtaLabel;
@@ -517,7 +551,7 @@ public class PomDentalPractice extends Constructor {
 		{
 			return isDabourLabel.isDisplayed();
 		}
-		public boolean presenceofd4wandcta()
+		public boolean presenceofd4wandCorePractice()
 		{
 		    return isD4wLabel.isDisplayed()&&
 	           isCorePracticeLabel.isDisplayed();

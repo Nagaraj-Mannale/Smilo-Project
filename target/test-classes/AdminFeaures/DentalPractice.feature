@@ -41,10 +41,10 @@ When select OHR widget button and select the OHR normal flow
 Then CTA Purchase a detailed report option should be hide
 When the user selects "Request for an Appointment" in CTA
 Then D4W and CorePractice options should be displayed
-#When the user selects D4W as "Yes"
-#Then the D4W Practice ID field should be displayed
-#When the user unchecks "Request for an Appointment" if selected 
-#Then D4W options should not be displayed
+When the user selects D4W as "Yes"
+Then the D4W Practice ID field should be displayed and enabled
+When the user unchecks "Request for an Appointment" if selected 
+Then D4W and corepractice options should not be displayed
 #
 #When the user selects "Purchase a Detailed Report" option
 #Then the Payment option should be displayed
