@@ -7,7 +7,6 @@ import java.time.Duration;
 //import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -232,9 +231,8 @@ public class PomDentalPractice extends Constructor {
 
 	@FindBy(xpath = "//div[@class='vertical_sidebar']//li/a/span[1]")
 	List<WebElement> settingPageOptions;
-	@FindBy(xpath = "//input[@name='ohr_flow_type']")                       	List<WebElement> ohrFlow;
-	@FindBy(xpath = "//input[@name='cta_options[]']/following-sibling::label")	List<WebElement> CTAOptions;
-
+	@FindBy(xpath ="//input[@name='ohr_flow_type']")                        	List<WebElement> ohrFlow;
+	
 	public void settingPageTabs(String tab)   
 	{
 		for (WebElement Tab : settingPageOptions)    {
@@ -343,62 +341,36 @@ public class PomDentalPractice extends Constructor {
 			}
 		}
 	}
+	@FindBy(xpath ="//input[@name='cta_options[]']/following-sibling::label")	List<WebElement> CtaOptionstext;
+    @FindBy(xpath="//input[@name='cta_options[]']")                             List<WebElement> CtaCheckbox;
+	public void CTAToSelectAndUnselect(String option, String choice) 
+	{			
+		for (WebElement cta : CtaOptionstext) 
+		{
+			if (option.equalsIgnoreCase(cta.getText().trim())) 
+			    {
+				int index=CtaOptionstext.indexOf(cta);
+				CtaSelectCheckBox(index,choice);			
+				}
+		}
+	}
+	public void CtaSelectCheckBox(int index, String choice)
+	{
+		WebElement Checkbox=CtaCheckbox.get(index);
+				if(choice.equalsIgnoreCase("select") && !CtaCheckbox.get(index).isSelected())
+				{
+					Checkbox.click();
+				}
+				else if(choice.equalsIgnoreCase("unselect") && CtaCheckbox.get(index).isSelected())
+				{
+					Checkbox.click();
+				}
+			}
+		
 
-	public void CTAToSelect(String option) 
+	public boolean PresenceOfCtaOptions(String option) 
 	{
-				
-		for (WebElement cta : CTAOptions) 
-		{
-			if (option.equalsIgnoreCase(cta.getText().trim())) 
-			{
-				if(!cta.isSelected())
-				try	
-				{
-					wait.until(ExpectedConditions.elementToBeClickable(cta)).click();
-				
-				}
-				catch(StaleElementReferenceException e)
-				{
-                  	cta=wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(cta)));
-                  	cta.click();
-				}
-				
-			}
-		}
-	}
-	public void CtaToUnselect(String option)
-	{
-		for (WebElement cta : CTAOptions) 
-		{
-			
-			if (option.equalsIgnoreCase(cta.getText().trim())) 
-			{
-				
-				if(cta.isSelected())
-					System.out.println(cta.getText());
-				try	
-				{
-					
-					wait.until(ExpectedConditions.elementToBeClickable(cta)).click();
-					
-				}
-				catch(StaleElementReferenceException e)
-				{
-                  	cta=wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(cta)));
-                  	cta.click();
-                  	
-				}
-				
-			}
-		}
-		
-		
-		
-		
-	}
-	public boolean CTAOptionsFind(String option) 
-	{
-		for (WebElement cta : CTAOptions) 
+		for (WebElement cta : CtaOptionstext) 
 		{
 			if (option.equalsIgnoreCase(cta.getText().trim())) 
 			{
@@ -540,6 +512,7 @@ public class PomDentalPractice extends Constructor {
 	    	return d4wpracticefield.isDisplayed() && d4wpracticefield.isEnabled();
 	    }
 	//Validations
+	    @FindBy(xpath="//h4[text()='Payment Details']")           WebElement paymentLabel;
 		@FindBy(xpath="//label[text()='OHR Flow']")               WebElement OhrLabel;
 		@FindBy(xpath="//label[text()='Configure CTA Options']")  WebElement CtaLabel;
 		@FindBy(xpath="//label[text()='Is D4W?']")                WebElement isD4wLabel;
@@ -555,6 +528,10 @@ public class PomDentalPractice extends Constructor {
 		{
 		    return isD4wLabel.isDisplayed()&&
 	           isCorePracticeLabel.isDisplayed();
+		}
+		public boolean presenceOfPaymentDetails()
+		{
+			return paymentLabel.isDisplayed();
 		}
 		public boolean allComponentPresence() {
         		   return OhrLabel.isDisplayed() &&

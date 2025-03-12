@@ -8,13 +8,10 @@ When the user navigates to the Practitioner page
 Then the user should be on the Practitioner page
 When the user searches for the practitioner and clicks the edit button
 Then the user should be redirected to the Company Info page
-#When updates the required company info and clicks continue
-#Then the user should be on the Contact Info page
-#When the user updates the required contact info and clicks continue
-#Then the user should be on the Settings page
-#When the user saves the changes on the settings page 
+When navigate to the setting page
+Then the user should be on the Settings page
 And capture the changes in the setting page and click on the save button
-#Then the user should be redirected to the home page with a success message
+Then the user should be redirected to the home page with a success message
 When launch the widget with valid token	
  And click on start now button 
  And navigate to select your preferences page

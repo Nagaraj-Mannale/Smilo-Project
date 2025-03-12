@@ -48,7 +48,7 @@ public class StepPractitioner
     	Assert.assertEquals(dp.FirstAndSecondpageName("settings"),"Settings");
 
     }
-
+  
     @Then("the user should be redirected to the Home page, and the newly created practitioner should be listed")
     public void theUserShouldBeRedirectedToTheHomePageAndTheNewlyCreatedPractitionerShouldBeListed() {
         // Implement logic for validation
@@ -76,7 +76,7 @@ public class StepPractitioner
     public void the_user_saves_the_changes_on_the_settings_page() {
         dp.checkTheButton("Smile Check-in");
     	dp.ohrFlow(0);
-    	dp.CTAToSelect("Request for an appointment");
+    	dp.CTAToSelectAndUnselect("Request for an appointment","select");
     	//dp.d4w("N");
     	//dp.dentally("N");
     	//dp.corePractice("N");
@@ -96,7 +96,7 @@ public class StepPractitioner
             dp.settingPageTabs("Settings");
         }
 
-        @Then("ensure that atleast two buttons are selected; if not, make it two")
+        @Then("ensure that atleast two widget buttons are selected; if not, make it two")
         public void ensureWidgetButtonSelectedAsTwo()
         {
         	dp.countSelectedButtons();
@@ -133,17 +133,17 @@ public class StepPractitioner
 
         @Then("CTA Purchase a detailed report option should be hide")
         public void verifyCtaPurchaseDetailedReportHidden() {
-            Assert.assertEquals(false,dp.CTAOptionsFind("Purchase a detailed report"));
+            Assert.assertEquals(false,dp.PresenceOfCtaOptions("Purchase a detailed report"));
         }
 
         @When("the user selects \"Request for an Appointment\" in CTA")
         public void selectRequestForAppointmentInCTA() {
-            dp.CTAToSelect("Request for an appointment");
+            dp.CTAToSelectAndUnselect("Request for an appointment","select");
         }
 
         @Then("D4W and CorePractice options should be displayed")
         public void verifyD4wOptionsDisplayed() {
-            Assert.assertEquals(true,dp.presenceofd4wandCorePractice());
+            Assert.assertEquals(dp.presenceofd4wandCorePractice(),true);
         }
 
         @When("the user selects D4W as \"Yes\"")
@@ -158,32 +158,48 @@ public class StepPractitioner
 
         @When("the user unchecks \"Request for an Appointment\" if selected")
         public void uncheckRequestForAppointmentIfSelected() {
-            dp.CtaToUnselect("Request for an appointment");
+            dp.CTAToSelectAndUnselect("Request for an appointment","unselect");
         }
 
         @Then("D4W and corepractice options should not be displayed")
         public void verifyD4wOptionsNotDisplayed() {
             Assert.assertEquals(dp.presenceofd4wandCorePractice(), false);
         }
-
+        @When("select OHR widget button and select the OHR \"Reverse flow\"")
+        public void clickOnTheReverseFlow()
+        {
+        	dp.ohrFlow(1);
+        }
+        @Then("\"Purchase a detailed report\" option should displayed")
+        public void validateTheCtaoption()
+        {
+        	Assert.assertEquals(dp.PresenceOfCtaOptions("Purchase a detailed report"), true);
+        }
         @When("the user selects \"Purchase a Detailed Report\" option")
         public void selectPurchaseDetailedReportOption() {
-            
+            dp.CTAToSelectAndUnselect("Purchase a Detailed Report","select");
         }
 
         @Then("the Payment option should be displayed")
         public void verifyPaymentOptionDisplayed() {
-            
+            Assert.assertEquals(dp.presenceOfPaymentDetails(), true);
         }
 
         @When("the user unselects \"Purchase a Detailed Report\" option")
         public void unselectPurchaseDetailedReportOption() {
-            
+            dp.CTAToSelectAndUnselect("Purchase a Detailed Report", "unselect");
         }
 
         @Then("the Payment option should not be displayed")
         public void verifyPaymentOptionNotDisplayed() {
-            
+            Assert.assertEquals(dp.presenceOfPaymentDetails(), false);
+        }
+        
+        //Admin to widget flow
+        @Then("capture the changes in the setting page and click on the save button")
+        public void captureTheChangesOnSettingPage()
+        {
+        	
         }
     }
 
