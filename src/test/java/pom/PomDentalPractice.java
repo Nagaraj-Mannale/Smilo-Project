@@ -4,8 +4,12 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.HashMap;
 //import java.time.Duration;
 import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -272,7 +276,6 @@ public class PomDentalPractice extends Constructor {
 	}
 	public void uncheckTheButton(String button) {
 		int index=-1;
-		wait.until(ExpectedConditions.visibilityOfAllElements(widgetButtonsText));
 		for (WebElement buttonText : widgetButtonsText) {
 			if(buttonText.getText().trim().equalsIgnoreCase(button))
 			{
@@ -299,7 +302,7 @@ public class PomDentalPractice extends Constructor {
 		}}
 		
 		
-		public void checkTheButton(String button) {
+		public void selectTheParticularWidgetButton(String button) {
 			int index=-1;
 			wait.until(ExpectedConditions.visibilityOfAllElements(widgetButtonsText));
 			for (WebElement buttonText : widgetButtonsText) {
@@ -323,16 +326,33 @@ public class PomDentalPractice extends Constructor {
 					else
 					{
 						System.out.println("Given options are previously selected");
-					}
-				}
+					}	}	}	}
+		public void widgetButtonsSelectedCount()
+		{
+			
+	    	}
+	  
+	   public Map<Integer,List<String> > countGetTextOfSelectedWidgetButtons(){
+		   List<String> ButtonsName=new ArrayList<String>();
+		   int countOfSelectedButtons=0;
+		   wait.until(ExpectedConditions.visibilityOfAllElements(widgetButtonsText));
+		for(int i=0;i<widgetButtons.size();i++)
+		   {
+			if(widgetButtons.get(i).isSelected())
+			{
+				ButtonsName.add(widgetButtonsText.get(i).getText());
+				countOfSelectedButtons++;
 			}
-	}
-	
-	
-	
-	
-	
-	public void ohrFlow(int index) {
+	       }
+		   Map<Integer,List<String>> result=new HashMap<Integer, List<String>>();
+		   result.put(countOfSelectedButtons, ButtonsName);
+		   return result;
+		   
+		   
+		   
+	    }
+	   
+	   public void ohrFlow(int index) {
 		for (WebElement flows : ohrFlow) {
 			wait.until(ExpectedConditions.visibilityOf(flows));
 			int ind =ohrFlow.indexOf(flows);
@@ -511,6 +531,16 @@ public class PomDentalPractice extends Constructor {
 	    {
 	    	return d4wpracticefield.isDisplayed() && d4wpracticefield.isEnabled();
 	    }
+	    
+	 //Validation Practice Home page
+	    @FindBy(xpath="//h4[text()='Dental Practice']")           WebElement practiceHomePageText;
+	    public String gettingSettingPageText()
+	    {
+	    	return practiceHomePageText.getText().trim();
+	    }
+	    
+	    
+	    
 	//Validations
 	    @FindBy(xpath="//h4[text()='Payment Details']")           WebElement paymentLabel;
 		@FindBy(xpath="//label[text()='OHR Flow']")               WebElement OhrLabel;
@@ -541,6 +571,9 @@ public class PomDentalPractice extends Constructor {
 		           optionalImagesForOhrLabel.isDisplayed();
 		}
 	
-	
+	  public void closetheDriver()
+	  {
+		  driver.quit();
+	  }
 	
 }

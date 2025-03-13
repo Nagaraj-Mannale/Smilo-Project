@@ -2,14 +2,14 @@ Feature: verify the flow of the widget
 
 @smoke
 Scenario: verify the OHR flow
-   Given launch the browser and enter the URL
+   Given launch the widget browser with the valid token
    Then ensure your on getStarted page
    When click on get start button
    Then ensure your on the purpose Of Visit Page
    When select one card and click on the continue button
   # Then ensure your on the consent Agreement page 
    When click on the continue button
-  # Then ensure your on the preference Page
+   Then ensure your on the preference Page
    When select the OHR card and click on the continue button
   # Then ensure you are on the upload image page
    When upload an image from your local space 

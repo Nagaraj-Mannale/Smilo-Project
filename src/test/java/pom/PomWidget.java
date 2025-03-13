@@ -38,7 +38,7 @@ public class PomWidget extends Constructor {
 	public Map<Integer, List<String>> cardCountWithName() {
 	    List<String> cardsName = new ArrayList<>();
 	    int cardCount = 0;
-
+	    wait.until(ExpectedConditions.visibilityOfAllElements(selectPreferencepageCards));
 	    for (WebElement card : selectPreferencepageCards) {
 	        cardsName.add(card.getText().trim());
 	        cardCount++;                                  }

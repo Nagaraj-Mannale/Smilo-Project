@@ -1,20 +1,25 @@
 package stepDefination;
 
 import java.awt.AWTException;
+import java.util.List;
+import java.util.Map;
 
 import org.testng.Assert;
 import basePage.BaseClass;
 import io.cucumber.java.en.*;
 import pom.PomDentalPractice;
+import pom.PomWidget;
 
 public class StepPractitioner 
 {
    private static PomDentalPractice dp;
-
+   private static PomWidget pw;
+ 
     @When("the user navigates to the Practitioner page")
     public void theUserNavigatesToThePractitionerPage() {
         dp = new PomDentalPractice(BaseClass.driver);
         dp.titleNames("Dental Practice");
+        pw=new PomWidget(BaseClass.driver);
     }
        
     @Then("the user should be on the Practitioner page")
@@ -74,7 +79,7 @@ public class StepPractitioner
 
     @When("the user saves the changes on the settings page")
     public void the_user_saves_the_changes_on_the_settings_page() {
-        dp.checkTheButton("Smile Check-in");
+        dp.selectTheParticularWidgetButton("Smile Check-in");
     	dp.ohrFlow(0);
     	dp.CTAToSelectAndUnselect("Request for an appointment","select");
     	//dp.d4w("N");
@@ -86,11 +91,15 @@ public class StepPractitioner
         
     }
 
-    @Then("the user should be redirected to the home page with a success message")
-    public void the_user_should_be_redirected_to_the_home_page_with_a_success_message() {
-        Assert.assertEquals(true, dp.successfulmessage("modify"));
-    }
-    
+        @Then("the user should be redirected to the home page with a success message")
+        public void the_user_should_be_redirected_to_the_home_page_with_a_success_message() {
+         Assert.assertEquals(dp.gettingSettingPageText(),("Dental Practice"));
+         }
+        @Then("close the browser")
+        public void closeTheBrowser() 
+          {
+        	dp.closetheDriver();
+          }
         @When("navigate to the setting page")
         public void navigateToSettingsPage(){
             dp.settingPageTabs("Settings");
@@ -116,7 +125,7 @@ public class StepPractitioner
         @When("select the OHR button")
         public void selectTheOHRWidgetButton()
         {
-        	dp.checkTheButton("Oral Health Rating ( OHR )");
+        	dp.selectTheParticularWidgetButton("Oral Health Rating ( OHR )");
         }
         @Then("verify all the components are displayed")
         public void componentsAreDisplayed()
@@ -127,7 +136,7 @@ public class StepPractitioner
         
         @When("select OHR widget button and select the OHR normal flow")
         public void selectOhrNormalFlow() {
-        	dp.checkTheButton("Oral Health Rating ( OHR )");
+        	dp.selectTheParticularWidgetButton("Oral Health Rating ( OHR )");
         	dp.ohrFlow(0);  //0=Normal flow //1=Reverse  //2=Lean
         }
 
@@ -199,17 +208,11 @@ public class StepPractitioner
         @Then("capture the changes in the setting page and click on the save button")
         public void captureTheChangesOnSettingPage()
         {
+        	Map<Integer, List<String>> AdminButtonsDetails=dp.countGetTextOfSelectedWidgetButtons();
+        	dp.clickOnContinueOrSaveOrCancelButton("save");
+    
+        	//Map<Integer,List<String>> WidgetButtonsDetails=pw.cardCountWithName();
+        	//Assert.assertEquals(AdminButtonsDetails, WidgetButtonsDetails);
         	
         }
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-

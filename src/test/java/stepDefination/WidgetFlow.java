@@ -11,20 +11,24 @@ import basePage.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pom.PomDentalPractice;
 import pom.PomWidget;
 
 public class WidgetFlow extends BaseClass {
 
 	private static PomWidget wi;
+	private static PomDentalPractice dp;
 
-	@Given("launch the browser and enter the URL")
+	@Given("launch the widget browser with the valid token")
 	public void launchBrowserAndEnterUrl() {
+		wi = new PomWidget(driver);
+		dp= new PomDentalPractice(driver);
 		setup("v2widget.tech-active.com/get-started/n9UyYRbhUU3yBR17pXjoMKwBPirr5NPS5V4J0AFTe8r60SyXAB");
+		
 	}
 
 	@Then("ensure your on getStarted page")
 	public void ensureYouAreOnFirstPageContent() {
-		wi = new PomWidget(driver);
 		Assert.assertEquals(wi.getStartedPageText(), "Home");
 	}
 
@@ -58,6 +62,13 @@ public class WidgetFlow extends BaseClass {
 	@Then("ensure your on the preference Page")
 	public void ensureYouAreOnFourthPage() {
 		Assert.assertEquals(wi.preferencePageText(), "Select Your Preferences");
+	}
+	@Then("ensure the cards displaying according to configure in the admin portal")
+	public void preferencePageAsPerTheAdminConfig()
+	{
+		System.out.println(wi.cardCountWithName());
+		System.out.println(dp.countGetTextOfSelectedWidgetButtons());
+		Assert.assertEquals(wi.cardCountWithName(),dp.countGetTextOfSelectedWidgetButtons());
 	}
 
 	@When("select the OHR card and click on the continue button")
