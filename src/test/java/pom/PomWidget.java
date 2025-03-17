@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.time.Duration;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -79,20 +81,16 @@ public class PomWidget extends Constructor {
 		consentAgreementPageContinueButton.click();
 	}
 
-	@FindBy(xpath = "//h1[text()='Select Your Preferences']")
-	WebElement preferencePageText;
-	@FindBy(xpath = "//div[@class='checkbox']/../label/h3")
-	List<WebElement> preferencePageCards;
-	@FindBy(xpath = "//button[text()=' Continue ']")
-	WebElement preferencePageContinueButton;
-	@FindBy(xpath = "//h1[text()=' Upload Your Image ']")
-	WebElement uploadPageText;
-	@FindBy(xpath = "//div[@class='upload_image_div']")
-	WebElement uploadPageSpace;
-	@FindBy(xpath = "//span[text()=' Done ']")
-	WebElement doneButton;
-	@FindBy(xpath = "//span[text()='Get your Results']")
-	WebElement frontPageResultButton;
+	@FindBy(xpath = "//h1[text()='Select Your Preferences']")	WebElement preferencePageText;
+	@FindBy(xpath = "//div[@class='checkbox']/../label/h3")	    List<WebElement> preferencePageCards;
+	@FindBy(xpath = "//button[text()=' Continue ']")     	    WebElement preferencePageContinueButton; 
+	@FindBy(xpath = "//h1[text()=' Upload Your Image ']")       WebElement uploadPageText;
+	//@FindBy(xpath = "//div[@class='upload_image_div']")     //WebElement uploadPageSpace;
+	@FindBy(xpath = "//input[@type='file']")	                WebElement uploadPageSpace;
+	@FindBy(xpath="//div[@class='imgupload_sample']")           WebElement uploadPageSamplePicture;
+	
+	@FindBy(xpath = "//span[text()=' Done ']")	                WebElement doneButton;
+	@FindBy(xpath = "//span[text()='Get your Results']")	    WebElement frontPageResultButton;
 
 	public String preferencePageText() {
 		return preferencePageText.getText();
@@ -109,46 +107,20 @@ public class PomWidget extends Constructor {
 	public String uploadPageText() {
 		return uploadPageText.getText();
 	}
-
+	
+    public void uploadimage()
+      {
+    	
+      }
 	public void uploadPageSpace() throws AWTException {
-		uploadPageSpace.click();
-		driver = new ChromeDriver();
-		driver.get("https://www.google.com");
-		driver.quit();
-
-		Robot rb = new Robot();
-
-		int i = 1;
-		while (i <= 8) {
-			rb.keyPress(KeyEvent.VK_TAB);
-			rb.keyRelease(KeyEvent.VK_TAB);
-			i++;
-		}
-
-		// Press ENTER
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-
-		// Press ENTER again
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-
-		// Pass string through Robot class
-		typeString(rb, "1.7");
-
-		// Press ENTER after typing
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-		rb.delay(100);
-		rb.keyPress(KeyEvent.VK_TAB);
-		rb.keyRelease(KeyEvent.VK_TAB);
-		rb.delay(100);
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-
-		wait.until(ExpectedConditions.elementToBeClickable(doneButton));
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+	
+		js.executeScript("arguments[0].style.display='block';",uploadPageSpace);
+		uploadPageSpace.sendKeys("/home/active35/Music/Smilo images/smilo15.jpg");
+        wait.until(ExpectedConditions.elementToBeClickable(doneButton));
 		doneButton.click();
-	}
+		}
+		
 
 	public static void typeString(Robot rb, String text) {
 		for (char c : text.toCharArray()) {

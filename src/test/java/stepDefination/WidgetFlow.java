@@ -21,10 +21,9 @@ public class WidgetFlow extends BaseClass {
 
 	@Given("launch the widget browser with the valid token")
 	public void launchBrowserAndEnterUrl() {
+		setup("v2widget.tech-active.com/get-started/E8ofS6LFsTYPMp0rlLOzFPySAj5of9K0jfXsQThyD4OsKaElvT");
 		wi = new PomWidget(driver);
 		dp= new PomDentalPractice(driver);
-		setup("v2widget.tech-active.com/get-started/n9UyYRbhUU3yBR17pXjoMKwBPirr5NPS5V4J0AFTe8r60SyXAB");
-		
 	}
 
 	@Then("ensure your on getStarted page")
@@ -67,8 +66,8 @@ public class WidgetFlow extends BaseClass {
 	public void preferencePageAsPerTheAdminConfig()
 	{
 		System.out.println(wi.cardCountWithName());
-		System.out.println(dp.countGetTextOfSelectedWidgetButtons());
-		Assert.assertEquals(wi.cardCountWithName(),dp.countGetTextOfSelectedWidgetButtons());
+		System.out.println(stepDefination.StepPractitioner.AdminWidgetButtonsDetails);
+		Assert.assertEquals(wi.cardCountWithName(),stepDefination.StepPractitioner.AdminWidgetButtonsDetails);
 	}
 
 	@When("select the OHR card and click on the continue button")
@@ -82,6 +81,12 @@ public class WidgetFlow extends BaseClass {
 		Assert.assertEquals(wi.uploadPageText(), "Upload Your Image");
 	}
 
+	@Then("upload the image with counting")
+	public void CountTheUploadImages()
+	{
+		
+	}
+	
 	@When("upload an image from your local space")
 	public void uploadImageFromLocalSpace() throws AWTException, InterruptedException {
 		wi.uploadPageSpace();

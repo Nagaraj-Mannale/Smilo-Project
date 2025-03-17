@@ -67,9 +67,10 @@ public class PomDentalPractice extends Constructor {
 
 	public void kebabIcon() {
 		Actions act = new Actions(driver);
+		
+		wait.until(ExpectedConditions.visibilityOf(kebabIcon));
 		act.moveToElement(kebabIcon).perform();
 		ro.delay(2000);
-		// kebabIcon.click();
 	}
 
 	public void kebabIconOptions(String option) {
@@ -331,7 +332,7 @@ public class PomDentalPractice extends Constructor {
 		{
 			
 	    	}
-	  
+	   //result;
 	   public Map<Integer,List<String> > countGetTextOfSelectedWidgetButtons(){
 		   List<String> ButtonsName=new ArrayList<String>();
 		   int countOfSelectedButtons=0;
@@ -340,15 +341,14 @@ public class PomDentalPractice extends Constructor {
 		   {
 			if(widgetButtons.get(i).isSelected())
 			{
-				ButtonsName.add(widgetButtonsText.get(i).getText());
+				ButtonsName.add(widgetButtonsText.get(i).getText().replace("( OHR )", "").trim());
+				
 				countOfSelectedButtons++;
 			}
 	       }
-		   Map<Integer,List<String>> result=new HashMap<Integer, List<String>>();
-		   result.put(countOfSelectedButtons, ButtonsName);
-		   return result;
-		   
-		   
+		Map<Integer,List<String>>result=new HashMap<Integer, List<String>>();
+		    result.put(countOfSelectedButtons, ButtonsName);
+		    return result;
 		   
 	    }
 	   
@@ -472,22 +472,36 @@ public class PomDentalPractice extends Constructor {
 		}
 	}
 
-	@FindBy(xpath = "(//input[@name='required_img'])[1]")
-	WebElement OneImage;
-	@FindBy(xpath = "(//input[@name='required_img'])[2]")
-	WebElement ThreeImage;
-	@FindBy(xpath = "(//input[@name='required_img'])[3]")
-	WebElement FiveImage;
-
-	public void requiredOhrimages(String order) {
-		if (order.equals("1")) {
-			OneImage.click();
-		} else if (order.equals("3")) {
-			ThreeImage.click();
-		} else if (order.equals("5")) {
-			FiveImage.click();
-		}
-	}
+    @FindBy(xpath="//input[@name='required_img']") List<WebElement> requiredImageForOhr;
+    public void SelectrequiredOhrImages(String num)
+    {
+    	for(WebElement element:requiredImageForOhr)
+    	{
+    		if(element.getAttribute("value").trim().equals(num))
+    		{
+    			if(!element.isSelected())
+    			{
+    				element.click();
+    			}
+    			break;
+    		}
+    	}
+    }
+    public String CountOfAdminConfigImagesForOhr()
+    {
+    	
+    	for(WebElement element:requiredImageForOhr)
+    	{
+    		if(element.isSelected())
+    		{
+    			return element.getAttribute("value").trim();
+    			
+    		}
+    	}
+    	return "None";
+    }
+    
+	
 
 //Save and Cancel Buttons
 	@FindBy(xpath = "//input[@id='save_practice_company_info']")

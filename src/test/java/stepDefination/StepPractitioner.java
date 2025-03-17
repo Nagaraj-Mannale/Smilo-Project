@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.util.List;
 import java.util.Map;
 
+
 import org.testng.Assert;
 import basePage.BaseClass;
 import io.cucumber.java.en.*;
@@ -18,9 +19,10 @@ public class StepPractitioner
     @When("the user navigates to the Practitioner page")
     public void theUserNavigatesToThePractitionerPage() {
         dp = new PomDentalPractice(BaseClass.driver);
-        dp.titleNames("Dental Practice");
         pw=new PomWidget(BaseClass.driver);
-    }
+        dp.titleNames("Dental Practice");
+        
+    }						
        
     @Then("the user should be on the Practitioner page")
     public void theUserShouldBeOnThePractitionerPage() {
@@ -86,7 +88,7 @@ public class StepPractitioner
     	//dp.dentally("N");
     	//dp.corePractice("N");
     	dp.dabour("y");
-    	dp.requiredOhrimages("1");
+    	dp.SelectrequiredOhrImages("1");
     	dp.clickOnContinueOrSaveOrCancelButton("save");
         
     }
@@ -205,14 +207,17 @@ public class StepPractitioner
         }
         
         //Admin to widget flow
+        static Map<Integer,List<String>> AdminWidgetButtonsDetails;
+        static String AdminImageConfig;
         @Then("capture the changes in the setting page and click on the save button")
         public void captureTheChangesOnSettingPage()
         {
-        	Map<Integer, List<String>> AdminButtonsDetails=dp.countGetTextOfSelectedWidgetButtons();
+        	AdminWidgetButtonsDetails=dp.countGetTextOfSelectedWidgetButtons();
+        	AdminImageConfig =dp.CountOfAdminConfigImagesForOhr();
         	dp.clickOnContinueOrSaveOrCancelButton("save");
-    
-        	//Map<Integer,List<String>> WidgetButtonsDetails=pw.cardCountWithName();
-        	//Assert.assertEquals(AdminButtonsDetails, WidgetButtonsDetails);
+        	System.out.println(AdminImageConfig);
+        	//=pw.cardCountWithName();
+        	
         	
         }
     }

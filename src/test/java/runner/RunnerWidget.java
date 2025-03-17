@@ -18,7 +18,7 @@ import io.cucumber.junit.CucumberOptions;
     dryRun = false,                           // If true, checks mappings without executing
     tags = "@smoke"                          // Filter scenarios by tags (if needed)
 )
-public class RunnerClass {
+public class RunnerWidget {
     // No additional code is needed. Cucumber does the magic here.
 }
 

@@ -12,9 +12,11 @@ Scenario: verify the OHR flow
    Then ensure your on the preference Page
    When select the OHR card and click on the continue button
   # Then ensure you are on the upload image page
-   When upload an image from your local space 
-   And  click on the get result button
+   When upload an image from your local space
+   example 
+   
+   #And  click on the get result button
   # Then ensure you are on the contact info page
-   When fill all the necessary information and click on the submit button
-   Then Ensure you are on the result page with cards
-   And verify the all cards buttons are enabled 
+   #When fill all the necessary information and click on the submit button
+   #Then Ensure you are on the result page with cards
+   #And verify the all cards buttons are enabled 

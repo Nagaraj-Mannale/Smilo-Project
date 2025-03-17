@@ -14,7 +14,7 @@ import io.cucumber.junit.CucumberOptions;
 				"html:target/admintoWidget.html"
 		},
 		monochrome=false
-		
+			
 		
 		)
 
