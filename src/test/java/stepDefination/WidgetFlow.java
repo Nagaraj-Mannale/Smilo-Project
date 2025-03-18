@@ -1,6 +1,6 @@
 package stepDefination;
 
-import java.awt.AWTException;
+
 import java.util.List;
 
 import org.junit.Assert;
@@ -11,19 +11,18 @@ import basePage.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pom.PomDentalPractice;
 import pom.PomWidget;
 
 public class WidgetFlow extends BaseClass {
 
 	private static PomWidget wi;
-	private static PomDentalPractice dp;
+
 
 	@Given("launch the widget browser with the valid token")
 	public void launchBrowserAndEnterUrl() {
 		setup("v2widget.tech-active.com/get-started/E8ofS6LFsTYPMp0rlLOzFPySAj5of9K0jfXsQThyD4OsKaElvT");
 		wi = new PomWidget(driver);
-		dp= new PomDentalPractice(driver);
+	
 	}
 
 	@Then("ensure your on getStarted page")
@@ -81,20 +80,11 @@ public class WidgetFlow extends BaseClass {
 		Assert.assertEquals(wi.uploadPageText(), "Upload Your Image");
 	}
 
-	@Then("upload the image with counting")
-	public void CountTheUploadImages()
-	{
-		
-	}
-	
-	@When("upload an image from your local space")
-	public void uploadImageFromLocalSpace() throws AWTException, InterruptedException {
-		wi.uploadPageSpace();
-	}
-
-	@When("click on the get result button")
-	public void clickOnResultButton() {
-		wi.FrontPageResultBtn();
+	@When("upload images from your local space and click on result button")
+	public void uploadImagesFromLocalSpace(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+	    // Get image paths from the data table
+	    List<String> imageLoc = dataTable.asList(String.class);
+	    wi.uploadPageSpace(imageLoc);
 	}
 
 	@Then("ensure you are on the contact info page")

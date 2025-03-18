@@ -9,14 +9,14 @@ import io.cucumber.junit.CucumberOptions;
     features = "src/test/resources/Widget_Features/flow.feature", 
         glue = "stepDefination",   
       plugin = {
-         "pretty",                             
+         "pretty",
          "html:target/cucumber-reports.html",  
          "json:target/cucumber-reports.json",  
          "junit:target/cucumber-reports.xml"   
                 },
     monochrome = true,                         // Clean console output
-    dryRun = false,                           // If true, checks mappings without executing
-    tags = "@smoke"                          // Filter scenarios by tags (if needed)
+    dryRun = false                         // If true, checks mappings without executing
+    //tags = "@smoke"                          // Filter scenarios by tags (if needed)
 )
 public class RunnerWidget {
     // No additional code is needed. Cucumber does the magic here.

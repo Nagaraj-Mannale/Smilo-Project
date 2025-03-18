@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="37.21" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="37.007">
+<testsuite name="Cucumber" time="11.87" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="11.635">
+<failure type="org.openqa.selenium.JavascriptException" message="javascript error: Cannot set properties of undefined (setting 'display')
+  (Session info: chrome=133.0.6943.141)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-52-generic', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9938136b3d6e7fd0fe17f8bf17351644, executeScript {script=arguments[0].style.display='block';, args=[[{element-6066-11e4-a52e-4f735466cecf=f.1274E0BEBA8149D41C5C6A12574FF81C.d.87A586DCD8AA95AE192839DC37DB2FB1.e.62}, {element-6066-11e4-a52e-4f735466cecf=f.1274E0BEBA8149D41C5C6A12574FF81C.d.87A586DCD8AA95AE192839DC37DB2FB1.e.64}, {element-6066-11e4-a52e-4f735466cecf=f.1274E0BEBA8149D41C5C6A12574FF81C.d.87A586DCD8AA95AE192839DC37DB2FB1.e.66}, {element-6066-11e4-a52e-4f735466cecf=f.1274E0BEBA8149D41C5C6A12574FF81C.d.87A586DCD8AA95AE192839DC37DB2FB1.e.68}]]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.141, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:37589}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:37589/devtoo..., se:cdpVersion: 133.0.6943.141, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9938136b3d6e7fd0fe17f8bf17351644">
+<![CDATA[org.openqa.selenium.JavascriptException: javascript error: Cannot set properties of undefined (setting 'display')
+  (Session info: chrome=133.0.6943.141)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-52-generic', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9938136b3d6e7fd0fe17f8bf17351644, executeScript {script=arguments[0].style.display='block';, args=[[{element-6066-11e4-a52e-4f735466cecf=f.1274E0BEBA8149D41C5C6A12574FF81C.d.87A586DCD8AA95AE192839DC37DB2FB1.e.62}, {element-6066-11e4-a52e-4f735466cecf=f.1274E0BEBA8149D41C5C6A12574FF81C.d.87A586DCD8AA95AE192839DC37DB2FB1.e.64}, {element-6066-11e4-a52e-4f735466cecf=f.1274E0BEBA8149D41C5C6A12574FF81C.d.87A586DCD8AA95AE192839DC37DB2FB1.e.66}, {element-6066-11e4-a52e-4f735466cecf=f.1274E0BEBA8149D41C5C6A12574FF81C.d.87A586DCD8AA95AE192839DC37DB2FB1.e.68}]]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.141, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:37589}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:37589/devtoo..., se:cdpVersion: 133.0.6943.141, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9938136b3d6e7fd0fe17f8bf17351644
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:464)
+	at pom.PomWidget.uploadPageSpace(PomWidget.java:128)
+	at stepDefination.WidgetFlow.uploadImagesFromLocalSpace(WidgetFlow.java:87)
+	at ✽.upload images from your local space and click on result button(file:///home/active35/Music/Smilo%20Project/src/test/resources/Widget_Features/flow.feature:15)
+]]>
+</failure>
 <system-out><![CDATA[
 Given launch the widget browser with the valid token........................passed
 Then ensure your on getStarted page.........................................passed
@@ -10,7 +44,7 @@ When select one card and click on the continue button.......................pass
 When click on the continue button...........................................passed
 Then ensure your on the preference Page.....................................passed
 When select the OHR card and click on the continue button...................passed
-When upload an image from your local space..................................passed
+When upload images from your local space and click on result button.........failed
 ]]></system-out>
 </testcase>
 </testsuite>
