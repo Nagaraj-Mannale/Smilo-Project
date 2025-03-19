@@ -79,6 +79,19 @@ public class WidgetFlow extends BaseClass {
 	public void ensureYouAreOnUploadImagePage() {
 		Assert.assertEquals(wi.uploadPageText(), "Upload Your Image");
 	}
+	
+	@Then("ensure image count is match with the admin configure")
+	public void imageCountverification()
+	{
+		int WidgetimageCount=PomWidget.CountOfuploadingImage;
+		String AdminImageConfig=StepPractitioner.AdminImageConfig;
+		int AdminImageCount=Integer.parseInt(AdminImageConfig);
+		
+		System.out.println(WidgetimageCount);
+		System.out.println(AdminImageCount);
+		
+		Assert.assertTrue(AdminImageCount <= WidgetimageCount);
+	}
 
 	@When("upload images from your local space and click on result button")
 	public void uploadImagesFromLocalSpace(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {

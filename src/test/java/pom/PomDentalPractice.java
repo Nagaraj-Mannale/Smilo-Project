@@ -28,7 +28,7 @@ public class PomDentalPractice extends Constructor {
 	private WebDriverWait wait;
 	public PomDentalPractice(WebDriver driver) {
 		super(driver);
-		 this.wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+		 this.wait=new WebDriverWait(driver,Duration.ofSeconds(50));
 	}
 
 	// Home page paths
@@ -65,9 +65,8 @@ public class PomDentalPractice extends Constructor {
 		ro.keyRelease(KeyEvent.VK_ENTER);
 	}
 
-	public void kebabIcon() {
+	public void kebabIcon()  {
 		Actions act = new Actions(driver);
-		
 		wait.until(ExpectedConditions.visibilityOf(kebabIcon));
 		act.moveToElement(kebabIcon).perform();
 		ro.delay(2000);
@@ -587,7 +586,7 @@ public class PomDentalPractice extends Constructor {
 	
 	  public void closetheDriver()
 	  {
-		  driver.quit();
+		  driver.close();
 	  }
 	
 }

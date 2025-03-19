@@ -10,9 +10,9 @@ import io.cucumber.junit.CucumberOptions;
         glue = "stepDefination",   
       plugin = {
          "pretty",
-         "html:target/cucumber-reports.html",  
-         "json:target/cucumber-reports.json",  
-         "junit:target/cucumber-reports.xml"   
+         "html:target/cucumber-reports.html",
+         "json:target/cucumber-reports.json",
+         "junit:target/cucumber-reports.xml" 
                 },
     monochrome = true,                         // Clean console output
     dryRun = false                         // If true, checks mappings without executing

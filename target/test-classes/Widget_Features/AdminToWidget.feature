@@ -13,17 +13,22 @@ Given the user launches the browser and enters the application URL
  Then the user should be on the Settings page
   And capture the changes in the setting page and click on the save button
  Then the user should be redirected to the home page with a success message
-# And close the browser
- #When launch the widget browser with the valid token	
-  #And click on get start button 
-  #And select one card and click on the continue button
-  #And click on the continue button
- #Then ensure your on the preference Page
- #Then ensure the cards displaying according to configure in the admin portal
- #When select the OHR card and click on the continue button
+#And close the browser
+ When launch the widget browser with the valid token	
+  And click on get start button 
+  And select one card and click on the continue button
+  And click on the continue button
+ Then ensure your on the preference Page
+ Then ensure the cards displaying according to configure in the admin portal
+ When select the OHR card and click on the continue button
  #Then ensure you are on the upload image page
- When upload the image with counting
- #Then ensure the count is matches with admin page configaration
+ When upload images from your local space and click on result button
+   | /home/active35/Downloads/5Images/1st.jpeg |
+   | /home/active35/Downloads/5Images/2nd.jpeg |
+   | /home/active35/Downloads/5Images/3rd.jpeg |
+   | /home/active35/Downloads/5Images/4th.jpeg |
+   | /home/active35/Downloads/5Images/5th.jpeg |
+ Then ensure image count is match with the admin configure  
   #And click on the get result button
  #When fill all the necessary information and click on the submit button
  #Then Ensure you are on the result page

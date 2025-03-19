@@ -114,12 +114,12 @@ public class PomWidget extends Constructor {
 	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..")	         WebElement getYourResultButton;
 	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..")        WebElement saveAndContinueButton;
 	
-	static int CountOfuploadingImage=-1;
+	public static int CountOfuploadingImage=0;
 	public void uploadPageSpace(List<String> imagePath) throws InterruptedException{
 		
 		for(int i=0;i<uploadPageSamplePicture.size();i++)
 		{
-			
+			CountOfuploadingImage=uploadPageSamplePicture.size();
  //			File file = new File(path);
 //	        if (file.exists())
 			if(uploadPageSamplePicture.get(i).isDisplayed())

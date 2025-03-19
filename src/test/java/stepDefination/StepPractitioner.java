@@ -1,5 +1,6 @@
 package stepDefination;
 
+
 import java.awt.AWTException;
 import java.util.List;
 import java.util.Map;
@@ -9,17 +10,15 @@ import org.testng.Assert;
 import basePage.BaseClass;
 import io.cucumber.java.en.*;
 import pom.PomDentalPractice;
-import pom.PomWidget;
 
 public class StepPractitioner 
 {
    private static PomDentalPractice dp;
-   private static PomWidget pw;
+
  
     @When("the user navigates to the Practitioner page")
     public void theUserNavigatesToThePractitionerPage() {
         dp = new PomDentalPractice(BaseClass.driver);
-        pw=new PomWidget(BaseClass.driver);
         dp.titleNames("Dental Practice");
         
     }						
@@ -62,7 +61,7 @@ public class StepPractitioner
     }
     
     @When("the user searches for the practitioner and clicks the edit button")
-    public void the_user_searches_for_the_practitioner_and_clicks_the_edit_button() throws AWTException {
+    public void the_user_searches_for_the_practitioner_and_clicks_the_edit_button() throws AWTException, InterruptedException {
         dp.searchfield("chethan@rokkun.io");
         dp.kebabIcon();
         dp.kebabIconOptions("edit");

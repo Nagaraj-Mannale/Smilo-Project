@@ -26,8 +26,10 @@ public class Step_AdminLogin {
     	String otp=ReadGmailOTP.fetchOTP();
     	System.out.println("FirstOtp: "+otp);
     	Thread.sleep(1000);
-    	String otpF=ReadGmailOTP.fetchOTP();
-    	al.otpEnter(otpF);
+    	ReadGmailOTP.fetchOTP();
+    	Thread.sleep(1000);
+    	String otp3=ReadGmailOTP.fetchOTP();
+    	al.otpEnter(otp3);
     	al.clickOnverify();
     }
 	@Then("ensure user on the dashboard page")
