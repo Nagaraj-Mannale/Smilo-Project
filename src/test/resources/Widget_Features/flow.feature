@@ -7,7 +7,7 @@ Scenario: verify the OHR flow
    When click on get start button
    Then ensure your on the purpose Of Visit Page
    When select one card and click on the continue button
-  # Then ensure your on the consent Agreement page
+  #Then ensure your on the consent Agreement page
    When click on the continue button
    Then ensure your on the preference Page
    When select the OHR card and click on the continue button
@@ -18,7 +18,7 @@ Scenario: verify the OHR flow
    | /home/active35/Downloads/5Images/3rd.jpeg |
    | /home/active35/Downloads/5Images/4th.jpeg |
    | /home/active35/Downloads/5Images/5th.jpeg |
-  # Then ensure you are on the contact info page
-   #When fill all the necessary information and click on the submit button
-   #Then Ensure you are on the result page with cards
+   Then ensure you are on the contact info page
+   When fill all the necessary information and click on the submit button
+   Then Ensure you are on the result page with cards
    #And verify the all cards buttons are enabled 

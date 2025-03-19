@@ -8,7 +8,6 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -112,51 +111,39 @@ public class PomWidget extends Constructor {
 		return uploadPageText.getText();
 	}
 	@FindBy(xpath ="//span[text()=' Done ']")	                 WebElement doneButton;
-	@FindBy(xpath ="//span[text()='Get your Results']")	         WebElement getYourResultButton;
-	@FindBy(xpath ="//span[text()='Save & Continue']/..")        WebElement saveAndContinueButton;
+	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..")	         WebElement getYourResultButton;
+	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..")        WebElement saveAndContinueButton;
 	
-	static int count=0;
+	static int CountOfuploadingImage=-1;
 	public void uploadPageSpace(List<String> imagePath) throws InterruptedException{
 		
-		for(int i=0;i<imagePath.size();i++)
+		for(int i=0;i<uploadPageSamplePicture.size();i++)
 		{
+			
  //			File file = new File(path);
 //	        if (file.exists())
-			if(wait.until(ExpectedConditions.visibilityOf(uploadPageSamplePicture.get(i))).isDisplayed())
+			if(uploadPageSamplePicture.get(i).isDisplayed())
 			{
 				JavascriptExecutor js=(JavascriptExecutor)driver;
-				js.executeScript("arguments[0].style.display='block';",uploadPageSpace);
+				js.executeScript("arguments[0].style.display='block';",uploadPageSpace.get(i));
 				uploadPageSpace.get(i).sendKeys(imagePath.get(i));
 				
 		        wait.until(ExpectedConditions.elementToBeClickable(doneButton));
 				doneButton.click();
 				js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-					
-				if(saveAndContinueButton.isDisplayed())
-				{
-					Thread.sleep(1000);
-					//uploadPageSpace = driver.findElement(By.xpath("(//input[@type='file'])[" + (i + 1) + "]"));
-					wait.until(ExpectedConditions.elementToBeClickable(saveAndContinueButton));
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='save_continue_btn_span']/..")));
+				if (saveAndContinueButton.isDisplayed()) {
+				    wait.until(ExpectedConditions.elementToBeClickable(saveAndContinueButton));
 				    js.executeScript("arguments[0].click();", saveAndContinueButton);
-				    //uploadPageSpace = driver.findElement(By.xpath("(//input[@type='file'])[" + (i+2) + "]"));
-					
-				}
-				else
-				{
-					wait.until(ExpectedConditions.elementToBeClickable(getYourResultButton));
-					js.executeScript("arguments[0].click();", getYourResultButton);
-				}
-				count++;
+				} 
+				
 			}
-			else
-			{
-			 System.out.println("upload path is not displayed");
-				break;
-			}
-		}
+		
+		 }
 		
 		}
 	
+		
 	
 
 
@@ -222,8 +209,7 @@ public class PomWidget extends Constructor {
 
 	public boolean accessReportPageText() {
 		wait.until(ExpectedConditions.visibilityOf(accessReportPageImage));
-		boolean a = accessReportPageImage.isDisplayed();
-		return a;
+		return accessReportPageImage.isDisplayed();
 	}
 
 	public void downloadReportCard(String option) {
