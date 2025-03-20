@@ -22,7 +22,7 @@ public class PomWidget extends Constructor {
 
 	public PomWidget(WebDriver driver) {
 		super(driver);
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(120));
 	}
 
 	@FindBy(xpath = "//a[text()='Home']")                       	 WebElement getStartedPageText;
@@ -111,8 +111,8 @@ public class PomWidget extends Constructor {
 		return uploadPageText.getText();
 	}
 	@FindBy(xpath ="//span[text()=' Done ']")	                 WebElement doneButton;
-	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..")	         WebElement getYourResultButton;
-	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..")        WebElement saveAndContinueButton;
+	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..") WebElement getYourResultButton;
+	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..") WebElement saveAndContinueButton;
 	
 	public static int CountOfuploadingImage=0;
 	public void uploadPageSpace(List<String> imagePath) throws InterruptedException{
@@ -191,22 +191,34 @@ public class PomWidget extends Constructor {
 	public void submitButton() {
 		submitButton.click();
 	}
+	@FindBy(xpath = "//div[@class='card-content']/h4")                  List<WebElement> finalPageCard;
+	@FindBy(xpath = "//img[@src='assets/images/severe_g.png']")	        WebElement accessReportPageImage;
+	@FindBy(xpath = "//h4[text()='Download Your Oral Health Report']")	WebElement downloadCard;
+	@FindBy(xpath = "//button[text()=' Download Report ']")	            WebElement downloadReportButton;
+	@FindBy(xpath = "//input[@type='radio'][1]")	WebElement downloadEmailRadioButton;
+	@FindBy(xpath = "//input[@type='radio'][1]")	WebElement downloadWhatsappRadioButton;
+	@FindBy(xpath = "//button[text()=' Confirm ']")	WebElement reportConfirmationBtn;
+	@FindBy(xpath = "//h2[text()='Report Shared']")	WebElement reportSentConfirmationReport;
 
-	@FindBy(xpath = "//img[@src='assets/images/severe_g.png']")
-	WebElement accessReportPageImage;
-	@FindBy(xpath = "//h4[text()='Download Your Oral Health Report']")
-	WebElement downloadCard;
-	@FindBy(xpath = "//button[text()=' Download Report ']")
-	WebElement downloadReportButton;
-	@FindBy(xpath = "//input[@type='radio'][1]")
-	WebElement downloadEmailRadioButton;
-	@FindBy(xpath = "//input[@type='radio'][1]")
-	WebElement downloadWhatsappRadioButton;
-	@FindBy(xpath = "//button[text()=' Confirm ']")
-	WebElement reportConfirmationBtn;
-	@FindBy(xpath = "//h2[text()='Report Shared']")
-	WebElement reportSentConfirmationReport;
-
+	public ArrayList<String> fetchfinalPageCardText()
+	{
+		ArrayList<String> cardsname=new ArrayList<String>();
+		
+		for(WebElement card:finalPageCard)
+		{
+			
+		  if(card.getText().trim().equalsIgnoreCase("Request for an appointment"))
+		   {
+			cardsname.add("Find A Dentist Near You");
+		   }
+		  if(card.getText().trim().equalsIgnoreCase("Request for coupon code"))
+		  {
+			  cardsname.add("Get Special Offers");
+		  }
+		  }
+		return cardsname;
+	}
+	
 	public boolean accessReportPageText() {
 		wait.until(ExpectedConditions.visibilityOf(accessReportPageImage));
 		return accessReportPageImage.isDisplayed();

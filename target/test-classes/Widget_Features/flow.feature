@@ -18,7 +18,8 @@ Scenario: verify the OHR flow
    | /home/active35/Downloads/5Images/3rd.jpeg |
    | /home/active35/Downloads/5Images/4th.jpeg |
    | /home/active35/Downloads/5Images/5th.jpeg |
+   | /home/active35/Downloads/5Images/1st.jpeg |
    Then ensure you are on the contact info page
    When fill all the necessary information and click on the submit button
    Then Ensure you are on the result page with cards
-   #And verify the all cards buttons are enabled 
+   

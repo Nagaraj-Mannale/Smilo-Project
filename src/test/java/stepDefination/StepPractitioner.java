@@ -1,7 +1,7 @@
 package stepDefination;
 
-
 import java.awt.AWTException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -208,15 +208,15 @@ public class StepPractitioner
         //Admin to widget flow
         static Map<Integer,List<String>> AdminWidgetButtonsDetails;
         static String AdminImageConfig;
+        static List<String> AdminCtaConfig=new ArrayList<String>();
         @Then("capture the changes in the setting page and click on the save button")
         public void captureTheChangesOnSettingPage()
         {
         	AdminWidgetButtonsDetails=dp.countGetTextOfSelectedWidgetButtons();
         	AdminImageConfig =dp.CountOfAdminConfigImagesForOhr();
+        	AdminCtaConfig=dp.AdminConfigureCtaOptions;
         	dp.clickOnContinueOrSaveOrCancelButton("save");
-        	System.out.println(AdminImageConfig);
-        	//=pw.cardCountWithName();
-        	
+        	        	
         	
         }
     }

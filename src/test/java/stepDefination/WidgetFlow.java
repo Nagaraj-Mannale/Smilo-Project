@@ -4,9 +4,6 @@ package stepDefination;
 import java.util.List;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import basePage.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -80,25 +77,22 @@ public class WidgetFlow extends BaseClass {
 		Assert.assertEquals(wi.uploadPageText(), "Upload Your Image");
 	}
 	
-	@Then("ensure image count is match with the admin configure")
-	public void imageCountverification()
-	{
-		int WidgetimageCount=PomWidget.CountOfuploadingImage;
-		String AdminImageConfig=StepPractitioner.AdminImageConfig;
-		int AdminImageCount=Integer.parseInt(AdminImageConfig);
-		
-		System.out.println(WidgetimageCount);
-		System.out.println(AdminImageCount);
-		
-		Assert.assertTrue(AdminImageCount <= WidgetimageCount);
-	}
-
 	@When("upload images from your local space and click on result button")
 	public void uploadImagesFromLocalSpace(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
 	    // Get image paths from the data table
 	    List<String> imageLoc = dataTable.asList(String.class);
 	    wi.uploadPageSpace(imageLoc);
 	}
+	
+	@Then("ensure image count is match with the admin configure")
+	public void imageCountverification()
+	{
+		int WidgetimageCount=PomWidget.CountOfuploadingImage;
+		String AdminImageConfig=StepPractitioner.AdminImageConfig;
+		int AdminImageCount=Integer.parseInt(AdminImageConfig);
+		Assert.assertTrue(AdminImageCount <= WidgetimageCount);
+	}
+	
 
 	@Then("ensure you are on the contact info page")
 	public void ensureYouAreOnContactInfoPage() {
@@ -119,11 +113,11 @@ public class WidgetFlow extends BaseClass {
 		Assert.assertEquals(wi.accessReportPageText(), true);
 	}
 
-	@Then("verify the all cards buttons are enabled")
+	@Then("verify the all cards are present as configure in the admin")
 	public void verifyAllCardButtonsAreEnabled() {
-		List<WebElement> buttons = driver.findElements(By.tagName("button"));
-		for (WebElement button : buttons) {
-			Assert.assertTrue("Button is not enabled: " + button.getText(), button.isEnabled());
-		}
+		System.out.println(wi.fetchfinalPageCardText());
+		System.out.println(StepPractitioner.AdminCtaConfig);
+	 Assert.assertEquals(StepPractitioner.AdminCtaConfig, wi.fetchfinalPageCardText());
+		
 	}
 }

@@ -28,9 +28,9 @@ Given the user launches the browser and enters the application URL
    | /home/active35/Downloads/5Images/3rd.jpeg |
    | /home/active35/Downloads/5Images/4th.jpeg |
    | /home/active35/Downloads/5Images/5th.jpeg |
+   | /home/active35/Downloads/5Images/1st.jpeg |
  Then ensure image count is match with the admin configure  
-  #And click on the get result button
- #When fill all the necessary information and click on the submit button
- #Then Ensure you are on the result page
-  #And ensure the cards are displayed as per the admin portal configuration
+ When fill all the necessary information and click on the submit button
+ Then Ensure you are on the result page with cards
+  And verify the all cards are present as configure in the admin 
 

@@ -208,14 +208,10 @@ public class PomDentalPractice extends Constructor {
 
 	// Add Second page
 
-	@FindBy(xpath = "//input[@id='primary_first_name']")
-	WebElement firstName;
-	@FindBy(xpath = "//input[@id='primary_last_name']")
-	WebElement lastName;
-	@FindBy(xpath = "//div[@role='combobox']/..")
-	WebElement countryCodeBtn;
-	@FindBy(xpath = "//div[@role='combobox']/../ul/li/span")
-	List<WebElement> countryOptions;
+	@FindBy(xpath = "//input[@id='primary_first_name']")    	WebElement firstName;
+	@FindBy(xpath = "//input[@id='primary_last_name']")     	WebElement lastName;
+	@FindBy(xpath = "//div[@role='combobox']/..")           	WebElement countryCodeBtn;
+	@FindBy(xpath = "//div[@role='combobox']/../ul/li/span")	List<WebElement> countryOptions;
 
 	public void firstName(String firstname, String lastname) {
 		firstName.sendKeys(firstname);
@@ -233,8 +229,7 @@ public class PomDentalPractice extends Constructor {
 
 	// Update Practitioner
 
-	@FindBy(xpath = "//div[@class='vertical_sidebar']//li/a/span[1]")
-	List<WebElement> settingPageOptions;
+	@FindBy(xpath = "//div[@class='vertical_sidebar']//li/a/span[1]")       	List<WebElement> settingPageOptions;
 	@FindBy(xpath ="//input[@name='ohr_flow_type']")                        	List<WebElement> ohrFlow;
 	
 	public void settingPageTabs(String tab)   
@@ -331,8 +326,14 @@ public class PomDentalPractice extends Constructor {
 		{
 			
 	    	}
-	   //result;
-	   public Map<Integer,List<String> > countGetTextOfSelectedWidgetButtons(){
+	  
+		
+		@FindBy(xpath ="//input[@name='cta_options[]']/following-sibling::label")	List<WebElement> CtaOptionstext;
+	    @FindBy(xpath="//input[@name='cta_options[]']")                             List<WebElement> CtaCheckbox;
+	    
+	    public static List<String> AdminConfigureCtaOptions=new ArrayList<String>();
+	    
+	    public Map<Integer,List<String> > countGetTextOfSelectedWidgetButtons(){
 		   List<String> ButtonsName=new ArrayList<String>();
 		   int countOfSelectedButtons=0;
 		   wait.until(ExpectedConditions.visibilityOfAllElements(widgetButtonsText));
@@ -341,15 +342,24 @@ public class PomDentalPractice extends Constructor {
 			if(widgetButtons.get(i).isSelected())
 			{
 				ButtonsName.add(widgetButtonsText.get(i).getText().replace("( OHR )", "").trim());
-				
 				countOfSelectedButtons++;
 			}
 	       }
-		Map<Integer,List<String>>result=new HashMap<Integer, List<String>>();
-		    result.put(countOfSelectedButtons, ButtonsName);
-		    return result;
-		   
-	    }
+		
+		for(int i=0;i<CtaCheckbox.size();i++)
+		{
+		  	if(CtaCheckbox.get(i).isSelected())
+		  	{
+		  		AdminConfigureCtaOptions.add(CtaOptionstext.get(i).getText().trim());
+		  		System.out.println(AdminConfigureCtaOptions);
+		  	}
+			}
+			
+			Map<Integer,List<String>>result=new HashMap<Integer, List<String>>();
+			    result.put(countOfSelectedButtons, ButtonsName);
+			    return result;
+			   
+		    }
 	   
 	   public void ohrFlow(int index) {
 		for (WebElement flows : ohrFlow) {
@@ -360,8 +370,7 @@ public class PomDentalPractice extends Constructor {
 			}
 		}
 	}
-	@FindBy(xpath ="//input[@name='cta_options[]']/following-sibling::label")	List<WebElement> CtaOptionstext;
-    @FindBy(xpath="//input[@name='cta_options[]']")                             List<WebElement> CtaCheckbox;
+	
 	public void CTAToSelectAndUnselect(String option, String choice) 
 	{			
 		for (WebElement cta : CtaOptionstext) 
@@ -503,12 +512,9 @@ public class PomDentalPractice extends Constructor {
 	
 
 //Save and Cancel Buttons
-	@FindBy(xpath = "//input[@id='save_practice_company_info']")
-	WebElement firstpageContinueButton;
-	@FindBy(xpath = "(//input[@type='submit'])[2]")
-	WebElement saveButton;
-	@FindBy(xpath = "(//input[@value='Cancel'])[1]")
-	WebElement cancelButton;
+	@FindBy(xpath = "//input[@id='save_practice_company_info']")	WebElement firstpageContinueButton;
+	@FindBy(xpath = "(//input[@type='submit'])[2]")              	WebElement saveButton;
+	@FindBy(xpath = "(//input[@value='Cancel'])[1]")            	WebElement cancelButton;
 
 	public void clickOnContinueOrSaveOrCancelButton(String page) {
 		JavascriptExecutor js=(JavascriptExecutor)driver;
@@ -518,8 +524,8 @@ public class PomDentalPractice extends Constructor {
 		case "save"    :element=wait.until(ExpectedConditions.elementToBeClickable(saveButton));             break;
 		default        :element=wait.until(ExpectedConditions.elementToBeClickable(cancelButton));           break;
 		}
-		 js.executeScript("arguments[0].scrollIntoView(true);", element);
-		 js.executeScript("arguments[0].click();", element);
+		js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+		js.executeScript("arguments[0].click();", element);
 	}
 	
 	//Confirmation messages
