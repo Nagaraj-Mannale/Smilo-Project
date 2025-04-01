@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="146.92" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="146.679">
+<testsuite name="Cucumber" time="34.017" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="verify the flow of the widget" name="verify the OHR flow" time="33.806">
 <system-out><![CDATA[
 Given launch the widget browser with the valid token........................passed
 Then ensure your on getStarted page.........................................passed
