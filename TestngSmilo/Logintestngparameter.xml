@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" >
+
+  <test name="Harmonized Admin Code Domain" >
+  <parameter name="url" value="v2admin.tech-active.com"/>
+    <classes>
+      <class name="testNgSmilo.LoginClass"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <!--  <test  name="Merge Admin Ind Code Domain">
+     <parameter name="url" value="practice-d1.smilo.health"/>
+    <classes>
+      <class name="testNgSmilo.LoginClass"/>
+    </classes>
+  </test> <! Test -->
+  
+    
+  
+</suite> <!-- Suite -->
