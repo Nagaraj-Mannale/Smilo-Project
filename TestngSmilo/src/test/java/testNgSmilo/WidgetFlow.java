@@ -22,7 +22,7 @@ public class WidgetFlow {
 	@BeforeTest
 	void launchTheBrowser()
 	{
-		String browser="v2widget.tech-active.com/get-started/E8ofS6LFsTYPMp0rlLOzFPySAj5of9K0jfXsQThyD4OsKaElvT";
+		String browser="v2widget.tech-active.com/get-started/PUFvqWKKt4HI86UZx5wzD29aUWXgZwnUXrJlTj6oCDhlLUBhdN";
 		driver=Browserlaunch.launchBrowser(browser);
 		wait= new WebDriverWait(driver, Duration.ofSeconds(120));
           js=(JavascriptExecutor) driver;
@@ -116,7 +116,7 @@ public class WidgetFlow {
   	    Assert.assertEquals(driver.getCurrentUrl(), "https://v2widget.tech-active.com/payment-access-report");
   	    System.out.println(driver.getCurrentUrl());
   	    
-//  	   
+  	   
 //  	    driver.quit();
 //  		String browser="v2pep.tech-active.com";
 //  		driver=Browserlaunch.launchBrowser(browser);
