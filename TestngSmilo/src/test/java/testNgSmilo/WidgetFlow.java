@@ -22,11 +22,15 @@ public class WidgetFlow {
 	@BeforeTest
 	void launchTheBrowser()
 	{
-		String browser="v2widget.tech-active.com/get-started/PUFvqWKKt4HI86UZx5wzD29aUWXgZwnUXrJlTj6oCDhlLUBhdN";
+		//get-started/Y14SKx4JtPwfs4J1VurWgMu3PXgVzWttUo1GTyKwPsNQCJE8j7:--Jyoti Ind
+		//get-started/PUFvqWKKt4HI86UZx5wzD29aUWXgZwnUXrJlTj6oCDhlLUBhdN:--Jyoti Aus
+		//get-started/E8ofS6LFsTYPMp0rlLOzFPySAj5of9K0jfXsQThyD4OsKaElvT:--Chethan Ind
+		//get-started/smgfJN9E0JXgBVGdyHgJsTZef3tQ9XleLXTM9FZe7qWJrsiDQI:--MangalPande Ind
+		String browser="v2widget.tech-active.com/get-started/smgfJN9E0JXgBVGdyHgJsTZef3tQ9XleLXTM9FZe7qWJrsiDQI";
 		driver=Browserlaunch.launchBrowser(browser);
 		wait= new WebDriverWait(driver, Duration.ofSeconds(120));
           js=(JavascriptExecutor) driver;
-         RandomString=RandomStringUtils.randomAlphanumeric(3);
+        RandomString=RandomStringUtils.randomAlphanumeric(3);
 		
 	}
   	@Test
@@ -109,7 +113,7 @@ public class WidgetFlow {
   	    driver.findElement(By.xpath("//input[@placeholder='Last Name']")).sendKeys("N");
         
         String mail="test"+RandomString.toLowerCase()+"@gmail.com";
-  		driver.findElement(By.xpath("//input[@placeholder='Email Address']")).sendKeys(mail);
+  		driver.findElement(By.xpath("//input[@placeholder='Email Address']")).sendKeys("testoqt@gmail.com");
   	    driver.findElement(By.xpath("//input[@id='phone']")).sendKeys("1234567890");
   	    driver.findElement(By.xpath("//button[@type='submit']")).click();
   	    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='img-block']/img")));
