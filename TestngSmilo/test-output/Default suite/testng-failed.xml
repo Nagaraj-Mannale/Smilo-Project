@@ -6,7 +6,6 @@
       <class name="testNgSmilo.WidgetFlow">
         <methods>
           <include name="launchTheBrowser"/>
-          <include name="navigateToUploadpage"/>
         </methods>
       </class> <!-- testNgSmilo.WidgetFlow -->
     </classes>

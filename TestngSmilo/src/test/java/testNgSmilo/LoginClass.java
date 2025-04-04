@@ -5,22 +5,22 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.testng.AssertJUnit;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
 
-public class LoginClass 
+public class LoginClass
 {
 	public static WebDriver driver;
     
-    @BeforeTest()
-    @Parameters("url")
-    void launchTheBrowser(String url)
+    @BeforeClass()
+    @DataProvider(name="url")
+    void launchTheBrowser(String url) 
     {
-         
+        
           driver=Browserlaunch.launchBrowser(url);
 
     }
@@ -57,24 +57,39 @@ public class LoginClass
     @Test(priority = 2)
     void VerifyTheDashBoardPage()
     {
+    	AssertJUnit.assertEquals("https://v2admin.tech-active.com/dashboard",driver.getCurrentUrl());
+    	driver.findElement(By.xpath("//span[text()='Patients']/../span[1]")).click();
         System.out.println("Dashboard verification logic goes here...");
     }
-
-    @AfterTest
-    void closeTheBrowser()
+    @Test(priority=3)
+    void navigateToThePatientPageAndVerifyTheRecentAddedPatient()
     {
-        driver.quit(); // Close browser after completing tests
-        System.out.println("Browser closed.");
+    	driver.findElement(By.xpath("//span[text()='Patients']/../span[1]")).click();
+    	String firstRecordMail=driver.findElement(By.xpath("(//ul[@class='actions_list']/../..)[1]/td[3]")).getText();
+    	AssertJUnit.assertEquals(firstRecordMail, WidgetFlow.RandomString);
     }
+    
+    
+    
+    
+    
+    
 
-//    //@DataProvider(name = "urls")
-//    Object[][] domainData()
+//    @AfterTest
+//    void closeTheBrowser()
 //    {
-//        return new Object[][] 
-//        {
-//            {"//v2admin.tech-active.com"},
-//            {"//practice-d1.smilo.health"},
-//        };
+//        driver.quit(); // Close browser after completing tests
+//        System.out.println("Browser closed.");
 //    }
+
+    @DataProvider(name = "urls")
+    Object[][] domainData()
+    {
+        return new Object[][] 
+        {
+            {"v2admin.tech-active.com"},
+          
+        };
+    }
 
 }

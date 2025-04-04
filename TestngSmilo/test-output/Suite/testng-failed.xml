@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="2" parallel="tests" name="Test2(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="testNgSmilo.LoginClass">
+        <methods>
+          <include name="navigateToThePatientPageAndVerifyTheRecentAddedPatient"/>
+          <include name="EntermailAndPassword"/>
+          <include name="ExtractTheMailOtpAndPassIntoTheOtpFields"/>
+          <include name="VerifyTheDashBoardPage"/>
+          <include name="launchTheBrowser"/>
+        </methods>
+      </class> <!-- testNgSmilo.LoginClass -->
       <class name="testNgSmilo.WidgetFlow">
         <methods>
           <include name="launchTheBrowser"/>
+          <include name="validateTheFinalPage"/>
+          <include name="ValidateReportInPep"/>
           <include name="navigateToUploadpage"/>
         </methods>
       </class> <!-- testNgSmilo.WidgetFlow -->
     </classes>
-  </test> <!-- Test2(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -18,7 +18,7 @@ public class WidgetFlow {
     public static WebDriver driver;
     public WebDriverWait wait;		
     public JavascriptExecutor js;
-    public String RandomString;
+    public static String RandomString;
 	@BeforeTest
 	void launchTheBrowser()
 	{
