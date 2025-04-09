@@ -3,11 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testNgSmilo.WidgetFlow">
+      <class name="testNgSmilo.WidgetLaunch">
         <methods>
+          <include name="navigateToUploadpage"/>
+          <include name="EnsureWeAreOnfinalCardPage"/>
+          <include name="ContactInfo"/>
           <include name="launchTheBrowser"/>
         </methods>
-      </class> <!-- testNgSmilo.WidgetFlow -->
+      </class> <!-- testNgSmilo.WidgetLaunch -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
