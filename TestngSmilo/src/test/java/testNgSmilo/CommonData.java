@@ -8,12 +8,27 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CommonData extends WidgetLaunch {
+public class CommonData{
 
 	public static String RandomString=RandomStringUtils.randomAlphanumeric(3); //----------------->CreationOfRandomString
-	public static WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(120));//------->Wait Element
-    public static JavascriptExecutor js=(JavascriptExecutor) driver;           //----------------->JavaScriptExecutor
-	
+	private static WebDriverWait wait;
+	private static JavascriptExecutor js;
+    public static WebDriverWait getWait() {                     //------->Wait Element
+        if(wait==null)
+        {
+    	wait=new WebDriverWait(Browserlaunch.driver, Duration.ofSeconds(120));
+        }
+        return wait;  
+    }
+    
+
+    public static JavascriptExecutor getJs() {
+    	if(js==null)
+    	{
+    		js=(JavascriptExecutor) Browserlaunch.driver;                     //----------------->JavaScriptExecutor
+    	}
+        return js;
+    }
 	
 	
 	public static ArrayList<String>imagedata=new ArrayList<String>(Arrays.asList(

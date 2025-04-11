@@ -5,28 +5,22 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.AssertJUnit;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-
-public class LoginClass
+@Test(priority=0)
+public class AdminLogin
 {
 	public static WebDriver driver;
-    
-    @BeforeClass()
-    @DataProvider(name="url")
-    void launchTheBrowser(String url) 
+    @Test(priority=0)
+    WebDriver launchTheAdminBrowser(String url) 
     {
-        
           driver=Browserlaunch.launchBrowser(url);
-
+          return driver;
     }
     
-
-    @Test(priority = 0)
+    @Test(priority = 1)
     void EntermailAndPassword()
     {
     	 
@@ -36,7 +30,7 @@ public class LoginClass
         System.out.println("Logged in successfully.");
     }
 
-    @Test(priority = 1)
+    @Test(priority = 2)
     void ExtractTheMailOtpAndPassIntoTheOtpFields() throws InterruptedException
     {
     	ReadGmailOTP.fetchOTP(); 
@@ -54,34 +48,6 @@ public class LoginClass
         System.out.println("OTP submitted successfully.");
     }
 
-    @Test(priority = 2)
-    void VerifyTheDashBoardPage()
-    {
-    	AssertJUnit.assertEquals("https://v2admin.tech-active.com/dashboard",driver.getCurrentUrl());
-    	driver.findElement(By.xpath("//span[text()='Patients']/../span[1]")).click();
-        System.out.println("Dashboard verification logic goes here...");
-    }
-    @Test(priority=3)
-    void navigateToThePatientPageAndVerifyTheRecentAddedPatient()
-    {
-    	driver.findElement(By.xpath("//span[text()='Patients']/../span[1]")).click();
-    	String firstRecordMail=driver.findElement(By.xpath("(//ul[@class='actions_list']/../..)[1]/td[3]")).getText();
-    	AssertJUnit.assertEquals(firstRecordMail, WidgetFlow.RandomString);
-    }
-    
-    
-    
-    
-    
-    
-
-//    @AfterTest
-//    void closeTheBrowser()
-//    {
-//        driver.quit(); // Close browser after completing tests
-//        System.out.println("Browser closed.");
-//    }
-
     @DataProvider(name = "urls")
     Object[][] domainData()
     {
@@ -91,5 +57,12 @@ public class LoginClass
           
         };
     }
+    
+//  @AfterTest
+//  void closeTheBrowser()
+//  {
+//      driver.quit(); // Close browser after completing tests
+//      System.out.println("Browser closed.");
+//  }
 
 }

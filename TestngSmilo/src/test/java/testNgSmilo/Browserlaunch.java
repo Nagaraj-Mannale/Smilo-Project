@@ -11,7 +11,8 @@ public class Browserlaunch
 //Either remove the modifier of the method
 //Make the class variable as static
 //create an object inside the method of the class and use the non static class variable
-	 static WebDriver driver; 
+	
+ static WebDriver driver; 
  public static WebDriver launchBrowser(String url)
  {
 	 driver=new ChromeDriver();
