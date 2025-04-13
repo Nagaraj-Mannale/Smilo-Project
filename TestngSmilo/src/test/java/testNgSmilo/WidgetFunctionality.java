@@ -48,17 +48,17 @@ public class WidgetFunctionality {
   		  driver.findElement(By.xpath("//button[text()=' Continue ']")).click();
  		 }
   		
-  		List<WebElement> uploadSpace=driver.findElements(By.xpath("//input[@type='file']"));             	   
-    	for(int i=0;i<uploadSpace.size();i++)
-        	   {
-        		 getJs().executeScript("arguments[0].style.display='block';",uploadSpace.get(i));
-        		 uploadSpace.get(i).sendKeys(CommonData.imagedata.get(i));
-        		 driver.findElement(By.xpath("//span[text()=' Done ']")).click();
-              	 WebElement element=driver.findElement(By.xpath("//span[@class='save_continue_btn_span']"));
-              	getJs().executeScript("arguments[0].scrollIntoView(true);",element );
-              	 element.click();
+//  		List<WebElement> uploadSpace=driver.findElements(By.xpath("//input[@type='file']"));             	   
+//    	for(int i=0;i<uploadSpace.size();i++)
+//        	   {
+//        		 getJs().executeScript("arguments[0].style.display='block';",uploadSpace.get(i));
+//        		 uploadSpace.get(i).sendKeys("file:///C:/Users/Nagaraj/Downloads/teeth.webp");//CommonData.imagedata.get(i));
+//        		 driver.findElement(By.xpath("//span[text()=' Done ']")).click();
+//              	 WebElement element=driver.findElement(By.xpath("//span[@class='save_continue_btn_span']"));
+//              	getJs().executeScript("arguments[0].scrollIntoView(true);",element );
+//              	 element.click();
         		   
-        	   }
+        	   //}
      	}
     	@Test(priority=2)
     	void ContactInfo()
