@@ -11,8 +11,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.*;
+
+@Listeners({io.qameta.allure.testng.AllureTestNg.class})
+
+@Epic("EPIC-001")
+@Feature("Widget Flow")
 public class WidgetFunctionality {
     public static WebDriver driver;
    
@@ -20,12 +27,13 @@ public class WidgetFunctionality {
 	void launchTheBrowser()
 	{
 		
-		String browser="app-d1.smilo.health/get-started/9dkd6uZ8B8KD46a3HTiBtQbs87nYpOKDjftWHdsHuv1saU13IE";//CommonData.widgetTokens("Nagaraj Ind");//"v2widget.tech-active.com/get-started/smgfJN9E0JXgBVGdyHgJsTZef3tQ9XleLXTM9FZe7qWJrsiDQI";//
-		driver=Browserlaunch.launchBrowser(browser);
+		String browser="app-d1.smilo.health/get-started/Y14SKx4JtPwfs4J1VurWgMu3PXgVzWttUo1GTyKwPsNQCJE8j7";//CommonData.widgetTokens("Nagaraj Ind");//"v2widget.tech-active.com/get-started/smgfJN9E0JXgBVGdyHgJsTZef3tQ9XleLXTM9FZe7qWJrsiDQI";////////
+		driver=Browserlaunch.launchBrowser(browser);	
 		
 		
 	}
-  	@Test(priority=0)
+  	@Test(priority=0 ,description = "Verify the uploading functionality")
+  	@Description("Ensure images are uploading correctly")
   	void navigateToUploadpage()
   	{
   		
@@ -48,19 +56,20 @@ public class WidgetFunctionality {
   		  driver.findElement(By.xpath("//button[text()=' Continue ']")).click();
  		 }
   		
-//  		List<WebElement> uploadSpace=driver.findElements(By.xpath("//input[@type='file']"));             	   
-//    	for(int i=0;i<uploadSpace.size();i++)
-//        	   {
-//        		 getJs().executeScript("arguments[0].style.display='block';",uploadSpace.get(i));
-//        		 uploadSpace.get(i).sendKeys("file:///C:/Users/Nagaraj/Downloads/teeth.webp");//CommonData.imagedata.get(i));
-//        		 driver.findElement(By.xpath("//span[text()=' Done ']")).click();
-//              	 WebElement element=driver.findElement(By.xpath("//span[@class='save_continue_btn_span']"));
-//              	getJs().executeScript("arguments[0].scrollIntoView(true);",element );
-//              	 element.click();
+  		List<WebElement> uploadSpace=driver.findElements(By.xpath("//input[@type='file']"));             	   
+    	for(int i=0;i<uploadSpace.size();i++)
+        	   {
+        		 getJs().executeScript("arguments[0].style.display='block';",uploadSpace.get(i));
+        		 uploadSpace.get(i).sendKeys(CommonData.imagedata.get(i));
+        		 driver.findElement(By.xpath("//span[text()=' Done ']")).click();
+              	 WebElement element=driver.findElement(By.xpath("//span[@class='save_continue_btn_span']"));
+              	getJs().executeScript("arguments[0].scrollIntoView(true);",element );
+              	 element.click();
         		   
-        	   //}
+        	   }
      	}
-    	@Test(priority=2)
+    	@Test(priority=2 , description="Verify the contact upload info")
+    	@Description("Ensure user info saving correctly")
     	void ContactInfo()
     	{
 //	    //ContactPage
@@ -82,7 +91,8 @@ public class WidgetFunctionality {
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
     	}
     	
-    	@Test(priority=3)
+    	@Test(priority=3 , description="Verify the finalPageUrl")
+    	@Description("Ensure after filling user info user are redirecting to final page")
     	void EnsureWeAreOnfinalCardPage()
     	{
     		if(driver.getCurrentUrl().contains("v2widget"))
@@ -98,11 +108,18 @@ public class WidgetFunctionality {
     		    System.out.println(driver.getCurrentUrl());
     		}
 
-//	    //PaymentAccesReportPage Download Report via email
-//	    
-//	    WebElement element=driver.findElement(By.xpath("//button[text()=' Download Report ']"));
-//	    wait.until(ExpectedConditions.visibilityOf(element));
-//	    js.executeScript("arguments[0].scrollIntoView(true);", element);
-//	    element.click();
-//	    driver.findElement(By.xpath("//button[@type='submit']")).click();
+    //PaymentAccesReportPage Download Report via email
+	    driver.findElement(By.xpath("//button[text()=' Book Now ']")).click();//book an appointment
+        driver.findElement(By.xpath("//button[text()=' Get Now ']")).click();//book
+	    WebElement element=driver.findElement(By.xpath("//button[text()=' Download Report ']"));
+        getWait().until(ExpectedConditions.visibilityOf(element));
+	    getJs().executeScript("arguments[0].scrollIntoView(true);", element);
+	    
+        element.click();
+	    driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.xpath("//button[@class='close']")).click();
+	    element.click();
+	    driver.findElement(By.xpath("//input[@id='flexRadioDefault3']")).click();
+	    driver.findElement(By.xpath("//button[@type='submit']")).click();
+	    driver.findElement(By.xpath("//button[@class='close']")).click();
     	}}

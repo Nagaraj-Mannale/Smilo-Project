@@ -7,8 +7,6 @@
         <methods>
           <include name="EnsureWeAreOnfinalCardPage"/>
           <include name="launchTheBrowser"/>
-          <include name="ContactInfo"/>
-          <include name="navigateToUploadpage"/>
         </methods>
       </class> <!-- testNgSmilo.WidgetFunctionality -->
     </classes>
