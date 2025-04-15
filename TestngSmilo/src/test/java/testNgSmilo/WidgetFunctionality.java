@@ -20,15 +20,15 @@ import io.qameta.allure.*;
 
 @Epic("EPIC-001")
 @Feature("Widget Flow")
-public class WidgetFunctionality {
-    public static WebDriver driver;
+public class WidgetFunctionality extends Browserlaunch {
+    
    
  	@BeforeTest
 	void launchTheBrowser()
 	{
-		
+		launchBrowser();
 		String browser="app-d1.smilo.health/get-started/Y14SKx4JtPwfs4J1VurWgMu3PXgVzWttUo1GTyKwPsNQCJE8j7";//CommonData.widgetTokens("Nagaraj Ind");//"v2widget.tech-active.com/get-started/smgfJN9E0JXgBVGdyHgJsTZef3tQ9XleLXTM9FZe7qWJrsiDQI";////////
-		driver=Browserlaunch.launchBrowser(browser);	
+		driver.get("https://"+browser);
 		
 		
 	}
@@ -63,7 +63,8 @@ public class WidgetFunctionality {
         		 uploadSpace.get(i).sendKeys(CommonData.imagedata.get(i));
         		 driver.findElement(By.xpath("//span[text()=' Done ']")).click();
               	 WebElement element=driver.findElement(By.xpath("//span[@class='save_continue_btn_span']"));
-              	getJs().executeScript("arguments[0].scrollIntoView(true);",element );
+              	 getJs().executeScript("arguments[0].scrollIntoView(true);",element );
+              	 getWait().until(ExpectedConditions.visibilityOf(element));
               	 element.click();
         		   
         	   }

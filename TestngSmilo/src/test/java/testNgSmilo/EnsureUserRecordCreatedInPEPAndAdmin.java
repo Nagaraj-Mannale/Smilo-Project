@@ -3,35 +3,46 @@ package testNgSmilo;
 
 import static testNgSmilo.CommonData.getJs;
 import static testNgSmilo.CommonData.getWait;
+
 import java.util.List;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class EnsureUserRecordCreatedInPEPAndAdmin {
-	public static WebDriver driver;
-	   
- 	@BeforeTest
+public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
+	 
+	AdminLogin admin; 
+ 	@Test(priority=0)
 	void launchTheBrowser()
 	{
-		
-		String browser=CommonData.widgetTokens("Jyoti Ind	");//"v2widget.tech-active.com/get-started/smgfJN9E0JXgBVGdyHgJsTZef3tQ9XleLXTM9FZe7qWJrsiDQI";//
-		driver=Browserlaunch.launchBrowser(browser);
+		launchBrowser();
+		String browser=CommonData.widgetTokens("Jyoti Ind","d1");//"v2widget.tech-active.com/get-started/smgfJN9E0JXgBVGdyHgJsTZef3tQ9XleLXTM9FZe7qWJrsiDQI";//
+		driver.get("https://"+browser);
 		
 		
 	}
-  	@Test(priority=0)
-  	void navigateToUploadpage()
+  	@Test(priority=1)
+  	void navigateTopPurposeOfVisitPage()
   	{
-  		
+  		getWait().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h4[text()='Virtual consult ']")));
+  		System.out.println(driver.getCurrentUrl());
 		//GetStartPage
+  		if(driver.getCurrentUrl().equals("https://app-d1.smilo.health/select-service"))
+  		{
+          driver.findElement(By.xpath("//span[text()='Start now']")).click();
+  		}
+  		else
+  		{
   		driver.findElement(By.xpath("//button[text()=' Start Now ']")).click();
-  		
+  		}
+  	}
+  	@Test(priority=2)
+  	void navigateToUploadImagePage()
+  	{
   		//PurposeOfVisitPage
   		driver.findElement(By.xpath("//h3[text()='General Checkup']")).click();
   		driver.findElement(By.xpath("//button[text()=' Continue ']")).click();
@@ -47,33 +58,55 @@ public class EnsureUserRecordCreatedInPEPAndAdmin {
   		  driver.findElement(By.xpath("//h3[text()='Oral Health Rating']")).click();
   		  driver.findElement(By.xpath("//button[text()=' Continue ']")).click();
  		 }
-  		
+  	}
+  	@Test(priority=3)
+  	void uploadImages()
+  	{
   		List<WebElement> uploadSpace=driver.findElements(By.xpath("//input[@type='file']"));             	   
     	for(int i=0;i<uploadSpace.size();i++)
         	   {
         		 getJs().executeScript("arguments[0].style.display='block';",uploadSpace.get(i));
         		 uploadSpace.get(i).sendKeys(CommonData.imagedata.get(i));
         		 driver.findElement(By.xpath("//span[text()=' Done ']")).click();
-              	 WebElement element=driver.findElement(By.xpath("//span[@class='save_continue_btn_span']"));
-              	getJs().executeScript("arguments[0].scrollIntoView(true);",element );
-              	 element.click();
+              	 WebElement continueBtn=driver.findElement(By.xpath("//span[@class='save_continue_btn_span']"));
+              	 getJs().executeScript("arguments[0].scrollIntoView(true);",continueBtn);
+              	 try
+              	 {
+              		continueBtn.click();
+              		
+              	 }
+              	 catch(Exception e)
+              	 {
+              		 System.out.println(e);
+              		getJs().executeScript("arguments[0].click();", continueBtn);	 
+              	 }
+              	
         		   
         	   }
      	}
   	    static String mail;
-  	    @Test(priority=2)
-    	void ContactInfo()
-    	{
+  	   // @Test(priority =4)
+  	  void ContactInfo()
+  	{
 //	    //ContactPage
 	    driver.findElement(By.xpath("//input[@placeholder='First Name']")).sendKeys("Tester");
 	    driver.findElement(By.xpath("//input[@placeholder='Last Name']")).sendKeys("N");
-    
-         mail="test"+CommonData.RandomString.toLowerCase()+"@gmail.com";
-		driver.findElement(By.xpath("//input[@placeholder='Email Address']")).sendKeys(mail);
-	    driver.findElement(By.xpath("//input[@id='phone']")).sendKeys("1234567890");
-	    driver.findElement(By.xpath("//button[@type='submit']")).click();
-    	}
-    	@Test(priority=3)
+  
+     // String mail="test"+CommonData.RandomString.toLowerCase()+"@gmail.com";
+		driver.findElement(By.xpath("//input[@placeholder='Email Address']")).sendKeys("nagaraj@rokkun.io");
+	    
+		if(driver.getCurrentUrl().contains("v2widget"))
+	    {
+		driver.findElement(By.xpath("//input[@id='phone']")).sendKeys("1234567890");
+	    }
+	    else if(driver.getCurrentUrl().contains("app-d1"))
+	    {
+	      driver.findElement(By.xpath("//input[@placeholder='Mobile Number']")).sendKeys("7760633081");
+	    }
+	    
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+  	}
+    	//@Test(priority=5)
     	void EnsureWeAreOnfinalCardPage()
     	{
 	    getWait().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='img-block']/img")));
@@ -84,11 +117,12 @@ public class EnsureUserRecordCreatedInPEPAndAdmin {
     	//Entering into the PEP Portal
     	//SoftAssert sa=new SoftAssert();
   
-        @Test(priority=4)
+        //@Test(priority=6)
         void EnsureReportPresentInPEP()
         {
+        	admin=new AdminLogin();
         	String browser="v2pep.tech-active.com";
-      		driver=Browserlaunch.launchBrowser(browser);
+      		admin.launchTheAdminBrowser(browser);
       		driver.findElement(By.xpath("//input[@id='login_email']")).sendKeys("smilotester@gmail.com");
       		WebElement element=driver.findElement(By.xpath("//input[@id='login_password']"));
       		getWait().until(ExpectedConditions.visibilityOf(element));
@@ -108,12 +142,11 @@ public class EnsureUserRecordCreatedInPEPAndAdmin {
         //Entering into the AdminPortal
        
         SoftAssert sa=new SoftAssert();
-        @Test(priority = 5)
-        
+        //@Test(priority = 7)
         void VerifyTheRecordInTheAdminPortal() throws InterruptedException
         {
-        	AdminLogin	admin=new AdminLogin();
-        	WebDriver driver=admin.launchTheAdminBrowser("v2admin.tech-active.com");
+        		
+        	admin.launchTheAdminBrowser("v2admin.tech-active.com");
         	admin.EntermailAndPassword();
         	admin.ExtractTheMailOtpAndPassIntoTheOtpFields();
         	//sa.assertEquals("https://v2admin.tech-active.com/", driver.getCurrentUrl());

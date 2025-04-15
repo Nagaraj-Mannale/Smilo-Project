@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testNgSmilo.WidgetFunctionality">
+      <class name="testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin">
         <methods>
-          <include name="EnsureWeAreOnfinalCardPage"/>
-          <include name="launchTheBrowser"/>
+          <include name="uploadImages"/>
         </methods>
-      </class> <!-- testNgSmilo.WidgetFunctionality -->
+      </class> <!-- testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

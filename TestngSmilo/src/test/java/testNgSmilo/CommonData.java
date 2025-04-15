@@ -41,7 +41,7 @@ public class CommonData{
 		
 	
 	
-	public static String widgetTokens(String name)
+	public static String widgetTokens(String name, String domain)
 	{
 		String token="";
 		switch(name)
@@ -54,9 +54,16 @@ public class CommonData{
 		default:System.out.println("Label is not match with the token to send");
 		
 		}
+		if(domain.equalsIgnoreCase("v2"))
+		{
 		token="v2widget.tech-active.com/"+token;
+	    }
+		else if(domain.equals("d1"))
+		{
+			token="app-d1.smilo.health/"+token;
+		}
 		return token;
-	}
+		}
 	
 	
 }

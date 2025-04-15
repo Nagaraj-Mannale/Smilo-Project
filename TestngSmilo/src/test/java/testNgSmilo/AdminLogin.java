@@ -10,14 +10,14 @@ import org.testng.annotations.Test;
 
 
 @Test(priority=0)
-public class AdminLogin
+public class AdminLogin extends Browserlaunch
 {
 	public static WebDriver driver;
     @Test(priority=0)
-    WebDriver launchTheAdminBrowser(String url) 
+    public void launchTheAdminBrowser(String url) 
     {
-          driver=Browserlaunch.launchBrowser(url);
-          return driver;
+          driver.get("https://"+url);;
+          
     }
     
     @Test(priority = 1)

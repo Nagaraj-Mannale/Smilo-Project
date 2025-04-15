@@ -12,14 +12,12 @@ public class Browserlaunch
 //Make the class variable as static
 //create an object inside the method of the class and use the non static class variable
 	
- static WebDriver driver; 
- public static WebDriver launchBrowser(String url)
+ protected static WebDriver driver; 
+ public static WebDriver launchBrowser()
  {
 	 driver=new ChromeDriver();
 	 driver.manage().window().maximize();
 	 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	 driver.get("https://"+url);
-     new BookAnAppointmentPage(driver); 
 	 return driver;
  }
 }
