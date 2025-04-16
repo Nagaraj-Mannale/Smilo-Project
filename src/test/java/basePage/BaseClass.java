@@ -16,7 +16,7 @@ public class BaseClass {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
-        driver.get("https://"+url);
+        driver.get("https:"+url);
     }
 
     public static void tearDown() {

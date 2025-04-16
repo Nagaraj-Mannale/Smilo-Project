@@ -1,16 +1,15 @@
 package pom;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,7 +22,7 @@ public class PomWidget extends Constructor {
 
 	public PomWidget(WebDriver driver) {
 		super(driver);
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(120));
 	}
 
 	@FindBy(xpath = "//a[text()='Home']")                       	 WebElement getStartedPageText;
@@ -38,7 +37,7 @@ public class PomWidget extends Constructor {
 	public Map<Integer, List<String>> cardCountWithName() {
 	    List<String> cardsName = new ArrayList<>();
 	    int cardCount = 0;
-
+	    wait.until(ExpectedConditions.visibilityOfAllElements(selectPreferencepageCards));
 	    for (WebElement card : selectPreferencepageCards) {
 	        cardsName.add(card.getText().trim());
 	        cardCount++;                                  }
@@ -79,20 +78,13 @@ public class PomWidget extends Constructor {
 		consentAgreementPageContinueButton.click();
 	}
 
-	@FindBy(xpath = "//h1[text()='Select Your Preferences']")
-	WebElement preferencePageText;
-	@FindBy(xpath = "//div[@class='checkbox']/../label/h3")
-	List<WebElement> preferencePageCards;
-	@FindBy(xpath = "//button[text()=' Continue ']")
-	WebElement preferencePageContinueButton;
-	@FindBy(xpath = "//h1[text()=' Upload Your Image ']")
-	WebElement uploadPageText;
-	@FindBy(xpath = "//div[@class='upload_image_div']")
-	WebElement uploadPageSpace;
-	@FindBy(xpath = "//span[text()=' Done ']")
-	WebElement doneButton;
-	@FindBy(xpath = "//span[text()='Get your Results']")
-	WebElement frontPageResultButton;
+	@FindBy(xpath = "//h1[text()='Select Your Preferences']")	WebElement preferencePageText;
+	@FindBy(xpath = "//div[@class='checkbox']/../label/h3")	    List<WebElement> preferencePageCards;
+	@FindBy(xpath = "//button[text()=' Continue ']")     	    WebElement preferencePageContinueButton; 
+	@FindBy(xpath = "//h1[text()=' Upload Your Image ']")       WebElement uploadPageText;
+	//@FindBy(xpath = "//div[@class='upload_image_div']")     //WebElement uploadPageSpace;
+	@FindBy(xpath = "//input[@type='file']")	                List<WebElement> uploadPageSpace;
+	@FindBy(xpath="//div[@class='imgupload_sample']")           List<WebElement> uploadPageSamplePicture;
 
 	public String preferencePageText() {
 		return preferencePageText.getText();
@@ -100,76 +92,6 @@ public class PomWidget extends Constructor {
 
 	public void selectOHRCard(String cardName) {
 		selectCard(preferencePageCards, cardName);
-	}
-
-	public void preferenceContBtn() {
-		preferencePageContinueButton.click();
-	}
-
-	public String uploadPageText() {
-		return uploadPageText.getText();
-	}
-
-	public void uploadPageSpace() throws AWTException {
-		uploadPageSpace.click();
-		driver = new ChromeDriver();
-		driver.get("https://www.google.com");
-		driver.quit();
-
-		Robot rb = new Robot();
-
-		int i = 1;
-		while (i <= 8) {
-			rb.keyPress(KeyEvent.VK_TAB);
-			rb.keyRelease(KeyEvent.VK_TAB);
-			i++;
-		}
-
-		// Press ENTER
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-
-		// Press ENTER again
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-
-		// Pass string through Robot class
-		typeString(rb, "1.7");
-
-		// Press ENTER after typing
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-		rb.delay(100);
-		rb.keyPress(KeyEvent.VK_TAB);
-		rb.keyRelease(KeyEvent.VK_TAB);
-		rb.delay(100);
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-
-		wait.until(ExpectedConditions.elementToBeClickable(doneButton));
-		doneButton.click();
-	}
-
-	public static void typeString(Robot rb, String text) {
-		for (char c : text.toCharArray()) {
-			typeCharacter(rb, c);
-		}
-	}
-
-	public static void typeCharacter(Robot rb, char c) {
-		try {
-			int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
-			if (keyCode == KeyEvent.VK_UNDEFINED) {
-				System.out.println("Cannot type character: " + c);
-				return;
-			}
-			rb.keyPress(keyCode);
-			rb.keyRelease(keyCode);
-			rb.delay(100); // Small delay for typing effect
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	private void selectCard(List<WebElement> cards, String cardName) {
@@ -180,26 +102,58 @@ public class PomWidget extends Constructor {
 			}
 		}
 	}
-
-	public void FrontPageResultBtn() {
-		wait.until(ExpectedConditions.elementToBeClickable(frontPageResultButton));
-		frontPageResultButton.click();
+	
+	public void preferenceContBtn() {
+		preferencePageContinueButton.click();
 	}
 
-	@FindBy(xpath = "//h3[text()='Enter Your Details']")
-	WebElement contactPageText;
-	@FindBy(xpath = "//input[@placeholder='First Name']")
-	WebElement firstNameField;
-	@FindBy(xpath = "//input[@placeholder='Last Name']")
-	WebElement lastNameField;
-	@FindBy(xpath = "//input[@placeholder='Email Address']")
-	WebElement emailField;
-	@FindBy(xpath = "//input[@id='phone']/preceding-sibling::div[1]/div[2]//li")
-	List<WebElement> countriesCodeField;
-	@FindBy(xpath = "//input[@placeholder='Mobile Number']")
-	WebElement mobileField;
-	@FindBy(xpath = "//span[text()='Submit']")
-	WebElement submitButton;
+	public String uploadPageText() {
+		return uploadPageText.getText();
+	}
+	@FindBy(xpath ="//span[text()=' Done ']")	                 WebElement doneButton;
+	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..") WebElement getYourResultButton;
+	@FindBy(xpath ="//span[@class='save_continue_btn_span']/..") WebElement saveAndContinueButton;
+	
+	public static int CountOfuploadingImage=0;
+	public void uploadPageSpace(List<String> imagePath) throws InterruptedException{
+		
+		for(int i=0;i<uploadPageSamplePicture.size();i++)
+		{
+			CountOfuploadingImage=uploadPageSamplePicture.size();
+ //			File file = new File(path);
+//	        if (file.exists())
+			if(uploadPageSamplePicture.get(i).isDisplayed())
+			{
+				JavascriptExecutor js=(JavascriptExecutor)driver;
+				js.executeScript("arguments[0].style.display='block';",uploadPageSpace.get(i));
+				uploadPageSpace.get(i).sendKeys(imagePath.get(i));
+				
+		        wait.until(ExpectedConditions.elementToBeClickable(doneButton));
+				doneButton.click();
+				js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='save_continue_btn_span']/..")));
+				if (saveAndContinueButton.isDisplayed()) {
+				    wait.until(ExpectedConditions.elementToBeClickable(saveAndContinueButton));
+				    js.executeScript("arguments[0].click();", saveAndContinueButton);
+				} 
+				
+			}
+		
+		 }
+		
+		}
+	
+		
+	
+
+
+	@FindBy(xpath = "//h3[text()='Enter Your Details']")	    WebElement contactPageText;
+	@FindBy(xpath = "//input[@placeholder='First Name']")	    WebElement firstNameField;
+	@FindBy(xpath = "//input[@placeholder='Last Name']")	    WebElement lastNameField;
+	@FindBy(xpath = "//input[@placeholder='Email Address']")	WebElement emailField;
+	@FindBy(xpath = "//input[@id='phone']/preceding-sibling::div[1]/div[2]//li") List<WebElement> countriesCodeField;
+	@FindBy(xpath = "//input[@placeholder='Mobile Number']")                     WebElement mobileField;
+	@FindBy(xpath = "//span[text()='Submit']") 	                                 WebElement submitButton;
 
 	public String contactPageText() {
 		return contactPageText.getText();
@@ -236,29 +190,38 @@ public class PomWidget extends Constructor {
 
 	public void submitButton() {
 		submitButton.click();
-		// Add WebDriverWait to ensure the next page loads properly
-		// wait.until(ExpectedConditions.urlContains("nextPage"));
 	}
+	@FindBy(xpath = "//div[@class='card-content']/h4")                  List<WebElement> finalPageCard;
+	@FindBy(xpath = "//img[@src='assets/images/severe_g.png']")	        WebElement accessReportPageImage;
+	@FindBy(xpath = "//h4[text()='Download Your Oral Health Report']")	WebElement downloadCard;
+	@FindBy(xpath = "//button[text()=' Download Report ']")	            WebElement downloadReportButton;
+	@FindBy(xpath = "//input[@type='radio'][1]")	WebElement downloadEmailRadioButton;
+	@FindBy(xpath = "//input[@type='radio'][1]")	WebElement downloadWhatsappRadioButton;
+	@FindBy(xpath = "//button[text()=' Confirm ']")	WebElement reportConfirmationBtn;
+	@FindBy(xpath = "//h2[text()='Report Shared']")	WebElement reportSentConfirmationReport;
 
-	@FindBy(xpath = "//img[@src='assets/images/severe_g.png']")
-	WebElement accessReportPageImage;
-	@FindBy(xpath = "//h4[text()='Download Your Oral Health Report']")
-	WebElement downloadCard;
-	@FindBy(xpath = "//button[text()=' Download Report ']")
-	WebElement downloadReportButton;
-	@FindBy(xpath = "//input[@type='radio'][1]")
-	WebElement downloadEmailRadioButton;
-	@FindBy(xpath = "//input[@type='radio'][1]")
-	WebElement downloadWhatsappRadioButton;
-	@FindBy(xpath = "//button[text()=' Confirm ']")
-	WebElement reportConfirmationBtn;
-	@FindBy(xpath = "//h2[text()='Report Shared']")
-	WebElement reportSentConfirmationReport;
-
+	public ArrayList<String> fetchfinalPageCardText()
+	{
+		ArrayList<String> cardsname=new ArrayList<String>();
+		
+		for(WebElement card:finalPageCard)
+		{
+			
+		  if(card.getText().trim().equalsIgnoreCase("Request for an appointment"))
+		   {
+			cardsname.add("Find A Dentist Near You");
+		   }
+		  if(card.getText().trim().equalsIgnoreCase("Request for coupon code"))
+		  {
+			  cardsname.add("Get Special Offers");
+		  }
+		  }
+		return cardsname;
+	}
+	
 	public boolean accessReportPageText() {
 		wait.until(ExpectedConditions.visibilityOf(accessReportPageImage));
-		boolean a = accessReportPageImage.isDisplayed();
-		return a;
+		return accessReportPageImage.isDisplayed();
 	}
 
 	public void downloadReportCard(String option) {

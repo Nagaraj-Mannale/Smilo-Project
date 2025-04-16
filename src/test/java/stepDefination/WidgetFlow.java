@@ -1,12 +1,9 @@
 package stepDefination;
 
-import java.awt.AWTException;
+
 import java.util.List;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import basePage.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,14 +14,16 @@ public class WidgetFlow extends BaseClass {
 
 	private static PomWidget wi;
 
-	@Given("launch the browser and enter the URL")
+
+	@Given("launch the widget browser with the valid token")
 	public void launchBrowserAndEnterUrl() {
-		setup("v2widget.tech-active.com/get-started/n9UyYRbhUU3yBR17pXjoMKwBPirr5NPS5V4J0AFTe8r60SyXAB");
+		setup("v2widget.tech-active.com/get-started/E8ofS6LFsTYPMp0rlLOzFPySAj5of9K0jfXsQThyD4OsKaElvT");
+		wi = new PomWidget(driver);
+	
 	}
 
 	@Then("ensure your on getStarted page")
 	public void ensureYouAreOnFirstPageContent() {
-		wi = new PomWidget(driver);
 		Assert.assertEquals(wi.getStartedPageText(), "Home");
 	}
 
@@ -59,6 +58,13 @@ public class WidgetFlow extends BaseClass {
 	public void ensureYouAreOnFourthPage() {
 		Assert.assertEquals(wi.preferencePageText(), "Select Your Preferences");
 	}
+	@Then("ensure the cards displaying according to configure in the admin portal")
+	public void preferencePageAsPerTheAdminConfig()
+	{
+		System.out.println(wi.cardCountWithName());
+		System.out.println(stepDefination.StepPractitioner.AdminWidgetButtonsDetails);
+		Assert.assertEquals(wi.cardCountWithName(),stepDefination.StepPractitioner.AdminWidgetButtonsDetails);
+	}
 
 	@When("select the OHR card and click on the continue button")
 	public void selectOhrCardAndClickContinue() {
@@ -70,16 +76,23 @@ public class WidgetFlow extends BaseClass {
 	public void ensureYouAreOnUploadImagePage() {
 		Assert.assertEquals(wi.uploadPageText(), "Upload Your Image");
 	}
-
-	@When("upload an image from your local space")
-	public void uploadImageFromLocalSpace() throws AWTException, InterruptedException {
-		wi.uploadPageSpace();
+	
+	@When("upload images from your local space and click on result button")
+	public void uploadImagesFromLocalSpace(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+	    // Get image paths from the data table
+	    List<String> imageLoc = dataTable.asList(String.class);
+	    wi.uploadPageSpace(imageLoc);
 	}
-
-	@When("click on the get result button")
-	public void clickOnResultButton() {
-		wi.FrontPageResultBtn();
+	
+	@Then("ensure image count is match with the admin configure")
+	public void imageCountverification()
+	{
+		int WidgetimageCount=PomWidget.CountOfuploadingImage;
+		String AdminImageConfig=StepPractitioner.AdminImageConfig;
+		int AdminImageCount=Integer.parseInt(AdminImageConfig);
+		Assert.assertTrue(AdminImageCount <= WidgetimageCount);
 	}
+	
 
 	@Then("ensure you are on the contact info page")
 	public void ensureYouAreOnContactInfoPage() {
@@ -100,11 +113,11 @@ public class WidgetFlow extends BaseClass {
 		Assert.assertEquals(wi.accessReportPageText(), true);
 	}
 
-	@Then("verify the all cards buttons are enabled")
+	@Then("verify the all cards are present as configure in the admin")
 	public void verifyAllCardButtonsAreEnabled() {
-		List<WebElement> buttons = driver.findElements(By.tagName("button"));
-		for (WebElement button : buttons) {
-			Assert.assertTrue("Button is not enabled: " + button.getText(), button.isEnabled());
-		}
+		System.out.println(wi.fetchfinalPageCardText());
+		System.out.println(StepPractitioner.AdminCtaConfig);
+	 Assert.assertEquals(StepPractitioner.AdminCtaConfig, wi.fetchfinalPageCardText());
+		
 	}
 }

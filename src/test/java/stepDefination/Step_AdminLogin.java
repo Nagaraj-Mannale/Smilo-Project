@@ -23,11 +23,11 @@ public class Step_AdminLogin {
     @Then("extract the otp from mail and enter into the otp fields and click on the save button")
     public void verifyOtp() throws InterruptedException
     {
-    	String otp=ReadGmailOTP.fetchOTP();
-    	System.out.println("FirstOtp: "+otp);
+        ReadGmailOTP.fetchOTP();
     	Thread.sleep(1000);
-    	String otpF=ReadGmailOTP.fetchOTP();
-    	al.otpEnter(otpF);
+    	 ReadGmailOTP.fetchOTP();
+    	 Thread.sleep(1000);
+    	al.otpEnter(ReadGmailOTP.fetchOTP());
     	al.clickOnverify();
     }
 	@Then("ensure user on the dashboard page")
