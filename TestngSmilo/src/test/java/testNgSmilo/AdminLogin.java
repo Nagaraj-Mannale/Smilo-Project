@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 @Test(priority=0)
 public class AdminLogin extends Browserlaunch
 {
-	public static WebDriver driver;
+
     @Test(priority=0)
     public WebDriver launchTheAdminBrowser(String url) 
     {
@@ -35,9 +35,19 @@ public class AdminLogin extends Browserlaunch
     @Test(priority = 2)
     void ExtractTheMailOtpAndPassIntoTheOtpFields() throws InterruptedException
     {
-    	ReadGmailOTP.fetchOTP(); 
-        Thread.sleep(2000);
-        String num = ReadGmailOTP.fetchOTP();  // Fetching OTP from Gmail
+    	String num="";
+    	int j=0;
+    	while(j<2)
+    	{
+    		String num1=ReadGmailOTP.fetchOTP();
+    		if(!num1.isEmpty())
+    		{
+    			num=num1;
+    		}
+    		j++;
+    	}
+    	
+      
 
         List<WebElement> fields = driver.findElements(By.xpath("//input[@name='otp_number[]']"));
 

@@ -16,7 +16,7 @@ import org.testng.asserts.SoftAssert;
 public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
 	 
 	AdminLogin admin; 
- 	//@Test(priority=0)
+ 	@Test(priority=0)
 	void launchTheBrowser()
 	{
 		launchBrowser();
@@ -25,7 +25,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
 		
 		
 	}
-  //	@Test(priority=1)
+   @Test(priority=1)
   	void navigateTopPurposeOfVisitPage()
   	{
   		getWait().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h4[text()='Virtual consult ']")));
@@ -40,7 +40,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
   		driver.findElement(By.xpath("//button[text()=' Start Now ']")).click();
   		}
   	}
-  	//@Test(priority=2)
+  	@Test(priority=2)
   	void navigateToUploadImagePage()
   	{
   		//PurposeOfVisitPage
@@ -59,7 +59,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
   		  driver.findElement(By.xpath("//button[text()=' Continue ']")).click();
  		 }
   	}
-  	//@Test(priority=3)
+  	@Test(priority=3)
   	void uploadImages()
   	{
   		List<WebElement> uploadSpace=driver.findElements(By.xpath("//input[@type='file']"));             	   
@@ -86,7 +86,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
         	   }
      	}
   	    static String mail;
-  	   //@Test(priority =4)
+  	   @Test(priority =4)
   	  void ContactInfo()
   	{
 //	    //ContactPage
@@ -107,7 +107,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
 	    
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
   	}
-    	//@Test(priority=5)
+    	@Test(priority=5)
     	void EnsureWeAreOnfinalCardPage()
     	{
 	    getWait().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='img-block']/img")));
@@ -121,7 +121,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
         @Test(priority=6)
         void EnsureReportPresentInPEP()
         {
-        	driver=launchBrowser();
+        	
         	admin=new AdminLogin();
         	String browser="v2pep.tech-active.com";
       		admin.launchTheAdminBrowser(browser);
@@ -138,7 +138,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
 //      		//driver.findElement(By.xpath("//span[text()='Reports']")).click();
 //      		String currentMail = driver.findElement(By.xpath("(//td[text()='Widget'])[1]/../td[3]")).getText();	
 //      	    sa.assertEquals(mail, currentMail);
-//      	    //driver.quit();
+            driver.close();
         		
         }
         //Entering into the AdminPortal
@@ -147,7 +147,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
         @Test(priority = 7)
         void VerifyTheRecordInTheAdminPortal() throws InterruptedException
         {
-        		
+        	admin=new AdminLogin();	
         	admin.launchTheAdminBrowser("v2admin.tech-active.com");
         	admin.EntermailAndPassword();
         	admin.ExtractTheMailOtpAndPassIntoTheOtpFields();
@@ -156,6 +156,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
         	String firstRecordMail=driver.findElement(By.xpath("(//ul[@class='actions_list']/../..)[1]/td[3]")).getText();
         	Assert.assertEquals(mail,firstRecordMail);
            sa.assertAll();
+           driver.quit();
         }
        
 
