@@ -16,7 +16,7 @@ import org.testng.asserts.SoftAssert;
 public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
 	 
 	AdminLogin admin; 
- 	@Test(priority=0)
+ 	//@Test(priority=0)
 	void launchTheBrowser()
 	{
 		launchBrowser();
@@ -25,7 +25,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
 		
 		
 	}
-  	@Test(priority=1)
+  //	@Test(priority=1)
   	void navigateTopPurposeOfVisitPage()
   	{
   		getWait().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h4[text()='Virtual consult ']")));
@@ -40,7 +40,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
   		driver.findElement(By.xpath("//button[text()=' Start Now ']")).click();
   		}
   	}
-  	@Test(priority=2)
+  	//@Test(priority=2)
   	void navigateToUploadImagePage()
   	{
   		//PurposeOfVisitPage
@@ -59,7 +59,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
   		  driver.findElement(By.xpath("//button[text()=' Continue ']")).click();
  		 }
   	}
-  	@Test(priority=3)
+  	//@Test(priority=3)
   	void uploadImages()
   	{
   		List<WebElement> uploadSpace=driver.findElements(By.xpath("//input[@type='file']"));             	   
@@ -72,20 +72,21 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
               	 getJs().executeScript("arguments[0].scrollIntoView(true);",continueBtn);
               	 try
               	 {
+              		 getWait().until(ExpectedConditions.visibilityOf(continueBtn));
               		continueBtn.click();
               		
               	 }
               	 catch(Exception e)
               	 {
-              		 System.out.println(e);
-              		getJs().executeScript("arguments[0].click();", continueBtn);	 
+              		getJs().executeScript("arguments[0].click();", continueBtn);
+              		continueBtn.click();
               	 }
               	
         		   
         	   }
      	}
   	    static String mail;
-  	   // @Test(priority =4)
+  	   //@Test(priority =4)
   	  void ContactInfo()
   	{
 //	    //ContactPage
@@ -117,9 +118,10 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
     	//Entering into the PEP Portal
     	//SoftAssert sa=new SoftAssert();
   
-        //@Test(priority=6)
+        @Test(priority=6)
         void EnsureReportPresentInPEP()
         {
+        	driver=launchBrowser();
         	admin=new AdminLogin();
         	String browser="v2pep.tech-active.com";
       		admin.launchTheAdminBrowser(browser);
@@ -142,7 +144,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
         //Entering into the AdminPortal
        
         SoftAssert sa=new SoftAssert();
-        //@Test(priority = 7)
+        @Test(priority = 7)
         void VerifyTheRecordInTheAdminPortal() throws InterruptedException
         {
         		

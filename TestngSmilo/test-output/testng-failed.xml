@@ -5,7 +5,7 @@
     <classes>
       <class name="testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin">
         <methods>
-          <include name="uploadImages"/>
+          <include name="EnsureReportPresentInPEP"/>
         </methods>
       </class> <!-- testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin -->
     </classes>

@@ -6,6 +6,7 @@
   <parameter name="url" value="v2admin.tech-active.com"/>
     <classes>
       <class name="testNgSmilo.LoginClass"/>
+      <class name="testNgSmilo.AdminLogin"/>
     </classes>
   </test> <!-- Test -->
   

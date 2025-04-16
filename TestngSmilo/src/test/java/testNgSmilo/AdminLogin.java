@@ -14,9 +14,11 @@ public class AdminLogin extends Browserlaunch
 {
 	public static WebDriver driver;
     @Test(priority=0)
-    public void launchTheAdminBrowser(String url) 
+    public WebDriver launchTheAdminBrowser(String url) 
     {
-          driver.get("https://"+url);;
+    	  launchBrowser();
+          driver.get("https://"+url);
+          return driver;
           
     }
     
