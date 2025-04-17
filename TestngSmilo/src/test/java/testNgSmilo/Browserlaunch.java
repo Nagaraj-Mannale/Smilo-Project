@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Browserlaunch 
 {
@@ -15,7 +16,11 @@ public class Browserlaunch
  protected static WebDriver driver; 
  public static WebDriver launchBrowser()
  {
-	 driver=new ChromeDriver();
+	 ChromeOptions options = new ChromeOptions();
+	 options.addArguments("--headless=new");  // or "--headless=chrome"
+	 options.addArguments("--no-sandbox");
+	 options.addArguments("--disable-dev-shm-usage");
+	 driver=new ChromeDriver(options);
 	 driver.manage().window().maximize();
 	 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	 return driver;

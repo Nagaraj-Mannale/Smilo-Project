@@ -1,293 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="3" failed="5" skipped="0">
+<testng-results ignored="0" total="8" passed="7" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-16T22:30:05 IST" name="Default suite" finished-at="2025-04-16T22:33:24 IST" duration-ms="199199">
+  <suite started-at="2025-04-17T14:24:30 IST" name="Default suite" finished-at="2025-04-17T14:25:27 IST" duration-ms="56584">
     <groups>
     </groups>
-    <test started-at="2025-04-16T22:30:05 IST" name="Default test" finished-at="2025-04-16T22:33:24 IST" duration-ms="199199">
+    <test started-at="2025-04-17T14:24:30 IST" name="Default test" finished-at="2025-04-17T14:25:27 IST" duration-ms="56584">
       <class name="testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin">
-        <test-method signature="launchTheBrowser()[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@1787f2a0]" started-at="2025-04-16T22:30:05 IST" name="launchTheBrowser" finished-at="2025-04-16T22:30:33 IST" duration-ms="27979" status="PASS">
+        <test-method signature="launchTheBrowser()[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:30 IST" name="launchTheBrowser" finished-at="2025-04-17T14:24:34 IST" duration-ms="4049" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchTheBrowser -->
-        <test-method signature="navigateTopPurposeOfVisitPage()[pri:1, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@1787f2a0]" started-at="2025-04-16T22:30:33 IST" name="navigateTopPurposeOfVisitPage" finished-at="2025-04-16T22:30:34 IST" duration-ms="969" status="PASS">
+        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:34 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:34 IST" duration-ms="14" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=launchTheBrowser status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.launchTheBrowser()[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takingScreenShot -->
+        <test-method signature="navigateTopPurposeOfVisitPage()[pri:1, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:34 IST" name="navigateTopPurposeOfVisitPage" finished-at="2025-04-17T14:24:35 IST" duration-ms="984" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateTopPurposeOfVisitPage -->
-        <test-method signature="navigateToUploadImagePage()[pri:2, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@1787f2a0]" started-at="2025-04-16T22:30:34 IST" name="navigateToUploadImagePage" finished-at="2025-04-16T22:30:35 IST" duration-ms="1020" status="PASS">
+        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:35 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:35 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=navigateTopPurposeOfVisitPage status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.navigateTopPurposeOfVisitPage()[pri:1, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takingScreenShot -->
+        <test-method signature="navigateToUploadImagePage()[pri:2, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:35 IST" name="navigateToUploadImagePage" finished-at="2025-04-17T14:24:36 IST" duration-ms="902" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToUploadImagePage -->
-        <test-method signature="uploadImages()[pri:3, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@1787f2a0]" started-at="2025-04-16T22:30:35 IST" name="uploadImages" finished-at="2025-04-16T22:30:35 IST" duration-ms="71" status="FAIL">
-          <exception class="org.openqa.selenium.InvalidArgumentException">
-            <message>
-              <![CDATA[invalid argument: File not found : /home/active35/Downloads/5Images/1st.jpeg
-  (Session info: chrome=135.0.7049.85)
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [04a4de742c5bc0bdb3b50a7057dd7722, sendKeysToElement {value=[Ljava.lang.CharSequence;@48bfb884, id=f.0CCEDC31799752ACCD9D672BC5D874D7.d.55D204ECC4D4170D8FC43DB0C0350135.e.30}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: C:\Users\Nagaraj\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61046}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61046/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (04a4de742c5bc0bdb3b50a7057dd7722)] -> xpath: //input[@type='file']]
-Session ID: 04a4de742c5bc0bdb3b50a7057dd7722]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.InvalidArgumentException: invalid argument: File not found : /home/active35/Downloads/5Images/1st.jpeg
-  (Session info: chrome=135.0.7049.85)
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [04a4de742c5bc0bdb3b50a7057dd7722, sendKeysToElement {value=[Ljava.lang.CharSequence;@48bfb884, id=f.0CCEDC31799752ACCD9D672BC5D874D7.d.55D204ECC4D4170D8FC43DB0C0350135.e.30}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: C:\Users\Nagaraj\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61046}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61046/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (04a4de742c5bc0bdb3b50a7057dd7722)] -> xpath: //input[@type='file']]
-Session ID: 04a4de742c5bc0bdb3b50a7057dd7722
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:110)
-at testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.uploadImages(EnsureUserRecordCreatedInPEPAndAdmin.java:69)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.InvalidArgumentException -->
+        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:36 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:36 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=navigateToUploadImagePage status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.navigateToUploadImagePage()[pri:2, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takingScreenShot -->
+        <test-method signature="uploadImages()[pri:3, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:36 IST" name="uploadImages" finished-at="2025-04-17T14:24:40 IST" duration-ms="3187" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- uploadImages -->
-        <test-method signature="ContactInfo()[pri:4, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@1787f2a0]" started-at="2025-04-16T22:30:35 IST" name="ContactInfo" finished-at="2025-04-16T22:30:45 IST" duration-ms="10025" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder='First Name']"}
-  (Session info: chrome=135.0.7049.85)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [04a4de742c5bc0bdb3b50a7057dd7722, findElement {value=//input[@placeholder='First Name'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: C:\Users\Nagaraj\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61046}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61046/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 04a4de742c5bc0bdb3b50a7057dd7722]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder='First Name']"}
-  (Session info: chrome=135.0.7049.85)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [04a4de742c5bc0bdb3b50a7057dd7722, findElement {value=//input[@placeholder='First Name'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: C:\Users\Nagaraj\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61046}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61046/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 04a4de742c5bc0bdb3b50a7057dd7722
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-at testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.ContactInfo(EnsureUserRecordCreatedInPEPAndAdmin.java:93)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:40 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:40 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=uploadImages status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.uploadImages()[pri:3, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takingScreenShot -->
+        <test-method signature="ContactInfo()[pri:4, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:40 IST" name="ContactInfo" finished-at="2025-04-17T14:24:40 IST" duration-ms="530" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ContactInfo -->
-        <test-method signature="EnsureWeAreOnfinalCardPage()[pri:5, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@1787f2a0]" started-at="2025-04-16T22:30:45 IST" name="EnsureWeAreOnfinalCardPage" finished-at="2025-04-16T22:32:51 IST" duration-ms="126137" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for presence of element located by: By.xpath: //div[@class='img-block']/img (tried for 120 second(s) with 500 milliseconds interval)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //div[@class='img-block']/img (tried for 120 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.EnsureWeAreOnfinalCardPage(EnsureUserRecordCreatedInPEPAndAdmin.java:113)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='img-block']/img"}
-  (Session info: chrome=135.0.7049.85)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [04a4de742c5bc0bdb3b50a7057dd7722, findElement {value=//div[@class='img-block']/img, using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: C:\Users\Nagaraj\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61046}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61046/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 04a4de742c5bc0bdb3b50a7057dd7722
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171)
-at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:168)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-... 27 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:40 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:40 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ContactInfo status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.ContactInfo()[pri:4, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takingScreenShot -->
+        <test-method signature="EnsureWeAreOnfinalCardPage()[pri:5, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:40 IST" name="EnsureWeAreOnfinalCardPage" finished-at="2025-04-17T14:25:06 IST" duration-ms="25940" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- EnsureWeAreOnfinalCardPage -->
-        <test-method signature="EnsureReportPresentInPEP()[pri:6, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@1787f2a0]" started-at="2025-04-16T22:32:51 IST" name="EnsureReportPresentInPEP" finished-at="2025-04-16T22:32:58 IST" duration-ms="6303" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [nagaraj@rokkun.io] but found [null]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [nagaraj@rokkun.io] but found [null]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1590)
-at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-at org.testng.Assert.assertEquals(Assert.java:132)
-at org.testng.Assert.assertEquals(Assert.java:656)
-at org.testng.Assert.assertEquals(Assert.java:666)
-at testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.EnsureReportPresentInPEP(EnsureUserRecordCreatedInPEPAndAdmin.java:136)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:06 IST" name="takingScreenShot" finished-at="2025-04-17T14:25:06 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=EnsureWeAreOnfinalCardPage status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.EnsureWeAreOnfinalCardPage()[pri:5, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takingScreenShot -->
+        <test-method signature="EnsureReportPresentInPEP()[pri:6, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:06 IST" name="EnsureReportPresentInPEP" finished-at="2025-04-17T14:25:10 IST" duration-ms="3627" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- EnsureReportPresentInPEP -->
-        <test-method signature="VerifyTheRecordInTheAdminPortal()[pri:7, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@1787f2a0]" started-at="2025-04-16T22:32:58 IST" name="VerifyTheRecordInTheAdminPortal" finished-at="2025-04-16T22:33:24 IST" duration-ms="26428" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:10 IST" name="takingScreenShot" finished-at="2025-04-17T14:25:10 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=EnsureReportPresentInPEP status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.EnsureReportPresentInPEP()[pri:6, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takingScreenShot -->
+        <test-method signature="VerifyTheRecordInTheAdminPortal()[pri:7, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:10 IST" name="VerifyTheRecordInTheAdminPortal" finished-at="2025-04-17T14:25:27 IST" duration-ms="16960" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
-              <![CDATA[expected [m@test.io] but found [null]]]>
+              <![CDATA[Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-57-generic', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, executeScript {args=[{element-6066-11e4-a52e-4f735466cecf=f.A4B54709A1CDFC65E4DD3CB6A0EB9588.d.C97128DB01D686F4DA5DBBEA8025224F.e.128}], script=arguments[0].click();}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.84, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:40293}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:40293/devtoo..., se:cdpVersion: 135.0.7049.84, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [m@test.io] but found [null]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1590)
-at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-at org.testng.Assert.assertEquals(Assert.java:132)
-at org.testng.Assert.assertEquals(Assert.java:656)
-at org.testng.Assert.assertEquals(Assert.java:666)
-at testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.VerifyTheRecordInTheAdminPortal(EnsureUserRecordCreatedInPEPAndAdmin.java:157)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-57-generic', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, executeScript {args=[{element-6066-11e4-a52e-4f735466cecf=f.A4B54709A1CDFC65E4DD3CB6A0EB9588.d.C97128DB01D686F4DA5DBBEA8025224F.e.128}], script=arguments[0].click();}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.84, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:40293}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:40293/devtoo..., se:cdpVersion: 135.0.7049.84, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:464)
+at testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.VerifyTheRecordInTheAdminPortal(EnsureUserRecordCreatedInPEPAndAdmin.java:168)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
 at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
 at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
@@ -296,7 +147,7 @@ at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInv
 at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
 at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
 at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 at org.testng.TestRunner.privateRun(TestRunner.java:741)
 at org.testng.TestRunner.run(TestRunner.java:616)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
@@ -314,10 +165,21 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyTheRecordInTheAdminPortal -->
+        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:27 IST" name="takingScreenShot" finished-at="2025-04-17T14:25:27 IST" duration-ms="190" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyTheRecordInTheAdminPortal status=FAILURE method=EnsureUserRecordCreatedInPEPAndAdmin.VerifyTheRecordInTheAdminPortal()[pri:7, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takingScreenShot -->
       </class> <!-- testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

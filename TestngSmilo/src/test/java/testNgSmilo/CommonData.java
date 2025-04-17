@@ -6,7 +6,12 @@ import java.util.Arrays;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.qameta.allure.Attachment;
 
 public class CommonData{
 
@@ -63,7 +68,11 @@ public class CommonData{
 			token="app-d1.smilo.health/"+token;
 		}
 		return token;
-		}
-	
+	}
+	@Attachment(value="ScreenShot",type="image/png")
+	public static byte[]takeScreenshot(WebDriver driver)
+	{
+		return((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+	}
 	
 }

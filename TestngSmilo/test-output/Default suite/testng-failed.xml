@@ -5,10 +5,7 @@
     <classes>
       <class name="testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin">
         <methods>
-          <include name="EnsureReportPresentInPEP"/>
-          <include name="ContactInfo"/>
-          <include name="EnsureWeAreOnfinalCardPage"/>
-          <include name="uploadImages"/>
+          <include name="takingScreenShot"/>
           <include name="VerifyTheRecordInTheAdminPortal"/>
         </methods>
       </class> <!-- testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin -->

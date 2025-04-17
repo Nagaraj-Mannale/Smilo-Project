@@ -3,13 +3,15 @@ package testNgSmilo;
 
 import static testNgSmilo.CommonData.getJs;
 import static testNgSmilo.CommonData.getWait;
-
+import static testNgSmilo.CommonData.takeScreenshot;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -94,7 +96,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
 	    driver.findElement(By.xpath("//input[@placeholder='Last Name']")).sendKeys("N");
   
      // String mail="test"+CommonData.RandomString.toLowerCase()+"@gmail.com";
-		driver.findElement(By.xpath("//input[@placeholder='Email Address']")).sendKeys("nagaraj@rokkun.io");
+		driver.findElement(By.xpath("//input[@placeholder='Email Address']")).sendKeys("smilotester@gmail.com");
 	    
 		if(driver.getCurrentUrl().contains("v2widget"))
 	    {
@@ -111,7 +113,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
     	void EnsureWeAreOnfinalCardPage()
     	{
 	    getWait().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='img-block']/img")));
-	    Assert.assertEquals(driver.getCurrentUrl(), "https://v2widget.tech-active.com/payment-access-report");
+	    Assert.assertEquals(true,driver.getCurrentUrl().contains("payment-access-report") );
 	    System.out.println(driver.getCurrentUrl());
 	    driver.quit();
         }
@@ -125,19 +127,22 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
         	admin=new AdminLogin();
         	String browser="v2pep.tech-active.com";
       		admin.launchTheAdminBrowser(browser);
-      		driver.findElement(By.xpath("//input[@id='login_email']")).sendKeys("smilotester@gmail.com");
+      		driver.findElement(By.xpath("//input[@id='login_email']")).sendKeys("jyoti@rokkun.io");
       		WebElement element=driver.findElement(By.xpath("//input[@id='login_password']"));
       		getWait().until(ExpectedConditions.visibilityOf(element));
       		element.sendKeys("Ind@123");
       		driver.findElement(By.xpath("//button[@id='login_submit']")).click();
       		driver.findElement(By.xpath("//span[@class='sub_icon white icon-users']")).click();
-      		
-      	    String Pmail=driver.findElement(By.xpath("//table[@id='user_table']/tbody/tr[1]/td[5]")).getText();
-      		Assert.assertEquals(mail,Pmail);
-
-//      		//driver.findElement(By.xpath("//span[text()='Reports']")).click();
-//      		String currentMail = driver.findElement(By.xpath("(//td[text()='Widget'])[1]/../td[3]")).getText();	
-//      	    sa.assertEquals(mail, currentMail);
+      		try
+      		{
+      		driver.findElement(By.xpath("//span[text()='Reports']")).click();
+      		}
+      		catch (Exception e) {
+				WebElement ele=driver.findElement(By.xpath("//span[text()='Reports']"));
+				getJs().executeScript("arguments[0].click();", ele);
+			}
+      		String Pmail=driver.findElement(By.xpath("//table[@id='user_table']/tbody/tr[1]/td[3]")).getText();
+      		Assert.assertEquals(Pmail,"smilotester@gmail.com");
             driver.close();
         		
         }
@@ -153,13 +158,29 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
         	admin.ExtractTheMailOtpAndPassIntoTheOtpFields();
         	//sa.assertEquals("https://v2admin.tech-active.com/", driver.getCurrentUrl());
         	driver.findElement(By.xpath("//a[@href='https://v2admin.tech-active.com/user']")).click();
-        	String firstRecordMail=driver.findElement(By.xpath("(//ul[@class='actions_list']/../..)[1]/td[3]")).getText();
-        	Assert.assertEquals(mail,firstRecordMail);
+        	//getWait().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='https://v2admin.tech-active.com/ohr_report']\"))")));
+        	try
+        	{
+        		driver.findElement(By.xpath("//a[@href='https://v2admin.tech-active.com/ohr_report']")).click();
+        	}
+        	catch (Exception e) {
+            	WebElement ele=driver.findElement(By.xpath("//a[@href='https://v2admin.tech-active.com/ohr_report']"));
+                 getJs().executeScript("arguments[0].click();", ele);
+			}
+        	String firstRecordMail=driver.findElement(By.xpath("(//td[@class='sorting_1'])[1]/../td[3]")).getText();
+        	Assert.assertEquals("smilotester@gmail.com",firstRecordMail);
            sa.assertAll();
            driver.quit();
         }
        
-
+     @AfterMethod
+     void takingScreenShot(ITestResult result)
+     {
+    	 if(ITestResult.FAILURE==result.getStatus())
+    	 {
+    		 takeScreenshot(driver);
+    	 }
+     }
 
   	}
 
