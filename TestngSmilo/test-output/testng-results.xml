@@ -1,140 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="7" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-17T14:24:30 IST" name="Default suite" finished-at="2025-04-17T14:25:27 IST" duration-ms="56584">
+  <suite started-at="2025-04-22T17:54:05 IST" name="Default suite" finished-at="2025-04-22T17:54:23 IST" duration-ms="18116">
     <groups>
     </groups>
-    <test started-at="2025-04-17T14:24:30 IST" name="Default test" finished-at="2025-04-17T14:25:27 IST" duration-ms="56584">
-      <class name="testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin">
-        <test-method signature="launchTheBrowser()[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:30 IST" name="launchTheBrowser" finished-at="2025-04-17T14:24:34 IST" duration-ms="4049" status="PASS">
+    <test started-at="2025-04-22T17:54:05 IST" name="Default test" finished-at="2025-04-22T17:54:23 IST" duration-ms="18116">
+      <class name="testNgSmilo.AdminUser">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testNgSmilo.AdminUser@39655d3e]" started-at="2025-04-22T17:54:05 IST" name="setup" finished-at="2025-04-22T17:54:19 IST" duration-ms="13422" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- launchTheBrowser -->
-        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:34 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:34 IST" duration-ms="14" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=launchTheBrowser status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.launchTheBrowser()[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- setup -->
+        <test-method signature="navigateToAdminUserPage()[pri:0, instance:testNgSmilo.AdminUser@39655d3e]" started-at="2025-04-22T17:54:19 IST" name="navigateToAdminUserPage" finished-at="2025-04-22T17:54:20 IST" duration-ms="1519" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- takingScreenShot -->
-        <test-method signature="navigateTopPurposeOfVisitPage()[pri:1, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:34 IST" name="navigateTopPurposeOfVisitPage" finished-at="2025-04-17T14:24:35 IST" duration-ms="984" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateTopPurposeOfVisitPage -->
-        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:35 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:35 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=navigateTopPurposeOfVisitPage status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.navigateTopPurposeOfVisitPage()[pri:1, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takingScreenShot -->
-        <test-method signature="navigateToUploadImagePage()[pri:2, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:35 IST" name="navigateToUploadImagePage" finished-at="2025-04-17T14:24:36 IST" duration-ms="902" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateToUploadImagePage -->
-        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:36 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:36 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=navigateToUploadImagePage status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.navigateToUploadImagePage()[pri:2, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takingScreenShot -->
-        <test-method signature="uploadImages()[pri:3, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:36 IST" name="uploadImages" finished-at="2025-04-17T14:24:40 IST" duration-ms="3187" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- uploadImages -->
-        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:40 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:40 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=uploadImages status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.uploadImages()[pri:3, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takingScreenShot -->
-        <test-method signature="ContactInfo()[pri:4, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:40 IST" name="ContactInfo" finished-at="2025-04-17T14:24:40 IST" duration-ms="530" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ContactInfo -->
-        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:40 IST" name="takingScreenShot" finished-at="2025-04-17T14:24:40 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ContactInfo status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.ContactInfo()[pri:4, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takingScreenShot -->
-        <test-method signature="EnsureWeAreOnfinalCardPage()[pri:5, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:24:40 IST" name="EnsureWeAreOnfinalCardPage" finished-at="2025-04-17T14:25:06 IST" duration-ms="25940" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EnsureWeAreOnfinalCardPage -->
-        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:06 IST" name="takingScreenShot" finished-at="2025-04-17T14:25:06 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=EnsureWeAreOnfinalCardPage status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.EnsureWeAreOnfinalCardPage()[pri:5, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takingScreenShot -->
-        <test-method signature="EnsureReportPresentInPEP()[pri:6, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:06 IST" name="EnsureReportPresentInPEP" finished-at="2025-04-17T14:25:10 IST" duration-ms="3627" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EnsureReportPresentInPEP -->
-        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:10 IST" name="takingScreenShot" finished-at="2025-04-17T14:25:10 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=EnsureReportPresentInPEP status=SUCCESS method=EnsureUserRecordCreatedInPEPAndAdmin.EnsureReportPresentInPEP()[pri:6, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takingScreenShot -->
-        <test-method signature="VerifyTheRecordInTheAdminPortal()[pri:7, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:10 IST" name="VerifyTheRecordInTheAdminPortal" finished-at="2025-04-17T14:25:27 IST" duration-ms="16960" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchSessionException">
+        </test-method> <!-- navigateToAdminUserPage -->
+        <test-method signature="createAdminUser()[pri:1, instance:testNgSmilo.AdminUser@39655d3e]" started-at="2025-04-22T17:54:20 IST" name="createAdminUser" finished-at="2025-04-22T17:54:23 IST" duration-ms="2990" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Session ID is null. Using WebDriver after calling quit()?
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-57-generic', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, executeScript {args=[{element-6066-11e4-a52e-4f735466cecf=f.A4B54709A1CDFC65E4DD3CB6A0EB9588.d.C97128DB01D686F4DA5DBBEA8025224F.e.128}], script=arguments[0].click();}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.84, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:40293}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:40293/devtoo..., se:cdpVersion: 135.0.7049.84, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}]]>
+              <![CDATA[Assertion failed! expected [testuser5@gmail.com] but found [testuser4@gmail.com]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-57-generic', java.version: '17.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, executeScript {args=[{element-6066-11e4-a52e-4f735466cecf=f.A4B54709A1CDFC65E4DD3CB6A0EB9588.d.C97128DB01D686F4DA5DBBEA8025224F.e.128}], script=arguments[0].click();}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.84, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:40293}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:40293/devtoo..., se:cdpVersion: 135.0.7049.84, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:464)
-at testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.VerifyTheRecordInTheAdminPortal(EnsureUserRecordCreatedInPEPAndAdmin.java:168)
+              <![CDATA[java.lang.AssertionError: Assertion failed! expected [testuser5@gmail.com] but found [testuser4@gmail.com]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at testNgSmilo.CommonData.assertionMethod(CommonData.java:124)
+at testNgSmilo.AdminUser.createAdminUser(AdminUser.java:56)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -165,22 +59,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyTheRecordInTheAdminPortal -->
-        <test-method is-config="true" signature="takingScreenShot(org.testng.ITestResult)[pri:0, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac]" started-at="2025-04-17T14:25:27 IST" name="takingScreenShot" finished-at="2025-04-17T14:25:27 IST" duration-ms="190" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=VerifyTheRecordInTheAdminPortal status=FAILURE method=EnsureUserRecordCreatedInPEPAndAdmin.VerifyTheRecordInTheAdminPortal()[pri:7, instance:testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takingScreenShot -->
-      </class> <!-- testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin -->
+        </test-method> <!-- createAdminUser -->
+      </class> <!-- testNgSmilo.AdminUser -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

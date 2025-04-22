@@ -3,7 +3,6 @@ package testNgSmilo;
 
 import static testNgSmilo.CommonData.getJs;
 import static testNgSmilo.CommonData.getWait;
-import static testNgSmilo.CommonData.takeScreenshot;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -178,7 +177,7 @@ public class EnsureUserRecordCreatedInPEPAndAdmin extends Browserlaunch {
      {
     	 if(ITestResult.FAILURE==result.getStatus())
     	 {
-    		 takeScreenshot(driver);
+    		// takeScreenshot(driver);
     	 }
      }
 

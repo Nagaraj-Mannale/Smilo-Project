@@ -1,117 +1,107 @@
-package testNgSmilo;
+      
+        package testNgSmilo;
 
-import jakarta.mail.*;
-import jakarta.mail.internet.MimeMultipart;
-import jakarta.mail.search.FlagTerm;
-import org.jsoup.Jsoup;
-import java.util.*;
-import java.util.regex.*;
+        import jakarta.mail.*;
+        import jakarta.mail.internet.MimeMultipart;
+        import jakarta.mail.search.FlagTerm;
+        import org.jsoup.Jsoup;
 
-public class ReadGmailOTP {
-    public static String fetchOTP() {
-        String host = "imap.gmail.com";
-        String username = "nagaraj@rokkun.io"; // Replace with your email
-        String password = "rtgv usyp nlzq jqqy"; // Replace with your App Password
+        import java.util.*;
+        import java.util.regex.*;
 
-        String otp = "OTP not found"; // Default OTP value
+        public class ReadGmailOTP {
 
-        try {
-            // Setup IMAP properties
-            Properties properties = new Properties();
-            properties.put("mail.store.protocol", "imaps");
-            properties.put("mail.imap.host", host);
-            properties.put("mail.imap.port", "993");
-            properties.put("mail.imap.ssl.enable", "true");
+            public static String fetchOTP() {
+                String host = "imap.gmail.com";
+                String username = "smilotester@gmail.com";        // ← Replace with your Gmail address
+                String password = "oclw bpac sdzg ftwc";          // ← Paste the 16-char app password here
 
-            // Create session and connect to Gmail
-            Session emailSession = Session.getDefaultInstance(properties);
-            Store store = emailSession.getStore();
-            store.connect(host, username, password);
+                String otp = "OTP not found";
 
-            // Open INBOX folder
-            Folder inbox = store.getFolder("INBOX");
-            inbox.open(Folder.READ_WRITE);
+                try {
+                    // Set up IMAP properties
+                    Properties properties = new Properties();
+                    properties.put("mail.store.protocol", "imaps");
+                    properties.put("mail.imap.host", host);
+                    properties.put("mail.imap.port", "993");
+                    properties.put("mail.imap.ssl.enable", "true");
 
-            // 🔄 REFRESH the inbox before fetching emails
-            inbox.getMessageCount(); // Force a refresh
+                    // Create a session
+                    Session emailSession = Session.getInstance(properties);
+                    Store store = emailSession.getStore();
+                    store.connect(host, username, password);
 
-            // Wait for new emails (Poll for 15 seconds)
-            int retries = 0;
-            while (retries < 5) {
-                if (hasNewUnreadEmail(inbox)) {
-                    break; // New email detected
+                    // Open inbox
+                    Folder inbox = store.getFolder("INBOX");
+                    inbox.open(Folder.READ_WRITE);
+
+                    // Wait for new emails
+                    int retries = 0;
+                    while (retries < 5) {
+                        if (hasNewUnreadEmail(inbox)) {
+                            break;
+                        }
+                        System.out.println("Waiting for OTP email...");
+                        Thread.sleep(3000);
+                        retries++;
+                        inbox.getMessageCount(); // refresh
+                    }
+
+                    // Read unread email
+                    Message[] messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+                    if (messages.length > 0) {
+                        Message latest = messages[messages.length - 1];
+                        String content = extractContent(latest);
+
+                        if (!content.isEmpty()) {
+                            otp = extractOTP(content);
+                            latest.setFlag(Flags.Flag.SEEN, true); // mark as read
+                        }
+                    }
+
+                    inbox.close(false);
+                    store.close();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                System.out.println("Waiting for new email...");
-                Thread.sleep(3000); // Wait for 3 seconds before checking again
-                retries++;
-                inbox.getMessageCount(); // Refresh again
+
+                System.out.println("Extracted OTP: " + otp);
+                return otp;
             }
 
-            // Fetch latest unread email
-            Message[] messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+            private static boolean hasNewUnreadEmail(Folder inbox) throws MessagingException {
+                return inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false)).length > 0;
+            }
 
-            if (messages.length > 0) {
-                Message latestMessage = messages[messages.length - 1]; // Get latest unread email
-                String emailContent = extractLatestEmailContent(latestMessage);
-
-                if (!emailContent.isEmpty()) {
-                    otp = extractOTP(emailContent);
-                    latestMessage.setFlag(Flags.Flag.SEEN, true); // Mark email as read
+            private static String extractContent(Message message) throws Exception {
+                if (message.isMimeType("text/plain")) {
+                    return message.getContent().toString();
+                } else if (message.isMimeType("text/html")) {
+                    return Jsoup.parse(message.getContent().toString()).text();
+                } else if (message.isMimeType("multipart/*")) {
+                    return getTextFromMultipart((MimeMultipart) message.getContent());
                 }
+                return "";
             }
 
-            // ✅ Print OTP before returning
-            System.out.println("Extracted OTP: " + otp);
+            private static String getTextFromMultipart(MimeMultipart mimeMultipart) throws Exception {
+                for (int i = 0; i < mimeMultipart.getCount(); i++) {
+                    BodyPart part = mimeMultipart.getBodyPart(i);
+                    if (part.isMimeType("text/plain")) {
+                        return part.getContent().toString();
+                    } else if (part.isMimeType("text/html")) {
+                        return Jsoup.parse(part.getContent().toString()).text();
+                    } else if (part.getContent() instanceof MimeMultipart) {
+                        return getTextFromMultipart((MimeMultipart) part.getContent());
+                    }
+                }
+                return "";
+            }
 
-            // ✅ Ensure proper cleanup before returning
-            inbox.close(false);
-            store.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return otp; // ✅ Return OTP after printing
-    }
-
-    private static boolean hasNewUnreadEmail(Folder inbox) throws MessagingException {
-        Message[] unreadMessages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
-        return unreadMessages.length > 0;
-    }
-
-    private static String extractLatestEmailContent(Message message) throws Exception {
-        if (message.isMimeType("text/plain")) {
-            return message.getContent().toString();
-        } else if (message.isMimeType("text/html")) {
-            return Jsoup.parse(message.getContent().toString()).text();
-        } else if (message.isMimeType("multipart/*")) {
-            return getLatestTextFromMimeMultipart((MimeMultipart) message.getContent());
-        }
-        return "";
-    }
-
-    private static String getLatestTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
-        for (int i = 0; i < mimeMultipart.getCount(); i++) {
-            BodyPart bodyPart = mimeMultipart.getBodyPart(i);
-            if (bodyPart.isMimeType("text/plain")) {
-                return bodyPart.getContent().toString();
-            } else if (bodyPart.isMimeType("text/html")) {
-                return Jsoup.parse(bodyPart.getContent().toString()).text();
-            } else if (bodyPart.getContent() instanceof MimeMultipart) {
-                return getLatestTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
+            private static String extractOTP(String content) {
+                Matcher matcher = Pattern.compile("\\b\\d{6}\\b").matcher(content);
+                if (matcher.find()) return matcher.group();
+                return "OTP not found";
             }
         }
-        return "";
-    }
-
-    private static String extractOTP(String emailContent) {
-        Pattern pattern = Pattern.compile("\\b\\d{6}\\b");
-        Matcher matcher = pattern.matcher(emailContent);
-
-        String latestOTP = "OTP not found";
-        while (matcher.find()) {
-            latestOTP = matcher.group();
-        }
-        return latestOTP;
-    }
-}

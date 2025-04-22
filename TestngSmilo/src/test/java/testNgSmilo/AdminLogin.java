@@ -26,7 +26,7 @@ public class AdminLogin extends Browserlaunch
     void EntermailAndPassword()
     {
     	 
-        driver.findElement(By.xpath("//input[@id='login_email']")).sendKeys("nagaraj@rokkun.io");
+        driver.findElement(By.xpath("//input[@id='login_email']")).sendKeys("smilotester@gmail.com");
         driver.findElement(By.xpath("//input[@id='login_password']")).sendKeys("Ind@123");
         driver.findElement(By.xpath("//button[@id='login_submit']")).click();
         System.out.println("Logged in successfully.");

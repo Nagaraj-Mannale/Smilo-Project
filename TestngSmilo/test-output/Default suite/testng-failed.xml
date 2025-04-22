@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin">
+      <class name="testNgSmilo.AdminUser">
         <methods>
-          <include name="takingScreenShot"/>
-          <include name="VerifyTheRecordInTheAdminPortal"/>
+          <include name="setup"/>
+          <include name="createAdminUser"/>
         </methods>
-      </class> <!-- testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin -->
+      </class> <!-- testNgSmilo.AdminUser -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

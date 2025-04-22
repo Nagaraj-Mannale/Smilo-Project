@@ -3,13 +3,19 @@ package testNgSmilo;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import io.qameta.allure.Attachment;
 
@@ -69,10 +75,60 @@ public class CommonData{
 		}
 		return token;
 	}
+	
 	@Attachment(value="ScreenShot",type="image/png")
 	public static byte[]takeScreenshot(WebDriver driver)
 	{
 		return((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 	}
+
+	public static void clickOnButton(WebElement element) {
+        try {
+            getWait().until(ExpectedConditions.elementToBeClickable(element));
+            getJs().executeScript("arguments[0].click()", element);
+        } catch (Exception e) {
+            System.out.println("Failed to click: " + e.getMessage());
+        }
+    }
+
+    public static void fillTheTextFieldData(WebElement element, String data) {
+        try {
+            getWait().until(ExpectedConditions.visibilityOf(element));
+            element.clear();
+            element.sendKeys(data);
+        } catch (Exception e) {
+            System.out.println("Failed to enter text: " + e.getMessage());
+        }
+    }
+
+    public static void select(WebElement dropdown, String visibleText) {
+        try {
+            getWait().until(ExpectedConditions.visibilityOf(dropdown));
+            Select sel = new Select(dropdown);
+            sel.selectByVisibleText(visibleText);
+        } catch (Exception e) {
+            System.out.println("Dropdown selection error: " + e.getMessage());
+        }
+    }
+
+    public static void multipleLinks(List<WebElement> links, String linkText) {
+        for (WebElement link : links) {
+            if (link.getText().trim().equalsIgnoreCase(linkText)) {
+                clickOnButton(link);
+                break;
+            }
+        }
+    }
+
+    public static void assertionMethod(String actual, String expected) {
+        Assert.assertEquals(actual, expected, "Assertion failed!");
+    }
+
+    public static String getTextMethod(WebElement element) {
+        getWait().until(ExpectedConditions.visibilityOf(element));
+        return element.getText().trim();
+    }
+	
+	
 	
 }

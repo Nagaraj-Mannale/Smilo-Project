@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>7/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Apr 17 14:24:30 IST 2025</td>
+<td>Started on:</td><td>Tue Apr 22 17:54:05 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>56 seconds (56584 ms)</td>
+<tr><td>Total time:</td><td>18 seconds (18116 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,19 +76,15 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.VerifyTheRecordInTheAdminPortal()'><b>VerifyTheRecordInTheAdminPortal</b><br>Test class: testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin</td>
-<td><div><pre>org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0-57-generic&apos;, java.version: &apos;17.0.12&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, executeScript {args=[{element-6066-11e4-a52e-4f735466cecf=f.A4B54709A1CDFC65E4DD3CB6A0EB9588.d.C97128DB01D686F4DA5DBBEA8025224F.e.128}], script=arguments[0].click();}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.84, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:40293}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:40293/devtoo..., se:cdpVersion: 135.0.7049.84, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:464)
-	at testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.VerifyTheRecordInTheAdminPortal(EnsureUserRecordCreatedInPEPAndAdmin.java:168)
+<td title='testNgSmilo.AdminUser.createAdminUser()'><b>createAdminUser</b><br>Test class: testNgSmilo.AdminUser</td>
+<td><div><pre>java.lang.AssertionError: Assertion failed! expected [testuser5@gmail.com] but found [testuser4@gmail.com]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at testNgSmilo.CommonData.assertionMethod(CommonData.java:124)
+	at testNgSmilo.AdminUser.createAdminUser(AdminUser.java:56)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -117,19 +113,15 @@ Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 1
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1117802526", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1117802526'><pre>org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0-57-generic&apos;, java.version: &apos;17.0.12&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, executeScript {args=[{element-6066-11e4-a52e-4f735466cecf=f.A4B54709A1CDFC65E4DD3CB6A0EB9588.d.C97128DB01D686F4DA5DBBEA8025224F.e.128}], script=arguments[0].click();}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.84, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:40293}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:40293/devtoo..., se:cdpVersion: 135.0.7049.84, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:151)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:464)
-	at testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.VerifyTheRecordInTheAdminPortal(EnsureUserRecordCreatedInPEPAndAdmin.java:168)
+</pre></div><a href='#' onClick='toggleBox("stack-trace619406819", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace619406819'><pre>java.lang.AssertionError: Assertion failed! expected [testuser5@gmail.com] but found [testuser4@gmail.com]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at testNgSmilo.CommonData.assertionMethod(CommonData.java:124)
+	at testNgSmilo.AdminUser.createAdminUser(AdminUser.java:56)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -159,8 +151,8 @@ Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 1
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>16</td>
-<td>testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac</td></tr>
+<td>2</td>
+<td>testNgSmilo.AdminUser@39655d3e</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -171,40 +163,10 @@ Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 1
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.EnsureWeAreOnfinalCardPage()'><b>EnsureWeAreOnfinalCardPage</b><br>Test class: testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin</td>
+<td title='testNgSmilo.AdminUser.navigateToAdminUserPage()'><b>navigateToAdminUserPage</b><br>Test class: testNgSmilo.AdminUser</td>
 <td></td>
-<td>25</td>
-<td>testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac</td></tr>
-<tr>
-<td title='testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.navigateTopPurposeOfVisitPage()'><b>navigateTopPurposeOfVisitPage</b><br>Test class: testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin</td>
-<td></td>
-<td>0</td>
-<td>testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac</td></tr>
-<tr>
-<td title='testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.ContactInfo()'><b>ContactInfo</b><br>Test class: testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin</td>
-<td></td>
-<td>0</td>
-<td>testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac</td></tr>
-<tr>
-<td title='testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.uploadImages()'><b>uploadImages</b><br>Test class: testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin</td>
-<td></td>
-<td>3</td>
-<td>testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac</td></tr>
-<tr>
-<td title='testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.EnsureReportPresentInPEP()'><b>EnsureReportPresentInPEP</b><br>Test class: testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin</td>
-<td></td>
-<td>3</td>
-<td>testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac</td></tr>
-<tr>
-<td title='testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.navigateToUploadImagePage()'><b>navigateToUploadImagePage</b><br>Test class: testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin</td>
-<td></td>
-<td>0</td>
-<td>testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac</td></tr>
-<tr>
-<td title='testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin.launchTheBrowser()'><b>launchTheBrowser</b><br>Test class: testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin</td>
-<td></td>
-<td>4</td>
-<td>testNgSmilo.EnsureUserRecordCreatedInPEPAndAdmin@19e4fcac</td></tr>
+<td>1</td>
+<td>testNgSmilo.AdminUser@39655d3e</td></tr>
 </table><p>
 </body>
 </html>
