@@ -10,14 +10,14 @@ public class Step_AdminLogin {
 	
 	@Given("the user launches the browser and enters the application URL")
 	public void launch_the_browser_and_enter_the_url() {
-	    BaseClass.setup("v2admin.tech-active.com");
+	    BaseClass.setup("v2admin");
 	}
 
 	@When("enter the email and pwd and click on the signin button")
 	public void enter_the_email_and_pwd_and_click_on_the_signin_button()  {
 	    al=new PomAdminLogin(BaseClass.driver);
-	    al.emailField("nagaraj@rokkun.io");
-	    al.passwordField("Ind@123");
+	    al.emailField("nagara");
+	    al.passwordField("ddd@123");
 	    al.signInButton();
 	}
     @Then("extract the otp from mail and enter into the otp fields and click on the save button")
